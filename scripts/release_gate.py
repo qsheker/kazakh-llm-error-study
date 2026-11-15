@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
+import zipfile
 from pathlib import Path
 
 from kazllm_eval.core import sha256_file
@@ -11,6 +12,14 @@ from kazllm_eval.core import sha256_file
 
 def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def docx_text(path: Path) -> str:
+    if not path.exists():
+        return ""
+    with zipfile.ZipFile(path) as archive:
+        document_xml = archive.read("word/document.xml").decode("utf-8", errors="replace")
+    return " ".join(document_xml.replace("</w:p>", "\n").split())
 
 
 def main() -> int:
@@ -74,10 +83,34 @@ def main() -> int:
         "similarity report": root / "evidence/similarity_report.pdf",
         "ethics determination": root / "evidence/ethics_determination.pdf",
         "three-person exception proof": root / "evidence/three_person_team_approval.pdf",
+        "reference-reading verification": root / "evidence/reference_verification.json",
+        "all-author final approval": root / "evidence/all_author_approval.json",
         "outside-team reproduction": root / "evidence/reproduction.json",
     }
     for name, path in required_files.items():
         check(name, path.exists() and path.stat().st_size > 0, str(path.relative_to(root)))
+
+    manuscript_path = root / "deliverables/Kazakh_LLM_Study_ACM_Submission.docx"
+    manuscript_text = docx_text(manuscript_path).lower()
+    manuscript_sentinels = ("results reporting contract", "controlled pre-results", "confirmatory results are unavailable")
+    check(
+        "result-bearing official-template manuscript",
+        bool(manuscript_text) and not any(marker in manuscript_text for marker in manuscript_sentinels),
+        str(manuscript_path.relative_to(root)),
+    )
+    cover_path = root / "deliverables/Cover_Letter_TALLIP.docx"
+    cover_text = docx_text(cover_path).lower()
+    check(
+        "final cover letter",
+        bool(cover_text) and "do not submit" not in cover_text and "controlled draft" not in cover_text,
+        str(cover_path.relative_to(root)),
+    )
+    deck_path = root / "output/pdf/Kazakh_LLM_Defense_Deck.pdf"
+    check(
+        "final presentation PDF",
+        deck_path.exists() and deck_path.stat().st_size > 0,
+        str(deck_path.relative_to(root)),
+    )
 
     origin = subprocess.run(
         ["git", "remote", "get-url", "origin"], cwd=root, capture_output=True, text=True, check=False
@@ -91,6 +124,18 @@ def main() -> int:
         ["git", "status", "--porcelain"], cwd=root, capture_output=True, text=True, check=False
     ).stdout.strip()
     check("clean worktree", not status, status or "clean")
+
+    tracked = subprocess.run(
+        ["git", "ls-files"], cwd=root, capture_output=True, text=True, check=False
+    ).stdout.splitlines()
+    forbidden = [
+        path
+        for path in tracked
+        if path == "data/blinding/private_model_key.csv"
+        or path.endswith((".gguf", ".token"))
+        or "/.venv/" in f"/{path}/"
+    ]
+    check("tracked secret/model audit", not forbidden, ", ".join(forbidden) or "no forbidden paths")
 
     report = {"ready": all(item["passed"] for item in checks), "checks": checks}
     print(json.dumps(report, ensure_ascii=False, indent=2))
