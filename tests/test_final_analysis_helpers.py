@@ -1,9 +1,15 @@
+import importlib.util
+from pathlib import Path
+
 import numpy as np
 
-from scripts.analyze_final import (
-    stratified_category_bootstrap,
-    stratified_difference_in_differences,
-)
+ROOT = Path(__file__).resolve().parents[1]
+SPEC = importlib.util.spec_from_file_location("analyze_final", ROOT / "scripts/analyze_final.py")
+assert SPEC and SPEC.loader
+ANALYZE_FINAL = importlib.util.module_from_spec(SPEC)
+SPEC.loader.exec_module(ANALYZE_FINAL)
+stratified_category_bootstrap = ANALYZE_FINAL.stratified_category_bootstrap
+stratified_difference_in_differences = ANALYZE_FINAL.stratified_difference_in_differences
 
 
 def test_category_bootstrap_reports_pooled_rate_and_code_switching_contrast():
