@@ -65,6 +65,9 @@
     "permutations": 99999,
     "bootstrap_replicates": 10000,
     "analysis_seed": 2417,
-    "primary_endpoint": "100 * primary_error_events / word_tokens"
+    "primary_endpoint": "100 * primary_error_events / word_tokens",
+    "latin_exemptions_path": "config/latin_exemptions.txt",
+    "language_id_model_path": "resources/lid.176.ftz",
+    "language_id_threshold": 0.85
   }
 }

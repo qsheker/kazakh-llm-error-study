@@ -1,0 +1,27 @@
+# STATUS: REVIEW_REQUIRED_BY_THREE_PERSON_TEAM
+# One case-insensitive token per line. Keep only established borrowings,
+# identifiers, model/product names, abbreviations, and proper names that should
+# not count as unrequested code-switching. Review this list on dev responses
+# before any test labels are opened.
+wi-fi
+https
+http
+url
+qr
+sms
+gps
+usb
+pdf
+excel
+sumif
+python
+ollama
+qwen
+llama
+gemma
+kazllm
+egov
+nasa
+nist
+cisa
+epa

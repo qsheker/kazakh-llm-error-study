@@ -28,6 +28,11 @@ Snapshot: 2026-11-15, Asia/Almaty.
   normal `stop` completion.
 - Added and tested prompt validation, fail-closed collection, request receipts,
   annotation workbook handling, detectors, and frozen statistical procedures.
+- Added strict workbook validation, blinded agreement/adjudication packaging,
+  full H1-H4 analysis generation, input-hash manifests, and a machine-enforced
+  release gate. The final analysis command cannot run without the immutable
+  receipts, private mapping, resolved human labels, adjudication rationales,
+  reviewed detector exemptions, and language-ID model.
 - Verified the primary and backup journals in the live Scopus Sources interface.
 - Built and visually checked the 15-page manuscript container, one-page
   controlled-draft cover letter, and 10-slide defense PDF. Both Word files pass

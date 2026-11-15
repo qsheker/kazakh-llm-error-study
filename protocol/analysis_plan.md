@@ -29,6 +29,12 @@ Pool adjudicated events and word tokens across Qwen, Llama, and Gemma. For each 
 
 Gold positive means at least one adjudicated code-switching event. Latin baseline positive means any non-exempt word token contains a Latin letter. fastText positive means any sentence or sliding three-word window is classified non-Kazakh with confidence at least 0.85. Hybrid positive is Latin OR fastText. The exemption file is frozen from dev evidence and documented rules before test labels.
 
+The exemption file is `config/latin_exemptions.txt`. All three authors review
+its case-insensitive token list with the reference cards, and the freeze
+manifest binds its SHA-256 before test inference. The documented list may be
+visible to raters; detector predictions remain hidden until the gold file is
+frozen.
+
 Compute precision, recall, and F1 on all 240 responses. Estimate the hybrid-minus-Latin F1 difference with 10,000 whole-prompt cluster-bootstrap resamples. Undefined metrics remain undefined.
 
 ## Secondary and sensitivity analyses

@@ -13,13 +13,15 @@ Required example:
   "instruction_sha256": "...",
   "reference_bundle_sha256": "...",
   "model_artifacts_sha256": "...",
+  "latin_exemptions_sha256": "...",
   "review_notes": "All assigned checklist items completed."
 }
 ```
 
 Expected filenames are `aldiyar.json`, `yerkebulan.json`, and `iliyas.json`.
 
-After personally reviewing all 60 cards, each reviewer should run their own
+After personally reviewing all 60 cards and the Latin-script exemption list,
+each reviewer should run their own
 command from the repository root. Replace the notes with a concise description
 of what that reviewer checked:
 

@@ -29,6 +29,14 @@ def main() -> int:
         protocol.get("status") == "frozen_three_person_signoff" and freeze.get("status") == "frozen_three_person_signoff",
         "requires the three personal sign-offs and freeze manifest",
     )
+    exemptions_path = root / protocol["analysis"]["latin_exemptions_path"]
+    exemptions_text = exemptions_path.read_text(encoding="utf-8") if exemptions_path.exists() else "REVIEW_REQUIRED"
+    check(
+        "Latin-script exemption freeze",
+        "REVIEW_REQUIRED" not in exemptions_text
+        and freeze.get("latin_exemptions_sha256") == sha256_file(exemptions_path),
+        str(exemptions_path.relative_to(root)),
+    )
 
     run_dir = root / "runs/final_test_v2"
     manifest_path = run_dir / "manifest.json"
@@ -56,11 +64,13 @@ def main() -> int:
     )
 
     required_files = {
-        "pre-adjudication agreement": root / "results/derived/agreement.json",
+        "pre-adjudication agreement": root / "annotations/adjudication/agreement.json",
         "adjudicated gold": root / "annotations/adjudicated/final_test_v2__gold.xlsx",
         "adjudication log": root / "annotations/adjudicated/adjudication_log.csv",
-        "final analysis summary": root / "results/derived/final_summary.json",
-        "numerical consistency audit": root / "results/derived/numerical_consistency.json",
+        "final analysis summary": root / "results/derived/final_test_v2/summary.json",
+        "detector analysis": root / "results/derived/final_test_v2/detector_metrics.json",
+        "numerical consistency audit": root / "results/derived/final_test_v2/input_hashes.json",
+        "primary results figure": root / "results/derived/final_test_v2/model_error_rates.png",
         "similarity report": root / "evidence/similarity_report.pdf",
         "ethics determination": root / "evidence/ethics_determination.pdf",
         "three-person exception proof": root / "evidence/three_person_team_approval.pdf",

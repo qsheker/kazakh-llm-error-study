@@ -10,7 +10,7 @@ Aldiyar Zhaksylyk coordinates files and adjudicates disagreements while model la
 
 1. Training calibration: 12 dev responses, followed by discussion and rubric clarification.
 2. Blinded qualification: 20 different dev responses, without discussion.
-3. Proceed only when category-presence agreement is at least 80%, Cohen's kappa is at least 0.60 where defined, interval Krippendorff alpha for total primary counts is at least 0.67, and span-match F1 is at least 0.60.
+3. Proceed only when category-presence agreement is at least 80%, Cohen's kappa is at least 0.60 where defined, interval Krippendorff alpha for total primary counts is at least 0.67, and exact span-match F1 is at least 0.60. Exact span matching requires the same blind response, category, start offset, and exclusive end offset; no fuzzy boundary tolerance is used in the qualification gate.
 4. If a threshold is missed, revise the rubric and repeat qualification on unused dev responses. Dev items never enter final results.
 
 ## Error event
@@ -50,3 +50,9 @@ Record which requirements are missing. These flags remain separate from the ling
 ## Adjudication
 
 The merge step identifies disagreements without model labels. Each final decision records the adjudicator and rationale. Originals remain immutable. Agreement statistics are computed on original labels before adjudication and reported even if weak.
+
+`scripts/validate_annotation_workbook.py` checks completeness, allowed values,
+unique event identifiers, offsets, exact fragments, token ranges, corrections,
+and rationales. `scripts/prepare_adjudication.py` then computes agreement and
+exports both event sets and response disagreements without opening the model
+key.

@@ -47,6 +47,11 @@ def main() -> int:
         cards[row["prompt_id"]] = sha256_file(path)
 
     instruction_sha256 = sha256_file(instruction_path)
+    exemptions_path = root / protocol["analysis"]["latin_exemptions_path"]
+    exemptions_text = exemptions_path.read_text(encoding="utf-8")
+    if "REVIEW_REQUIRED" in exemptions_text:
+        errors.append("Latin-script exemption list still requires team review")
+    latin_exemptions_sha256 = sha256_file(exemptions_path)
     reference_bundle_sha256 = hashlib.sha256(canonical_json(cards).encode()).hexdigest()
     signoffs = {}
     for slug, expected_name in EXPECTED_SIGNERS.items():
@@ -63,6 +68,8 @@ def main() -> int:
             errors.append(f"{expected_name} signed a different instruction hash")
         if record.get("reference_bundle_sha256") != reference_bundle_sha256:
             errors.append(f"{expected_name} signed a different reference-card bundle")
+        if record.get("latin_exemptions_sha256") != latin_exemptions_sha256:
+            errors.append(f"{expected_name} signed a different Latin-script exemption list")
         signoffs[slug] = record
 
     source = json.loads((root / "models/kazllm/source.json").read_text(encoding="utf-8"))
@@ -90,6 +97,7 @@ def main() -> int:
         "protocol_sha256_before_freeze": sha256_file(protocol_path),
         "reference_card_hashes": cards,
         "reference_bundle_sha256": reference_bundle_sha256,
+        "latin_exemptions_sha256": latin_exemptions_sha256,
         "model_artifacts_sha256": model_artifacts_sha256,
         "signoffs": signoffs,
         "errors": errors,

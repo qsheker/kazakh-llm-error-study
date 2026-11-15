@@ -142,6 +142,18 @@ Test collection is programmatically locked while `config/protocol.json` remains 
 
 Yerkebulan and Iliyas must independently annotate all 240 blinded test responses. Automatic Latin/fastText candidates are hidden until both original label files and the adjudicated gold file are frozen. This repository can prepare, validate, merge, and analyze their work; it must not fabricate two independent human raters.
 
+The evidence pipeline is explicit:
+
+```bash
+.venv/bin/python scripts/validate_annotation_workbook.py annotations/rater_1/final_test_v2__rater_1.xlsx --expected-responses 240
+.venv/bin/python scripts/validate_annotation_workbook.py annotations/rater_2/final_test_v2__rater_2.xlsx --expected-responses 240
+.venv/bin/python scripts/prepare_adjudication.py annotations/rater_1/final_test_v2__rater_1.xlsx annotations/rater_2/final_test_v2__rater_2.xlsx --expected-responses 240
+.venv/bin/python scripts/analyze_final.py
+```
+
+The validation and agreement steps remain blinded. The final analysis opens the
+private model mapping only after the adjudicated files have been frozen.
+
 ## Reproducing results
 
 The final release will expose a single reproduction command after the 240 receipts and adjudicated labels exist. Until then, any generated table is a readiness artifact, not a final result. `final` must not be tagged before all checks in `docs/RELEASE_CHECKLIST.md` pass. The manuscript and deck are therefore final-quality containers, not false claims that the human study is already complete.

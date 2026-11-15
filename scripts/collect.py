@@ -47,6 +47,9 @@ def verify_test_freeze(root: Path, protocol: dict, prompt_path: Path, instructio
         failures.append("protocol config differs from the frozen hash")
     if manifest.get("model_artifacts_sha256") != sha256_file(root / "config/model_artifacts.json"):
         failures.append("model artifact manifest differs from the frozen hash")
+    exemptions_path = root / protocol["analysis"]["latin_exemptions_path"]
+    if manifest.get("latin_exemptions_sha256") != sha256_file(exemptions_path):
+        failures.append("Latin-script exemption list differs from the frozen hash")
     card_hashes = manifest.get("reference_card_hashes", {})
     for prompt_id, expected in card_hashes.items():
         path = root / "data/references" / f"{prompt_id}.md"

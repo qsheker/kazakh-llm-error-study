@@ -36,6 +36,10 @@ def main() -> int:
     test_path = root / protocol["dataset"]["test_path"]
     dev_path = root / protocol["dataset"]["dev_path"]
     instruction_path = root / protocol["dataset"]["instruction_path"]
+    exemptions_path = root / protocol["analysis"]["latin_exemptions_path"]
+    exemptions_text = exemptions_path.read_text(encoding="utf-8")
+    if "REVIEW_REQUIRED" in exemptions_text:
+        raise SystemExit("refused: Latin-script exemption list still requires team review")
     validation = validate_test_prompts(test_path, dev_path)
     if not validation["valid"]:
         raise SystemExit("refused: test prompt validation failed")
@@ -56,6 +60,7 @@ def main() -> int:
         "instruction_sha256": sha256_file(instruction_path),
         "reference_bundle_sha256": hashlib.sha256(canonical_json(card_hashes).encode()).hexdigest(),
         "model_artifacts_sha256": sha256_file(root / "config/model_artifacts.json"),
+        "latin_exemptions_sha256": sha256_file(exemptions_path),
         "review_notes": args.notes.strip(),
     }
     output = root / "protocol/signoffs" / f"{args.signer}.json"

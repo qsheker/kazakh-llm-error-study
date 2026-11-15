@@ -2,7 +2,11 @@ from pathlib import Path
 
 from openpyxl import load_workbook
 
-from kazllm_eval.annotation import create_rater_workbook
+from kazllm_eval.annotation import (
+    annotation_agreement,
+    create_rater_workbook,
+    load_annotation_workbook,
+)
 
 
 def test_workbook_hides_model_labels(tmp_path: Path):
@@ -35,3 +39,64 @@ def test_workbook_hides_model_labels(tmp_path: Path):
     values = [value for row in workbook["Responses"].iter_rows(values_only=True) for value in row if value]
     assert "secret_model" not in values
     assert "B-123" in values
+
+
+def completed_workbook(tmp_path: Path, name: str, category: str = "grammatical") -> Path:
+    records = [
+        {
+            "private_response_id": "E01__qwen",
+            "prompt_id": "E01",
+            "task_type": "educational",
+            "model_label": "secret_model",
+            "prompt_text": "Сұрақ",
+            "response_text": "Қате мәтін.",
+            "word_count": 2,
+            "finish_reason": "stop",
+            "response_sha256": "abc",
+        }
+    ]
+    mapping = [
+        {
+            "blind_id": "B-123",
+            "private_response_id": "E01__qwen",
+            "prompt_id": "E01",
+            "model_label": "secret_model",
+            "response_sha256": "abc",
+        }
+    ]
+    path = tmp_path / name
+    create_rater_workbook(path, records, mapping, tmp_path / "refs", 1)
+    workbook = load_workbook(path)
+    responses = workbook["Responses"]
+    for column in (9, 10, 11, 13, 14):
+        responses.cell(2, column).value = "no"
+    events = workbook["Error events"]
+    values = ["B-123", "E1", category, "Қате", 0, 4, 1, 1, "Дұрыс", "Rule", "", "no"]
+    for column, value in enumerate(values, 1):
+        events.cell(2, column).value = value
+    workbook.save(path)
+    return path
+
+
+def test_completed_workbook_validation_and_agreement(tmp_path: Path):
+    left_path = completed_workbook(tmp_path, "left.xlsx")
+    right_path = completed_workbook(tmp_path, "right.xlsx")
+    left = load_annotation_workbook(left_path, expected_responses=1)
+    right = load_annotation_workbook(right_path, expected_responses=1)
+    agreement = annotation_agreement(left, right)
+    assert agreement["category_presence"]["agreement"] == 1.0
+    assert agreement["total_primary_count"]["krippendorff_alpha_interval"] == 1.0
+    assert agreement["exact_span_match"]["f1"] == 1.0
+
+
+def test_workbook_validation_rejects_bad_fragment(tmp_path: Path):
+    path = completed_workbook(tmp_path, "bad.xlsx")
+    workbook = load_workbook(path)
+    workbook["Error events"]["D2"] = "басқа"
+    workbook.save(path)
+    try:
+        load_annotation_workbook(path, expected_responses=1)
+    except ValueError as exc:
+        assert "fragment does not match" in str(exc)
+    else:
+        raise AssertionError("invalid fragment was accepted")
