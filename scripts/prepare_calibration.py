@@ -107,7 +107,12 @@ def main() -> int:
                 )
 
     reference_dir = (root / args.references).resolve() if not args.references.is_absolute() else args.references
-    bundle = {"run_id": run_dir.name, "phases": {}}
+    mapping_sha256 = hashlib.sha256(mapping_path.read_bytes()).hexdigest()
+    bundle = {
+        "run_id": run_dir.name,
+        "private_mapping_sha256": mapping_sha256,
+        "phases": {},
+    }
     for phase, phase_records in phases.items():
         bundle["phases"][phase] = {}
         for rater, seed in (("rater_1", 241731), ("rater_2", 241741)):
@@ -145,6 +150,7 @@ def main() -> int:
                 "bundle": str(args.output),
                 "bundle_sha256": hashlib.sha256(args.output.read_bytes()).hexdigest(),
                 "mapping": str(mapping_path),
+                "mapping_sha256": mapping_sha256,
                 "selection": summary,
             },
             indent=2,
