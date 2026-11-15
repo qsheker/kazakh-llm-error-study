@@ -77,6 +77,9 @@ silently package stale slides.
 
 All contributions must be supported by commits, signed review records, annotation files, execution receipts, or documented reviews. The three-person team has instructor approval even though the supplied general criterion states a maximum of two; the team should retain written evidence of that exception if available.
 
+The operational Russian handoff for the three owners is in
+`docs/TEAM_HANDOFF_RU.md`.
+
 ## Tested configurations
 
 The protocol identifies artifacts by Ollama content digest and template hash, not by mutable tag alone.
