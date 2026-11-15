@@ -8,6 +8,11 @@ import sys
 import zipfile
 from pathlib import Path
 
+from kazllm_eval.annotation import (
+    annotation_agreement,
+    load_annotation_workbook,
+    validate_blinded_manifest,
+)
 from kazllm_eval.core import sha256_file
 
 
@@ -29,6 +34,21 @@ def docx_text(path: Path) -> str:
     with zipfile.ZipFile(path) as archive:
         document_xml = archive.read("word/document.xml").decode("utf-8", errors="replace")
     return " ".join(document_xml.replace("</w:p>", "\n").split())
+
+
+def qualification_thresholds_passed(agreement: dict) -> bool:
+    category = agreement.get("category_presence", {})
+    alpha = agreement.get("total_primary_count", {}).get("krippendorff_alpha_interval")
+    span_f1 = agreement.get("exact_span_match", {}).get("f1")
+    kappa = category.get("cohen_kappa")
+    return (
+        float(category.get("agreement", -1)) >= 0.80
+        and (kappa is None or float(kappa) >= 0.60)
+        and alpha is not None
+        and float(alpha) >= 0.67
+        and span_f1 is not None
+        and float(span_f1) >= 0.60
+    )
 
 
 def main() -> int:
@@ -68,16 +88,64 @@ def main() -> int:
         f"receipts={len(receipts)}, accounted={accounted}, metadata_unchanged={completion.get('metadata_unchanged')}",
     )
 
+    calibration_dir = root / "annotations/calibration/dev_calibration_v2"
+    calibration_valid = False
+    calibration_detail = "training or qualification files are incomplete"
+    try:
+        training_manifest = load_json(calibration_dir / "training_blinded_manifest.json")
+        qualification_manifest = load_json(calibration_dir / "qualification_blinded_manifest.json")
+        training = [
+            load_annotation_workbook(
+                calibration_dir / f"rater_{rater}/dev_calibration_v2__training__rater_{rater}.xlsx",
+                expected_responses=12,
+            )
+            for rater in (1, 2)
+        ]
+        qualification = [
+            load_annotation_workbook(
+                calibration_dir
+                / f"rater_{rater}/dev_calibration_v2__qualification__rater_{rater}.xlsx",
+                expected_responses=20,
+            )
+            for rater in (1, 2)
+        ]
+        for workbook in training:
+            validate_blinded_manifest(workbook, training_manifest)
+        for workbook in qualification:
+            validate_blinded_manifest(workbook, qualification_manifest)
+        qualification_agreement = annotation_agreement(*qualification)
+        calibration_valid = (
+            training[0]["sha256"] != training[1]["sha256"]
+            and qualification[0]["sha256"] != qualification[1]["sha256"]
+            and qualification_thresholds_passed(qualification_agreement)
+        )
+        calibration_detail = json.dumps(qualification_agreement, ensure_ascii=False, sort_keys=True)
+    except (FileNotFoundError, KeyError, TypeError, ValueError, OSError) as exc:
+        calibration_detail = str(exc)
+    check("two-rater calibration qualification", calibration_valid, calibration_detail)
+
     rater_paths = {
         "rater 1": root / "annotations/rater_1/final_test_v2__rater_1.xlsx",
         "rater 2": root / "annotations/rater_2/final_test_v2__rater_2.xlsx",
     }
+    final_blinded_manifest_path = root / "annotations/final_test_v2__blinded_manifest.json"
+    final_blinded_manifest = load_json_or_empty(final_blinded_manifest_path)
+    loaded_raters = {}
     for name, path in rater_paths.items():
-        check(f"{name} original", path.exists(), str(path.relative_to(root)))
+        detail = str(path.relative_to(root))
+        try:
+            loaded = load_annotation_workbook(path, expected_responses=240)
+            validate_blinded_manifest(loaded, final_blinded_manifest)
+            loaded_raters[name] = loaded
+            passed = True
+        except (FileNotFoundError, KeyError, TypeError, ValueError, OSError) as exc:
+            passed = False
+            detail = str(exc)
+        check(f"{name} original valid and source-bound", passed, detail)
     check(
         "rater files differ",
-        all(path.exists() for path in rater_paths.values())
-        and sha256_file(rater_paths["rater 1"]) != sha256_file(rater_paths["rater 2"]),
+        len(loaded_raters) == 2
+        and loaded_raters["rater 1"]["sha256"] != loaded_raters["rater 2"]["sha256"],
         "independent originals must exist and have different hashes",
     )
 

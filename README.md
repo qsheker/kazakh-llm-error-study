@@ -19,7 +19,7 @@ This repository is a clean rebuild. It does **not** claim to recover the histori
 - Dev calibration: 80/80 locally generated responses are retained and pass
   request-accounting validation. Four visually reviewed blinded workbooks are
   ready: 12 training and 20 disjoint qualification items for each rater.
-- Engineering verification: 29 tests, Ruff, protocol validation, and the
+- Engineering verification: 31 tests, Ruff, protocol validation, and the
   four-model macOS preflight pass; public GitHub CI is green.
 - Final 240 test responses: not collected yet.
 - Independent human labels: not collected yet.

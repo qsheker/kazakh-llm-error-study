@@ -48,7 +48,7 @@ Snapshot: 2026-11-15, Asia/Almaty.
   accessibility audit with zero high, medium, or low findings; their ZIP
   containers are valid. These artifacts intentionally report the executed
   readiness evidence but no fabricated confirmatory result.
-- Re-ran all 29 repository tests, Ruff, the 60-prompt protocol validator, the
+- Re-ran all 31 repository tests, Ruff, the 60-prompt protocol validator, the
   80-receipt run validator, workbook structure/integrity checks, and the
   four-model Ollama preflight on this Mac on 2026-11-15.
 - Created the public GitHub repository and pushed the verified local history to
