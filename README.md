@@ -7,7 +7,9 @@ Reproducible local comparison of four Q4_K_M language-model configurations on 60
 This repository is a clean rebuild. It does **not** claim to recover the historical repository or the missing 60-response pilot receipts described in earlier assignments.
 
 - Protocol v2: drafted and machine-validated.
-- Test prompts: 60/60 drafted; pending the documented three-person content review and freeze.
+- Test prompts: 60/60 drafted and machine-validated. All 60 reference and
+  constraint cards now contain review-ready anchors, exclusions, and
+  authoritative sources; the three personal reviews and sign-offs remain.
 - Public models: installed and smoke-tested on the study Mac; exact Ollama
   digests and template hashes are recorded in `config/model_artifacts.json`.
 - KazLLM: authenticated official Q4_K_M artifact imported and smoke-tested;
@@ -25,6 +27,8 @@ prompt cards, three signoffs, model-artifact manifest, and freeze manifest all
 agree.
 
 Historical assignments are retained under `docs/archive/` as provenance, not as executable evidence for the final results.
+
+Canonical repository: <https://github.com/qsheker/kazakh-llm-error-study>
 
 ## Submission artifacts
 
@@ -120,7 +124,7 @@ Run a dev collection only after preflight:
 .venv/bin/python scripts/collect.py --dataset dev --send --run-id dev_v2
 ```
 
-Test collection is programmatically locked while `config/protocol.json` remains `draft_pending_three_person_signoff`. This prevents accidental test-set exposure before the signed review and freeze.
+Test collection is programmatically locked while `config/protocol.json` remains `draft_pending_three_person_signoff`. Each reviewer must inspect the 60 cards and run their own command from `protocol/signoffs/README.md`; this prevents accidental test-set exposure before the signed review and freeze.
 
 ## Evidence and recovery rules
 

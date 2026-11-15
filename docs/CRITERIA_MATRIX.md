@@ -24,7 +24,7 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 | A5. Discussion and conclusion | 8 | Limitations implemented; final interpretation blocked | Threats to validity, unequal model sizes/templates, purposeful sampling, imperfect blinding, detector limitations and no-overclaim rule are present. Comparison with observed findings waits for A4. |
 | A6. Academic writing and formatting | 5 | Review draft implemented; final template and institutional checks pending | Academic English, ACM-style review layout, 28 DOI/URL-backed references, full visual DOCX QA and accessibility audit. Official-template transfer, university similarity report and personal source-reading declarations are human/institutional steps. |
 | B. Journal fit and cover letter | 5 | Implemented with time-sensitive recheck | TALLIP primary and LRE backup verified; scope decision, recent articles, policies and one-page draft letter supplied. Scopus/policy/APC facts must be rechecked at actual submission. |
-| C. Reproducibility package | 12 | Technical layer implemented; final reproduction blocked | MIT code licence, CC BY 4.0 data/documentation licence, environment capture, hashes, fail-closed collector, tests and README. Final logs, data availability URL, outside-team reproduction and `final` tag require completed human study and remote repository. |
+| C. Reproducibility package | 12 | Technical layer and public remote implemented; final reproduction blocked | MIT code licence, CC BY 4.0 data/documentation licence, environment capture, hashes, fail-closed collector, tests, README and public GitHub repository are present. Final logs, release archive, outside-team reproduction and `final` tag require the completed human study. |
 | D1. Team presentation | 10 | 10-slide final-quality container; result slides blocked | Clear problem, RQs, method, artifacts, annotation, statistics, executed readiness evidence, evidence gate and ownership. Final numerical result and error example must come from generated evidence. |
 | D2. Individual defence | 23 | Preparation implemented; performance is human | Equal 3:20 speaking blocks, accountable evidence chains, cross-question rule, rehearsal gate and ten hostile questions in `docs/DEFENSE_PLAN.md`. Each member must rehearse and answer independently. |
 
@@ -42,7 +42,7 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 
 ## Irreducible human completion sequence
 
-1. All three authors verify the 60 reference cards and sign one freeze hash bundle.
+1. All three authors verify the 60 populated reference cards and sign one freeze hash bundle with `scripts/create_signoff.py`.
 2. Aldiyar runs the locked collector once for all 240 model-prompt pairs and resolves any ambiguous timeout by the documented rule, never by quality-based regeneration.
 3. Yerkebulan and Iliyas independently annotate every blinded response and freeze/hash their original files.
 4. Aldiyar adjudicates disagreements while model labels and detector candidates remain hidden; freeze the gold file, then open the key.

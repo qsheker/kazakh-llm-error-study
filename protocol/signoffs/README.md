@@ -18,3 +18,17 @@ Required example:
 ```
 
 Expected filenames are `aldiyar.json`, `yerkebulan.json`, and `iliyas.json`.
+
+After personally reviewing all 60 cards, each reviewer should run their own
+command from the repository root. Replace the notes with a concise description
+of what that reviewer checked:
+
+```bash
+.venv/bin/python scripts/create_signoff.py --signer aldiyar --approve --notes "Reviewed all prompts, anchors, exclusions, and sources."
+.venv/bin/python scripts/create_signoff.py --signer yerkebulan --approve --notes "Reviewed all prompts, anchors, exclusions, and sources."
+.venv/bin/python scripts/create_signoff.py --signer iliyas --approve --notes "Reviewed all prompts, anchors, exclusions, and sources."
+```
+
+No one may run a command for another person. The helper refuses to overwrite an
+existing sign-off and always binds the decision to the current prompt, source,
+instruction, and model-artifact hashes.

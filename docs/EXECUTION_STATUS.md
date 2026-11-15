@@ -8,6 +8,9 @@ Snapshot: 2026-11-15, Asia/Almaty.
   over the supplied 115 MB Windows dependency bundle.
 - Drafted and validated 60 Kazakh test prompts with the frozen 30/30 task split
   and balanced domain/form matrices.
+- Replaced all 60 empty reference-card placeholders with review-ready factual
+  anchors, acceptable variants, prohibited claims, and authoritative sources.
+  Automated tests verify complete coverage and reject pending markers.
 - Installed `qwen3:8b`, `llama3.1:8b`, and `gemma3:12b` in Ollama on the study
   Mac; recorded immutable model content, template, parameters, and system hashes.
 - Authenticated to the gated official ISSAI repository, downloaded the pinned
@@ -31,13 +34,16 @@ Snapshot: 2026-11-15, Asia/Almaty.
   the automated accessibility audit with zero high, medium, or low findings;
   their ZIP containers are valid. These artifacts intentionally report the
   executed readiness evidence but no fabricated confirmatory result.
-- Re-ran all 16 repository tests, the 60-prompt protocol validator, and the
+- Re-ran all 17 repository tests, the 60-prompt protocol validator, and the
   four-model Ollama preflight on this Mac on 2026-11-15.
+- Created the public GitHub repository and pushed the verified local history to
+  `https://github.com/qsheker/kazakh-llm-error-study` as `main`.
 
 ## Intentionally blocked
 
-1. **Protocol freeze.** All 60 reference cards still require human verification,
-   and Aldiyar, Yerkebulan, and Iliyas must sign the same hash bundle.
+1. **Protocol freeze.** All 60 populated reference cards still require human
+   verification, and Aldiyar, Yerkebulan, and Iliyas must personally sign the
+   same hash bundle.
 2. **Test inference.** The 240-response collection cannot start until (1) is
    resolved. The collector enforces this boundary.
 3. **Independent labels.** Yerkebulan and Iliyas must personally produce their
