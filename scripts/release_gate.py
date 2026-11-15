@@ -14,6 +14,14 @@ def load_json(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def load_json_or_empty(path: Path) -> dict:
+    try:
+        value = load_json(path)
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        return {}
+    return value if isinstance(value, dict) else {}
+
+
 def docx_text(path: Path) -> str:
     if not path.exists():
         return ""
@@ -86,9 +94,6 @@ def main() -> int:
         "similarity report": root / "evidence/similarity_report.pdf",
         "ethics determination": root / "evidence/ethics_determination.pdf",
         "three-person exception proof": root / "evidence/three_person_team_approval.pdf",
-        "reference-reading verification": root / "evidence/reference_verification.json",
-        "all-author final approval": root / "evidence/all_author_approval.json",
-        "outside-team reproduction": root / "evidence/reproduction.json",
     }
     for name, path in required_files.items():
         check(name, path.exists() and path.stat().st_size > 0, str(path.relative_to(root)))
@@ -114,6 +119,66 @@ def main() -> int:
         deck_path.exists() and deck_path.stat().st_size > 0,
         str(deck_path.relative_to(root)),
     )
+
+    team_names = {"Aldiyar Zhaksylyk", "Yerkebulan Rakhymbay", "Iliyas Aitzhan"}
+    reference_path = root / "evidence/reference_verification.json"
+    reference_evidence = load_json_or_empty(reference_path)
+    reference_authors = reference_evidence.get("authors", [])
+    reference_valid = (
+        manuscript_path.exists()
+        and reference_evidence.get("manuscript_sha256") == sha256_file(manuscript_path)
+        and {row.get("name") for row in reference_authors if isinstance(row, dict)} == team_names
+        and all(
+            row.get("confirmed_read") is True
+            and set(row.get("references", [])) == set(range(1, 29))
+            and bool(row.get("signed_utc"))
+            for row in reference_authors
+            if isinstance(row, dict)
+        )
+        and len(reference_authors) == 3
+    )
+    check("reference-reading verification", reference_valid, str(reference_path.relative_to(root)))
+
+    approval_path = root / "evidence/all_author_approval.json"
+    approval = load_json_or_empty(approval_path)
+    approval_authors = approval.get("authors", [])
+    approval_valid = (
+        manuscript_path.exists()
+        and approval.get("manuscript_sha256") == sha256_file(manuscript_path)
+        and {row.get("name") for row in approval_authors if isinstance(row, dict)} == team_names
+        and all(
+            row.get("approved") is True and bool(row.get("signed_utc"))
+            for row in approval_authors
+            if isinstance(row, dict)
+        )
+        and len(approval_authors) == 3
+    )
+    check("all-author final approval", approval_valid, str(approval_path.relative_to(root)))
+
+    presentation_review_path = root / "evidence/presentation_review.json"
+    presentation_review = load_json_or_empty(presentation_review_path)
+    presentation_valid = (
+        deck_path.exists()
+        and presentation_review.get("deck_sha256") == sha256_file(deck_path)
+        and presentation_review.get("page_count") in range(8, 13)
+        and presentation_review.get("result_numbers_checked") is True
+        and presentation_review.get("all_authors_approved") is True
+    )
+    check("presentation review", presentation_valid, str(presentation_review_path.relative_to(root)))
+
+    reproduction_path = root / "evidence/reproduction.json"
+    reproduction = load_json_or_empty(reproduction_path)
+    reproduction_valid = (
+        reproduction.get("outside_team") is True
+        and reproduction.get("success") is True
+        and bool(reproduction.get("reproducer"))
+        and bool(reproduction.get("commit"))
+        and isinstance(reproduction.get("commands"), list)
+        and bool(reproduction.get("commands"))
+        and isinstance(reproduction.get("result_hashes"), dict)
+        and bool(reproduction.get("result_hashes"))
+    )
+    check("outside-team reproduction", reproduction_valid, str(reproduction_path.relative_to(root)))
 
     origin = subprocess.run(
         ["git", "remote", "get-url", "origin"], cwd=root, capture_output=True, text=True, check=False

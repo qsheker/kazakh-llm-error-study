@@ -19,6 +19,9 @@ Expected release-gate files:
   not just state a general promise.
 - `all_author_approval.json` — dated approval of the exact final manuscript and
   author list by all three authors, including its SHA-256.
+- `presentation_review.json` — SHA-256 and page count of the final PDF plus
+  explicit confirmation that all result numbers were checked and all authors
+  approved the deck.
 - `reproduction.json` — identity/role of a person outside the team, clean
   environment details, commands run, input commit/tag, produced hashes, and the
   outcome of reproducing every Results table and figure.
