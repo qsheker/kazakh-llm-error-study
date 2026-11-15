@@ -108,7 +108,7 @@ def build_blinded_manifest(
 def validate_blinded_manifest(workbook: dict[str, Any], manifest: dict[str, Any]) -> None:
     rows = manifest.get("responses")
     if not isinstance(rows, list):
-        raise ValueError("blinded manifest must contain a responses list")
+        raise TypeError("blinded manifest must contain a responses list")
     expected = {str(row.get("blind_id", "")): row for row in rows}
     if not expected or len(expected) != len(rows) or set(expected) != set(workbook["responses"]):
         raise ValueError("workbook blind IDs do not match the blinded manifest")
