@@ -146,6 +146,16 @@ Yerkebulan and Iliyas must independently annotate all 240 blinded test responses
 
 The final release will expose a single reproduction command after the 240 receipts and adjudicated labels exist. Until then, any generated table is a readiness artifact, not a final result. `final` must not be tagged before all checks in `docs/RELEASE_CHECKLIST.md` pass. The manuscript and deck are therefore final-quality containers, not false claims that the human study is already complete.
 
+The machine-enforced release audit is:
+
+```bash
+.venv/bin/python scripts/release_gate.py
+```
+
+It exits nonzero and names every missing evidence item until the protocol,
+receipts, two original ratings, adjudication, final analysis, institutional
+records, outside reproduction, public remote, and clean worktree all exist.
+
 ## Ethics and data statement
 
 The study evaluates locally generated text and does not intentionally collect external participant data or personal information. The three annotators are the authors. No formal ethics approval or exemption has been evidenced in the supplied materials; the manuscript must state this accurately and the team must confirm institutional requirements with the instructor before submission.
