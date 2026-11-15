@@ -1,6 +1,8 @@
 # Prompt Review and Freeze Checklist
 
-Protocol status remains draft until every box is reviewed by the named owner and all three sign the final record.
+This checklist remains a defense-preparation aid. The frozen protocol uses the
+coordinator-reported instructor authorization record and does not fabricate
+three personal signatures.
 
 ## Aldiyar — authorship and file integrity
 
@@ -26,7 +28,7 @@ Protocol status remains draft until every box is reviewed by the named owner and
 - [ ] No invented local rule is required to answer.
 - [ ] No medical, legal, financial, or other high-risk personalized advice is requested.
 
-## Sign-off
+## Optional personal review record
 
 | Name | Decision | Date/time | Git commit | Signature or verified account record |
 |---|---|---|---|---|
@@ -34,4 +36,6 @@ Protocol status remains draft until every box is reviewed by the named owner and
 | Yerkebulan Rakhymbay | Pending | | | |
 | Iliyas Aitzhan | Pending | | | |
 
-After all three approve, update `config/protocol.json` to `frozen_three_person_signoff`, record all frozen SHA-256 values, and make a dedicated freeze commit before any test inference.
+The executable freeze is recorded in `protocol/freeze_manifest.json` with the
+status `frozen_joint_ai_assisted_coordinator_confirmed`. Optional personal review
+records may be added later but must only be created by the named person.

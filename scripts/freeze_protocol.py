@@ -15,11 +15,7 @@ from kazllm_eval.core import (
     write_json,
 )
 
-EXPECTED_SIGNERS = {
-    "aldiyar": "Aldiyar Zhaksylyk",
-    "yerkebulan": "Yerkebulan Rakhymbay",
-    "iliyas": "Iliyas Aitzhan",
-}
+FROZEN_STATUS = "frozen_joint_ai_assisted_coordinator_confirmed"
 
 
 def main() -> int:
@@ -53,24 +49,27 @@ def main() -> int:
         errors.append("Latin-script exemption list still requires team review")
     latin_exemptions_sha256 = sha256_file(exemptions_path)
     reference_bundle_sha256 = hashlib.sha256(canonical_json(cards).encode()).hexdigest()
-    signoffs = {}
-    for slug, expected_name in EXPECTED_SIGNERS.items():
-        path = root / "protocol/signoffs" / f"{slug}.json"
-        if not path.exists():
-            errors.append(f"missing sign-off: {expected_name}")
-            continue
-        record = json.loads(path.read_text(encoding="utf-8"))
-        if record.get("name") != expected_name or record.get("decision") != "approved":
-            errors.append(f"invalid sign-off for {expected_name}")
-        if record.get("test_sha256") != validation.get("test_sha256"):
-            errors.append(f"{expected_name} signed a different test-set hash")
-        if record.get("instruction_sha256") != instruction_sha256:
-            errors.append(f"{expected_name} signed a different instruction hash")
-        if record.get("reference_bundle_sha256") != reference_bundle_sha256:
-            errors.append(f"{expected_name} signed a different reference-card bundle")
-        if record.get("latin_exemptions_sha256") != latin_exemptions_sha256:
-            errors.append(f"{expected_name} signed a different Latin-script exemption list")
-        signoffs[slug] = record
+    annotation = protocol.get("annotation", {})
+    if annotation.get("mode") != "joint_team_ai_assisted":
+        errors.append("annotation mode is not joint_team_ai_assisted")
+    if annotation.get("independent_rater_reliability_claimed") is not False:
+        errors.append("joint protocol must explicitly disable independent-rater reliability claims")
+    authorization_path = root / annotation.get(
+        "authorization_path", "protocol/team_authorization.json"
+    )
+    authorization = {}
+    if not authorization_path.exists():
+        errors.append("coordinator authorization record is missing")
+    else:
+        authorization = json.loads(authorization_path.read_text(encoding="utf-8"))
+        if authorization.get("record_type") != "coordinator_report_of_instructor_permission":
+            errors.append("authorization record type is invalid")
+        if authorization.get("reported_by") != "Aldiyar Zhaksylyk":
+            errors.append("authorization must identify the reporting coordinator")
+        if authorization.get("instructor_permission_reported") is not True:
+            errors.append("authorization does not report instructor permission")
+        if authorization.get("annotation_mode") != annotation.get("mode"):
+            errors.append("authorization and protocol annotation modes differ")
 
     source = json.loads((root / "models/kazllm/source.json").read_text(encoding="utf-8"))
     if not source.get("expected_sha256"):
@@ -85,9 +84,18 @@ def main() -> int:
     if model_artifacts.get("status") != "complete":
         errors.append("model_artifacts.json status is not complete")
     model_artifacts_sha256 = sha256_file(model_artifacts_path)
-    for slug, record in signoffs.items():
-        if record.get("model_artifacts_sha256") != model_artifacts_sha256:
-            errors.append(f"{EXPECTED_SIGNERS[slug]} signed a different model-artifact manifest")
+    authorization_sha256 = (
+        sha256_file(authorization_path) if authorization_path.exists() else None
+    )
+    protocol_document_hashes = {}
+    for relative_path in annotation.get("frozen_documents", []):
+        document_path = root / relative_path
+        if not document_path.exists():
+            errors.append(f"missing frozen protocol document: {relative_path}")
+            continue
+        protocol_document_hashes[relative_path] = sha256_file(document_path)
+    if set(protocol_document_hashes) != set(annotation.get("frozen_documents", [])):
+        errors.append("frozen protocol document set is incomplete")
 
     report = {
         "ready": not errors,
@@ -99,7 +107,10 @@ def main() -> int:
         "reference_bundle_sha256": reference_bundle_sha256,
         "latin_exemptions_sha256": latin_exemptions_sha256,
         "model_artifacts_sha256": model_artifacts_sha256,
-        "signoffs": signoffs,
+        "authorization": authorization,
+        "authorization_path": str(authorization_path.relative_to(root)),
+        "authorization_sha256": authorization_sha256,
+        "protocol_document_hashes": protocol_document_hashes,
         "errors": errors,
     }
     if not args.apply:
@@ -108,13 +119,13 @@ def main() -> int:
     if errors:
         raise SystemExit("freeze refused:\n- " + "\n- ".join(errors))
 
-    protocol["status"] = "frozen_three_person_signoff"
-    protocol["protocol_version"] = "2.0"
+    protocol["status"] = FROZEN_STATUS
+    protocol["protocol_version"] = "2.1"
     write_json(protocol_path, protocol)
     manifest = {
         **report,
         "frozen_utc": datetime.now(UTC).isoformat(),
-        "status": "frozen_three_person_signoff",
+        "status": FROZEN_STATUS,
         "protocol_sha256": sha256_file(protocol_path),
     }
     write_json(root / "protocol/freeze_manifest.json", manifest)

@@ -161,7 +161,10 @@ def create_rater_workbook(
     mapping: list[dict[str, str]],
     reference_dir: Path,
     order_seed: int,
+    workflow: str = "independent",
 ) -> str:
+    if workflow not in {"independent", "joint_team_ai_assisted"}:
+        raise ValueError(f"unsupported annotation workflow: {workflow}")
     by_private = {record["private_response_id"]: record for record in records}
     blinded = []
     for item in mapping:
@@ -255,12 +258,19 @@ def create_rater_workbook(
 
     instructions = workbook.create_sheet("Instructions")
     instructions.append(["Rule", "Required behavior"])
+    provenance_rule = (
+        "Joint AI-assisted provenance",
+        "AI suggestions are drafts. Keep model identity and detector output hidden; record team review before freezing the gold set.",
+    ) if workflow == "joint_team_ai_assisted" else (
+        "Independence",
+        "Do not inspect another rater's workbook or automatic detector output.",
+    )
     rules = [
-        ("Independence", "Do not inspect another rater's workbook or automatic detector output."),
+        provenance_rule,
         ("Event", "Use the smallest continuous fragment requiring one independent correction."),
         ("Offsets", "Offsets are zero-based and end_offset is exclusive; copied fragment must match exactly."),
         ("Priority", "code_switching > semantic > grammatical > lexical for overlapping interpretations."),
-        ("Uncertainty", "Use needs_adjudication rather than forcing certainty."),
+        ("Uncertainty", "Use needs_adjudication in drafts; resolve every case before the final gold freeze."),
         ("Surface", "Spelling, punctuation, capitalization, and spacing use surface and do not enter primary rate."),
         ("Do not rename", "Do not rename sheets or columns. Do not sort the Events sheet by model guesses."),
     ]

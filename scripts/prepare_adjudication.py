@@ -25,7 +25,12 @@ def write_csv(path: Path, headers: list[str], rows: list[dict]) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Create a blinded adjudication package from two immutable originals.")
+    parser = argparse.ArgumentParser(
+        description=(
+            "Legacy calibration utility for comparing two workbook copies; "
+            "not part of the frozen joint-team final workflow."
+        )
+    )
     parser.add_argument("rater_1", type=Path)
     parser.add_argument("rater_2", type=Path)
     parser.add_argument("--blinded-manifest", type=Path, required=True)

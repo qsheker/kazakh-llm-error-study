@@ -11,7 +11,7 @@ Verification date: 2026-11-15 (Asia/Almaty). Journal metrics and policies are ti
 - Subject area: General Computer Science. Displayed 2025 CiteScore 6.2; 73rd percentile, rank 65/241 (Q2 by percentile band).
 - Official route: Scopus source record to `https://dl.acm.org/journal/tallip`; author guidelines at `https://dl.acm.org/journal/tallip/author-guidelines`.
 - Integrity checks: the title/ISSNs and official ACM domain match the ISSN record and Scopus record; no title or ISSN match was found in the Retraction Watch Hijacked Journal Checker export updated 2026-11-09; the journal was not shown as discontinued in the verified Scopus source record.
-- Scope fit: the article studies generation quality for Kazakh, an Asian low-resource language, and contributes a controlled evaluation resource, independent human annotation, error analysis and reproducible local inference evidence.
+- Scope fit: the article studies generation quality for Kazakh, an Asian low-resource language, and contributes a controlled evaluation resource, disclosed joint-team AI-assisted annotation, error analysis and reproducible local inference evidence.
 - Related TALLIP articles from the last three years:
   1. Le, T. A., and Le, H. S. 2025. “LatVis: Large-scale Task-specific Language Model for Low-resource Vietnamese Multi-document Summarization.” DOI `10.1145/3725848`.
   2. Sha, J., Zhu, M., Feng, C., and Ci, J. 2025. “Tibetan-LLaMA 2: Large Language Model for Tibetan.” DOI `10.1145/3776748`.

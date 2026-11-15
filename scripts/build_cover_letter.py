@@ -40,7 +40,7 @@ def main() -> None:
     run.font.color.rgb = RGBColor(178, 34, 34)
     run.font.size = Pt(10)
 
-    p = doc.add_paragraph("15 November 2026")
+    p = doc.add_paragraph("16 November 2026")
     p.paragraph_format.space_after = Pt(8)
     p = doc.add_paragraph("Editors\nACM Transactions on Asian and Low-Resource Language Information Processing")
     p.paragraph_format.space_after = Pt(10)
@@ -52,7 +52,7 @@ def main() -> None:
     )
     paragraph(
         doc,
-        "The contribution is not a general model leaderboard. It is a reproducible error-analysis design that combines immutable model and request provenance, a balanced Kazakh prompt resource, two independent blinded span-level annotations, adjudication before unblinding, and paired nonparametric inference with whole-prompt uncertainty estimates. The primary outcome is the number of adjudicated grammatical, lexical, semantic and code-switching events per 100 word tokens.",
+        "The contribution is not a general model leaderboard. It is a reproducible error-analysis design that combines immutable model and request provenance, a balanced Kazakh prompt resource, disclosed joint-team AI-assisted span review before unblinding, and paired nonparametric inference with whole-prompt uncertainty estimates. The primary outcome is the number of reviewed grammatical, lexical, semantic and code-switching events per 100 word tokens. The workflow produces one team-consensus gold set and does not claim independent-rater reliability.",
     )
     paragraph(
         doc,
@@ -60,7 +60,7 @@ def main() -> None:
     )
     paragraph(
         doc,
-        "The accompanying repository records the exact Ollama content digests, templates, runtime controls, environment, prompt and reference-card freeze, raw request receipts, annotation workflow and generated statistics. Model binaries are not redistributed. The study does not intentionally collect personal data or external human-participant data; the annotators are the authors. Generative-AI assistance in software and manuscript preparation is disclosed, and no AI-generated label is represented as an independent human annotation.",
+        "The accompanying repository records the exact Ollama content digests, templates, runtime controls, environment, prompt and reference-card freeze, raw request receipts, annotation workflow and generated statistics. Model binaries are not redistributed. The study does not intentionally collect personal data or external human-participant data; the reviewers are the authors. Generative-AI assistance in software, manuscript preparation and draft annotation is disclosed, and the resulting team gold is not represented as independent human annotation.",
     )
     paragraph(
         doc,

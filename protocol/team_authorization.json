@@ -1,0 +1,19 @@
+{
+  "record_type": "coordinator_report_of_instructor_permission",
+  "reported_by": "Aldiyar Zhaksylyk",
+  "reported_date": "2026-11-16",
+  "instructor_permission_reported": true,
+  "annotation_mode": "joint_team_ai_assisted",
+  "scope": [
+    "the three named students defend the work as one team",
+    "work may be completed jointly instead of as two independent annotators",
+    "AI assistance may be used for drafting labels, checks, and integration",
+    "the team remains responsible for reviewing and defending every submitted claim"
+  ],
+  "evidence_status": "permission_reported_by_coordinator; no written evidence attached",
+  "not_a_personal_signoff_for": [
+    "Yerkebulan Rakhymbay",
+    "Iliyas Aitzhan"
+  ],
+  "limitations": "This record documents the coordinator's report. It is not a fabricated instructor letter, institutional approval, or another team member's signature."
+}

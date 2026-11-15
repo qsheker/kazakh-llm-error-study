@@ -1,0 +1,149 @@
+{
+  "ready": true,
+  "validation": {
+    "valid": true,
+    "test_sha256": "0303faff605df67a7835fdd3075b476582f5ffecfebebcc79f91d417a26c2f6e",
+    "rows": 60,
+    "task_counts": {
+      "educational": 30,
+      "public_information": 30
+    },
+    "matrices": {
+      "educational": {
+        "domains": {
+          "natural_sciences": 6,
+          "mathematics_data": 6,
+          "history_society": 6,
+          "language_media_literacy": 6,
+          "computing_technology": 6
+        },
+        "forms": {
+          "definition": 5,
+          "cause_effect": 5,
+          "comparison": 5,
+          "step_by_step": 5,
+          "application": 5,
+          "misconception_correction": 5
+        }
+      },
+      "public_information": {
+        "domains": {
+          "public_municipal_services": 6,
+          "transport_accessibility": 6,
+          "cultural_educational_spaces": 6,
+          "environment_household_safety": 6,
+          "digital_consumer_literacy": 6
+        },
+        "forms": {
+          "first_contact": 5,
+          "preparation_checklist": 5,
+          "problem_resolution": 5,
+          "safe_respectful_behaviour": 5,
+          "local_condition_verification": 5,
+          "neutral_public_notice": 5
+        }
+      }
+    },
+    "close_test_pairs": [],
+    "dev_matches": [],
+    "errors": [],
+    "warnings": []
+  },
+  "test_sha256": "0303faff605df67a7835fdd3075b476582f5ffecfebebcc79f91d417a26c2f6e",
+  "instruction_sha256": "448e5b32c83a038cc652c1bd1920273bca7707f52f42d5e52fecee5cd8de5f1c",
+  "protocol_sha256_before_freeze": "addcd8e483a957eb7597650494861e868fb7a2a06e0c0be8b75852b72b51adf1",
+  "reference_card_hashes": {
+    "E01": "b49665fb788ea3482ac3b6bcde846d839a5c520e9ae91c4a1b8b144a61b9739e",
+    "E02": "d956f1332e8a77c51d10c4c22d031690df130fb52ae7b04d7e87ab51849e884e",
+    "E03": "756197d80162a60ba02bb67113702458b03d10c1095505665eccd1a629644a87",
+    "E04": "9153e304810cc8c08016d1b21eadb20007c0424e1cac184bb3a246fff5740f0e",
+    "E05": "548633b16c615fd2585fa316b9dde3c86b4270509bb8e46c71275c891b53d91d",
+    "E06": "a4f111dd1a8b1695a9ff719b966c9476880f48c5bd7593de8a9674f63a3aa481",
+    "E07": "142a874921910e253e7f8ff108bb6e2331aa04cf0fa2c027d3a750cf53b6e01a",
+    "E08": "ca951f0921ff36929fe6793d0ae054f4a9904ac2f70bfffcb39063e24270d92e",
+    "E09": "a8c722463c022b97c0d2789da12a2f6ddb80768c014779fe20aa90721d107fd0",
+    "E10": "de958ee93dd5a7db90c037706b61b453cb8b1cdb18f2127f35ba0ad38993fa3e",
+    "E11": "f709ea9fafd78beb1f1b9b2e0fe5676dad62c36a608fc7b4007457b71b2ad6cf",
+    "E12": "29b751ce94a48258aacc28037c9c33340e78744d993dffc0b063dd3549f8b619",
+    "E13": "1c89f635bc2b8d55538f90d707d346342c2a4378d4626602c2ff12dd6d8426bd",
+    "E14": "4a6185cec4e7d3d1fa8a460e947f1996c2ee3ca94d3134c304656f0dde220396",
+    "E15": "a1f9b4d27370f81fd7e371e7132ab3ff6ecf6115f4b22229b339321b0252aace",
+    "E16": "4e20ee2123f93c2c542a9c7bfe975d765c03f427562cdf27906020d61780688a",
+    "E17": "c7e65882d11b60ad86a0526ac344a46952decb5211d1badc1efbd11303040f8b",
+    "E18": "869a6bfbe22ced466fd0d0aa711981a8a5632c97400f2104a4b007245bf7e236",
+    "E19": "573c56e08dff2b1fb19a371b05df6e53f8ece19578cfce642832c46358fcc1da",
+    "E20": "a93b57df8e0b0ebd37549af1a2f369c017bebec7f05d845de6a741d9a81b7f5e",
+    "E21": "fb1451126a81ef8b6add2742dc2a5357684806b6de154d7448889ab6d7c9c9e5",
+    "E22": "4744e29b79727225d0aaea382dcef019274d8a11d14a6e8c32f5384884bb4447",
+    "E23": "01c0893175789646d7cc9313711caace67a9ba67773a58208e687a6bdb97937f",
+    "E24": "cde007810e5cfb86033a5e174e5d60cd75e1027ec0f79f39f8e72121a28a402a",
+    "E25": "605a235325b78abf756493deeeb213c77571ad0eafaffceac435b7e449703357",
+    "E26": "a69497ef4b8088c6d74be59429e87eccf1d44b0574c1d9e251b33de7a0edd6cd",
+    "E27": "f5db2a23896ada6472c7b342bf2ccaea68b5590ff19e201fbec82bafa1d5f598",
+    "E28": "916a811eac5e4af42519920b9bccb9870119cc42eba5c460c469ff7046a546c4",
+    "E29": "9718c76043fa5a23ec0f28a972b207713c7b58a026375afb7341ba5114fba648",
+    "E30": "4bb652a5c19a920523b3d428a1d0cea1c5d3fce9008dba08d9f281b1ee023f25",
+    "P01": "597539ee4cb27101d48e80b70479b78d62bc813ed19b20e8266f51fb96915a6f",
+    "P02": "57bb1359cf1a1606aadce0d3e060b5bd58bcb82f4c0c4a00f3933f5572d46525",
+    "P03": "4b8485ea25f4ae171a625d1764ab85b8b9706c83c91a90665759df471ff0e380",
+    "P04": "8ba5b67a48013f6aaf0b695285f6242d5a33bea2ce8c5189fa1bc6e0f722f598",
+    "P05": "805e47640cb927f96501793d8b2c4fe3fe3e08e4a31182f551b1bbc61761c4bc",
+    "P06": "c56e9b773c6b53d7f7249d26c0e0fd398659334e8515bd66c9d59653572d8baf",
+    "P07": "05388f37d95d5353dafa8b1a20f9f00ffc14a23d74b5b022a9b7ad9a7f1ca72f",
+    "P08": "3ceb770159a6b167db1a8addc881e882eccd4401ec22b3c98da95ea6b5cddbb0",
+    "P09": "ccd1922271290b532a4401d675207def60e32d1776bb3b862987511ec1e95de8",
+    "P10": "c4231fb85092583f733abb22ff4b1f96fd18566b019fc12696cee0367a5c095a",
+    "P11": "472e7d7863b65290a3cf8dde5bf9d8945d87e04305ac2619131e5a7083e14b02",
+    "P12": "986fd64fda9ac94fed478f482e2106c22e6a2f05c8303ba76de83c3c7ce9e22a",
+    "P13": "72ace88da2d3ca2b7d933e77a319addb6d6dfb5f2c50f186e7acafea6432ef85",
+    "P14": "c95d45612e774da81e341a856fd0bfe3a75c0fd1687b4d83c818bbd0d9c2bbcc",
+    "P15": "4eca19b2d6d26276058d2ad104fcefb60a6f5687b5b4fa6189c8f227a02d0cab",
+    "P16": "b06b996268cd6aad085f83890d4e7c00f923e4cdab5cbfc4ea343c7f6516a29d",
+    "P17": "db17cd9a2f089bc5671c6b5d8903f88b9550089b226c957065c9b30bc9899603",
+    "P18": "886816ab39ce69722ce4aebcd698f8d2a6cc9ad6e927372b06974fe8e5918f33",
+    "P19": "8602a8db52bd99397ca687f28caddd5faed5c7bd7e25080d626f8669dbdca4da",
+    "P20": "c9f0af1abc75ce6eb647ac6f1d4024484d5bc203055021efa8dd96b47416046e",
+    "P21": "c68099df2269fbb193d90fac7e619f99a3b216d6dd910e4784af225fe9353a7c",
+    "P22": "7f99a7b3b3b4b5e78f9393969514b5831a670c655c1a124b6c1c815b401e942a",
+    "P23": "da9971eb07643edfe1e531d96678ac4def2e512a547da068f33f67b60a183035",
+    "P24": "4199bc6a467ed09aa8ce83253d36330f453380131e38529dd2ed0cb522e15922",
+    "P25": "966fc11e88fca45e4534a3f4619d4a457424701bf526b0832e5dfa3aee061601",
+    "P26": "3aae90b4cc4820f320a2bed8d93218cbab9bb83c1bf38194539feafa5c7b2c4d",
+    "P27": "3095b9767dc80e43da457adc0f1d4aa4dacf1bdf68d5778b0df64cd376c51ea9",
+    "P28": "069a8f359d97d2c4acb9045f15b57fe1179caf47561871f75a6306eb1ff2ddaf",
+    "P29": "2a0e6637f28487de049ba8d711263e44d870f64783d22d1abd133291aec918be",
+    "P30": "15e540d76276141b6453012f26bfd639772a5aaf083a9ff453b77b8c8099a868"
+  },
+  "reference_bundle_sha256": "f9b245e2d876785dac520b880ffc1c14d5ba8715791240f89d9bc39322b4123e",
+  "latin_exemptions_sha256": "e6d5183ef5ab070d1fc7d07a413bb786df2180830142aba9387c74977e1d6468",
+  "model_artifacts_sha256": "4eae0c0955ccf279e85d7ac63337190c587dfc2d2051f54a34b9c630ae81ae2f",
+  "authorization": {
+    "record_type": "coordinator_report_of_instructor_permission",
+    "reported_by": "Aldiyar Zhaksylyk",
+    "reported_date": "2026-11-16",
+    "instructor_permission_reported": true,
+    "annotation_mode": "joint_team_ai_assisted",
+    "scope": [
+      "the three named students defend the work as one team",
+      "work may be completed jointly instead of as two independent annotators",
+      "AI assistance may be used for drafting labels, checks, and integration",
+      "the team remains responsible for reviewing and defending every submitted claim"
+    ],
+    "evidence_status": "permission_reported_by_coordinator; no written evidence attached",
+    "not_a_personal_signoff_for": [
+      "Yerkebulan Rakhymbay",
+      "Iliyas Aitzhan"
+    ],
+    "limitations": "This record documents the coordinator's report. It is not a fabricated instructor letter, institutional approval, or another team member's signature."
+  },
+  "authorization_path": "protocol/team_authorization.json",
+  "authorization_sha256": "4cc5d31b0c1cb9c5aea5ec9d6f0309ee074db348cb38cfcfe31a076ae7e7ca42",
+  "protocol_document_hashes": {
+    "protocol/annotation_protocol.md": "5ec387e8d2ac8c958c90714880254507a27af5e10b9e8dbb0cd76dbadfc4e931",
+    "protocol/analysis_plan.md": "1e3559e33dfe88075a788d32392d5c5732fc2b139ba1aea28b0caba04ded3166"
+  },
+  "errors": [],
+  "frozen_utc": "2026-11-15T19:48:21.514547+00:00",
+  "status": "frozen_joint_ai_assisted_coordinator_confirmed",
+  "protocol_sha256": "3fb3db1efe36c22fc95341aa340d2808e7020bce736b42a17718ccba55213113"
+}

@@ -31,16 +31,18 @@ Snapshot: 2026-11-15, Asia/Almaty.
   generation controls, and unchanged model metadata. Machine-local manifest
   paths were normalized without altering any receipt.
 - Selected a balanced, disjoint calibration set and built four blinded Excel
-  workbooks: 12 training responses and 20 qualification responses for each of
-  Yerkebulan (Rater 1) and Iliyas (Rater 2). Both phases have public read-only
-  field integrity manifests; the private model mapping is excluded from Git.
+  workbooks: 12 training responses and 20 qualification responses in two
+  transport copies. The completed package explicitly records that the labels
+  were produced jointly with AI assistance and are not reliability evidence.
+  Both phases have public read-only field integrity manifests; the private model
+  mapping is excluded from Git.
 - Added and tested prompt validation, fail-closed collection, request receipts,
   annotation workbook handling, detectors, and frozen statistical procedures.
-- Added strict workbook validation, blinded agreement/adjudication packaging,
-  full H1-H4 analysis generation, input-hash manifests, and a machine-enforced
-  release gate. The final analysis command cannot run without the immutable
-  receipts, private mapping, resolved human labels, adjudication rationales,
-  reviewed detector exemptions, and language-ID model.
+- Added strict workbook validation, joint-team review-log enforcement, full
+  H1-H4 analysis generation, input-hash manifests, and a machine-enforced
+  release gate. The final analysis command cannot run without immutable
+  receipts, private mapping, resolved team-gold labels, 240 approved review
+  records, reviewed detector exemptions, and the language-ID model.
 - Verified the primary and backup journals in the live Scopus Sources interface.
 - Built and visually checked the working manuscript, a 16-page copy transferred
   into the official ACM Word template, the one-page controlled-draft cover
@@ -48,25 +50,26 @@ Snapshot: 2026-11-15, Asia/Almaty.
   accessibility audit with zero high, medium, or low findings; their ZIP
   containers are valid. These artifacts intentionally report the executed
   readiness evidence but no fabricated confirmatory result.
-- Re-ran all 31 repository tests, Ruff, the 60-prompt protocol validator, the
-  80-receipt run validator, workbook structure/integrity checks, and the
-  four-model Ollama preflight on this Mac on 2026-11-15.
+- Re-ran all 31 repository tests, Ruff 0.17.5 via `uvx`, syntax compilation,
+  `git diff --check`, the 60-prompt protocol validator, the 80-receipt run
+  validator, workbook structure/integrity checks, and the four-model Ollama
+  preflight on this Mac.
 - Created the public GitHub repository and pushed the verified local history to
   `https://github.com/qsheker/kazakh-llm-error-study` as `main`.
 
-## Intentionally blocked
+## Current gates
 
-1. **Protocol freeze.** All 60 populated reference cards still require human
-   verification, and Aldiyar, Yerkebulan, and Iliyas must personally sign the
-   same hash bundle.
-2. **Test inference.** The 240-response collection cannot start until (1) is
-   resolved. The collector enforces this boundary.
-3. **Independent labels.** Yerkebulan and Iliyas must personally produce their
-   two complete annotation files. The repository must not synthesize them.
+1. **Protocol freeze: complete.** The joint AI-assisted protocol, test set,
+   reference cards, analysis plan, annotation protocol, model artifacts,
+   exemptions and coordinator authorization record are hash-bound.
+2. **Test inference: in progress.** The 240-response collection is running once
+   under the frozen controls; poor or truncated responses are retained.
+3. **Reviewed team gold: pending.** One blinded team workbook and 240-row review
+   log must be completed. AI drafts are allowed but are not independent ratings.
 4. **Final results and result-bearing submission revision.** The submission
    containers exist, but their quantitative Results, final abstract conclusion,
-   result slides, and release metadata depend on immutable test receipts, two
-   frozen ratings, adjudication, and generated statistics. No placeholder is
+   result slides, and release metadata depend on immutable test receipts, the
+   reviewed team gold set, and generated statistics. No placeholder is
    represented as an observed result.
 5. **External gates.** Personal source reading, ethics determination,
    university similarity report, written evidence of the approved three-person
@@ -76,16 +79,14 @@ Snapshot: 2026-11-15, Asia/Almaty.
 ## Next executable sequence
 
 ```bash
-.venv/bin/python scripts/validate_protocol.py
-# Yerkebulan and Iliyas complete their own training and qualification files,
-# then validate and adjudicate qualification while still blinded.
-# complete cards + three signoffs, then:
-.venv/bin/python scripts/freeze_protocol.py
 .venv/bin/python scripts/collect.py --dataset test --preflight
 .venv/bin/python scripts/collect.py --dataset test --send --run-id final_test_v2
 .venv/bin/python scripts/build_annotation_workbooks.py runs/final_test_v2 \
   --output annotations --references data/references \
   --mapping data/blinding/private_model_key.csv
+.venv/bin/python scripts/validate_annotation_workbook.py \
+  annotations/team_gold/final_test_v2__team_gold.xlsx --expected-responses 240
+.venv/bin/python scripts/analyze_final.py
 ```
 
 The later merge, analysis, manuscript, and slide steps must use the frozen raw

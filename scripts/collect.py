@@ -23,6 +23,8 @@ from kazllm_eval.ollama import (
     request_payload,
 )
 
+FROZEN_STATUS = "frozen_joint_ai_assisted_coordinator_confirmed"
+
 
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
@@ -38,8 +40,8 @@ def verify_test_freeze(root: Path, protocol: dict, prompt_path: Path, instructio
         raise SystemExit("test collection is locked: protocol/freeze_manifest.json is missing")
     manifest = load_json(manifest_path)
     failures = []
-    if manifest.get("status") != "frozen_three_person_signoff":
-        failures.append("freeze status is not frozen_three_person_signoff")
+    if manifest.get("status") != FROZEN_STATUS:
+        failures.append(f"freeze status is not {FROZEN_STATUS}")
     if manifest.get("test_sha256") != sha256_file(prompt_path):
         failures.append("test CSV differs from the frozen hash")
     if manifest.get("instruction_sha256") != sha256_file(instruction_path):
@@ -56,8 +58,26 @@ def verify_test_freeze(root: Path, protocol: dict, prompt_path: Path, instructio
         path = root / "data/references" / f"{prompt_id}.md"
         if not path.exists() or sha256_file(path) != expected:
             failures.append(f"reference card differs from freeze: {prompt_id}")
-    if set(manifest.get("signoffs", {})) != {"aldiyar", "yerkebulan", "iliyas"}:
-        failures.append("all three sign-offs are not present")
+    authorization_path = root / protocol["annotation"]["authorization_path"]
+    if not authorization_path.exists():
+        failures.append("coordinator authorization record is missing")
+    elif manifest.get("authorization_sha256") != sha256_file(authorization_path):
+        failures.append("coordinator authorization record differs from the freeze")
+    authorization = manifest.get("authorization", {})
+    if (
+        authorization.get("reported_by") != "Aldiyar Zhaksylyk"
+        or authorization.get("instructor_permission_reported") is not True
+        or authorization.get("annotation_mode") != "joint_team_ai_assisted"
+    ):
+        failures.append("coordinator authorization record is invalid")
+    document_hashes = manifest.get("protocol_document_hashes", {})
+    expected_documents = set(protocol["annotation"]["frozen_documents"])
+    if set(document_hashes) != expected_documents:
+        failures.append("frozen protocol document set differs from the config")
+    for relative_path, expected_hash in document_hashes.items():
+        path = root / relative_path
+        if not path.exists() or sha256_file(path) != expected_hash:
+            failures.append(f"frozen protocol document differs: {relative_path}")
     if failures:
         raise SystemExit("test collection is locked: " + "; ".join(failures))
 
@@ -85,8 +105,8 @@ def main() -> int:
         )
         if not validation["valid"]:
             raise SystemExit("test prompt validation failed: " + "; ".join(validation["errors"]))
-        if args.send and protocol.get("status") != "frozen_three_person_signoff":
-            raise SystemExit("test collection is locked until protocol status is frozen_three_person_signoff")
+        if args.send and protocol.get("status") != FROZEN_STATUS:
+            raise SystemExit(f"test collection is locked until protocol status is {FROZEN_STATUS}")
         if args.send:
             verify_test_freeze(root, protocol, prompt_path, instruction_path)
 

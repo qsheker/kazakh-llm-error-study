@@ -8,31 +8,35 @@ Reproducible local comparison of four Q4_K_M language-model configurations on 60
 
 This repository is a clean rebuild. It does **not** claim to recover the historical repository or the missing 60-response pilot receipts described in earlier assignments.
 
-- Protocol v2: drafted and machine-validated.
+- Protocol v2.1: frozen for the instructor-authorized joint AI-assisted workflow;
+  the freeze binds the prompt set, reference cards, analysis plan, annotation
+  protocol, model artifacts, exemptions, and coordinator authorization record.
 - Test prompts: 60/60 drafted and machine-validated. All 60 reference and
   constraint cards now contain review-ready anchors, exclusions, and
-  authoritative sources; the three personal reviews and sign-offs remain.
+  authoritative sources and are bound into the freeze manifest.
 - Public models: installed and smoke-tested on the study Mac; exact Ollama
   digests and template hashes are recorded in `config/model_artifacts.json`.
 - KazLLM: authenticated official Q4_K_M artifact imported and smoke-tested;
   source SHA-256 and Ollama metadata are frozen in the repository.
 - Dev calibration: 80/80 locally generated responses are retained and pass
-  request-accounting validation. Four visually reviewed blinded workbooks are
-  ready: 12 training and 20 disjoint qualification items for each rater.
-- Engineering verification: 31 tests, Ruff, protocol validation, and the
-  four-model macOS preflight pass; public GitHub CI is green.
-- Final 240 test responses: not collected yet.
-- Independent human labels: not collected yet.
-- Confirmatory results: unavailable until collection, two independent ratings, and adjudication are complete.
+  request-accounting validation. The four completed team-assisted calibration
+  workbooks are schema/rubric evidence, not independent-rater evidence.
+- Engineering verification: 31 tests, Ruff 0.17.5 via `uvx`, syntax
+  compilation, `git diff --check`, protocol validation, and the four-model
+  macOS preflight pass; public GitHub CI is green.
+- Final 240 test responses: collection is in progress under the frozen protocol.
+- Joint-team gold labels: pending completion and team review.
+- Confirmatory results: unavailable until collection and the reviewed team gold
+  set are complete.
 - Submission artifacts: an integrated manuscript, an official-template ACM
   submission copy, draft cover letter,
   10-slide defense PDF, journal-fit statement and criteria matrix are built and
   visually checked. They deliberately contain no invented inferential result.
 
 Read `docs/EXECUTION_STATUS.md` for the exact completed/blocked boundary. The
-repository deliberately fails closed: it cannot collect the test set until the
-prompt cards, three signoffs, model-artifact manifest, and freeze manifest all
-agree.
+repository deliberately fails closed: it cannot collect the test set unless the
+prompt cards, protocol documents, authorization record, model-artifact manifest,
+and freeze manifest all agree.
 
 Historical assignments are retained under `docs/archive/` as provenance, not as executable evidence for the final results.
 
@@ -79,9 +83,9 @@ silently package stale slides.
 
 | Person | Primary accountable work |
 |---|---|
-| Aldiyar Zhaksylyk | Mac model setup, collection, repository, receipts, reproducibility, technical coordination, blinded adjudication |
-| Yerkebulan Rakhymbay | Automated tests, statistics and interpretation, complete independent Rater 1 annotation |
-| Iliyas Aitzhan | Complete independent Rater 2 annotation, manuscript integration, numerical consistency, journal fit, final QA |
+| Aldiyar Zhaksylyk | Mac model setup, collection, repository, receipts, reproducibility, protocol and final audit |
+| Yerkebulan Rakhymbay | Automated tests, label quality control, statistics, interpretation and validation defense |
+| Iliyas Aitzhan | Gold-label/results integration, numerical consistency, visualization, journal fit and final QA |
 
 All contributions must be supported by commits, signed review records, annotation files, execution receipts, or documented reviews. The three-person team has instructor approval even though the supplied general criterion states a maximum of two; the team should retain written evidence of that exception if available.
 
@@ -150,7 +154,11 @@ Run a dev collection only after preflight:
 .venv/bin/python scripts/collect.py --dataset dev --send --run-id dev_v2
 ```
 
-Test collection is programmatically locked while `config/protocol.json` remains `draft_pending_three_person_signoff`. Each reviewer must inspect the 60 cards and run their own command from `protocol/signoffs/README.md`; this prevents accidental test-set exposure before the signed review and freeze.
+Test collection is programmatically locked unless `config/protocol.json` and
+`protocol/freeze_manifest.json` both carry the joint AI-assisted frozen status
+and every frozen hash still matches. The authorization record truthfully states
+that permission was reported by the coordinator and that no written instructor
+letter or another person's signature was fabricated.
 
 ## Evidence and recovery rules
 
@@ -162,25 +170,32 @@ Test collection is programmatically locked while `config/protocol.json` remains 
 - Raw responses are immutable inputs; normalization and tokenization create derived copies.
 - No human label may be inferred from detector output.
 
-## Human annotation boundary
+## Joint AI-assisted annotation boundary
 
-Yerkebulan and Iliyas must independently annotate all 240 blinded test responses. Automatic Latin/fastText candidates are hidden until both original label files and the adjudicated gold file are frozen. This repository can prepare, validate, merge, and analyze their work; it must not fabricate two independent human raters.
+The final labels are one joint-team gold set, not two independent ratings. AI
+may draft labels and run consistency checks, while model identity and detector
+candidates remain hidden. The final analysis unlocks only after all 240 blind
+IDs have resolved labels and a review-log row naming the responsible team member.
+The workbook builder assigns 80 pending blind IDs to each team member so the
+response-review workload starts evenly balanced; an assignment is not treated
+as a completed review.
+Kappa, alpha, and span-F1 values from duplicated team files are not reported as
+human reliability evidence.
 
 The evidence pipeline is explicit:
 
 ```bash
-.venv/bin/python scripts/validate_annotation_workbook.py annotations/rater_1/final_test_v2__rater_1.xlsx --expected-responses 240
-.venv/bin/python scripts/validate_annotation_workbook.py annotations/rater_2/final_test_v2__rater_2.xlsx --expected-responses 240
-.venv/bin/python scripts/prepare_adjudication.py annotations/rater_1/final_test_v2__rater_1.xlsx annotations/rater_2/final_test_v2__rater_2.xlsx --blinded-manifest annotations/final_test_v2__blinded_manifest.json --expected-responses 240
+.venv/bin/python scripts/build_annotation_workbooks.py runs/final_test_v2
+.venv/bin/python scripts/validate_annotation_workbook.py annotations/team_gold/final_test_v2__team_gold.xlsx --expected-responses 240
 .venv/bin/python scripts/analyze_final.py
 ```
 
-The validation and agreement steps remain blinded. The final analysis opens the
-private model mapping only after the adjudicated files have been frozen.
+Validation and team review remain blinded. The final analysis opens the private
+model mapping only after the team gold workbook and review log are frozen.
 
 ## Reproducing results
 
-The final release will expose a single reproduction command after the 240 receipts and adjudicated labels exist. Until then, any generated table is a readiness artifact, not a final result. `final` must not be tagged before all checks in `docs/RELEASE_CHECKLIST.md` pass. The manuscript and deck are therefore final-quality containers, not false claims that the human study is already complete.
+The final release will expose a single reproduction command after the 240 receipts and reviewed team labels exist. Until then, any generated table is a readiness artifact, not a final result. `final` must not be tagged before all checks in `docs/RELEASE_CHECKLIST.md` pass. The manuscript and deck are therefore final-quality containers, not false claims that the study is already complete.
 
 The machine-enforced release audit is:
 
@@ -189,7 +204,7 @@ The machine-enforced release audit is:
 ```
 
 It exits nonzero and names every missing evidence item until the protocol,
-receipts, two original ratings, adjudication, final analysis, institutional
+receipts, reviewed team gold, final analysis, institutional
 records, outside reproduction, public remote, and clean worktree all exist.
 
 ## Ethics and data statement

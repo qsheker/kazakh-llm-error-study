@@ -39,7 +39,7 @@ Compute precision, recall, and F1 on all 240 responses. Estimate the hybrid-minu
 
 ## Secondary and sensitivity analyses
 
-Report category rates, error presence, foreign-token share, length compliance, truncation, repetition, refusal, off-task behavior, latency, generated tokens, and tokens/second. Stratify by task type and estimate a bootstrap model-by-task difference-in-differences. Sensitivity analyses exclude truncated answers, compare pooled with mean response rates, retain each pre-adjudication rater separately, and include surface errors separately.
+Report category rates, error presence, foreign-token share, length compliance, truncation, repetition, refusal, off-task behavior, latency, generated tokens, and tokens/second. Stratify by task type and estimate a bootstrap model-by-task difference-in-differences. Sensitivity analyses exclude truncated answers, compare pooled with mean response rates, and include surface errors separately. The joint AI-assisted workflow produces one reviewed team gold set, so no pre-adjudication-rater sensitivity or independent-rater reliability estimate is defined.
 
 No offset count model is included in the frozen analysis. The paired prompt-block
 analysis remains primary; the pre-specified sensitivity outputs above provide

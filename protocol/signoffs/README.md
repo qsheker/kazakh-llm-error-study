@@ -1,36 +1,11 @@
-# Sign-off records
+# Optional personal review records
 
-Each team member creates their own JSON record after reviewing the exact test-set hash. Do not create records on another person's behalf.
+The executable v2.1 freeze uses `protocol/team_authorization.json`, which records
+the instructor permission reported by coordinator Aldiyar without inventing a
+written instructor letter or another participant's signature.
 
-Required example:
-
-```json
-{
-  "name": "Aldiyar Zhaksylyk",
-  "decision": "approved",
-  "reviewed_utc": "2026-11-15T00:00:00Z",
-  "test_sha256": "...",
-  "instruction_sha256": "...",
-  "reference_bundle_sha256": "...",
-  "model_artifacts_sha256": "...",
-  "latin_exemptions_sha256": "...",
-  "review_notes": "All assigned checklist items completed."
-}
-```
-
-Expected filenames are `aldiyar.json`, `yerkebulan.json`, and `iliyas.json`.
-
-After personally reviewing all 60 cards and the Latin-script exemption list,
-each reviewer should run their own
-command from the repository root. Replace the notes with a concise description
-of what that reviewer checked:
-
-```bash
-.venv/bin/python scripts/create_signoff.py --signer aldiyar --approve --notes "Reviewed all prompts, anchors, exclusions, and sources."
-.venv/bin/python scripts/create_signoff.py --signer yerkebulan --approve --notes "Reviewed all prompts, anchors, exclusions, and sources."
-.venv/bin/python scripts/create_signoff.py --signer iliyas --approve --notes "Reviewed all prompts, anchors, exclusions, and sources."
-```
-
-No one may run a command for another person. The helper refuses to overwrite an
-existing sign-off and always binds the decision to the current prompt, source,
-instruction, and model-artifact hashes.
+The legacy `scripts/create_signoff.py` helper may still be used if a named team
+member personally reviews the exact frozen bundle and wants to add an optional
+record. Nobody may run it for another person. These optional records do not
+replace or alter `protocol/freeze_manifest.json` and are not required by the
+joint AI-assisted collector.

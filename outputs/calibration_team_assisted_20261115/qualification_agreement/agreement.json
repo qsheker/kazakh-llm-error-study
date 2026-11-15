@@ -1,0 +1,40 @@
+{
+  "responses": 20,
+  "response_flags": {
+    "refusal": {
+      "agreement": 1.0,
+      "cohen_kappa": null
+    },
+    "off_task": {
+      "agreement": 1.0,
+      "cohen_kappa": 1.0
+    },
+    "requirement_missing": {
+      "agreement": 1.0,
+      "cohen_kappa": 1.0
+    },
+    "repetition": {
+      "agreement": 1.0,
+      "cohen_kappa": 1.0
+    },
+    "fabricated_specificity": {
+      "agreement": 1.0,
+      "cohen_kappa": 1.0
+    }
+  },
+  "category_presence": {
+    "agreement": 1.0,
+    "cohen_kappa": 1.0
+  },
+  "total_primary_count": {
+    "krippendorff_alpha_interval": 1.0
+  },
+  "exact_span_match": {
+    "matches": 21,
+    "rater_1_spans": 21,
+    "rater_2_spans": 21,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0
+  }
+}

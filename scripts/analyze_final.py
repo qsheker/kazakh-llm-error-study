@@ -6,6 +6,7 @@ import csv
 import itertools
 import json
 from collections import Counter, defaultdict
+from datetime import datetime
 from pathlib import Path
 
 import fasttext
@@ -20,6 +21,7 @@ from kazllm_eval.annotation import (
     RESPONSE_FLAGS,
     load_annotation_workbook,
     load_run_records,
+    validate_blinded_manifest,
 )
 from kazllm_eval.core import sha256_file, word_tokens
 from kazllm_eval.detectors import (
@@ -56,6 +58,14 @@ def write_csv(path: Path, headers: list[str], rows: list[dict]) -> None:
 def write_json(path: Path, value: dict | list) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def valid_review_timestamp(value: str) -> bool:
+    try:
+        parsed = datetime.fromisoformat(value)
+    except ValueError:
+        return False
+    return parsed.tzinfo is not None and parsed.utcoffset() is not None
 
 
 def stratified_model_interval(values: np.ndarray, strata: list[str], replicates: int, seed: int) -> tuple[float, float]:
@@ -204,30 +214,23 @@ def friedman_summary(matrix: np.ndarray, permutations: int, seed: int) -> dict[s
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Generate the frozen final statistical outputs from adjudicated labels.")
+    parser = argparse.ArgumentParser(description="Generate final statistics from the reviewed joint-team gold workbook.")
     parser.add_argument("--run-dir", type=Path, default=Path("runs/final_test_v2"))
     parser.add_argument("--mapping", type=Path, default=Path("data/blinding/private_model_key.csv"))
-    parser.add_argument("--responses", type=Path, default=Path("annotations/adjudicated/response_labels.csv"))
-    parser.add_argument("--events", type=Path, default=Path("annotations/adjudicated/error_events.csv"))
     parser.add_argument(
-        "--rater-1",
+        "--team-workbook",
         type=Path,
-        default=Path("annotations/rater_1/final_test_v2__rater_1.xlsx"),
+        default=Path("annotations/team_gold/final_test_v2__team_gold.xlsx"),
     )
     parser.add_argument(
-        "--rater-2",
+        "--blinded-manifest",
         type=Path,
-        default=Path("annotations/rater_2/final_test_v2__rater_2.xlsx"),
+        default=Path("annotations/final_test_v2__blinded_manifest.json"),
     )
     parser.add_argument(
-        "--response-disagreements",
+        "--review-log",
         type=Path,
-        default=Path("annotations/adjudication/response_disagreements.csv"),
-    )
-    parser.add_argument(
-        "--adjudication-log",
-        type=Path,
-        default=Path("annotations/adjudicated/adjudication_log.csv"),
+        default=Path("annotations/team_gold/team_review_log.csv"),
     )
     parser.add_argument("--exemptions", type=Path, default=Path("config/latin_exemptions.txt"))
     parser.add_argument("--lid-model", type=Path, default=Path("resources/lid.176.ftz"))
@@ -239,11 +242,9 @@ def main() -> int:
     resolve = lambda path: path if path.is_absolute() else root / path
     run_dir = resolve(args.run_dir)
     mapping_path = resolve(args.mapping)
-    responses_path = resolve(args.responses)
-    events_path = resolve(args.events)
-    rater_paths = [resolve(args.rater_1), resolve(args.rater_2)]
-    response_disagreements_path = resolve(args.response_disagreements)
-    adjudication_log_path = resolve(args.adjudication_log)
+    team_workbook_path = resolve(args.team_workbook)
+    blinded_manifest_path = resolve(args.blinded_manifest)
+    review_log_path = resolve(args.review_log)
     exemptions_path = resolve(args.exemptions)
     lid_path = resolve(args.lid_model)
     output = resolve(args.output)
@@ -279,9 +280,12 @@ def main() -> int:
         ):
             raise SystemExit(f"mapping does not match immutable receipt for {row['blind_id']}")
 
-    response_rows = read_csv(responses_path)
-    if len(response_rows) != 240 or {row["blind_id"] for row in response_rows} != set(mapping):
-        raise SystemExit("adjudicated response file must contain exactly the 240 mapped blind IDs")
+    team_workbook = load_annotation_workbook(team_workbook_path, expected_responses=240)
+    blinded_manifest = json.loads(blinded_manifest_path.read_text(encoding="utf-8"))
+    validate_blinded_manifest(team_workbook, blinded_manifest)
+    response_rows = list(team_workbook["responses"].values())
+    if {row["blind_id"] for row in response_rows} != set(mapping):
+        raise SystemExit("team gold workbook must contain exactly the 240 mapped blind IDs")
     response_labels = {row["blind_id"]: row for row in response_rows}
     for blind_id, row in response_labels.items():
         for flag in RESPONSE_FLAGS:
@@ -290,30 +294,27 @@ def main() -> int:
         if row["requirement_missing"] == "yes" and not row.get("missing_requirements", "").strip():
             raise SystemExit(f"{blind_id}: missing requirements must be named")
 
-    disagreement_rows = read_csv(response_disagreements_path)
-    expected_disagreements = {
-        (row["blind_id"], row["field"]): (row["rater_1"], row["rater_2"])
-        for row in disagreement_rows
-    }
-    log_rows = read_csv(adjudication_log_path)
-    logged_keys = set()
-    for row in log_rows:
-        key = (row.get("blind_id", ""), row.get("field", ""))
-        if row.get("scope") != "response" or key not in expected_disagreements or key in logged_keys:
-            raise SystemExit(f"invalid or duplicate response adjudication log row: {key}")
-        logged_keys.add(key)
-        if row.get("final_value") not in {"yes", "no"}:
-            raise SystemExit(f"{key}: adjudicated response value must be yes or no")
-        if not row.get("rationale", "").strip() or not row.get("adjudicator", "").strip():
-            raise SystemExit(f"{key}: adjudication rationale and adjudicator are required")
-        if response_labels[key[0]][key[1]] != row["final_value"]:
-            raise SystemExit(f"{key}: response label differs from adjudication log")
-        if (row.get("rater_1"), row.get("rater_2")) != expected_disagreements[key]:
-            raise SystemExit(f"{key}: adjudication log changed the original ratings")
-    if logged_keys != set(expected_disagreements):
-        raise SystemExit("adjudication log does not resolve every response-level disagreement")
+    review_rows = read_csv(review_log_path)
+    reviewers = set(protocol["team"])
+    if len(review_rows) != 240 or {row.get("blind_id") for row in review_rows} != set(mapping):
+        raise SystemExit("team review log must contain exactly one row for every blind ID")
+    assignment_counts = Counter(row.get("assigned_reviewer") for row in review_rows)
+    if set(assignment_counts) != reviewers or set(assignment_counts.values()) != {80}:
+        raise SystemExit("team review log must assign exactly 80 blind IDs to each team member")
+    for row in review_rows:
+        blind_id = row.get("blind_id", "")
+        if row.get("review_status") != "approved":
+            raise SystemExit(f"{blind_id}: review_status must be approved")
+        if row.get("reviewer") not in reviewers:
+            raise SystemExit(f"{blind_id}: reviewer must be a named team member")
+        if row.get("reviewer") != row.get("assigned_reviewer"):
+            raise SystemExit(f"{blind_id}: reviewer must match the balanced assignment")
+        if row.get("ai_assistance") not in {"yes", "no"}:
+            raise SystemExit(f"{blind_id}: ai_assistance must be yes or no")
+        if not valid_review_timestamp(row.get("reviewed_utc", "").strip()):
+            raise SystemExit(f"{blind_id}: reviewed_utc must be an ISO-8601 timestamp with timezone")
 
-    event_rows = read_csv(events_path)
+    event_rows = team_workbook["events"]
     event_counts = defaultdict(Counter)
     event_ids = set()
     for row in event_rows:
@@ -347,8 +348,6 @@ def main() -> int:
             raise SystemExit(f"{blind_id}: final event requires correction and annotation rationale")
         if row.get("needs_adjudication") != "no":
             raise SystemExit(f"{blind_id}: final event still needs adjudication")
-        if not row.get("adjudicator") or not row.get("adjudication_rationale"):
-            raise SystemExit(f"{blind_id}: every final event requires adjudicator and rationale")
         event_counts[blind_id][category] += 1
 
     metrics = []
@@ -639,28 +638,6 @@ def main() -> int:
         ],
         dtype=float,
     )
-    rater_sensitivity = {}
-    for rater_index, rater_path in enumerate(rater_paths, start=1):
-        workbook = load_annotation_workbook(rater_path, expected_responses=240)
-        if set(workbook["responses"]) != set(mapping):
-            raise SystemExit(f"rater {rater_index} workbook does not match the frozen blind IDs")
-        counts: dict[str, Counter] = defaultdict(Counter)
-        for event in workbook["events"]:
-            counts[event["blind_id"]][event["category"]] += 1
-        rater_matrix, _ = matrix_from_event_counts(counts, mapping, by_private, model_order)
-        rater_sensitivity[f"rater_{rater_index}"] = {
-            "workbook_sha256": workbook["sha256"],
-            **friedman_summary(
-                rater_matrix,
-                permutations=permutations,
-                seed=seed + 900 + rater_index,
-            ),
-            "model_mean_response_rates": {
-                model: float(np.mean(rater_matrix[:, model_index]))
-                for model_index, model in enumerate(model_order)
-            },
-        }
-
     sensitivity = {
         "exclude_truncated": friedman_summary(
             nontruncated_matrix,
@@ -672,7 +649,6 @@ def main() -> int:
             permutations=permutations,
             seed=seed + 902,
         ),
-        "pre_adjudication_raters": rater_sensitivity,
         "model_by_task_difference_in_differences": model_task_interactions,
     }
 
@@ -726,12 +702,9 @@ def main() -> int:
         {
             "run_manifest": sha256_file(run_dir / "manifest.json"),
             "private_mapping": sha256_file(mapping_path),
-            "response_labels": sha256_file(responses_path),
-            "error_events": sha256_file(events_path),
-            "adjudication_log": sha256_file(adjudication_log_path),
-            "response_disagreements": sha256_file(response_disagreements_path),
-            "rater_1_workbook": sha256_file(rater_paths[0]),
-            "rater_2_workbook": sha256_file(rater_paths[1]),
+            "team_gold_workbook": sha256_file(team_workbook_path),
+            "blinded_manifest": sha256_file(blinded_manifest_path),
+            "team_review_log": sha256_file(review_log_path),
             "exemptions": sha256_file(exemptions_path),
             "lid_model": sha256_file(lid_path),
         },

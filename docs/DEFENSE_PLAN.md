@@ -9,21 +9,21 @@ identical.
 
 | Person | Owns before the defense | Must be able to defend | Evidence |
 |---|---|---|---|
-| Aldiyar Zhaksylyk | Local model execution, frozen artifacts, data provenance, repository, reproducibility, blinded adjudication | Why the four artifacts are comparable enough; request controls; freeze and recovery rules; why no failed or ugly response was regenerated; adjudication without detector leakage | Model digests, environment receipt, raw request receipts, freeze manifest, adjudication log, clean reproduction |
-| Yerkebulan Rakhymbay | Complete independent Rater 1 labels, tests, statistical analysis and interpretation | Primary endpoint; Friedman permutation test; Kendall's W; Pratt pairwise tests with Holm correction; bootstrap intervals; missing/zero-word handling; difference between confirmatory H1/H2 and exploratory H3/H4 | Original hashed Rater 1 workbook, test runs, generated tables/figures, analysis review record |
-| Iliyas Aitzhan | Complete independent Rater 2 labels, manuscript integration, numerical consistency, journal fit and final QA | Annotation rules and disagreements; why TALLIP fits; how every number traces to generated outputs; limitations; data/ethics statement; reference and template compliance | Original hashed Rater 2 workbook, manuscript review checklist, consistency audit, journal/template record |
+| Aldiyar Zhaksylyk | Local model execution, frozen artifacts, data provenance, repository, reproducibility and final audit | Why the four artifacts are comparable enough; request controls; freeze and recovery rules; why no failed or ugly response was regenerated; truthful AI-assisted provenance | Model digests, environment receipt, raw request receipts, freeze manifest, authorization disclosure, clean reproduction |
+| Yerkebulan Rakhymbay | Tests, team-label quality control, statistical analysis and interpretation | Primary endpoint; Friedman permutation test; Kendall's W; Pratt pairwise tests with Holm correction; bootstrap intervals; missing/zero-word handling; why joint review has no independent-rater reliability estimate | Team review rows, test runs, generated tables/figures, analysis review record |
+| Iliyas Aitzhan | Team-gold and manuscript integration, numerical consistency, journal fit and final QA | Annotation rules; why TALLIP fits; how every number traces to generated outputs; limitations; data/ethics statement; reference and template compliance | Team-gold integration record, manuscript review checklist, consistency audit, journal/template record |
 
 Each member owns one indispensable evidence chain. Removing any one chain makes
 the final conclusions invalid: no reproducible observations without Aldiyar, no
-independent statistical claim without Yerkebulan, and no second rating or
-integrated research report without Iliyas.
+validated statistical claim without Yerkebulan, and no integrated research
+report without Iliyas.
 
 ## Speaking order (10-minute version)
 
 1. **Aldiyar, 0:00–3:20** — problem, research questions, frozen design, models,
    Mac execution, provenance safeguards.
 2. **Yerkebulan, 3:20–6:40** — outcome definitions, annotation-derived counts,
-   agreement, statistical tests, main tables and effect sizes.
+   gold-label QA, statistical tests, main tables and effect sizes.
 3. **Iliyas, 6:40–10:00** — integrated findings, error examples, limitations,
    journal fit, reproducibility/data statement, conclusion.
 
@@ -46,8 +46,8 @@ limitation, and why no result was fabricated.
   the accounted-for total contains any explicit failures.
 - The team can state that the old three-response evidence is a pilot artifact,
   not part of the confirmatory test set.
-- Nobody claims independent annotation until the two original workbooks exist,
-  are frozen, and their hashes are recorded.
+- Nobody describes the joint AI-assisted gold set or duplicated calibration
+  files as independent human annotation.
 
 ## Likely hostile questions
 

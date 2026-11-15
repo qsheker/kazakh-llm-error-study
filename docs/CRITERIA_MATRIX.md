@@ -9,7 +9,7 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 | Final manuscript in target template | Official-template review draft implemented; results gated | `deliverables/Kazakh_LLM_Study_ACM_Submission.docx`; controlled manuscript transferred into the official one-column ACM Word style set, 4,500–7,500-word core range, 28 references, declarations, numbered table captions and appendices. Replace the Results contract only with generated evidence. |
 | Journal Fit Statement (Appendix A) | Implemented | `docs/JOURNAL_FIT_STATEMENT.md`; primary and backup titles, ISSNs, Scopus records, metrics, official URLs, integrity checks, recent related papers, policies and decision. Human authors must read the three cited TALLIP papers. |
 | One-page cover letter | Implemented as controlled draft | `deliverables/Cover_Letter_TALLIP.docx`; one page and visibly marked not to submit before the evidence gate. |
-| Repository and release tag `final` | Repository implemented; tag intentionally blocked | Code, tests, environment, model and resource provenance are present. Creating `final` before 240 accounted requests, two frozen ratings, adjudication, reproduction and approvals would violate the criterion. |
+| Repository and release tag `final` | Repository implemented; tag intentionally blocked | Code, tests, environment, model and resource provenance are present. Creating `final` before 240 accounted requests, reviewed team gold, reproduction and approvals would violate the criterion. |
 | Presentation PDF, 8–12 slides | Implemented, final results gated | `output/pdf/Kazakh_LLM_Defense_Deck.pdf`; 10 visually checked slides. Generated result slides must replace the evidence-gate framing after analysis. |
 | Submission Readiness Checklist (Appendix B) | Implemented, unchecked honestly | `docs/RELEASE_CHECKLIST.md` and manuscript Appendix B. Boxes remain open until evidence exists. |
 
@@ -19,8 +19,8 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 |---|---:|---|---|
 | A1. Title, abstract, introduction, contributions | 8 | Structure met; quantitative abstract result blocked | Specific nine-word title; 200–250-word abstract; explicit RQs/H1–H4; four enumerated contributions. Final quantitative result and conclusion require generated tables. |
 | A2. Related work | 7 | Implemented; author reading verification pending | Thematic synthesis, closest-study comparison table, explicit gap, 28 references, and three recent TALLIP papers. Each human author must actually read and verify the sources sampled by the instructor. |
-| A3. Materials and methods | 10 | Implemented and machine-tested; human qualification pending | Balanced 60-prompt design; exact four artifacts; frozen controls; failure/retry rules; two-rater blinding; adjudication; endpoint; permutation Friedman, Kendall’s W, Pratt-Holm comparisons and clustered bootstrap; ethics and reproducibility settings. The retained 80-response dev run and four blinded 12/20 calibration workbooks are ready for the two raters. |
-| A4. Results | 12 | Blocked by genuine missing observations | No 240-response test collection, two independent human label files or adjudicated gold file exists. The reporting contract and analysis code are ready; inventing numbers would trigger the course zero rule. |
+| A3. Materials and methods | 10 | Frozen and machine-tested | Balanced 60-prompt design; exact four artifacts; frozen controls; failure/retry rules; joint blinded AI-assisted review with explicit provenance; endpoint; permutation Friedman, Kendall’s W, Pratt-Holm comparisons and clustered bootstrap; ethics and reproducibility settings. The retained 80-response dev run and completed 12/20 team-assisted calibration files are rubric/schema evidence, not reliability evidence. |
+| A4. Results | 12 | Collection in progress; labels/results pending | The locked 240-response collection is running. A reviewed 240-response team-gold workbook and generated statistics are still required; no duplicated team files will be reported as independent human ratings. |
 | A5. Discussion and conclusion | 8 | Limitations implemented; final interpretation blocked | Threats to validity, unequal model sizes/templates, purposeful sampling, imperfect blinding, detector limitations and no-overclaim rule are present. Comparison with observed findings waits for A4. |
 | A6. Academic writing and formatting | 5 | Official-template review draft implemented; institutional checks pending | Academic English, official one-column ACM Word styles, 28 DOI/URL-backed references, numbered and text-cited tables, full 16-page visual DOCX QA and accessibility audit with zero findings. University similarity report and personal source-reading declarations are human/institutional steps. |
 | B. Journal fit and cover letter | 5 | Implemented with time-sensitive recheck | TALLIP primary and LRE backup verified; scope decision, recent articles, policies and one-page draft letter supplied. Scopus/policy/APC facts must be rechecked at actual submission. |
@@ -38,16 +38,14 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 - Declarations: data/code availability, CRediT, AI use, funding, conflicts and ethics.
 - References: 28 entries; more than half are from 2021–2026 after addition of three 2025 TALLIP articles.
 - Presentation: 10 pages/slides, within the required 8–12 range.
-- Three-person exception: the README and defense plan record the instructor-approved exception; retain the instructor’s written approval with the submission package.
+- Three-person exception: the README and defense plan record the coordinator-reported instructor approval. No written evidence is currently attached; add it to the submission package if it exists.
 
-## Irreducible human completion sequence
+## Remaining completion sequence
 
-1. All three authors verify the 60 populated reference cards and sign one freeze hash bundle with `scripts/create_signoff.py`.
-2. Yerkebulan and Iliyas independently complete the supplied training and qualification workbooks and pass all four frozen qualification thresholds.
-3. Aldiyar runs the locked collector once for all 240 model-prompt pairs and resolves any ambiguous timeout by the documented rule, never by quality-based regeneration.
-4. Yerkebulan and Iliyas independently annotate every blinded response and freeze/hash their original files.
-5. Aldiyar adjudicates disagreements while model labels and detector candidates remain hidden; freeze the gold file, then open the key.
-6. Generate accounting, agreement, model, pairwise, sensitivity and detector outputs; propagate them mechanically into manuscript and slides; audit every repeated number.
-7. All authors personally verify references, approve the manuscript, complete the similarity check and obtain the institution/instructor ethics determination.
-8. A person outside the team reproduces the Results from the README on the documented Mac environment.
-9. The public GitHub remote now exists; after the evidence gate, create the release archive, run the secret/licence audit, record the release URL, and only then create the signed `final` release tag.
+1. Complete the locked 240-request collection and resolve any ambiguous timeout by the documented rule, never by quality-based regeneration.
+2. Build one blinded joint-team workbook; use AI only for disclosed drafts and checks.
+3. Review and resolve every response/event, record one real responsible team member per blind ID, then freeze/hash the workbook and review log.
+4. Generate model, pairwise, sensitivity and detector outputs; propagate them mechanically into manuscript and slides; audit every repeated number.
+5. All authors personally verify references, approve the manuscript, complete the similarity check and obtain the institution/instructor ethics determination.
+6. A person outside the team reproduces the Results from the README on the documented Mac environment.
+7. After the evidence gate, create the release archive, run the secret/licence audit, record the release URL, and only then create the signed `final` release tag.

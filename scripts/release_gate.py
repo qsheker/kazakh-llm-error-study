@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import csv
 import json
 import re
 import subprocess
 import sys
 import zipfile
+from collections import Counter
+from datetime import datetime
 from pathlib import Path
 
-from kazllm_eval.annotation import (
-    annotation_agreement,
-    load_annotation_workbook,
-    validate_blinded_manifest,
-)
+from kazllm_eval.annotation import load_annotation_workbook, validate_blinded_manifest
 from kazllm_eval.core import sha256_file
 
 
@@ -36,19 +35,26 @@ def docx_text(path: Path) -> str:
     return " ".join(document_xml.replace("</w:p>", "\n").split())
 
 
-def qualification_thresholds_passed(agreement: dict) -> bool:
-    category = agreement.get("category_presence", {})
-    alpha = agreement.get("total_primary_count", {}).get("krippendorff_alpha_interval")
-    span_f1 = agreement.get("exact_span_match", {}).get("f1")
-    kappa = category.get("cohen_kappa")
+def pdf_page_count(path: Path) -> int:
+    if not path.exists():
+        return 0
+    return len(re.findall(rb"/Type\s*/Page(?!s)\b", path.read_bytes()))
+
+
+def joint_calibration_provenance_valid(text: str) -> bool:
+    normalized = " ".join(text.lower().split())
     return (
-        float(category.get("agreement", -1)) >= 0.80
-        and (kappa is None or float(kappa) >= 0.60)
-        and alpha is not None
-        and float(alpha) >= 0.67
-        and span_f1 is not None
-        and float(span_f1) >= 0.60
+        "совместная командная разметка" in normalized
+        and "нельзя описывать как две независимые человеческие разметки" in normalized
     )
+
+
+def valid_review_timestamp(value: str) -> bool:
+    try:
+        parsed = datetime.fromisoformat(value)
+    except ValueError:
+        return False
+    return parsed.tzinfo is not None and parsed.utcoffset() is not None
 
 
 def main() -> int:
@@ -62,10 +68,17 @@ def main() -> int:
     protocol = load_json(protocol_path)
     freeze_path = root / "protocol/freeze_manifest.json"
     freeze = load_json(freeze_path) if freeze_path.exists() else {}
+    authorization_path = root / protocol["annotation"]["authorization_path"]
+    authorization_matches = (
+        authorization_path.exists()
+        and freeze.get("authorization_sha256") == sha256_file(authorization_path)
+    )
     check(
         "protocol freeze",
-        protocol.get("status") == "frozen_three_person_signoff" and freeze.get("status") == "frozen_three_person_signoff",
-        "requires the three personal sign-offs and freeze manifest",
+        protocol.get("status") == "frozen_joint_ai_assisted_coordinator_confirmed"
+        and freeze.get("status") == "frozen_joint_ai_assisted_coordinator_confirmed"
+        and authorization_matches,
+        "requires the frozen joint AI-assisted protocol and coordinator authorization record",
     )
     exemptions_path = root / protocol["analysis"]["latin_exemptions_path"]
     exemptions_text = exemptions_path.read_text(encoding="utf-8") if exemptions_path.exists() else "REVIEW_REQUIRED"
@@ -89,6 +102,7 @@ def main() -> int:
     )
 
     calibration_dir = root / "annotations/calibration/dev_calibration_v2"
+    completed_calibration_dir = root / "outputs/calibration_team_assisted_20261115"
     calibration_valid = False
     calibration_detail = "training or qualification files are incomplete"
     try:
@@ -96,15 +110,16 @@ def main() -> int:
         qualification_manifest = load_json(calibration_dir / "qualification_blinded_manifest.json")
         training = [
             load_annotation_workbook(
-                calibration_dir / f"rater_{rater}/dev_calibration_v2__training__rater_{rater}.xlsx",
+                completed_calibration_dir
+                / f"dev_calibration_v2__training__rater_{rater}__completed_team_assisted.xlsx",
                 expected_responses=12,
             )
             for rater in (1, 2)
         ]
         qualification = [
             load_annotation_workbook(
-                calibration_dir
-                / f"rater_{rater}/dev_calibration_v2__qualification__rater_{rater}.xlsx",
+                completed_calibration_dir
+                / f"dev_calibration_v2__qualification__rater_{rater}__completed_team_assisted.xlsx",
                 expected_responses=20,
             )
             for rater in (1, 2)
@@ -113,47 +128,68 @@ def main() -> int:
             validate_blinded_manifest(workbook, training_manifest)
         for workbook in qualification:
             validate_blinded_manifest(workbook, qualification_manifest)
-        qualification_agreement = annotation_agreement(*qualification)
         calibration_valid = (
-            training[0]["sha256"] != training[1]["sha256"]
-            and qualification[0]["sha256"] != qualification[1]["sha256"]
-            and qualification_thresholds_passed(qualification_agreement)
+            all(item["sha256"] for item in training + qualification)
+            and joint_calibration_provenance_valid(
+                (completed_calibration_dir / "PROVENANCE_AND_USE_RU.md").read_text(
+                    encoding="utf-8"
+                )
+            )
         )
-        calibration_detail = json.dumps(qualification_agreement, ensure_ascii=False, sort_keys=True)
+        calibration_detail = "four source-bound team-assisted workbooks; no reliability claim"
     except (FileNotFoundError, KeyError, TypeError, ValueError, OSError) as exc:
         calibration_detail = str(exc)
-    check("two-rater calibration qualification", calibration_valid, calibration_detail)
+    check("team-assisted calibration package", calibration_valid, calibration_detail)
 
-    rater_paths = {
-        "rater 1": root / "annotations/rater_1/final_test_v2__rater_1.xlsx",
-        "rater 2": root / "annotations/rater_2/final_test_v2__rater_2.xlsx",
-    }
+    team_workbook_path = root / "annotations/team_gold/final_test_v2__team_gold.xlsx"
+    review_log_path = root / "annotations/team_gold/team_review_log.csv"
     final_blinded_manifest_path = root / "annotations/final_test_v2__blinded_manifest.json"
     final_blinded_manifest = load_json_or_empty(final_blinded_manifest_path)
-    loaded_raters = {}
-    for name, path in rater_paths.items():
-        detail = str(path.relative_to(root))
-        try:
-            loaded = load_annotation_workbook(path, expected_responses=240)
-            validate_blinded_manifest(loaded, final_blinded_manifest)
-            loaded_raters[name] = loaded
-            passed = True
-        except (FileNotFoundError, KeyError, TypeError, ValueError, OSError) as exc:
-            passed = False
-            detail = str(exc)
-        check(f"{name} original valid and source-bound", passed, detail)
-    check(
-        "rater files differ",
-        len(loaded_raters) == 2
-        and loaded_raters["rater 1"]["sha256"] != loaded_raters["rater 2"]["sha256"],
-        "independent originals must exist and have different hashes",
-    )
+    team_gold_valid = False
+    team_gold_detail = str(team_workbook_path.relative_to(root))
+    try:
+        team_gold = load_annotation_workbook(team_workbook_path, expected_responses=240)
+        validate_blinded_manifest(team_gold, final_blinded_manifest)
+        review_rows = list(csv.DictReader(review_log_path.open(encoding="utf-8-sig", newline="")))
+        team_names = set(protocol["team"])
+        assignment_counts = Counter(row.get("assigned_reviewer") for row in review_rows)
+        team_gold_valid = (
+            len(review_rows) == 240
+            and {row.get("blind_id") for row in review_rows} == set(team_gold["responses"])
+            and set(assignment_counts) == team_names
+            and set(assignment_counts.values()) == {80}
+            and all(row.get("review_status") == "approved" for row in review_rows)
+            and all(row.get("reviewer") in team_names for row in review_rows)
+            and all(
+                row.get("reviewer") == row.get("assigned_reviewer") for row in review_rows
+            )
+            and all(row.get("ai_assistance") in {"yes", "no"} for row in review_rows)
+            and all(valid_review_timestamp(row.get("reviewed_utc", "")) for row in review_rows)
+            and all(
+                response.get(flag) in {"yes", "no"}
+                for response in team_gold["responses"].values()
+                for flag in (
+                    "refusal",
+                    "off_task",
+                    "requirement_missing",
+                    "repetition",
+                    "fabricated_specificity",
+                )
+            )
+            and all(
+                response.get("requirement_missing") != "yes"
+                or str(response.get("missing_requirements") or "").strip()
+                for response in team_gold["responses"].values()
+            )
+            and all(event.get("needs_adjudication") == "no" for event in team_gold["events"])
+        )
+    except (FileNotFoundError, KeyError, TypeError, ValueError, OSError) as exc:
+        team_gold_detail = str(exc)
+    check("reviewed joint-team gold is valid and source-bound", team_gold_valid, team_gold_detail)
 
     required_files = {
-        "pre-adjudication agreement": root / "annotations/adjudication/agreement.json",
-        "adjudicated response labels": root / "annotations/adjudicated/response_labels.csv",
-        "adjudicated error events": root / "annotations/adjudicated/error_events.csv",
-        "adjudication log": root / "annotations/adjudicated/adjudication_log.csv",
+        "joint-team gold workbook": team_workbook_path,
+        "team review log": review_log_path,
         "final analysis summary": root / "results/derived/final_test_v2/summary.json",
         "detector analysis": root / "results/derived/final_test_v2/detector_metrics.json",
         "sensitivity analysis": root / "results/derived/final_test_v2/sensitivity.json",
@@ -162,7 +198,7 @@ def main() -> int:
         "primary results figure": root / "results/derived/final_test_v2/model_error_rates.png",
         "similarity report": root / "evidence/similarity_report.pdf",
         "ethics determination": root / "evidence/ethics_determination.pdf",
-        "three-person exception proof": root / "evidence/three_person_team_approval.pdf",
+        "coordinator-reported instructor permission": root / "protocol/team_authorization.json",
     }
     for name, path in required_files.items():
         check(name, path.exists() and path.stat().st_size > 0, str(path.relative_to(root)))
@@ -183,10 +219,11 @@ def main() -> int:
         str(cover_path.relative_to(root)),
     )
     deck_path = root / "output/pdf/Kazakh_LLM_Defense_Deck.pdf"
+    deck_pages = pdf_page_count(deck_path)
     check(
         "final presentation PDF",
-        deck_path.exists() and deck_path.stat().st_size > 0,
-        str(deck_path.relative_to(root)),
+        deck_path.exists() and deck_path.stat().st_size > 0 and 8 <= deck_pages <= 12,
+        f"{deck_path.relative_to(root)}; pages={deck_pages}",
     )
 
     team_names = {"Aldiyar Zhaksylyk", "Yerkebulan Rakhymbay", "Iliyas Aitzhan"}

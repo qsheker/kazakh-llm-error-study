@@ -4,8 +4,8 @@
 - [ ] Four model digests, templates, Ollama version, Mac hardware, and package lock are recorded.
 - [ ] Exactly 240 completed or explicitly failed test requests are accounted for.
 - [ ] No quality-based regeneration occurred; ambiguous timeouts have documented resolutions.
-- [ ] Two independent original annotation files are hashed and immutable.
-- [ ] Pre-adjudication agreement and all adjudication rationales are available.
+- [ ] One reviewed joint-team gold workbook and its 240-row review log are hashed and immutable.
+- [ ] AI assistance is disclosed; no duplicated team file is described as independent human reliability evidence.
 - [ ] Every manuscript table and figure is reproduced from immutable inputs.
 - [ ] H1–H2 and H3–H4 are reported with their frozen confirmatory/exploratory status.
 - [ ] Limitations disclose unequal model sizes/templates, purposeful prompts, one local quantized artifact per family, and imperfect stylistic blinding.

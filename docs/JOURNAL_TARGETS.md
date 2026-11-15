@@ -13,8 +13,9 @@ used as research outcomes.
 - Highest percentile: 73%, rank 65/241 in General Computer Science
 - Publisher: Association for Computing Machinery
 - Fit: direct. The study evaluates generation quality for Kazakh, an Asian and
-  low-resource language, and contributes a frozen prompt set, independent human
-  annotation, error analysis, and reproducible local inference receipts.
+  low-resource language, and contributes a frozen prompt set, disclosed
+  joint-team AI-assisted annotation, error analysis, and reproducible local
+  inference receipts.
 - Journal: <https://dl.acm.org/journal/tallip>
 - Author guidelines: <https://dl.acm.org/journal/tallip/author-guidelines>
 - Scopus record: <https://www.scopus.com/sourceid/21100784666>
@@ -35,7 +36,7 @@ guidelines because policies can change.
 - Highest percentile: 95%, rank 55/1137 in Language and Linguistics
 - Publisher: Springer Nature
 - Fit: credible if the manuscript foregrounds the test resource, annotation
-  protocol, gold error spans, agreement, and released reproducibility assets.
+  protocol, reviewed gold error spans, provenance limitations, and released reproducibility assets.
   It is a weaker fit than TALLIP if framed mainly as a model leaderboard.
 - Journal: <https://link.springer.com/journal/10579>
 - Submission guidelines:
