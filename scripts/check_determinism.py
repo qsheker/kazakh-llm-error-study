@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from kazllm_eval.core import read_csv, write_json
@@ -30,7 +30,7 @@ def main() -> int:
     hashes = [hashlib.sha256(text.encode()).hexdigest() for text in texts]
     receipt = {
         "purpose": "dev-only repeated-request determinism check",
-        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "created_utc": datetime.now(UTC).isoformat(),
         "model": model,
         "prompt": prompt,
         "request": payload,

@@ -4,7 +4,7 @@ from __future__ import annotations
 import hashlib
 import json
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from kazllm_eval.core import read_csv, word_tokens, write_json
@@ -49,7 +49,7 @@ def main() -> int:
         print(model["ollama_tag"], len(word_tokens(text)), response.get("done_reason"), flush=True)
     receipt = {
         "purpose": "technical dev-only smoke test; excluded from final results and calibration unless separately selected",
-        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "created_utc": datetime.now(UTC).isoformat(),
         "prompt": prompt,
         "snapshot": snapshot,
         "outputs": outputs,

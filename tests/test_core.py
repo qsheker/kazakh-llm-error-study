@@ -1,8 +1,12 @@
 import json
 from pathlib import Path
 
-from kazllm_eval.core import prompt_similarity, sha256_file, validate_test_prompts, word_tokens
-
+from kazllm_eval.core import (
+    prompt_similarity,
+    sha256_file,
+    validate_test_prompts,
+    word_tokens,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 

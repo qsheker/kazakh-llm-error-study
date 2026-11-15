@@ -5,9 +5,10 @@ import hashlib
 import json
 import re
 from collections import Counter, defaultdict
+from collections.abc import Iterable
 from difflib import SequenceMatcher
 from pathlib import Path
-from typing import Any, Iterable
+from typing import Any
 
 WORD_RE = re.compile(r"[^\W\d_]+(?:[-'’][^\W\d_]+)*", re.UNICODE)
 

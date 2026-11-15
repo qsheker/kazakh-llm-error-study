@@ -8,7 +8,7 @@ import shutil
 import subprocess
 import sys
 import urllib.request
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from kazllm_eval.core import write_json
@@ -25,7 +25,7 @@ def ollama_json(path: str):
     try:
         with urllib.request.urlopen("http://127.0.0.1:11434" + path, timeout=10) as response:
             return json.load(response)
-    except Exception as exc:
+    except (OSError, ValueError) as exc:
         return {"unavailable": f"{type(exc).__name__}: {exc}"}
 
 
@@ -54,7 +54,7 @@ def main() -> int:
             packages[name] = None
     disk = shutil.disk_usage(root)
     receipt = {
-        "captured_utc": datetime.now(timezone.utc).isoformat(),
+        "captured_utc": datetime.now(UTC).isoformat(),
         "platform": {
             "system": platform.system(),
             "release": platform.release(),

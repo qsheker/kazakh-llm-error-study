@@ -1,5 +1,7 @@
 # Kazakh LLM Error Study
 
+[![CI](https://github.com/qsheker/kazakh-llm-error-study/actions/workflows/ci.yml/badge.svg)](https://github.com/qsheker/kazakh-llm-error-study/actions/workflows/ci.yml)
+
 Reproducible local comparison of four Q4_K_M language-model configurations on 60 Kazakh prompts (30 educational and 30 public-information prompts).
 
 ## Current status

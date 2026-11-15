@@ -4,10 +4,16 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
-from kazllm_eval.core import canonical_json, read_csv, sha256_file, validate_test_prompts, write_json
+from kazllm_eval.core import (
+    canonical_json,
+    read_csv,
+    sha256_file,
+    validate_test_prompts,
+    write_json,
+)
 
 EXPECTED_SIGNERS = {
     "aldiyar": "Aldiyar Zhaksylyk",
@@ -99,7 +105,7 @@ def main() -> int:
     write_json(protocol_path, protocol)
     manifest = {
         **report,
-        "frozen_utc": datetime.now(timezone.utc).isoformat(),
+        "frozen_utc": datetime.now(UTC).isoformat(),
         "status": "frozen_three_person_signoff",
         "protocol_sha256": sha256_file(protocol_path),
     }

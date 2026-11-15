@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 import shutil
 import subprocess
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from huggingface_hub import hf_hub_download
@@ -52,7 +52,7 @@ def main() -> int:
         check=True,
     )
     receipt = {
-        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "created_utc": datetime.now(UTC).isoformat(),
         "repository": source["repository"],
         "revision": source["revision"],
         "filename": source["filename"],

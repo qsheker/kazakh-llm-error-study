@@ -5,17 +5,18 @@ import json
 import time
 import urllib.error
 import urllib.request
-from datetime import datetime, timezone
+from collections.abc import Callable
+from datetime import UTC, datetime
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
-from .core import canonical_json, read_csv, sha256_file, stable_shuffle, write_json
+from .core import canonical_json, sha256_file, stable_shuffle, write_json
 
 Client = Callable[[str, dict[str, Any] | None, int], dict[str, Any]]
 
 
 def utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat()
+    return datetime.now(UTC).isoformat()
 
 
 def api_client(base_url: str) -> Client:

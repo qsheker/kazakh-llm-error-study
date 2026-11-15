@@ -6,7 +6,13 @@ import json
 import re
 from pathlib import Path
 
-from kazllm_eval.core import canonical_json, read_csv, sha256_file, validate_test_prompts, write_json
+from kazllm_eval.core import (
+    canonical_json,
+    read_csv,
+    sha256_file,
+    validate_test_prompts,
+    write_json,
+)
 from kazllm_eval.ollama import (
     api_client,
     build_manifest,

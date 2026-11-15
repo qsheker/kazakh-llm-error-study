@@ -2,12 +2,12 @@ from __future__ import annotations
 
 import re
 import unicodedata
+from collections.abc import Callable, Iterable
 from dataclasses import dataclass
-from typing import Callable, Iterable
 
 import numpy as np
 
-from .core import WORD_RE, word_tokens
+from .core import word_tokens
 
 
 def contains_latin(token: str) -> bool:
