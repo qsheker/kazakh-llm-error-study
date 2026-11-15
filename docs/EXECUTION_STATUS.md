@@ -26,6 +26,13 @@ Snapshot: 2026-11-15, Asia/Almaty.
 - Added and tested prompt validation, fail-closed collection, request receipts,
   annotation workbook handling, detectors, and frozen statistical procedures.
 - Verified the primary and backup journals in the live Scopus Sources interface.
+- Built and visually checked the 15-page manuscript container, one-page
+  controlled-draft cover letter, and 10-slide defense PDF. Both Word files pass
+  the automated accessibility audit with zero high, medium, or low findings;
+  their ZIP containers are valid. These artifacts intentionally report the
+  executed readiness evidence but no fabricated confirmatory result.
+- Re-ran all 16 repository tests, the 60-prompt protocol validator, and the
+  four-model Ollama preflight on this Mac on 2026-11-15.
 
 ## Intentionally blocked
 
@@ -35,9 +42,15 @@ Snapshot: 2026-11-15, Asia/Almaty.
    resolved. The collector enforces this boundary.
 3. **Independent labels.** Yerkebulan and Iliyas must personally produce their
    two complete annotation files. The repository must not synthesize them.
-4. **Final results/manuscript/slides.** These depend on immutable test receipts,
-   two frozen ratings, adjudication, and generated statistics. No placeholder is
+4. **Final results and result-bearing submission revision.** The submission
+   containers exist, but their quantitative Results, final abstract conclusion,
+   result slides, and release metadata depend on immutable test receipts, two
+   frozen ratings, adjudication, and generated statistics. No placeholder is
    represented as an observed result.
+5. **External gates.** The official journal-template transfer, personal source
+   reading, ethics determination, university similarity report, outside-team
+   reproduction, GitHub remote/release URL, and all-author approval remain
+   human or institutional actions.
 
 ## Next executable sequence
 

@@ -16,6 +16,7 @@ data/blinding/private_model_key.csv
 # annotation workbooks are research evidence and are intentionally tracked.
 results/docx_qa/
 results/tmp/
+tmp/
 
 # Local interview checkpoint with machine-specific source paths
 plans/_draft/

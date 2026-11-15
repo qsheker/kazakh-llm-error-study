@@ -15,6 +15,9 @@ This repository is a clean rebuild. It does **not** claim to recover the histori
 - Final 240 test responses: not collected yet.
 - Independent human labels: not collected yet.
 - Confirmatory results: unavailable until collection, two independent ratings, and adjudication are complete.
+- Submission artifacts: an ACM-style integrated manuscript, draft cover letter,
+  10-slide defense PDF, journal-fit statement and criteria matrix are built and
+  visually checked. They deliberately contain no invented inferential result.
 
 Read `docs/EXECUTION_STATUS.md` for the exact completed/blocked boundary. The
 repository deliberately fails closed: it cannot collect the test set until the
@@ -22,6 +25,28 @@ prompt cards, three signoffs, model-artifact manifest, and freeze manifest all
 agree.
 
 Historical assignments are retained under `docs/archive/` as provenance, not as executable evidence for the final results.
+
+## Submission artifacts
+
+- `deliverables/Kazakh_LLM_Study_Manuscript.docx` — integrated ACM-style
+  manuscript with declarations and appendices.
+- `deliverables/Cover_Letter_TALLIP.docx` — one-page draft cover letter; the
+  red warning must be removed only after the final evidence gate passes.
+- `output/pdf/Kazakh_LLM_Defense_Deck.pdf` — 10-slide defense deck.
+- `docs/JOURNAL_FIT_STATEMENT.md` — completed primary/backup journal record.
+- `docs/CRITERIA_MATRIX.md` — criterion-by-criterion status and evidence map.
+
+Rebuild the two Word artifacts with:
+
+```bash
+.venv/bin/python scripts/build_manuscript.py
+.venv/bin/python scripts/build_cover_letter.py
+```
+
+`scripts/build_defense_pdf.py` packages the ten slide PNG exports from the live
+presentation workspace into the canonical PDF. The reviewed PDF is committed;
+the script requires an explicit export directory and output path so it cannot
+silently package stale slides.
 
 ## Team and accountable work
 
@@ -113,8 +138,15 @@ Yerkebulan and Iliyas must independently annotate all 240 blinded test responses
 
 ## Reproducing results
 
-The final release will expose a single reproduction command after the 240 receipts and adjudicated labels exist. Until then, any generated table is a readiness artifact, not a final result. `final` must not be tagged before all checks in `docs/RELEASE_CHECKLIST.md` pass.
+The final release will expose a single reproduction command after the 240 receipts and adjudicated labels exist. Until then, any generated table is a readiness artifact, not a final result. `final` must not be tagged before all checks in `docs/RELEASE_CHECKLIST.md` pass. The manuscript and deck are therefore final-quality containers, not false claims that the human study is already complete.
 
 ## Ethics and data statement
 
 The study evaluates locally generated text and does not intentionally collect external participant data or personal information. The three annotators are the authors. No formal ethics approval or exemption has been evidenced in the supplied materials; the manuscript must state this accurately and the team must confirm institutional requirements with the instructor before submission.
+
+## Licences
+
+Project software is MIT-licensed. Project-authored prompts, protocols and
+documentation are CC BY 4.0. Third-party resources, archived coursework and
+model artifacts retain their original terms; see `DATA_LICENSE.md` and
+`resources/PROVENANCE.md`.
