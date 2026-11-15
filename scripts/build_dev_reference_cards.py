@@ -13,7 +13,7 @@ SOURCES = {
     "usgs_water": ("USGS: The Water Cycle", "https://www.usgs.gov/special-topics/water-science-school/science/water-cycle"),
     "nps_photo": ("US National Park Service: Photosynthesis", "https://www.nps.gov/articles/000/photosynthesis.htm"),
     "openstax_fraction": ("OpenStax Prealgebra 2e: Fractions", "https://openstax.org/books/prealgebra-2e/pages/4-introduction-to-fractions"),
-    "openstax_friction": ("OpenStax Physics: Friction", "https://openstax.org/books/physics/pages/5-1-friction"),
+    "openstax_friction": ("OpenStax Physics: Newton's First Law and Friction", "https://openstax.org/books/physics/pages/4-2-newtons-first-law-of-motion-inertia"),
     "noaa_food": ("NOAA: Aquatic food webs", "https://www.noaa.gov/education/resource-collections/marine-life/aquatic-food-webs"),
     "nasa_rotation": ("NASA Space Place: All About Earth", "https://spaceplace.nasa.gov/all-about-earth/en/"),
     "loc_sources": ("Library of Congress: Getting Started with Primary Sources", "https://www.loc.gov/programs/teachers/getting-started-with-primary-sources/"),
@@ -26,9 +26,9 @@ SOURCES = {
     "smithsonian_visit": ("Smithsonian: Visitor Guidelines", "https://www.si.edu/visit/tips"),
     "nps_leave": ("US National Park Service: Leave No Trace Seven Principles", "https://www.nps.gov/articles/leave-no-trace-seven-principles.htm"),
     "fema_cleanup": ("FEMA: Volunteering and Cleanup", "https://www.ready.gov/get-involved"),
-    "ftc_privacy": ("US FTC: Protecting Your Personal Information", "https://consumer.ftc.gov/articles/protecting-your-personal-information-hackers-scammers"),
+    "ftc_privacy": ("US FTC: Protect Your Personal Information", "https://consumer.ftc.gov/articles/protect-your-personal-information-hackers-and-scammers"),
     "gov_meetings": ("Government of Kazakhstan: public hearings requirements", "https://www.gov.kz/org/akk/documents/details/57153?lang=ru"),
-    "energy_saver": ("US Department of Energy: Reducing Electricity Use and Costs", "https://www.energy.gov/energysaver/reducing-electricity-use-and-costs"),
+    "energy_saver": ("US Department of Energy: Energy Saving Tips", "https://www.energy.gov/topics/energy-saving-tips"),
     "ada_access": ("ADA.gov: State and Local Governments", "https://www.ada.gov/topics/title-ii/"),
 }
 
