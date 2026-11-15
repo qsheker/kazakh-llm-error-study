@@ -16,6 +16,11 @@ This repository is a clean rebuild. It does **not** claim to recover the histori
   digests and template hashes are recorded in `config/model_artifacts.json`.
 - KazLLM: authenticated official Q4_K_M artifact imported and smoke-tested;
   source SHA-256 and Ollama metadata are frozen in the repository.
+- Dev calibration: 80/80 locally generated responses are retained and pass
+  request-accounting validation. Four visually reviewed blinded workbooks are
+  ready: 12 training and 20 disjoint qualification items for each rater.
+- Engineering verification: 29 tests, Ruff, protocol validation, and the
+  four-model macOS preflight pass; public GitHub CI is green.
 - Final 240 test responses: not collected yet.
 - Independent human labels: not collected yet.
 - Confirmatory results: unavailable until collection, two independent ratings, and adjudication are complete.
@@ -44,6 +49,9 @@ Canonical repository: <https://github.com/qsheker/kazakh-llm-error-study>
 - `output/pdf/Kazakh_LLM_Defense_Deck.pdf` — 10-slide defense deck.
 - `docs/JOURNAL_FIT_STATEMENT.md` — completed primary/backup journal record.
 - `docs/CRITERIA_MATRIX.md` — criterion-by-criterion status and evidence map.
+- `annotations/calibration/dev_calibration_v2/` — four blinded calibration
+  workbooks plus public integrity manifests; the private model key is excluded
+  from Git.
 
 Rebuild the two Word artifacts with:
 

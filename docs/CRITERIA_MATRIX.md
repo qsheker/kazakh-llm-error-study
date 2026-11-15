@@ -19,12 +19,12 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 |---|---:|---|---|
 | A1. Title, abstract, introduction, contributions | 8 | Structure met; quantitative abstract result blocked | Specific nine-word title; 200–250-word abstract; explicit RQs/H1–H4; four enumerated contributions. Final quantitative result and conclusion require generated tables. |
 | A2. Related work | 7 | Implemented; author reading verification pending | Thematic synthesis, closest-study comparison table, explicit gap, 28 references, and three recent TALLIP papers. Each human author must actually read and verify the sources sampled by the instructor. |
-| A3. Materials and methods | 10 | Implemented and machine-tested | Balanced 60-prompt design; exact four artifacts; frozen controls; failure/retry rules; two-rater blinding; adjudication; endpoint; permutation Friedman, Kendall’s W, Pratt-Holm comparisons and clustered bootstrap; ethics and reproducibility settings. |
+| A3. Materials and methods | 10 | Implemented and machine-tested; human qualification pending | Balanced 60-prompt design; exact four artifacts; frozen controls; failure/retry rules; two-rater blinding; adjudication; endpoint; permutation Friedman, Kendall’s W, Pratt-Holm comparisons and clustered bootstrap; ethics and reproducibility settings. The retained 80-response dev run and four blinded 12/20 calibration workbooks are ready for the two raters. |
 | A4. Results | 12 | Blocked by genuine missing observations | No 240-response test collection, two independent human label files or adjudicated gold file exists. The reporting contract and analysis code are ready; inventing numbers would trigger the course zero rule. |
 | A5. Discussion and conclusion | 8 | Limitations implemented; final interpretation blocked | Threats to validity, unequal model sizes/templates, purposeful sampling, imperfect blinding, detector limitations and no-overclaim rule are present. Comparison with observed findings waits for A4. |
 | A6. Academic writing and formatting | 5 | Official-template review draft implemented; institutional checks pending | Academic English, official one-column ACM Word styles, 28 DOI/URL-backed references, numbered and text-cited tables, full 16-page visual DOCX QA and accessibility audit with zero findings. University similarity report and personal source-reading declarations are human/institutional steps. |
 | B. Journal fit and cover letter | 5 | Implemented with time-sensitive recheck | TALLIP primary and LRE backup verified; scope decision, recent articles, policies and one-page draft letter supplied. Scopus/policy/APC facts must be rechecked at actual submission. |
-| C. Reproducibility package | 12 | Technical layer and public remote implemented; final reproduction blocked | MIT code licence, CC BY 4.0 data/documentation licence, environment capture, hashes, fail-closed collector, tests, README and public GitHub repository are present. Final logs, release archive, outside-team reproduction and `final` tag require the completed human study. |
+| C. Reproducibility package | 12 | Technical layer and public remote implemented; final reproduction blocked | MIT code licence, CC BY 4.0 data/documentation licence, environment capture, hashes, fail-closed collector, 29 tests, retained dev receipts, content-bound blinded workbooks, README and public GitHub repository are present. Final test logs, release archive, outside-team reproduction and `final` tag require the completed human study. |
 | D1. Team presentation | 10 | 10-slide final-quality container; result slides blocked | Clear problem, RQs, method, artifacts, annotation, statistics, executed readiness evidence, evidence gate and ownership. Final numerical result and error example must come from generated evidence. |
 | D2. Individual defence | 23 | Preparation implemented; performance is human | Equal 3:20 speaking blocks, accountable evidence chains, cross-question rule, rehearsal gate and ten hostile questions in `docs/DEFENSE_PLAN.md`. Each member must rehearse and answer independently. |
 
@@ -43,10 +43,11 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 ## Irreducible human completion sequence
 
 1. All three authors verify the 60 populated reference cards and sign one freeze hash bundle with `scripts/create_signoff.py`.
-2. Aldiyar runs the locked collector once for all 240 model-prompt pairs and resolves any ambiguous timeout by the documented rule, never by quality-based regeneration.
-3. Yerkebulan and Iliyas independently annotate every blinded response and freeze/hash their original files.
-4. Aldiyar adjudicates disagreements while model labels and detector candidates remain hidden; freeze the gold file, then open the key.
-5. Generate accounting, agreement, model, pairwise, sensitivity and detector outputs; propagate them mechanically into manuscript and slides; audit every repeated number.
-6. All authors personally verify references, approve the manuscript, complete the similarity check and obtain the institution/instructor ethics determination.
-7. A person outside the team reproduces the Results from the README on the documented Mac environment.
-8. The public GitHub remote now exists; after the evidence gate, create the release archive, run the secret/licence audit, record the release URL, and only then create the signed `final` release tag.
+2. Yerkebulan and Iliyas independently complete the supplied training and qualification workbooks and pass all four frozen qualification thresholds.
+3. Aldiyar runs the locked collector once for all 240 model-prompt pairs and resolves any ambiguous timeout by the documented rule, never by quality-based regeneration.
+4. Yerkebulan and Iliyas independently annotate every blinded response and freeze/hash their original files.
+5. Aldiyar adjudicates disagreements while model labels and detector candidates remain hidden; freeze the gold file, then open the key.
+6. Generate accounting, agreement, model, pairwise, sensitivity and detector outputs; propagate them mechanically into manuscript and slides; audit every repeated number.
+7. All authors personally verify references, approve the manuscript, complete the similarity check and obtain the institution/instructor ethics determination.
+8. A person outside the team reproduces the Results from the README on the documented Mac environment.
+9. The public GitHub remote now exists; after the evidence gate, create the release archive, run the secret/licence audit, record the release URL, and only then create the signed `final` release tag.

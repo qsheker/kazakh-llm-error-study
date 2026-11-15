@@ -26,6 +26,14 @@ Snapshot: 2026-11-15, Asia/Almaty.
 - Executed a two-request Qwen determinism check; the response SHA-256 matched.
 - Executed the KazLLM dev smoke test with the frozen controls: 109 words and
   normal `stop` completion.
+- Executed the complete 80-request dev calibration run across all four models:
+  80 receipts, 80 accounted requests, zero in-flight markers, identical
+  generation controls, and unchanged model metadata. Machine-local manifest
+  paths were normalized without altering any receipt.
+- Selected a balanced, disjoint calibration set and built four blinded Excel
+  workbooks: 12 training responses and 20 qualification responses for each of
+  Yerkebulan (Rater 1) and Iliyas (Rater 2). Both phases have public read-only
+  field integrity manifests; the private model mapping is excluded from Git.
 - Added and tested prompt validation, fail-closed collection, request receipts,
   annotation workbook handling, detectors, and frozen statistical procedures.
 - Added strict workbook validation, blinded agreement/adjudication packaging,
@@ -34,12 +42,14 @@ Snapshot: 2026-11-15, Asia/Almaty.
   receipts, private mapping, resolved human labels, adjudication rationales,
   reviewed detector exemptions, and language-ID model.
 - Verified the primary and backup journals in the live Scopus Sources interface.
-- Built and visually checked the 15-page manuscript container, one-page
-  controlled-draft cover letter, and 10-slide defense PDF. Both Word files pass
-  the automated accessibility audit with zero high, medium, or low findings;
-  their ZIP containers are valid. These artifacts intentionally report the
-  executed readiness evidence but no fabricated confirmatory result.
-- Re-ran all 17 repository tests, the 60-prompt protocol validator, and the
+- Built and visually checked the working manuscript, a 16-page copy transferred
+  into the official ACM Word template, the one-page controlled-draft cover
+  letter, and 10-slide defense PDF. The two manuscript copies pass the automated
+  accessibility audit with zero high, medium, or low findings; their ZIP
+  containers are valid. These artifacts intentionally report the executed
+  readiness evidence but no fabricated confirmatory result.
+- Re-ran all 29 repository tests, Ruff, the 60-prompt protocol validator, the
+  80-receipt run validator, workbook structure/integrity checks, and the
   four-model Ollama preflight on this Mac on 2026-11-15.
 - Created the public GitHub repository and pushed the verified local history to
   `https://github.com/qsheker/kazakh-llm-error-study` as `main`.
@@ -58,20 +68,24 @@ Snapshot: 2026-11-15, Asia/Almaty.
    result slides, and release metadata depend on immutable test receipts, two
    frozen ratings, adjudication, and generated statistics. No placeholder is
    represented as an observed result.
-5. **External gates.** The official journal-template transfer, personal source
-   reading, ethics determination, university similarity report, outside-team
-   reproduction, GitHub remote/release URL, and all-author approval remain
-   human or institutional actions.
+5. **External gates.** Personal source reading, ethics determination,
+   university similarity report, written evidence of the approved three-person
+   exception, outside-team reproduction, final release URL, and all-author
+   approval remain human or institutional actions.
 
 ## Next executable sequence
 
 ```bash
 .venv/bin/python scripts/validate_protocol.py
+# Yerkebulan and Iliyas complete their own training and qualification files,
+# then validate and adjudicate qualification while still blinded.
 # complete cards + three signoffs, then:
 .venv/bin/python scripts/freeze_protocol.py
 .venv/bin/python scripts/collect.py --dataset test --preflight
 .venv/bin/python scripts/collect.py --dataset test --send --run-id final_test_v2
-.venv/bin/python scripts/build_annotation_workbooks.py
+.venv/bin/python scripts/build_annotation_workbooks.py runs/final_test_v2 \
+  --output annotations --references data/references \
+  --mapping data/blinding/private_model_key.csv
 ```
 
 The later merge, analysis, manuscript, and slide steps must use the frozen raw

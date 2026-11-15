@@ -1,0 +1,492 @@
+{
+  "created_utc": "2026-11-15T14:05:56.217834+00:00",
+  "protocol_path": "config/protocol.json",
+  "protocol_sha256": "6b0a39251c0e584ff85251d1500ad7e14b3a3758d276d835bca17b58c0960beb",
+  "prompt_path": "data/dev/prompts_dev.csv",
+  "prompt_sha256": "a1e25bb19670c1d93c40ad9ea94a9fb4559eb9a4fab23f3a29801f75ddb4ca32",
+  "instruction_path": "data/instruction.txt",
+  "instruction_sha256": "448e5b32c83a038cc652c1bd1920273bca7707f52f42d5e52fecee5cd8de5f1c",
+  "model_snapshot": {
+    "runtime_version": "0.33.3",
+    "captured_utc": "2026-11-15T14:05:56.213828+00:00",
+    "models": {
+      "qwen3:8b": {
+        "digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+        "size": 5225388164,
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen3",
+          "families": [
+            "qwen3"
+          ],
+          "parameter_size": "8.2B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 40960,
+          "embedding_length": 4096
+        },
+        "parameters_sha256": "d6b2700710ae824c6690a7b47383ea3836790cb59d52dc3018ad7b5530faf124",
+        "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+        "system_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "llama3.1:8b": {
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+        "size": 4920753328,
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 131072,
+          "embedding_length": 4096
+        },
+        "parameters_sha256": "2801e61a8848e505a6e20beeaea63cca1600200f6720e5f916ba7d6da5c3ba39",
+        "template_sha256": "948af2743fc78a328dcb3b0f5a31b3d75f415840fdb699e8b1235978392ecf85",
+        "system_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "gemma3:12b": {
+        "digest": "b92b218582c521ba287f38f1d6057dcd3c6cbff036f13cac97b5d861f5e58ec3",
+        "size": 8164039732,
+        "details": {
+          "parent_model": "dhiltgen/gemma3:12b-it-q4_K_M-llamacpp",
+          "format": "gguf",
+          "family": "gemma3",
+          "families": [
+            "gemma3",
+            "clip"
+          ],
+          "parameter_size": "11.8B",
+          "quantization_level": "Q4_K_M"
+        },
+        "parameters_sha256": "82be0d39faf8dbd5f010de5f8619825954ef45533a1df7db4973110e71cef2d6",
+        "template_sha256": "e0a42594d802e5d31cdc786deb4823edb8adff66094d49de8fffe976d753e348",
+        "system_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "kazllm:8b-q4_k_m": {
+        "digest": "2dacc6fb64677dc68d2220a69224b51aa7e808fde36f75a9122e82f227c41304",
+        "size": 4920739056,
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "llama",
+          "families": [
+            "llama"
+          ],
+          "parameter_size": "8.0B",
+          "quantization_level": "Q4_K_M",
+          "context_length": 131072,
+          "embedding_length": 4096
+        },
+        "parameters_sha256": "2801e61a8848e505a6e20beeaea63cca1600200f6720e5f916ba7d6da5c3ba39",
+        "template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+        "system_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "request_order": [
+    {
+      "prompt_id": "P11",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P10",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P05",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P17",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P01",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P03",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P12",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P04",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P08",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P11",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P20",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P03",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P18",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P02",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P13",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P09",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P01",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P20",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P06",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P13",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P10",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P19",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P20",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P08",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P07",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P06",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P08",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P19",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P04",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P09",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P09",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P02",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P16",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P06",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P14",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P12",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P16",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P13",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P05",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P07",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P09",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P14",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P05",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P06",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P15",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P01",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P11",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P02",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P16",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P02",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P18",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P04",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P08",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P19",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P03",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P11",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P12",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    },
+    {
+      "prompt_id": "P15",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P18",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P13",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P04",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P20",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P18",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P10",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P12",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P03",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P05",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P19",
+      "model_label": "gemma3_12b",
+      "model": "gemma3:12b"
+    },
+    {
+      "prompt_id": "P17",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P17",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P15",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P14",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P15",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P07",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P14",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P07",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P16",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P10",
+      "model_label": "llama31_8b",
+      "model": "llama3.1:8b"
+    },
+    {
+      "prompt_id": "P01",
+      "model_label": "kazllm_8b",
+      "model": "kazllm:8b-q4_k_m"
+    },
+    {
+      "prompt_id": "P17",
+      "model_label": "qwen3_8b",
+      "model": "qwen3:8b"
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "responses": [
+    {
+      "blind_id": "C-04AA6563CBCAE306",
+      "prompt_id": "P20",
+      "task_type": "public",
+      "prompt_text_sha256": "8d199099b88d362c1117ddc4a6d30ab15539a6d4afdfa554f2e19f1a44483efc",
+      "response_text_sha256": "5455067d5a53d123daf66a6529416c43c4e620e8c3d0f176b69401eb3adb6e49",
+      "reference_card_sha256": "4801285467b7a63f85136fcd374fd25f1c01311fb9d7cf86e8a799216cc4656e",
+      "word_count_read_only": 138,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "C-0D70886E2087681B",
+      "prompt_id": "P14",
+      "task_type": "public",
+      "prompt_text_sha256": "00f60ae8b6340628c931ded5b430c8fcc0e3d97119d5a3eb9e35ff121477f4cc",
+      "response_text_sha256": "2487f908b6ee016647fbe22e0f0b1aa6490bdc596b5ca9f2a9f350a8c104159f",
+      "reference_card_sha256": "34b38725da56c6300b9c3cbf652fd2b640616236bf8156c1f40ece99387409be",
+      "word_count_read_only": 136,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "C-17DB5ABA11A2870A",
+      "prompt_id": "P19",
+      "task_type": "public",
+      "prompt_text_sha256": "fec1cb0d7575781a9efc145aed7f593f59c7f70b13dba6bad873c33e174d774b",
+      "response_text_sha256": "27781c19fb0a8815e594a44b370e0e51b7dcaee1e761af12a16ccdf5f497c739",
+      "reference_card_sha256": "e76aac2406d8d9843edfe149b11589743c866b0ce1a385d31dcce203d7dd6dcd",
+      "word_count_read_only": 131,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "C-27C67FE7B74299F4",
+      "prompt_id": "P19",
+      "task_type": "public",
+      "prompt_text_sha256": "fec1cb0d7575781a9efc145aed7f593f59c7f70b13dba6bad873c33e174d774b",
+      "response_text_sha256": "bb719c24d6a600500d38c333029f2715d4c8b642e883c4720b35653e832fb915",
+      "reference_card_sha256": "e76aac2406d8d9843edfe149b11589743c866b0ce1a385d31dcce203d7dd6dcd",
+      "word_count_read_only": 125,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "C-2D1D14D6B7752298",
+      "prompt_id": "P05",
+      "task_type": "edu",
+      "prompt_text_sha256": "928179f45c89afbd7009d982baec9e5821378625269a0251371465e65abbf27c",
+      "response_text_sha256": "f1e7a3a5d78c52f28d0571e15c9d2686029641918ab64d875d611658aa4234ea",
+      "reference_card_sha256": "300d97a5225264f9d14da6a362583f52e8d54c9133dae1a708136e67be807397",
+      "word_count_read_only": 89,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "C-5E4CDBF9D001446E",
+      "prompt_id": "P16",
+      "task_type": "public",
+      "prompt_text_sha256": "974ff426b9d6e4393e1fc41abc2eabf21e1bb488ffde27e22faff7e9968fbddb",
+      "response_text_sha256": "9b3bd4b83c0a4ae5b2f88e4b800399b98af9ddcd3de2141f44fbd86d1554fccc",
+      "reference_card_sha256": "0aebcd3b91a091b4a33d01c1def4590435c3075145a724bfcdc5c4882a2f9303",
+      "word_count_read_only": 77,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "C-6150478FB65C704C",
+      "prompt_id": "P03",
+      "task_type": "edu",
+      "prompt_text_sha256": "9380f653f774aa1800cd79a8c47c68c746b79d8cd2dd427814d569b22ebfc45d",
+      "response_text_sha256": "df0ee15b08d469d2236f4c616152d2b76dc884ec7cc43f4864b9c0491ca9f31e",
+      "reference_card_sha256": "42fcd14f5d598013b6ab88e81ce18b5e2d70dfd2a94b03551acae5c0e4f3cef6",
+      "word_count_read_only": 37,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "C-6E18E33D18F34534",
+      "prompt_id": "P18",
+      "task_type": "public",
+      "prompt_text_sha256": "d64333a92a8f94f3ceaab5f926ae91fff931b513ef94651c461b45c9a6ad500d",
+      "response_text_sha256": "cfb4330c41d3397d8a0b58cd924befbc3abaf7a86f42fa24ccbdcca4cd7f0ce0",
+      "reference_card_sha256": "1b6caa0136dde77b6b39805293466bee05974f6e3be28c29a2569c8537b586b7",
+      "word_count_read_only": 143,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "C-948A3F78B15D8115",
+      "prompt_id": "P01",
+      "task_type": "edu",
+      "prompt_text_sha256": "a1beacff82405b5860b33591ffc1d7c5b0d534f0581a3dc8cbcd8105d16c1be4",
+      "response_text_sha256": "63c1df7f1d09162d897b88e053672284d2f5fa4722cd09faf7d208c88efeb221",
+      "reference_card_sha256": "69eda7aeab41b8ec8dc228aeeb5f48eb751e5f2728fa3a01144146c1ba499abd",
+      "word_count_read_only": 119,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "C-A1A5700CCA7BAB3E",
+      "prompt_id": "P07",
+      "task_type": "edu",
+      "prompt_text_sha256": "142d29ff2712659226960fab61515648348dbe258147a5ffcfcd5c3f3f01636b",
+      "response_text_sha256": "484a82e7a745018e9a5700a96bf364d8c6135123eddc1b79efa624a1e1343a3b",
+      "reference_card_sha256": "2fa0e789b2dd97bdfacf5b8bb330ea9bab470f4fc2d054c73dce08d0228d4a7d",
+      "word_count_read_only": 100,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "C-D5C6D7B3D0485645",
+      "prompt_id": "P06",
+      "task_type": "edu",
+      "prompt_text_sha256": "12e19c6e3f7601e9d4f4e1f8c55af2d8c65f6d4f0de2c8640e038b165de87d39",
+      "response_text_sha256": "4ad7c0968d112f22bf68bcac6d6a1f548c9f194bccbfc3c6970d135a7f83a0b8",
+      "reference_card_sha256": "364adebfbc450408dfce828c8f9f0ded6c2e3e1d41bed4e068f70d081c4397da",
+      "word_count_read_only": 123,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "C-E442453FBC778D98",
+      "prompt_id": "P05",
+      "task_type": "edu",
+      "prompt_text_sha256": "928179f45c89afbd7009d982baec9e5821378625269a0251371465e65abbf27c",
+      "response_text_sha256": "7e35ea766bd9aa6f2374c3add9c771c4245a69e4818ab3b2c40bb86fe6921a14",
+      "reference_card_sha256": "300d97a5225264f9d14da6a362583f52e8d54c9133dae1a708136e67be807397",
+      "word_count_read_only": 64,
+      "finish_reason_read_only": "stop"
+    }
+  ]
+}

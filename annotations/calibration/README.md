@@ -27,3 +27,15 @@ qualification files are frozen and hashed.
 
 The workbooks are calibration evidence, not confirmatory study data. They must
 never be merged into the 240 test responses or reported as model results.
+
+Generated files:
+
+- `rater_1/*training*` and `rater_1/*qualification*` — Yerkebulan only.
+- `rater_2/*training*` and `rater_2/*qualification*` — Iliyas only.
+- `training_blinded_manifest.json` and
+  `qualification_blinded_manifest.json` — public immutable-field checks.
+- `workbook_manifest.json` — workbook hashes bound to the public bundle.
+
+The private file `data/blinding/dev_calibration_v2_key.csv` is intentionally
+ignored by Git and must stay hidden until both qualification workbooks are
+complete and hashed.

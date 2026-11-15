@@ -1,0 +1,34 @@
+{
+  "run_id": "dev_calibration_v2",
+  "bundle_sha256": "196b08d77fabcbd44e62185c71d591bd54c447ac10ae10d77d007148d3da78f7",
+  "outputs": [
+    {
+      "phase": "training",
+      "rater": "rater_1",
+      "path": "annotations/calibration/dev_calibration_v2/rater_1/dev_calibration_v2__training__rater_1.xlsx",
+      "bytes": 21689,
+      "sha256": "5680f890f4afaf69d6ca3b6819312fbc1b6bb6f882e5ab960b727078996e0add"
+    },
+    {
+      "phase": "training",
+      "rater": "rater_2",
+      "path": "annotations/calibration/dev_calibration_v2/rater_2/dev_calibration_v2__training__rater_2.xlsx",
+      "bytes": 21274,
+      "sha256": "b441cea4ed9a07f83db91ab85be322d21b2a06de4d5185493101dd4119f12209"
+    },
+    {
+      "phase": "qualification",
+      "rater": "rater_1",
+      "path": "annotations/calibration/dev_calibration_v2/rater_1/dev_calibration_v2__qualification__rater_1.xlsx",
+      "bytes": 25257,
+      "sha256": "3223606259ad6a21aab17ee41327dd81a977b721117188de21bae769cba48dbc"
+    },
+    {
+      "phase": "qualification",
+      "rater": "rater_2",
+      "path": "annotations/calibration/dev_calibration_v2/rater_2/dev_calibration_v2__qualification__rater_2.xlsx",
+      "bytes": 25385,
+      "sha256": "8c66b47f98914f1ec8350ef144dcc92576e8bf012470810fd2ddaf63664fc1a5"
+    }
+  ]
+}
