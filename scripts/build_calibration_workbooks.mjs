@@ -209,9 +209,15 @@ for (const phase of phases) {
       throw new Error(`${phase}/${rater} contains a spreadsheet error`);
     }
     for (const sheetName of ["Responses", "Error events", "Instructions"]) {
+      const renderRange =
+        sheetName === "Responses"
+          ? `A1:O${records.length + 1}`
+          : sheetName === "Error events"
+            ? "A1:L20"
+            : "A1:B13";
       const preview = await workbook.render({
         sheetName,
-        range: sheetName === "Responses" ? `A1:O${records.length + 1}` : undefined,
+        range: renderRange,
         autoCrop: "all",
         scale: 1,
         format: "png",
