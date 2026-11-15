@@ -19,6 +19,7 @@ from kazllm_eval.ollama import (
     build_pairs,
     collect_one,
     model_snapshot,
+    normalize_manifest_paths,
     request_payload,
 )
 
@@ -124,6 +125,10 @@ def main() -> int:
     manifest_path = run_dir / "manifest.json"
     if manifest_path.exists():
         existing = load_json(manifest_path)
+        normalized_existing = normalize_manifest_paths(existing, root)
+        if normalized_existing != existing:
+            write_json(manifest_path, normalized_existing)
+        existing = normalized_existing
         comparable_existing = {k: v for k, v in existing.items() if k != "created_utc"}
         comparable_new = {k: v for k, v in manifest.items() if k != "created_utc"}
         comparable_existing["model_snapshot"] = snapshot_identity(comparable_existing["model_snapshot"])

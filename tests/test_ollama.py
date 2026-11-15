@@ -2,7 +2,12 @@ from pathlib import Path
 
 import pytest
 
-from kazllm_eval.ollama import build_manifest, build_pairs, request_payload
+from kazllm_eval.ollama import (
+    build_manifest,
+    build_pairs,
+    normalize_manifest_paths,
+    request_payload,
+)
 
 
 def protocol():
@@ -65,3 +70,33 @@ def test_manifest_rejects_input_outside_repository(tmp_path: Path):
 
     with pytest.raises(ValueError, match="outside repository"):
         build_manifest(protocol_path, prompt_path, instruction_path, {}, [])
+
+
+def test_normalize_manifest_paths_migrates_absolute_paths(tmp_path: Path):
+    root = tmp_path / "repository"
+    manifest = {
+        "protocol_path": str(root / "config" / "protocol.json"),
+        "prompt_path": str(root / "data" / "dev.csv"),
+        "instruction_path": "data/instruction.txt",
+    }
+
+    normalized = normalize_manifest_paths(manifest, root)
+
+    assert normalized == {
+        "protocol_path": "config/protocol.json",
+        "prompt_path": "data/dev.csv",
+        "instruction_path": "data/instruction.txt",
+    }
+    assert manifest["protocol_path"].startswith(str(root))
+
+
+def test_normalize_manifest_paths_rejects_external_path(tmp_path: Path):
+    root = tmp_path / "repository"
+    manifest = {
+        "protocol_path": str(tmp_path / "outside.json"),
+        "prompt_path": "data/dev.csv",
+        "instruction_path": "data/instruction.txt",
+    }
+
+    with pytest.raises(ValueError, match="outside repository"):
+        normalize_manifest_paths(manifest, root)

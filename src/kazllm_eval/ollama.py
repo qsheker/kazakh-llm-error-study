@@ -6,6 +6,7 @@ import time
 import urllib.error
 import urllib.request
 from collections.abc import Callable
+from copy import deepcopy
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
@@ -173,3 +174,17 @@ def build_manifest(
             for pair in pairs
         ],
     }
+
+
+def normalize_manifest_paths(manifest: dict[str, Any], repository_root: Path) -> dict[str, Any]:
+    """Return a publishable manifest whose source paths are repository-relative."""
+    normalized = deepcopy(manifest)
+    root = repository_root.resolve()
+    for key in ("protocol_path", "prompt_path", "instruction_path"):
+        raw_path = Path(str(normalized[key]))
+        resolved = raw_path.resolve() if raw_path.is_absolute() else (root / raw_path).resolve()
+        try:
+            normalized[key] = resolved.relative_to(root).as_posix()
+        except ValueError as exc:
+            raise ValueError(f"manifest path is outside repository: {raw_path}") from exc
+    return normalized
