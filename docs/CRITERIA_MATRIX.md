@@ -30,7 +30,7 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 
 ## Structure-specific checks
 
-- Core manuscript length: 4,682 words before the References heading when table cells are included, within the 4,500–7,500 course range; references and appendices are excluded.
+- Core manuscript length: 4,690 words before the References heading when table cells are included, within the 4,500–7,500 course range; references and appendices are excluded.
 - Abstract: no citations and within the requested range; its final-result sentences are intentionally withheld until real results exist.
 - Keywords: five terms and no exact repetition of the title phrase.
 - Related work: thematic synthesis plus a closest-study comparison table.
