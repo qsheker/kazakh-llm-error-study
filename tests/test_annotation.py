@@ -1,11 +1,14 @@
+import hashlib
 from pathlib import Path
 
 from openpyxl import load_workbook
 
 from kazllm_eval.annotation import (
     annotation_agreement,
+    build_blinded_manifest,
     create_rater_workbook,
     load_annotation_workbook,
+    validate_blinded_manifest,
 )
 
 
@@ -100,3 +103,52 @@ def test_workbook_validation_rejects_bad_fragment(tmp_path: Path):
         assert "fragment does not match" in str(exc)
     else:
         raise AssertionError("invalid fragment was accepted")
+
+
+def test_blinded_manifest_rejects_read_only_tampering(tmp_path: Path):
+    reference_dir = tmp_path / "refs"
+    reference_dir.mkdir()
+    (reference_dir / "E01.md").write_text("Reference card", encoding="utf-8")
+    response_text = "Қате мәтін."
+    records = [
+        {
+            "private_response_id": "E01__qwen",
+            "prompt_id": "E01",
+            "task_type": "educational",
+            "model_label": "secret_model",
+            "prompt_text": "Сұрақ",
+            "response_text": response_text,
+            "word_count": 2,
+            "finish_reason": "stop",
+            "response_sha256": hashlib.sha256(response_text.encode("utf-8")).hexdigest(),
+        }
+    ]
+    mapping = [
+        {
+            "blind_id": "B-123",
+            "private_response_id": "E01__qwen",
+            "prompt_id": "E01",
+            "model_label": "secret_model",
+            "response_sha256": records[0]["response_sha256"],
+        }
+    ]
+    path = tmp_path / "completed.xlsx"
+    create_rater_workbook(path, records, mapping, reference_dir, 1)
+    workbook = load_workbook(path)
+    for column in (9, 10, 11, 13, 14):
+        workbook["Responses"].cell(2, column).value = "no"
+    workbook.save(path)
+    manifest = build_blinded_manifest(records, mapping, reference_dir)
+    loaded = load_annotation_workbook(path, expected_responses=1)
+    validate_blinded_manifest(loaded, manifest)
+
+    workbook = load_workbook(path)
+    workbook["Responses"]["E2"] = "Подменённый ответ"
+    workbook.save(path)
+    tampered = load_annotation_workbook(path, expected_responses=1)
+    try:
+        validate_blinded_manifest(tampered, manifest)
+    except ValueError as exc:
+        assert "response_text" in str(exc)
+    else:
+        raise AssertionError("tampered response text was accepted")

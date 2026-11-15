@@ -130,6 +130,14 @@ def main() -> int:
                     "word_count_read_only": record["word_count"],
                     "finish_reason_read_only": record["finish_reason"],
                     "response_sha256": record["response_sha256"],
+                    "prompt_text_sha256": hashlib.sha256(
+                        record["prompt_text"].encode("utf-8")
+                    ).hexdigest(),
+                    "reference_card_sha256": hashlib.sha256(
+                        (reference_dir / f"{record['prompt_id']}.md").read_text(
+                            encoding="utf-8"
+                        ).encode("utf-8")
+                    ).hexdigest(),
                 }
                 for record in ordered
             ]

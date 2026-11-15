@@ -163,7 +163,7 @@ The evidence pipeline is explicit:
 ```bash
 .venv/bin/python scripts/validate_annotation_workbook.py annotations/rater_1/final_test_v2__rater_1.xlsx --expected-responses 240
 .venv/bin/python scripts/validate_annotation_workbook.py annotations/rater_2/final_test_v2__rater_2.xlsx --expected-responses 240
-.venv/bin/python scripts/prepare_adjudication.py annotations/rater_1/final_test_v2__rater_1.xlsx annotations/rater_2/final_test_v2__rater_2.xlsx --expected-responses 240
+.venv/bin/python scripts/prepare_adjudication.py annotations/rater_1/final_test_v2__rater_1.xlsx annotations/rater_2/final_test_v2__rater_2.xlsx --blinded-manifest annotations/final_test_v2__blinded_manifest.json --expected-responses 240
 .venv/bin/python scripts/analyze_final.py
 ```
 

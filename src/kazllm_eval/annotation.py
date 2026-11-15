@@ -78,6 +78,63 @@ def write_private_mapping(path: Path, mapping: list[dict[str, str]]) -> None:
         writer.writerows(mapping)
 
 
+def build_blinded_manifest(
+    records: list[dict[str, Any]],
+    mapping: list[dict[str, str]],
+    reference_dir: Path,
+) -> dict[str, Any]:
+    by_private = {record["private_response_id"]: record for record in records}
+    responses = []
+    for item in sorted(mapping, key=lambda row: row["blind_id"]):
+        record = by_private[item["private_response_id"]]
+        card = reference_text(reference_dir, record["prompt_id"])
+        responses.append(
+            {
+                "blind_id": item["blind_id"],
+                "prompt_id": record["prompt_id"],
+                "task_type": record["task_type"],
+                "prompt_text_sha256": hashlib.sha256(
+                    record["prompt_text"].encode("utf-8")
+                ).hexdigest(),
+                "response_text_sha256": record["response_sha256"],
+                "reference_card_sha256": hashlib.sha256(card.encode("utf-8")).hexdigest(),
+                "word_count_read_only": record["word_count"],
+                "finish_reason_read_only": record["finish_reason"],
+            }
+        )
+    return {"responses": responses}
+
+
+def validate_blinded_manifest(workbook: dict[str, Any], manifest: dict[str, Any]) -> None:
+    rows = manifest.get("responses")
+    if not isinstance(rows, list):
+        raise ValueError("blinded manifest must contain a responses list")
+    expected = {str(row.get("blind_id", "")): row for row in rows}
+    if not expected or len(expected) != len(rows) or set(expected) != set(workbook["responses"]):
+        raise ValueError("workbook blind IDs do not match the blinded manifest")
+    for blind_id, row in workbook["responses"].items():
+        source = expected[blind_id]
+        checks = {
+            "prompt_id": str(row.get("prompt_id") or "") == str(source.get("prompt_id") or ""),
+            "task_type": str(row.get("task_type") or "") == str(source.get("task_type") or ""),
+            "prompt_text": hashlib.sha256(str(row.get("prompt_text") or "").encode("utf-8")).hexdigest()
+            == source.get("prompt_text_sha256"),
+            "response_text": hashlib.sha256(row["response_text"].encode("utf-8")).hexdigest()
+            == source.get("response_text_sha256"),
+            "reference_card": hashlib.sha256(
+                str(row.get("reference_or_constraint_card") or "").encode("utf-8")
+            ).hexdigest()
+            == source.get("reference_card_sha256"),
+            "word_count": int(row.get("word_count_read_only"))
+            == int(source.get("word_count_read_only")),
+            "finish_reason": str(row.get("finish_reason_read_only") or "")
+            == str(source.get("finish_reason_read_only") or ""),
+        }
+        failed = [name for name, passed in checks.items() if not passed]
+        if failed:
+            raise ValueError(f"{blind_id}: read-only fields differ from blinded manifest: {failed}")
+
+
 def reference_text(reference_dir: Path, prompt_id: str) -> str:
     path = reference_dir / f"{prompt_id}.md"
     return path.read_text(encoding="utf-8") if path.exists() else "REFERENCE CARD PENDING"

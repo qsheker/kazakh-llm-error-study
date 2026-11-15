@@ -13,7 +13,10 @@ training and qualification workbooks for Rater 1 and Rater 2.
 3. Both complete their 20-response qualification workbook independently and
    without discussion.
 4. Validate both qualification files, then run `prepare_adjudication.py` with
-   `--expected-responses 20` in a separate calibration output directory.
+   `--blinded-manifest qualification_blinded_manifest.json` and
+   `--expected-responses 20` in a separate calibration output directory. The
+   manifest makes any change to a read-only prompt, response, reference card,
+   word count, or finish reason fail closed.
 5. Proceed to test annotation only when all four frozen qualification thresholds
    in `protocol/annotation_protocol.md` pass. Otherwise revise the rubric and use
    different unused dev responses for another qualification round.

@@ -179,12 +179,54 @@ await fs.mkdir(outputDir, { recursive: true });
 const qaDir = path.join("results", "tmp", "calibration_previews", bundle.run_id);
 await fs.mkdir(qaDir, { recursive: true });
 const outputs = [];
+const blindedManifests = {};
 for (const phase of phases) {
+  const canonicalRecords = bundle.phases?.[phase]?.rater_1;
+  if (!Array.isArray(canonicalRecords)) {
+    throw new Error(`${phase}/rater_1 records are missing`);
+  }
+  const manifestRows = canonicalRecords
+    .map((record) => {
+      if (sha256(Buffer.from(record.response_text, "utf8")) !== record.response_sha256) {
+        throw new Error(`${phase}/${record.blind_id} response hash does not match source receipt`);
+      }
+      if (sha256(Buffer.from(record.prompt_text, "utf8")) !== record.prompt_text_sha256) {
+        throw new Error(`${phase}/${record.blind_id} prompt hash does not match bundle`);
+      }
+      if (
+        sha256(Buffer.from(record.reference_or_constraint_card, "utf8")) !==
+        record.reference_card_sha256
+      ) {
+        throw new Error(`${phase}/${record.blind_id} reference-card hash does not match bundle`);
+      }
+      return {
+        blind_id: record.blind_id,
+        prompt_id: record.prompt_id,
+        task_type: record.task_type,
+        prompt_text_sha256: record.prompt_text_sha256,
+        response_text_sha256: record.response_sha256,
+        reference_card_sha256: record.reference_card_sha256,
+        word_count_read_only: record.word_count_read_only,
+        finish_reason_read_only: record.finish_reason_read_only,
+      };
+    })
+    .sort((left, right) => left.blind_id.localeCompare(right.blind_id));
+  blindedManifests[phase] = { responses: manifestRows };
+  await fs.writeFile(
+    path.join(outputDir, `${phase}_blinded_manifest.json`),
+    `${JSON.stringify(blindedManifests[phase], null, 2)}\n`,
+    "utf8",
+  );
   for (const rater of raters) {
     const records = bundle.phases?.[phase]?.[rater];
     const expected = phase === "training" ? 12 : 20;
     if (!Array.isArray(records) || records.length !== expected) {
       throw new Error(`${phase}/${rater} must contain ${expected} records`);
+    }
+    const blindIds = records.map((record) => record.blind_id).sort();
+    const manifestBlindIds = manifestRows.map((record) => record.blind_id).sort();
+    if (JSON.stringify(blindIds) !== JSON.stringify(manifestBlindIds)) {
+      throw new Error(`${phase}/${rater} blind IDs differ from the integrity manifest`);
     }
     const workbook = createWorkbook(records, phase, rater);
     workbook.recalculate();

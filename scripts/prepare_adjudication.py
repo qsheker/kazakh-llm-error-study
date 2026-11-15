@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import json
 from pathlib import Path
 
@@ -10,6 +11,7 @@ from kazllm_eval.annotation import (
     RESPONSE_FLAGS,
     annotation_agreement,
     load_annotation_workbook,
+    validate_blinded_manifest,
 )
 from kazllm_eval.core import write_json
 
@@ -26,6 +28,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Create a blinded adjudication package from two immutable originals.")
     parser.add_argument("rater_1", type=Path)
     parser.add_argument("rater_2", type=Path)
+    parser.add_argument("--blinded-manifest", type=Path, required=True)
     parser.add_argument("--output", type=Path, default=Path("annotations/adjudication"))
     parser.add_argument("--expected-responses", type=int, required=True)
     args = parser.parse_args()
@@ -34,6 +37,9 @@ def main() -> int:
 
     left = load_annotation_workbook(args.rater_1, args.expected_responses)
     right = load_annotation_workbook(args.rater_2, args.expected_responses)
+    blinded_manifest = json.loads(args.blinded_manifest.read_text(encoding="utf-8"))
+    validate_blinded_manifest(left, blinded_manifest)
+    validate_blinded_manifest(right, blinded_manifest)
     if left["sha256"] == right["sha256"]:
         raise SystemExit("refused: rater workbooks have identical hashes")
     agreement = annotation_agreement(left, right)
@@ -41,7 +47,12 @@ def main() -> int:
     write_json(args.output / "agreement.json", agreement)
     write_json(
         args.output / "manifest.json",
-        {"rater_1_sha256": left["sha256"], "rater_2_sha256": right["sha256"], "blinded": True},
+        {
+            "rater_1_sha256": left["sha256"],
+            "rater_2_sha256": right["sha256"],
+            "blinded_manifest_sha256": hashlib.sha256(args.blinded_manifest.read_bytes()).hexdigest(),
+            "blinded": True,
+        },
     )
 
     disagreements = []
