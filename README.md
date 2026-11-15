@@ -36,6 +36,8 @@ Canonical repository: <https://github.com/qsheker/kazakh-llm-error-study>
 
 - `deliverables/Kazakh_LLM_Study_Manuscript.docx` — integrated ACM-style
   manuscript with declarations and appendices.
+- `deliverables/Kazakh_LLM_Study_ACM_Submission.docx` — the same controlled
+  manuscript transferred into the official one-column ACM Word style set.
 - `deliverables/Cover_Letter_TALLIP.docx` — one-page draft cover letter; the
   red warning must be removed only after the final evidence gate passes.
 - `output/pdf/Kazakh_LLM_Defense_Deck.pdf` — 10-slide defense deck.
@@ -47,6 +49,16 @@ Rebuild the two Word artifacts with:
 ```bash
 .venv/bin/python scripts/build_manuscript.py
 .venv/bin/python scripts/build_cover_letter.py
+```
+
+Rebuild the official-template copy without overwriting the working manuscript:
+
+```bash
+.venv/bin/python scripts/fetch_acm_template.py tmp/acm_submission_template.docx
+.venv/bin/python scripts/build_acm_manuscript.py \
+  --source deliverables/Kazakh_LLM_Study_Manuscript.docx \
+  --template tmp/acm_submission_template.docx \
+  --output deliverables/Kazakh_LLM_Study_ACM_Submission.docx
 ```
 
 `scripts/build_defense_pdf.py` packages the ten slide PNG exports from the live
