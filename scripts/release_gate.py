@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 import sys
 import zipfile
@@ -172,11 +173,16 @@ def main() -> int:
         reproduction.get("outside_team") is True
         and reproduction.get("success") is True
         and bool(reproduction.get("reproducer"))
-        and bool(reproduction.get("commit"))
+        and bool(re.fullmatch(r"[0-9a-f]{40}", str(reproduction.get("commit", ""))))
         and isinstance(reproduction.get("commands"), list)
         and bool(reproduction.get("commands"))
         and isinstance(reproduction.get("result_hashes"), dict)
         and bool(reproduction.get("result_hashes"))
+        and all(
+            re.fullmatch(r"[0-9a-f]{64}", str(value))
+            for value in reproduction.get("result_hashes", {}).values()
+        )
+        and bool(reproduction.get("completed_utc"))
     )
     check("outside-team reproduction", reproduction_valid, str(reproduction_path.relative_to(root)))
 
@@ -204,6 +210,23 @@ def main() -> int:
         or "/.venv/" in f"/{path}/"
     ]
     check("tracked secret/model audit", not forbidden, ", ".join(forbidden) or "no forbidden paths")
+    secret_pattern = (
+        r"ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|hf_[A-Za-z0-9]{20,}|"
+        r"sk-[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY"
+    )
+    secret_scan = subprocess.run(
+        ["git", "grep", "-I", "-l", "-E", secret_pattern, "--", "."],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        check=False,
+    )
+    secret_files = secret_scan.stdout.splitlines() if secret_scan.returncode == 0 else []
+    check(
+        "tracked credential-content audit",
+        secret_scan.returncode in {0, 1} and not secret_files,
+        ", ".join(secret_files) or "no high-risk credential patterns",
+    )
 
     report = {"ready": all(item["passed"] for item in checks), "checks": checks}
     print(json.dumps(report, ensure_ascii=False, indent=2))

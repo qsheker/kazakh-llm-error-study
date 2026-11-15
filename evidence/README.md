@@ -29,3 +29,6 @@ Expected release-gate files:
 PDFs may be redacted only for unrelated personal data. Do not remove the issuer,
 date, decision, covered project, or verification information needed to establish
 authenticity.
+
+The `templates/` files show the machine-checked JSON shape. Copying a template
+without real personal review does not satisfy the gate.

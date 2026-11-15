@@ -1,0 +1,8 @@
+{
+  "manuscript_sha256": "REPLACE_WITH_FINAL_DOCX_SHA256",
+  "authors": [
+    {"name": "Aldiyar Zhaksylyk", "confirmed_read": false, "references": [], "signed_utc": ""},
+    {"name": "Yerkebulan Rakhymbay", "confirmed_read": false, "references": [], "signed_utc": ""},
+    {"name": "Iliyas Aitzhan", "confirmed_read": false, "references": [], "signed_utc": ""}
+  ]
+}

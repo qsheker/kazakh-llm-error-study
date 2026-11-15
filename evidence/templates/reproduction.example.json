@@ -1,0 +1,9 @@
+{
+  "outside_team": true,
+  "reproducer": "REPLACE_WITH_NAME_OR_VERIFIABLE_ROLE",
+  "commit": "REPLACE_WITH_40_CHARACTER_COMMIT_SHA",
+  "commands": [],
+  "result_hashes": {},
+  "success": false,
+  "completed_utc": ""
+}
