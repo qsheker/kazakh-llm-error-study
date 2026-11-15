@@ -175,8 +175,26 @@ function createWorkbook(records, phase, rater) {
   return workbook;
 }
 
-await fs.mkdir(outputDir, { recursive: true });
 const qaDir = path.join("results", "tmp", "calibration_previews", bundle.run_id);
+const plannedPaths = [
+  ...phases.flatMap((phase) =>
+    raters.map((rater) =>
+      path.join(outputDir, rater, `${bundle.run_id}__${phase}__${rater}.xlsx`),
+    ),
+  ),
+  ...phases.map((phase) => path.join(outputDir, `${phase}_blinded_manifest.json`)),
+  path.join(outputDir, "workbook_manifest.json"),
+];
+for (const plannedPath of plannedPaths) {
+  try {
+    await fs.access(plannedPath);
+    throw new Error(`refusing to overwrite ${plannedPath}`);
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+}
+
+await fs.mkdir(outputDir, { recursive: true });
 await fs.mkdir(qaDir, { recursive: true });
 const outputs = [];
 const blindedManifests = {};
@@ -270,12 +288,6 @@ for (const phase of phases) {
     const raterDir = path.join(outputDir, rater);
     await fs.mkdir(raterDir, { recursive: true });
     const outputPath = path.join(raterDir, `${bundle.run_id}__${phase}__${rater}.xlsx`);
-    try {
-      await fs.access(outputPath);
-      throw new Error(`refusing to overwrite ${outputPath}`);
-    } catch (error) {
-      if (error.code !== "ENOENT") throw error;
-    }
     const exported = await SpreadsheetFile.exportXlsx(workbook);
     await exported.save(outputPath);
     const bytes = await fs.readFile(outputPath);
