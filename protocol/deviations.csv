@@ -1,0 +1,7 @@
+deviation_id,previous_claim,new_decision,reason,status
+D01,"Historical repository commit d4d28fbd and receipts available","Historical repository and 57/60 pilot responses unavailable; clean rebuild is the source of truth","Delivered ZIP states it is a reconstruction and contains no Git history or complete receipts",accepted
+D02,"Frozen test CSV SHA-256 bf17a623...","New 60-prompt test set receives a new hash after review","Original frozen CSV is unavailable",accepted
+D03,"No generation seed supplied","Every request uses generation seed 2417","Remove ambiguity and improve reproducibility",accepted
+D04,"num_predict=2048","num_predict=768","Align cap with 150–200-word target and limit runaway repetition; dev validation required",accepted
+D05,"Three-model collector","Four-model collector including official ISSAI KazLLM Q4_K_M","Final protocol compares three general models with one Kazakh-adapted model",accepted
+D06,"All H1–H4 presented together","H1–H2 confirmatory; H3–H4 exploratory","Pilot evidence does not justify four equally confirmatory directional hypotheses",accepted

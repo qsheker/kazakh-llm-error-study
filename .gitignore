@@ -1,0 +1,25 @@
+.DS_Store
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Local secrets and identity mappings
+.env
+*.token
+data/blinding/private_model_key.csv
+
+# Temporary exports only. Final receipts, derived tables, and original
+# annotation workbooks are research evidence and are intentionally tracked.
+results/docx_qa/
+results/tmp/
+
+# Local interview checkpoint with machine-specific source paths
+plans/_draft/
+
+# Models are referenced by digest, never committed
+*.gguf
+.deps/

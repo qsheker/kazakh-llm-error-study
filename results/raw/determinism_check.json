@@ -1,0 +1,55 @@
+{
+  "purpose": "dev-only repeated-request determinism check",
+  "created_utc": "2026-11-15T12:25:12.623294+00:00",
+  "model": {
+    "label": "qwen3_8b",
+    "ollama_tag": "qwen3:8b",
+    "family": "Qwen",
+    "quantization": "Q4_K_M"
+  },
+  "prompt": {
+    "prompt_id": "P02",
+    "task_type": "edu",
+    "prompt_text": "Өсімдікке күн сәулесі не үшін қажет екенін түсіндіріңіз. Фотосинтезге су мен ауаның қалай қатысатынын қарапайым мысал арқылы сипаттаңыз."
+  },
+  "request": {
+    "model": "qwen3:8b",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Төмендегі тапсырмаға тек қазақ тілінде жауап беріңіз. Жауап көлемі 150–200 сөз болсын. Түсінікті әрі нақты жазыңыз. Тапсырманың барлық талаптарын орындаңыз. Жеке деректерді сұрамаңыз. Сұрақта берілмеген нақты мекеме ережелерін, бағаларды, кестелерді немесе деректерді ойдан қоспаңыз. Ақпаратқа сенімді болмасаңыз, белгісіздігін ашық көрсетіңіз.\n\nӨсімдікке күн сәулесі не үшін қажет екенін түсіндіріңіз. Фотосинтезге су мен ауаның қалай қатысатынын қарапайым мысал арқылы сипаттаңыз."
+      }
+    ],
+    "options": {
+      "temperature": 0.0,
+      "seed": 2417,
+      "num_predict": 768,
+      "num_ctx": 4096,
+      "top_k": 40,
+      "top_p": 1.0,
+      "repeat_penalty": 1.0
+    },
+    "think": false,
+    "stream": false,
+    "keep_alive": 0
+  },
+  "response_text_sha256": [
+    "6c5aa83385e40e1be7add7165242c16fed5d30acad1b4f3a966b0f0e4a3d2f0e",
+    "6c5aa83385e40e1be7add7165242c16fed5d30acad1b4f3a966b0f0e4a3d2f0e"
+  ],
+  "exact_text_match": true,
+  "response_metadata": [
+    {
+      "model": "qwen3:8b",
+      "done": true,
+      "done_reason": "stop",
+      "eval_count": 351
+    },
+    {
+      "model": "qwen3:8b",
+      "done": true,
+      "done_reason": "stop",
+      "eval_count": 351
+    }
+  ]
+}

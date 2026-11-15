@@ -1,0 +1,22 @@
+{
+  "kk_ktb-ud-train.conllu": {
+    "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_Kazakh-KTB/r2.15/kk_ktb-ud-train.conllu",
+    "sha256": "6297597914a3f319db573573f927a6577c702f5fa00dcd653162aab46026aeaa",
+    "bytes": 40712
+  },
+  "UD_LICENSE.txt": {
+    "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_Kazakh-KTB/r2.15/LICENSE.txt",
+    "sha256": "5d0bfe289ea30f4e24c752d1eb86e29477763df63d1dd05294c6e608e5546359",
+    "bytes": 206
+  },
+  "UD_README.md": {
+    "url": "https://raw.githubusercontent.com/UniversalDependencies/UD_Kazakh-KTB/r2.15/README.md",
+    "sha256": "16a3b183e5b465987fa4d19ba96152b90709572297371240477ad250a5ee44f3",
+    "bytes": 3203
+  },
+  "lid.176.ftz": {
+    "url": "https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.ftz",
+    "sha256": "8f3472cfe8738a7b6099e8e999c3cbfae0dcd15696aac7d7738a8039db603e83",
+    "bytes": 938013
+  }
+}

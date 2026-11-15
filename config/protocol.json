@@ -1,0 +1,70 @@
+{
+  "protocol_version": "2.0-draft",
+  "status": "draft_pending_three_person_signoff",
+  "team": [
+    "Aldiyar Zhaksylyk",
+    "Yerkebulan Rakhymbay",
+    "Iliyas Aitzhan"
+  ],
+  "models": [
+    {
+      "label": "qwen3_8b",
+      "ollama_tag": "qwen3:8b",
+      "family": "Qwen",
+      "quantization": "Q4_K_M"
+    },
+    {
+      "label": "llama31_8b",
+      "ollama_tag": "llama3.1:8b",
+      "family": "Llama",
+      "quantization": "Q4_K_M"
+    },
+    {
+      "label": "gemma3_12b",
+      "ollama_tag": "gemma3:12b",
+      "family": "Gemma",
+      "quantization": "Q4_K_M"
+    },
+    {
+      "label": "kazllm_8b",
+      "ollama_tag": "kazllm:8b-q4_k_m",
+      "family": "Llama_Kazakh_adapted",
+      "quantization": "Q4_K_M",
+      "source": "issai/LLama-3.1-KazLLM-1.0-8B-GGUF4"
+    }
+  ],
+  "generation": {
+    "temperature": 0.0,
+    "seed": 2417,
+    "num_predict": 768,
+    "num_ctx": 4096,
+    "top_k": 40,
+    "top_p": 1.0,
+    "repeat_penalty": 1.0,
+    "think": false,
+    "stream": false,
+    "keep_alive": 0
+  },
+  "request_order_seed": 2417,
+  "collection": {
+    "endpoint": "http://127.0.0.1:11434",
+    "one_request_at_a_time": true,
+    "fresh_conversation": true,
+    "quality_retries_forbidden": true,
+    "ambiguous_timeout_requires_manual_resolution": true
+  },
+  "dataset": {
+    "dev_path": "data/dev/prompts_dev.csv",
+    "test_path": "data/test/prompts_test.csv",
+    "instruction_path": "data/instruction.txt",
+    "test_prompts": 60,
+    "task_balance": {"educational": 30, "public_information": 30}
+  },
+  "analysis": {
+    "alpha": 0.05,
+    "permutations": 99999,
+    "bootstrap_replicates": 10000,
+    "analysis_seed": 2417,
+    "primary_endpoint": "100 * primary_error_events / word_tokens"
+  }
+}

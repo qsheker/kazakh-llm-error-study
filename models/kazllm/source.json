@@ -1,0 +1,9 @@
+{
+  "repository": "issai/LLama-3.1-KazLLM-1.0-8B-GGUF4",
+  "revision": "eb04ab55b920c64dc50583f20de783e1d3034529",
+  "filename": "checkpoints_llama8b_031224_18900-Q4_K_M.gguf",
+  "license": "CC-BY-NC-4.0 plus applicable Llama 3.1 terms",
+  "gated": true,
+  "expected_sha256": null,
+  "note": "Populate expected_sha256 from the first authenticated official download before protocol freeze. Never substitute an unofficial mirror."
+}
