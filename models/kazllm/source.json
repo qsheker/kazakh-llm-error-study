@@ -4,6 +4,6 @@
   "filename": "checkpoints_llama8b_031224_18900-Q4_K_M.gguf",
   "license": "CC-BY-NC-4.0 plus applicable Llama 3.1 terms",
   "gated": true,
-  "expected_sha256": null,
-  "note": "Populate expected_sha256 from the first authenticated official download before protocol freeze. Never substitute an unofficial mirror."
+  "expected_sha256": "1a37de3ca5e9fb3754ac070f8a5d1dc328c2ac43217daea506bf1877fab76dba",
+  "note": "SHA-256 frozen from the authenticated official download at the pinned revision."
 }

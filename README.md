@@ -10,7 +10,8 @@ This repository is a clean rebuild. It does **not** claim to recover the histori
 - Test prompts: 60/60 drafted; pending the documented three-person content review and freeze.
 - Public models: installed and smoke-tested on the study Mac; exact Ollama
   digests and template hashes are recorded in `config/model_artifacts.json`.
-- KazLLM: requires acceptance of the official Hugging Face model conditions before local import.
+- KazLLM: authenticated official Q4_K_M artifact imported and smoke-tested;
+  source SHA-256 and Ollama metadata are frozen in the repository.
 - Final 240 test responses: not collected yet.
 - Independent human labels: not collected yet.
 - Confirmatory results: unavailable until collection, two independent ratings, and adjudication are complete.
@@ -62,7 +63,10 @@ ollama pull llama3.1:8b
 ollama pull gemma3:12b
 ```
 
-KazLLM is intentionally not replaced with an unofficial artifact. After accepting the official Hugging Face conditions, download the named GGUF file, verify its SHA-256, and import it with the frozen Modelfile procedure documented in `docs/kazllm_import.md`.
+KazLLM is intentionally not replaced with an unofficial artifact. The study Mac
+downloaded the named GGUF from the pinned official Hugging Face revision,
+verified and froze its SHA-256, and imported it with the procedure documented in
+`docs/kazllm_import.md`.
 
 ## Validation and collection
 

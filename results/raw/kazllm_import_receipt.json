@@ -1,0 +1,8 @@
+{
+  "created_utc": "2026-11-15T12:54:26.821414+00:00",
+  "repository": "issai/LLama-3.1-KazLLM-1.0-8B-GGUF4",
+  "revision": "eb04ab55b920c64dc50583f20de783e1d3034529",
+  "filename": "checkpoints_llama8b_031224_18900-Q4_K_M.gguf",
+  "sha256": "1a37de3ca5e9fb3754ac070f8a5d1dc328c2ac43217daea506bf1877fab76dba",
+  "ollama_tag": "kazllm:8b-q4_k_m"
+}

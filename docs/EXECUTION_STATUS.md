@@ -10,37 +10,38 @@ Snapshot: 2026-11-15, Asia/Almaty.
   and balanced domain/form matrices.
 - Installed `qwen3:8b`, `llama3.1:8b`, and `gemma3:12b` in Ollama on the study
   Mac; recorded immutable model content, template, parameters, and system hashes.
+- Authenticated to the gated official ISSAI repository, downloaded the pinned
+  KazLLM Q4_K_M GGUF, froze SHA-256
+  `1a37de3ca5e9fb3754ac070f8a5d1dc328c2ac43217daea506bf1877fab76dba`,
+  imported it as `kazllm:8b-q4_k_m`, and captured the complete four-model
+  artifact manifest.
 - Captured the Mac/Ollama/Python environment without serial number, hardware
   UUID, username path, or access tokens.
 - Executed one retained dev smoke response per public model using the intended
   controls. Llama reached the 768-token boundary and repeated text; that outcome
   remains evidence and was not regenerated.
 - Executed a two-request Qwen determinism check; the response SHA-256 matched.
+- Executed the KazLLM dev smoke test with the frozen controls: 109 words and
+  normal `stop` completion.
 - Added and tested prompt validation, fail-closed collection, request receipts,
   annotation workbook handling, detectors, and frozen statistical procedures.
 - Verified the primary and backup journals in the live Scopus Sources interface.
 
 ## Intentionally blocked
 
-1. **KazLLM artifact.** The official ISSAI Q4_K_M GGUF repository is gated.
-   The user must accept its conditions and authenticate the Hugging Face CLI.
-   An unofficial replacement would break the frozen comparison.
-2. **Protocol freeze.** All 60 reference cards still require human verification,
+1. **Protocol freeze.** All 60 reference cards still require human verification,
    and Aldiyar, Yerkebulan, and Iliyas must sign the same hash bundle.
-3. **Test inference.** The 240-response collection cannot start until (1) and
-   (2) are resolved. The collector enforces this boundary.
-4. **Independent labels.** Yerkebulan and Iliyas must personally produce their
+2. **Test inference.** The 240-response collection cannot start until (1) is
+   resolved. The collector enforces this boundary.
+3. **Independent labels.** Yerkebulan and Iliyas must personally produce their
    two complete annotation files. The repository must not synthesize them.
-5. **Final results/manuscript/slides.** These depend on immutable test receipts,
+4. **Final results/manuscript/slides.** These depend on immutable test receipts,
    two frozen ratings, adjudication, and generated statistics. No placeholder is
    represented as an observed result.
 
 ## Next executable sequence
 
 ```bash
-hf auth login
-.venv/bin/python scripts/install_kazllm.py
-.venv/bin/python scripts/capture_model_artifacts.py
 .venv/bin/python scripts/validate_protocol.py
 # complete cards + three signoffs, then:
 .venv/bin/python scripts/freeze_protocol.py

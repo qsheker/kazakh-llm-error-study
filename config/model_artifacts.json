@@ -8,7 +8,9 @@
         "parent_model": "",
         "format": "gguf",
         "family": "qwen3",
-        "families": ["qwen3"],
+        "families": [
+          "qwen3"
+        ],
         "parameter_size": "8.2B",
         "quantization_level": "Q4_K_M",
         "context_length": 40960,
@@ -25,7 +27,9 @@
         "parent_model": "",
         "format": "gguf",
         "family": "llama",
-        "families": ["llama"],
+        "families": [
+          "llama"
+        ],
         "parameter_size": "8.0B",
         "quantization_level": "Q4_K_M",
         "context_length": 131072,
@@ -42,7 +46,10 @@
         "parent_model": "dhiltgen/gemma3:12b-it-q4_K_M-llamacpp",
         "format": "gguf",
         "family": "gemma3",
-        "families": ["gemma3", "clip"],
+        "families": [
+          "gemma3",
+          "clip"
+        ],
         "parameter_size": "11.8B",
         "quantization_level": "Q4_K_M"
       },
@@ -50,7 +57,25 @@
       "template_sha256": "e0a42594d802e5d31cdc786deb4823edb8adff66094d49de8fffe976d753e348",
       "system_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
-    "kazllm:8b-q4_k_m": null
+    "kazllm:8b-q4_k_m": {
+      "digest": "2dacc6fb64677dc68d2220a69224b51aa7e808fde36f75a9122e82f227c41304",
+      "size": 4920739056,
+      "details": {
+        "parent_model": "",
+        "format": "gguf",
+        "family": "llama",
+        "families": [
+          "llama"
+        ],
+        "parameter_size": "8.0B",
+        "quantization_level": "Q4_K_M",
+        "context_length": 131072,
+        "embedding_length": 4096
+      },
+      "parameters_sha256": "2801e61a8848e505a6e20beeaea63cca1600200f6720e5f916ba7d6da5c3ba39",
+      "template_sha256": "e10ca381b1ccc5cf9db52e371f3b6651576caee0a630b452e2816b2d404d4b65",
+      "system_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
   },
-  "status": "pending_kazllm_import"
+  "status": "complete"
 }

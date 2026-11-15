@@ -11,8 +11,9 @@ The study uses the official ISSAI gated artifact, not a community conversion:
 
 1. Sign in to Hugging Face in a browser.
 2. Open the official repository and accept its access conditions.
-3. Create a read token. Do not paste the token into Git, chat logs, shell history, screenshots, or the manuscript.
-4. Authenticate locally with `hf auth login`.
+3. Authenticate locally with `.venv/bin/hf auth login` and approve the browser
+   device flow. Do not paste credentials or tokens into Git, chat logs, shell
+   history, screenshots, or the manuscript.
 
 The repository is gated, so the download cannot be completed honestly without the account holder accepting the conditions.
 
@@ -25,6 +26,9 @@ After installing project dependencies:
 .venv/bin/python scripts/install_kazllm.py
 ```
 
-The script downloads only the named file from the pinned repository revision, computes SHA-256, checks an already frozen hash when present, calls `ollama create`, and writes a local receipt. Before test collection, copy the observed hash into `models/kazllm/source.json`, review it, and commit the manifest—not the 4.9 GB GGUF.
+The script downloads only the named file from the pinned repository revision,
+computes SHA-256, checks an already frozen hash when present, freezes the first
+authenticated official digest when absent, calls `ollama create`, and writes an
+import receipt. Commit the digest, manifest, and receipt—not the 4.9 GB GGUF.
 
 The import method follows Ollama's official single-file GGUF procedure: a Modelfile containing `FROM /path/to/file.gguf`, followed by `ollama create`.
