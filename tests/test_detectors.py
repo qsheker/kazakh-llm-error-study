@@ -21,6 +21,18 @@ def test_fasttext_threshold_is_binding():
     assert high
 
 
+def test_fasttext_does_not_treat_all_caps_as_automatically_exempt():
+    seen = []
+
+    def predictor(text):
+        seen.append(text)
+        return "en", 0.99
+
+    positive, _ = fasttext_response_positive("THIS IS FOREIGN TEXT", predictor)
+    assert positive is True
+    assert "THIS IS FOREIGN" in seen
+
+
 def test_binary_metrics_keep_undefined_denominators():
     result = binary_metrics([False, False], [False, False])
     assert result["precision"] is None

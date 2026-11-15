@@ -46,7 +46,9 @@ def fasttext_response_positive(
     positive = False
     for window in sentence_and_three_word_windows(text):
         tokens = word_tokens(window)
-        meaningful = [token for token in tokens if token.casefold() not in exempt and not token.isupper()]
+        # Case is not an exemption: all-caps foreign prose is still a possible
+        # code-switch. Only the frozen explicit exemption list is removed.
+        meaningful = [token for token in tokens if token.casefold() not in exempt]
         if len(meaningful) < 3 or sum(map(len, meaningful)) < 12:
             continue
         evaluated_text = " ".join(meaningful)

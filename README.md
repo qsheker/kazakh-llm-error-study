@@ -8,11 +8,17 @@ This repository is a clean rebuild. It does **not** claim to recover the histori
 
 - Protocol v2: drafted and machine-validated.
 - Test prompts: 60/60 drafted; pending the documented three-person content review and freeze.
-- Public models: installation in progress on the study Mac.
+- Public models: installed and smoke-tested on the study Mac; exact Ollama
+  digests and template hashes are recorded in `config/model_artifacts.json`.
 - KazLLM: requires acceptance of the official Hugging Face model conditions before local import.
 - Final 240 test responses: not collected yet.
 - Independent human labels: not collected yet.
 - Confirmatory results: unavailable until collection, two independent ratings, and adjudication are complete.
+
+Read `docs/EXECUTION_STATUS.md` for the exact completed/blocked boundary. The
+repository deliberately fails closed: it cannot collect the test set until the
+prompt cards, three signoffs, model-artifact manifest, and freeze manifest all
+agree.
 
 Historical assignments are retained under `docs/archive/` as provenance, not as executable evidence for the final results.
 
