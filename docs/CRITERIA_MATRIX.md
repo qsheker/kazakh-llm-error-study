@@ -6,7 +6,7 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 
 | Required item | Status | Evidence / remaining gate |
 |---|---|---|
-| Final manuscript in target template | Final-quality review draft; results and official template transfer gated | `deliverables/Kazakh_LLM_Study_Manuscript.docx`; ACM-style single-column review document, 4,500–7,500-word core range, 28 references, declarations and appendices. Replace the Results contract with generated results and transfer the frozen text into the then-current official ACM Word template only after the evidence gate. |
+| Final manuscript in target template | Official-template review draft implemented; results gated | `deliverables/Kazakh_LLM_Study_ACM_Submission.docx`; controlled manuscript transferred into the official one-column ACM Word style set, 4,500–7,500-word core range, 28 references, declarations, numbered table captions and appendices. Replace the Results contract only with generated evidence. |
 | Journal Fit Statement (Appendix A) | Implemented | `docs/JOURNAL_FIT_STATEMENT.md`; primary and backup titles, ISSNs, Scopus records, metrics, official URLs, integrity checks, recent related papers, policies and decision. Human authors must read the three cited TALLIP papers. |
 | One-page cover letter | Implemented as controlled draft | `deliverables/Cover_Letter_TALLIP.docx`; one page and visibly marked not to submit before the evidence gate. |
 | Repository and release tag `final` | Repository implemented; tag intentionally blocked | Code, tests, environment, model and resource provenance are present. Creating `final` before 240 accounted requests, two frozen ratings, adjudication, reproduction and approvals would violate the criterion. |
@@ -22,7 +22,7 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 | A3. Materials and methods | 10 | Implemented and machine-tested | Balanced 60-prompt design; exact four artifacts; frozen controls; failure/retry rules; two-rater blinding; adjudication; endpoint; permutation Friedman, Kendall’s W, Pratt-Holm comparisons and clustered bootstrap; ethics and reproducibility settings. |
 | A4. Results | 12 | Blocked by genuine missing observations | No 240-response test collection, two independent human label files or adjudicated gold file exists. The reporting contract and analysis code are ready; inventing numbers would trigger the course zero rule. |
 | A5. Discussion and conclusion | 8 | Limitations implemented; final interpretation blocked | Threats to validity, unequal model sizes/templates, purposeful sampling, imperfect blinding, detector limitations and no-overclaim rule are present. Comparison with observed findings waits for A4. |
-| A6. Academic writing and formatting | 5 | Review draft implemented; final template and institutional checks pending | Academic English, ACM-style review layout, 28 DOI/URL-backed references, full visual DOCX QA and accessibility audit. Official-template transfer, university similarity report and personal source-reading declarations are human/institutional steps. |
+| A6. Academic writing and formatting | 5 | Official-template review draft implemented; institutional checks pending | Academic English, official one-column ACM Word styles, 28 DOI/URL-backed references, numbered and text-cited tables, full 16-page visual DOCX QA and accessibility audit with zero findings. University similarity report and personal source-reading declarations are human/institutional steps. |
 | B. Journal fit and cover letter | 5 | Implemented with time-sensitive recheck | TALLIP primary and LRE backup verified; scope decision, recent articles, policies and one-page draft letter supplied. Scopus/policy/APC facts must be rechecked at actual submission. |
 | C. Reproducibility package | 12 | Technical layer and public remote implemented; final reproduction blocked | MIT code licence, CC BY 4.0 data/documentation licence, environment capture, hashes, fail-closed collector, tests, README and public GitHub repository are present. Final logs, release archive, outside-team reproduction and `final` tag require the completed human study. |
 | D1. Team presentation | 10 | 10-slide final-quality container; result slides blocked | Clear problem, RQs, method, artifacts, annotation, statistics, executed readiness evidence, evidence gate and ownership. Final numerical result and error example must come from generated evidence. |
@@ -30,7 +30,7 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 
 ## Structure-specific checks
 
-- Core manuscript length: 4,550 words before the References heading, within the 4,500–7,500 course range; references and appendices are excluded from this count.
+- Core manuscript length: 4,682 words before the References heading when table cells are included, within the 4,500–7,500 course range; references and appendices are excluded.
 - Abstract: no citations and within the requested range; its final-result sentences are intentionally withheld until real results exist.
 - Keywords: five terms and no exact repetition of the title phrase.
 - Related work: thematic synthesis plus a closest-study comparison table.
@@ -49,4 +49,4 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 5. Generate accounting, agreement, model, pairwise, sensitivity and detector outputs; propagate them mechanically into manuscript and slides; audit every repeated number.
 6. All authors personally verify references, approve the manuscript, complete the similarity check and obtain the institution/instructor ethics determination.
 7. A person outside the team reproduces the Results from the README on the documented Mac environment.
-8. Create the GitHub remote/release archive, record the public URL, run the secret/licence audit, and only then create the signed `final` release tag.
+8. The public GitHub remote now exists; after the evidence gate, create the release archive, run the secret/licence audit, record the release URL, and only then create the signed `final` release tag.

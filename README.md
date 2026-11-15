@@ -19,7 +19,8 @@ This repository is a clean rebuild. It does **not** claim to recover the histori
 - Final 240 test responses: not collected yet.
 - Independent human labels: not collected yet.
 - Confirmatory results: unavailable until collection, two independent ratings, and adjudication are complete.
-- Submission artifacts: an ACM-style integrated manuscript, draft cover letter,
+- Submission artifacts: an integrated manuscript, an official-template ACM
+  submission copy, draft cover letter,
   10-slide defense PDF, journal-fit statement and criteria matrix are built and
   visually checked. They deliberately contain no invented inferential result.
 
