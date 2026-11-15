@@ -1,4 +1,8 @@
-from kazllm_eval.ollama import build_pairs, request_payload
+from pathlib import Path
+
+import pytest
+
+from kazllm_eval.ollama import build_manifest, build_pairs, request_payload
 
 
 def protocol():
@@ -28,3 +32,36 @@ def test_payload_has_one_user_message_and_generation_seed():
     assert payload["messages"] == [{"role": "user", "content": "Нұсқау\n\nСұрақ"}]
     assert payload["options"]["seed"] == 2417
     assert payload["options"]["num_predict"] == 768
+
+
+def test_manifest_uses_repository_relative_paths(tmp_path: Path):
+    root = tmp_path / "repository"
+    protocol_path = root / "config" / "protocol.json"
+    prompt_path = root / "data" / "dev.csv"
+    instruction_path = root / "data" / "instruction.txt"
+    for path, content in (
+        (protocol_path, "{}"),
+        (prompt_path, "prompt_id\nD01\n"),
+        (instruction_path, "instruction"),
+    ):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(content, encoding="utf-8")
+
+    manifest = build_manifest(protocol_path, prompt_path, instruction_path, {}, [])
+
+    assert manifest["protocol_path"] == "config/protocol.json"
+    assert manifest["prompt_path"] == "data/dev.csv"
+    assert manifest["instruction_path"] == "data/instruction.txt"
+
+
+def test_manifest_rejects_input_outside_repository(tmp_path: Path):
+    root = tmp_path / "repository"
+    protocol_path = root / "config" / "protocol.json"
+    prompt_path = tmp_path / "outside.csv"
+    instruction_path = root / "data" / "instruction.txt"
+    for path in (protocol_path, prompt_path, instruction_path):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text("x", encoding="utf-8")
+
+    with pytest.raises(ValueError, match="outside repository"):
+        build_manifest(protocol_path, prompt_path, instruction_path, {}, [])

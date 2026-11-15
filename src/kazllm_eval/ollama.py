@@ -151,13 +151,21 @@ def build_manifest(
     snapshot: dict[str, Any],
     pairs: list[dict[str, str]],
 ) -> dict[str, Any]:
+    repository_root = protocol_path.resolve().parents[1]
+
+    def public_path(path: Path) -> str:
+        try:
+            return path.resolve().relative_to(repository_root).as_posix()
+        except ValueError as exc:
+            raise ValueError(f"manifest input is outside repository: {path}") from exc
+
     return {
         "created_utc": utc_now(),
-        "protocol_path": str(protocol_path),
+        "protocol_path": public_path(protocol_path),
         "protocol_sha256": sha256_file(protocol_path),
-        "prompt_path": str(prompt_path),
+        "prompt_path": public_path(prompt_path),
         "prompt_sha256": sha256_file(prompt_path),
-        "instruction_path": str(instruction_path),
+        "instruction_path": public_path(instruction_path),
         "instruction_sha256": sha256_file(instruction_path),
         "model_snapshot": snapshot,
         "request_order": [
