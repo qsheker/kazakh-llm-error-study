@@ -74,10 +74,13 @@ def main() -> int:
 
     required_files = {
         "pre-adjudication agreement": root / "annotations/adjudication/agreement.json",
-        "adjudicated gold": root / "annotations/adjudicated/final_test_v2__gold.xlsx",
+        "adjudicated response labels": root / "annotations/adjudicated/response_labels.csv",
+        "adjudicated error events": root / "annotations/adjudicated/error_events.csv",
         "adjudication log": root / "annotations/adjudicated/adjudication_log.csv",
         "final analysis summary": root / "results/derived/final_test_v2/summary.json",
         "detector analysis": root / "results/derived/final_test_v2/detector_metrics.json",
+        "sensitivity analysis": root / "results/derived/final_test_v2/sensitivity.json",
+        "model-by-task analysis": root / "results/derived/final_test_v2/model_task_interactions.csv",
         "numerical consistency audit": root / "results/derived/final_test_v2/input_hashes.json",
         "primary results figure": root / "results/derived/final_test_v2/model_error_rates.png",
         "similarity report": root / "evidence/similarity_report.pdf",

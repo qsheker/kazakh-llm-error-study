@@ -15,11 +15,17 @@ import numpy as np
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-from kazllm_eval.annotation import EVENT_CATEGORIES, RESPONSE_FLAGS, load_run_records
-from kazllm_eval.core import sha256_file
+from kazllm_eval.annotation import (
+    EVENT_CATEGORIES,
+    RESPONSE_FLAGS,
+    load_annotation_workbook,
+    load_run_records,
+)
+from kazllm_eval.core import sha256_file, word_tokens
 from kazllm_eval.detectors import (
     binary_metrics,
     clustered_f1_difference,
+    contains_latin,
     fasttext_response_positive,
     latin_response_positive,
 )
@@ -64,12 +70,160 @@ def stratified_model_interval(values: np.ndarray, strata: list[str], replicates:
     return float(low), float(high)
 
 
+def stratified_category_bootstrap(
+    rows: list[dict],
+    categories: tuple[str, ...],
+    replicates: int,
+    seed: int,
+) -> tuple[dict[str, dict[str, float | None]], dict[str, dict[str, float | None]]]:
+    prompt_ids = sorted({row["prompt_id"] for row in rows})
+    prompt_index = {prompt_id: index for index, prompt_id in enumerate(prompt_ids)}
+    words = np.zeros(len(prompt_ids), dtype=float)
+    events = np.zeros((len(prompt_ids), len(categories)), dtype=float)
+    task_by_prompt: dict[str, str] = {}
+    response_rates = {category: [] for category in categories}
+    for row in rows:
+        index = prompt_index[row["prompt_id"]]
+        words[index] += row["word_count"]
+        task_by_prompt.setdefault(row["prompt_id"], row["task_type"])
+        if row["word_count"]:
+            for category_index, category in enumerate(categories):
+                events[index, category_index] += row[category]
+                response_rates[category].append(100 * row[category] / row["word_count"])
+        else:
+            for category_index, category in enumerate(categories):
+                events[index, category_index] += row[category]
+    strata = np.array([task_by_prompt[prompt_id] for prompt_id in prompt_ids])
+    groups = [np.flatnonzero(strata == label) for label in np.unique(strata)]
+    rng = np.random.default_rng(seed)
+    estimates = np.empty((replicates, len(categories)), dtype=float)
+    for replicate in range(replicates):
+        sampled = np.concatenate([rng.choice(group, size=len(group), replace=True) for group in groups])
+        sampled_words = words[sampled].sum()
+        estimates[replicate] = (
+            np.nan if sampled_words == 0 else 100 * events[sampled].sum(axis=0) / sampled_words
+        )
+    total_words = words.sum()
+    summaries = {}
+    for category_index, category in enumerate(categories):
+        low, high = np.nanquantile(estimates[:, category_index], [0.025, 0.975])
+        summaries[category] = {
+            "pooled_rate_per_100_words": None
+            if total_words == 0
+            else float(100 * events[:, category_index].sum() / total_words),
+            "mean_response_rate": float(np.mean(response_rates[category]))
+            if response_rates[category]
+            else None,
+            "cluster_ci_low": float(low),
+            "cluster_ci_high": float(high),
+        }
+    contrasts = {}
+    code_index = categories.index("code_switching")
+    for category_index, category in enumerate(categories):
+        if category == "code_switching":
+            continue
+        values = estimates[:, code_index] - estimates[:, category_index]
+        low, high = np.nanquantile(values, [0.025, 0.975])
+        contrasts[f"code_switching_minus_{category}"] = {
+            "difference": summaries["code_switching"]["pooled_rate_per_100_words"]
+            - summaries[category]["pooled_rate_per_100_words"],
+            "ci_low": float(low),
+            "ci_high": float(high),
+        }
+    return summaries, contrasts
+
+
+def stratified_difference_in_differences(
+    matrix: np.ndarray,
+    strata: list[str],
+    left_index: int,
+    right_index: int,
+    replicates: int,
+    seed: int,
+) -> dict[str, float | int]:
+    strata_array = np.asarray(strata)
+    expected = {"educational", "public_information"}
+    if set(strata_array) != expected:
+        raise ValueError(f"difference-in-differences requires strata {sorted(expected)}")
+    differences = matrix[:, left_index] - matrix[:, right_index]
+    educational = np.flatnonzero(strata_array == "educational")
+    public = np.flatnonzero(strata_array == "public_information")
+    observed = float(differences[public].mean() - differences[educational].mean())
+    rng = np.random.default_rng(seed)
+    estimates = np.empty(replicates)
+    for replicate in range(replicates):
+        sampled_educational = rng.choice(educational, size=len(educational), replace=True)
+        sampled_public = rng.choice(public, size=len(public), replace=True)
+        estimates[replicate] = (
+            differences[sampled_public].mean() - differences[sampled_educational].mean()
+        )
+    low, high = np.quantile(estimates, [0.025, 0.975])
+    return {
+        "public_minus_educational_model_difference": observed,
+        "ci_low": float(low),
+        "ci_high": float(high),
+        "replicates": replicates,
+    }
+
+
+def matrix_from_event_counts(
+    event_counts: dict[str, Counter],
+    mapping: dict[str, dict[str, str]],
+    by_private: dict[str, dict],
+    model_order: list[str],
+) -> tuple[np.ndarray, list[str]]:
+    by_prompt: dict[str, dict[str, float | None]] = defaultdict(dict)
+    task_by_prompt: dict[str, str] = {}
+    for blind_id, map_row in mapping.items():
+        record = by_private[map_row["private_response_id"]]
+        count = sum(event_counts[blind_id][category] for category in PRIMARY_CATEGORIES)
+        by_prompt[record["prompt_id"]][record["model_label"]] = (
+            None if not record["word_count"] else 100 * count / record["word_count"]
+        )
+        task_by_prompt[record["prompt_id"]] = record["task_type"]
+    complete = [
+        prompt_id
+        for prompt_id, rows in sorted(by_prompt.items())
+        if set(rows) == set(model_order) and all(rows[model] is not None for model in model_order)
+    ]
+    matrix = np.array([[by_prompt[prompt][model] for model in model_order] for prompt in complete])
+    return matrix, [task_by_prompt[prompt] for prompt in complete]
+
+
+def friedman_summary(matrix: np.ndarray, permutations: int, seed: int) -> dict[str, float | int | None]:
+    if matrix.ndim != 2 or len(matrix) < 2:
+        return {"complete_prompt_blocks": len(matrix), "statistic": None, "p_value": None, "kendalls_w": None}
+    test, kendalls_w = friedman_permutation(matrix, permutations=permutations, seed=seed)
+    return {
+        "complete_prompt_blocks": len(matrix),
+        "statistic": test.statistic,
+        "p_value": test.p_value,
+        "kendalls_w": kendalls_w,
+        "permutations": test.permutations,
+    }
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate the frozen final statistical outputs from adjudicated labels.")
     parser.add_argument("--run-dir", type=Path, default=Path("runs/final_test_v2"))
     parser.add_argument("--mapping", type=Path, default=Path("data/blinding/private_model_key.csv"))
     parser.add_argument("--responses", type=Path, default=Path("annotations/adjudicated/response_labels.csv"))
     parser.add_argument("--events", type=Path, default=Path("annotations/adjudicated/error_events.csv"))
+    parser.add_argument(
+        "--rater-1",
+        type=Path,
+        default=Path("annotations/rater_1/final_test_v2__rater_1.xlsx"),
+    )
+    parser.add_argument(
+        "--rater-2",
+        type=Path,
+        default=Path("annotations/rater_2/final_test_v2__rater_2.xlsx"),
+    )
+    parser.add_argument(
+        "--response-disagreements",
+        type=Path,
+        default=Path("annotations/adjudication/response_disagreements.csv"),
+    )
     parser.add_argument(
         "--adjudication-log",
         type=Path,
@@ -87,6 +241,8 @@ def main() -> int:
     mapping_path = resolve(args.mapping)
     responses_path = resolve(args.responses)
     events_path = resolve(args.events)
+    rater_paths = [resolve(args.rater_1), resolve(args.rater_2)]
+    response_disagreements_path = resolve(args.response_disagreements)
     adjudication_log_path = resolve(args.adjudication_log)
     exemptions_path = resolve(args.exemptions)
     lid_path = resolve(args.lid_model)
@@ -110,9 +266,17 @@ def main() -> int:
     if len(mapping_rows) != 240 or len({row["blind_id"] for row in mapping_rows}) != 240:
         raise SystemExit("private mapping must contain exactly 240 unique blind IDs")
     mapping = {row["blind_id"]: row for row in mapping_rows}
+    mapped_private_ids = {row["private_response_id"] for row in mapping_rows}
+    if len(mapped_private_ids) != 240 or mapped_private_ids != set(by_private):
+        raise SystemExit("private mapping must cover every immutable receipt exactly once")
     for row in mapping_rows:
         record = by_private.get(row["private_response_id"])
-        if record is None or record["response_sha256"] != row["response_sha256"]:
+        if (
+            record is None
+            or record["response_sha256"] != row["response_sha256"]
+            or record["prompt_id"] != row["prompt_id"]
+            or record["model_label"] != row["model_label"]
+        ):
             raise SystemExit(f"mapping does not match immutable receipt for {row['blind_id']}")
 
     response_rows = read_csv(responses_path)
@@ -123,6 +287,31 @@ def main() -> int:
         for flag in RESPONSE_FLAGS:
             if row.get(flag) not in {"yes", "no"}:
                 raise SystemExit(f"{blind_id}: final {flag} must be yes or no")
+        if row["requirement_missing"] == "yes" and not row.get("missing_requirements", "").strip():
+            raise SystemExit(f"{blind_id}: missing requirements must be named")
+
+    disagreement_rows = read_csv(response_disagreements_path)
+    expected_disagreements = {
+        (row["blind_id"], row["field"]): (row["rater_1"], row["rater_2"])
+        for row in disagreement_rows
+    }
+    log_rows = read_csv(adjudication_log_path)
+    logged_keys = set()
+    for row in log_rows:
+        key = (row.get("blind_id", ""), row.get("field", ""))
+        if row.get("scope") != "response" or key not in expected_disagreements or key in logged_keys:
+            raise SystemExit(f"invalid or duplicate response adjudication log row: {key}")
+        logged_keys.add(key)
+        if row.get("final_value") not in {"yes", "no"}:
+            raise SystemExit(f"{key}: adjudicated response value must be yes or no")
+        if not row.get("rationale", "").strip() or not row.get("adjudicator", "").strip():
+            raise SystemExit(f"{key}: adjudication rationale and adjudicator are required")
+        if response_labels[key[0]][key[1]] != row["final_value"]:
+            raise SystemExit(f"{key}: response label differs from adjudication log")
+        if (row.get("rater_1"), row.get("rater_2")) != expected_disagreements[key]:
+            raise SystemExit(f"{key}: adjudication log changed the original ratings")
+    if logged_keys != set(expected_disagreements):
+        raise SystemExit("adjudication log does not resolve every response-level disagreement")
 
     event_rows = read_csv(events_path)
     event_counts = defaultdict(Counter)
@@ -140,8 +329,10 @@ def main() -> int:
         try:
             start = int(row["start_offset_zero_based"])
             end = int(row["end_offset_exclusive"])
+            start_token = int(row["start_token_one_based"])
+            end_token = int(row["end_token_one_based"])
         except (KeyError, TypeError, ValueError) as exc:
-            raise SystemExit(f"{blind_id}: event offsets must be integers") from exc
+            raise SystemExit(f"{blind_id}: event offsets and token indices must be integers") from exc
         if (
             start < 0
             or end <= start
@@ -149,6 +340,13 @@ def main() -> int:
             or record["response_text"][start:end] != row.get("exact_fragment", "")
         ):
             raise SystemExit(f"{blind_id}: final event fragment does not match immutable response")
+        token_count = len(word_tokens(record["response_text"]))
+        if start_token < 1 or end_token < start_token or end_token > token_count:
+            raise SystemExit(f"{blind_id}: final event token indices are outside the response")
+        if not row.get("proposed_correction", "").strip() or not row.get("rationale", "").strip():
+            raise SystemExit(f"{blind_id}: final event requires correction and annotation rationale")
+        if row.get("needs_adjudication") != "no":
+            raise SystemExit(f"{blind_id}: final event still needs adjudication")
         if not row.get("adjudicator") or not row.get("adjudication_rationale"):
             raise SystemExit(f"{blind_id}: every final event requires adjudicator and rationale")
         event_counts[blind_id][category] += 1
@@ -160,6 +358,13 @@ def main() -> int:
         primary_count = sum(counts[category] for category in PRIMARY_CATEGORIES)
         word_count = int(record["word_count"])
         rate = None if word_count == 0 else 100 * primary_count / word_count
+        eval_count = record.get("eval_count")
+        eval_duration_ns = record.get("eval_duration_ns")
+        tokens_per_second = (
+            None
+            if not eval_count or not eval_duration_ns
+            else float(eval_count) / (float(eval_duration_ns) / 1_000_000_000)
+        )
         metrics.append(
             {
                 "blind_id": blind_id,
@@ -168,9 +373,20 @@ def main() -> int:
                 "task_type": record["task_type"],
                 "model_label": record["model_label"],
                 "word_count": word_count,
+                "length_150_200": 150 <= word_count <= 200,
+                "finish_reason": record["finish_reason"],
+                "truncated": record["finish_reason"] == "length",
+                "client_latency_ms": record.get("client_latency_ms"),
+                "prompt_eval_count": record.get("prompt_eval_count"),
+                "eval_count": eval_count,
+                "tokens_per_second": tokens_per_second,
                 **{category: counts[category] for category in EVENT_CATEGORIES},
                 "primary_count": primary_count,
+                "primary_error_present": primary_count > 0,
                 "primary_rate_per_100_words": rate,
+                "primary_plus_surface_rate_per_100_words": None
+                if word_count == 0
+                else 100 * (primary_count + counts["surface"]) / word_count,
                 **{flag: response_labels[blind_id][flag] for flag in RESPONSE_FLAGS},
             }
         )
@@ -220,6 +436,22 @@ def main() -> int:
     adjusted = holm_adjust(row["p_raw"] for row in pairwise)
     for row, value in zip(pairwise, adjusted):
         row["p_holm"] = value
+    model_task_interactions = []
+    for pair_index, (left_index, right_index) in enumerate(itertools.combinations(range(4), 2)):
+        model_task_interactions.append(
+            {
+                "left": model_order[left_index],
+                "right": model_order[right_index],
+                **stratified_difference_in_differences(
+                    matrix,
+                    strata,
+                    left_index,
+                    right_index,
+                    replicates=bootstrap,
+                    seed=seed + 701 + pair_index,
+                ),
+            }
+        )
 
     model_rows = []
     for model_index, model in enumerate(model_order):
@@ -255,17 +487,24 @@ def main() -> int:
     h2_difference = h2_pair["difference"] if h2_pair["left"] == "kazllm_8b" else -h2_pair["difference"]
     h2_low = h2_pair["ci_low"] if h2_pair["left"] == "kazllm_8b" else -h2_pair["ci_high"]
     h2_high = h2_pair["ci_high"] if h2_pair["left"] == "kazllm_8b" else -h2_pair["ci_low"]
-    h1_supported = friedman.p_value < float(protocol["analysis"]["alpha"])
-    h2_supported = h1_supported and h2_pair["p_holm"] < 0.05 and h2_difference < 0 and h2_high < 0
+    alpha = float(protocol["analysis"]["alpha"])
+    h1_supported = friedman.p_value < alpha
+    h2_supported = h1_supported and h2_pair["p_holm"] < alpha and h2_difference < 0 and h2_high < 0
 
     general_models = {"qwen3_8b", "llama31_8b", "gemma3_12b"}
     general_rows = [row for row in metrics if row["model_label"] in general_models]
-    general_words = sum(row["word_count"] for row in general_rows)
-    h3_rates = {
-        category: (100 * sum(row[category] for row in general_rows) / general_words if general_words else None)
-        for category in PRIMARY_CATEGORIES
-    }
-    h3_top = max(h3_rates, key=lambda key: h3_rates[key] if h3_rates[key] is not None else -1)
+    h3_categories, h3_contrasts = stratified_category_bootstrap(
+        general_rows,
+        PRIMARY_CATEGORIES,
+        replicates=bootstrap,
+        seed=seed + 801,
+    )
+    h3_top = max(
+        h3_categories,
+        key=lambda key: h3_categories[key]["pooled_rate_per_100_words"]
+        if h3_categories[key]["pooled_rate_per_100_words"] is not None
+        else -1,
+    )
 
     exemptions = {
         line.strip().casefold()
@@ -281,6 +520,13 @@ def main() -> int:
     detector_rows = []
     for row in metrics:
         record = by_private[row["private_response_id"]]
+        tokens = word_tokens(record["response_text"])
+        nonexempt_latin = [
+            token for token in tokens if token.casefold() not in exemptions and contains_latin(token)
+        ]
+        row["nonexempt_latin_token_share"] = (
+            None if not tokens else len(nonexempt_latin) / len(tokens)
+        )
         latin = latin_response_positive(record["response_text"], exemptions)
         fasttext_positive, _ = fasttext_response_positive(
             record["response_text"],
@@ -296,6 +542,7 @@ def main() -> int:
                 "latin": latin,
                 "fasttext": fasttext_positive,
                 "hybrid": latin or fasttext_positive,
+                "nonexempt_latin_token_share": row["nonexempt_latin_token_share"],
             }
         )
     gold = [row["gold"] for row in detector_rows]
@@ -315,6 +562,120 @@ def main() -> int:
         ),
     }
 
+    model_task_rows = []
+    for model in model_order:
+        for task_type in ("educational", "public_information"):
+            subset = [
+                row
+                for row in metrics
+                if row["model_label"] == model and row["task_type"] == task_type
+            ]
+            words = sum(row["word_count"] for row in subset)
+            primary_events = sum(row["primary_count"] for row in subset)
+            defined_rates = [
+                row["primary_rate_per_100_words"]
+                for row in subset
+                if row["primary_rate_per_100_words"] is not None
+            ]
+            model_task_rows.append(
+                {
+                    "model": model,
+                    "task_type": task_type,
+                    "responses": len(subset),
+                    "total_words": words,
+                    "total_primary_events": primary_events,
+                    "pooled_rate_per_100_words": None
+                    if words == 0
+                    else 100 * primary_events / words,
+                    "mean_response_rate": float(np.mean(defined_rates)) if defined_rates else None,
+                    "truncated_rate": float(np.mean([row["truncated"] for row in subset])),
+                    "length_compliance_rate": float(
+                        np.mean([row["length_150_200"] for row in subset])
+                    ),
+                    "mean_client_latency_ms": float(
+                        np.mean(
+                            [
+                                row["client_latency_ms"]
+                                for row in subset
+                                if row["client_latency_ms"] is not None
+                            ]
+                        )
+                    ),
+                    "mean_tokens_per_second": float(
+                        np.mean(
+                            [
+                                row["tokens_per_second"]
+                                for row in subset
+                                if row["tokens_per_second"] is not None
+                            ]
+                        )
+                    ),
+                    **{
+                        f"{flag}_rate": float(np.mean([row[flag] == "yes" for row in subset]))
+                        for flag in RESPONSE_FLAGS
+                    },
+                }
+            )
+
+    surface_matrix = np.array(
+        [
+            [
+                by_prompt[prompt_id][model]["primary_plus_surface_rate_per_100_words"]
+                for model in model_order
+            ]
+            for prompt_id in complete_prompts
+        ],
+        dtype=float,
+    )
+    nontruncated_prompts = [
+        prompt_id
+        for prompt_id in complete_prompts
+        if not any(by_prompt[prompt_id][model]["truncated"] for model in model_order)
+    ]
+    nontruncated_matrix = np.array(
+        [
+            [by_prompt[prompt_id][model]["primary_rate_per_100_words"] for model in model_order]
+            for prompt_id in nontruncated_prompts
+        ],
+        dtype=float,
+    )
+    rater_sensitivity = {}
+    for rater_index, rater_path in enumerate(rater_paths, start=1):
+        workbook = load_annotation_workbook(rater_path, expected_responses=240)
+        if set(workbook["responses"]) != set(mapping):
+            raise SystemExit(f"rater {rater_index} workbook does not match the frozen blind IDs")
+        counts: dict[str, Counter] = defaultdict(Counter)
+        for event in workbook["events"]:
+            counts[event["blind_id"]][event["category"]] += 1
+        rater_matrix, _ = matrix_from_event_counts(counts, mapping, by_private, model_order)
+        rater_sensitivity[f"rater_{rater_index}"] = {
+            "workbook_sha256": workbook["sha256"],
+            **friedman_summary(
+                rater_matrix,
+                permutations=permutations,
+                seed=seed + 900 + rater_index,
+            ),
+            "model_mean_response_rates": {
+                model: float(np.mean(rater_matrix[:, model_index]))
+                for model_index, model in enumerate(model_order)
+            },
+        }
+
+    sensitivity = {
+        "exclude_truncated": friedman_summary(
+            nontruncated_matrix,
+            permutations=permutations,
+            seed=seed + 901,
+        ),
+        "include_surface_errors": friedman_summary(
+            surface_matrix,
+            permutations=permutations,
+            seed=seed + 902,
+        ),
+        "pre_adjudication_raters": rater_sensitivity,
+        "model_by_task_difference_in_differences": model_task_interactions,
+    }
+
     summary = {
         "design": {"responses": len(metrics), "complete_prompt_blocks": len(complete_prompts)},
         "h1": {
@@ -331,10 +692,15 @@ def main() -> int:
             "ci_high": h2_high,
             "p_holm": h2_pair["p_holm"],
         },
-        "h3": {"descriptive_top_category": h3_top, "rates_per_100_words": h3_rates},
+        "h3": {
+            "descriptive_top_category": h3_top,
+            "category_summaries": h3_categories,
+            "code_switching_contrasts": h3_contrasts,
+        },
         "h4": h4,
         "models": model_rows,
         "pairwise": pairwise,
+        "sensitivity": sensitivity,
     }
 
     output.mkdir(parents=True, exist_ok=True)
@@ -347,6 +713,14 @@ def main() -> int:
     )
     write_csv(output / "model_rates.csv", list(model_rows[0]), model_rows)
     write_csv(output / "pairwise.csv", list(pairwise[0]), pairwise)
+    write_csv(output / "model_task_rates.csv", list(model_task_rows[0]), model_task_rows)
+    write_csv(output / "detector_response_metrics.csv", list(detector_rows[0]), detector_rows)
+    write_csv(
+        output / "model_task_interactions.csv",
+        list(model_task_interactions[0]),
+        model_task_interactions,
+    )
+    write_json(output / "sensitivity.json", sensitivity)
     write_json(
         output / "input_hashes.json",
         {
@@ -355,6 +729,9 @@ def main() -> int:
             "response_labels": sha256_file(responses_path),
             "error_events": sha256_file(events_path),
             "adjudication_log": sha256_file(adjudication_log_path),
+            "response_disagreements": sha256_file(response_disagreements_path),
+            "rater_1_workbook": sha256_file(rater_paths[0]),
+            "rater_2_workbook": sha256_file(rater_paths[1]),
             "exemptions": sha256_file(exemptions_path),
             "lid_model": sha256_file(lid_path),
         },

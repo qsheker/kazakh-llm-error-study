@@ -40,6 +40,11 @@ def load_run_records(run_dir: Path) -> list[dict[str, Any]]:
                 "response_text": text,
                 "word_count": len(word_tokens(text)),
                 "finish_reason": receipt["response"].get("done_reason"),
+                "client_latency_ms": receipt.get("client_latency_ms"),
+                "prompt_eval_count": receipt["response"].get("prompt_eval_count"),
+                "prompt_eval_duration_ns": receipt["response"].get("prompt_eval_duration"),
+                "eval_count": receipt["response"].get("eval_count"),
+                "eval_duration_ns": receipt["response"].get("eval_duration"),
                 "response_sha256": receipt["response_text_sha256"],
             }
         )

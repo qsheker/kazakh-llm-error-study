@@ -41,4 +41,7 @@ Compute precision, recall, and F1 on all 240 responses. Estimate the hybrid-minu
 
 Report category rates, error presence, foreign-token share, length compliance, truncation, repetition, refusal, off-task behavior, latency, generated tokens, and tokens/second. Stratify by task type and estimate a bootstrap model-by-task difference-in-differences. Sensitivity analyses exclude truncated answers, compare pooled with mean response rates, retain each pre-adjudication rater separately, and include surface errors separately.
 
-An offset count model is exploratory. Interpret it only when convergence and dispersion diagnostics are acceptable; otherwise report instability and use the stratified paired results.
+No offset count model is included in the frozen analysis. The paired prompt-block
+analysis remains primary; the pre-specified sensitivity outputs above provide
+the additional robustness checks without adding a fragile model after seeing
+test labels.
