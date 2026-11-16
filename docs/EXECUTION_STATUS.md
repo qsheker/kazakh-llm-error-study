@@ -93,6 +93,12 @@ Snapshot: 2026-11-16, Asia/Almaty.
    exception, outside-team reproduction, final release URL, and all-author
    approval remain human or institutional actions.
 
+The 2026-11-16 machine audit reproduced this boundary: run validation reports
+240 receipts and 240 accounted requests; workbook validation rejects the first
+blank response-level flag; the release audit returns `ready: false` and names
+the missing derived results and evidence records. No document claims a model
+ranking while that state persists.
+
 ## Next executable sequence
 
 ```bash
@@ -105,3 +111,6 @@ Snapshot: 2026-11-16, Asia/Almaty.
 The three assigned reviewers must enter final `yes`/`no` response flags, resolve
 every event and complete the review log first. The later analysis, manuscript,
 and slide steps must use those reviewed labels and the frozen raw inputs.
+
+For the exact final package and rehearsal sequence, follow
+`docs/FINAL_SUBMISSION_AND_DEFENSE_RU.md`.

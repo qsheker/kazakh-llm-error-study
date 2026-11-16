@@ -1,5 +1,10 @@
 # Проверка team-gold разметки
 
+Это обязательный человеческий этап финального маршрута из
+`docs/FINAL_SUBMISSION_AND_DEFENSE_RU.md`. По состоянию на 16 ноября 2026 года
+workbook validation останавливается на пустых полях; назначения 80/80/80 не
+равны завершённым reviews.
+
 ## Что уже подготовлено
 
 - `annotations/team_gold/final_test_v2__team_gold.xlsx` — одна общая blinded

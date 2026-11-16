@@ -44,6 +44,11 @@ and freeze manifest all agree.
 
 Historical assignments are retained under `docs/archive/` as provenance, not as executable evidence for the final results.
 
+For the exact submit-now package, the remaining sequence and the three-person
+defense rehearsal, use `docs/FINAL_SUBMISSION_AND_DEFENSE_RU.md` as the single
+operational guide. The supplied Agile “Team Project 2” document belongs to a
+different assignment and is not part of this research submission.
+
 Canonical repository: <https://github.com/qsheker/kazakh-llm-error-study>
 
 ## Submission artifacts
@@ -54,9 +59,13 @@ Canonical repository: <https://github.com/qsheker/kazakh-llm-error-study>
   manuscript transferred into the official one-column ACM Word style set.
 - `deliverables/Cover_Letter_TALLIP.docx` — one-page draft cover letter; the
   red warning must be removed only after the final evidence gate passes.
+- `deliverables/Final_Submission_and_Defense_Guide_RU.docx` — Russian
+  operational handoff for submission, remaining work and defense rehearsal.
 - `output/pdf/Kazakh_LLM_Defense_Deck.pdf` — 10-slide defense deck.
 - `docs/JOURNAL_FIT_STATEMENT.md` — completed primary/backup journal record.
 - `docs/CRITERIA_MATRIX.md` — criterion-by-criterion status and evidence map.
+- `docs/FINAL_SUBMISSION_AND_DEFENSE_RU.md` — single Russian submission and
+  defense guide with the exact current gates.
 - `annotations/calibration/dev_calibration_v2/` — four blinded calibration
   workbooks plus public integrity manifests; the private model key is excluded
   from Git.
@@ -66,6 +75,7 @@ Rebuild the two Word artifacts with:
 ```bash
 .venv/bin/python scripts/build_manuscript.py
 .venv/bin/python scripts/build_cover_letter.py
+.venv/bin/python scripts/build_final_guide.py
 ```
 
 Rebuild the official-template copy without overwriting the working manuscript:
