@@ -189,7 +189,7 @@ def build() -> None:
     core.title = "Финальная сдача и защита: единая инструкция"
     core.subject = "Operational guide for the Kazakh LLM Error Study final submission"
     core.author = "Aldiyar Zhaksylyk; Yerkebulan Rakhymbay; Iliyas Aitzhan"
-    core.comments = "Current as of 16 November 2026. Pre-results boundary is explicit."
+    core.comments = "Current as of 16 November 2026. Final results and remaining release gates are explicit."
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     doc.save(OUT)

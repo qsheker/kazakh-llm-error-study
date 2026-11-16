@@ -57,11 +57,15 @@ Canonical repository: <https://github.com/qsheker/kazakh-llm-error-study>
   manuscript with declarations and appendices.
 - `deliverables/Kazakh_LLM_Study_ACM_Submission.docx` — the same controlled
   manuscript transferred into the official one-column ACM Word style set.
-- `deliverables/Cover_Letter_TALLIP.docx` — one-page draft cover letter; the
-  red warning must be removed only after the final evidence gate passes.
+- `deliverables/Cover_Letter_TALLIP.docx` — one-page result-bearing cover
+  letter; journal submission remains gated by the external evidence checks.
 - `deliverables/Final_Submission_and_Defense_Guide_RU.docx` — Russian
   operational handoff for submission, remaining work and defense rehearsal.
 - `output/pdf/Kazakh_LLM_Defense_Deck.pdf` — 10-slide defense deck.
+- `deliverables/Kazakh_LLM_Defense_Deck.pptx` — editable copy of the same
+  result-bearing defense deck.
+- `output/packages/Kazakh_LLM_Final_Course_Submission.zip` — ready-to-send
+  course package with a hash manifest; it is explicitly not a journal release.
 - `docs/JOURNAL_FIT_STATEMENT.md` — completed primary/backup journal record.
 - `docs/CRITERIA_MATRIX.md` — criterion-by-criterion status and evidence map.
 - `docs/FINAL_SUBMISSION_AND_DEFENSE_RU.md` — single Russian submission and
@@ -88,10 +92,20 @@ Rebuild the official-template copy without overwriting the working manuscript:
   --output deliverables/Kazakh_LLM_Study_ACM_Submission.docx
 ```
 
-`scripts/build_defense_pdf.py` packages the ten slide PNG exports from the live
-presentation workspace into the canonical PDF. The reviewed PDF is committed;
-the script requires an explicit export directory and output path so it cannot
-silently package stale slides.
+Rebuild the editable result-bearing deck and its canonical PDF with the bundled
+presentation runtime, then visually inspect every exported slide:
+
+```bash
+/Users/qsheker/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node \
+  scripts/build_defense_deck.mjs
+.venv/bin/python scripts/build_defense_pdf.py \
+  --slides-dir .deck-build/slides \
+  --output output/pdf/Kazakh_LLM_Defense_Deck.pdf
+```
+
+The deck builder reads the frozen analysis outputs and validates the editable
+PPTX package before writing it. `build_defense_pdf.py` packages exactly ten
+exported slide PNGs and refuses any other sequence.
 
 ## Team and accountable work
 
@@ -214,7 +228,7 @@ model mapping only after the team gold workbook and review log are frozen.
 
 ## Reproducing results
 
-The final release will expose a single reproduction command after the 240 receipts and reviewed team labels exist. Until then, any generated table is a readiness artifact, not a final result. `final` must not be tagged before all checks in `docs/RELEASE_CHECKLIST.md` pass. The manuscript and deck are therefore final-quality containers, not false claims that the study is already complete.
+The 240 receipts, reviewed team labels, generated tables and result-bearing manuscript now exist. Their hashes are recorded in `results/derived/final_test_v2/input_hashes.json`. The release tag `final` must still not be created before every external-evidence and clean-release check in `docs/RELEASE_CHECKLIST.md` passes.
 
 The machine-enforced release audit is:
 

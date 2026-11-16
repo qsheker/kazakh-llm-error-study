@@ -15,10 +15,13 @@ def test_acm_submission_copy_uses_template_styles_and_complete_content():
     assert document.paragraphs[0].style.name == "Title_document"
     assert document.paragraphs[0].text == "Evaluating Kazakh Language Errors in Local Large Language Models"
     assert "Submission Template for ACM Papers" not in paragraph_text
-    assert "Results reporting contract" in paragraph_text
+    assert any(p.text == "Results" and p.style.name == "Head1" for p in document.paragraphs)
+    assert "Results reporting contract" not in paragraph_text
+    assert "controlled pre-results" not in paragraph_text.lower()
+    assert "KazLLM had the lowest" in paragraph_text
     assert sum(p.style.name == "Bib_entry" for p in document.paragraphs) == 28
-    assert sum(p.style.name == "TableCaption" for p in document.paragraphs) == 3
-    assert len(document.tables) == 3
+    assert sum(p.style.name == "TableCaption" for p in document.paragraphs) == 6
+    assert len(document.tables) == 6
 
 
 def test_acm_submission_core_word_count_meets_course_range():

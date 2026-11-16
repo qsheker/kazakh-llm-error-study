@@ -1,0 +1,39 @@
+{
+  "status": "ai_draft_only_human_review_required",
+  "created_utc": "2026-11-16T13:08:58Z",
+  "annotator_service": "ChatGPT Work",
+  "annotator_model_display": "GPT-6.1 Sol Light",
+  "chat_url": "https://chatgpt.com/c/6afafc64-ca88-83ed-9b13-9626fa9dee44",
+  "input": {
+    "description": "Anonymized prompt batches with 240 blinded responses and compact reference-card requirements",
+    "sha256": "4c517c6cf8a32c4e53cd45116ba064082e03630452728f2010845539380b56e8"
+  },
+  "raw_draft": {
+    "path": "annotations/team_gold/ai_drafts/cloud/annotations_ai_draft.json",
+    "sha256": "6c4777853b7f57358c8c333dea544ccdcd98003d3ae1fde6bcb412f305c8a2ec",
+    "responses": 240,
+    "events": 855
+  },
+  "workbook": {
+    "path": "annotations/team_gold/final_test_v2__team_gold.xlsx",
+    "sha256_before": "7b4dbf8e4d0fdb61e228ce4d03fecc44e622374413586ce16a74d9c2a2a3a500",
+    "sha256_after": "0358925cd63644add3d8e28e8f8c9b418aa02d8d0763417c86269a57060605cf",
+    "responses_populated": 240,
+    "events_populated": 855,
+    "all_events_need_adjudication": true
+  },
+  "normalization": [
+    {
+      "blind_id": "B-87CCFB5540624986",
+      "reason": "The tokenizer excludes digit-only spans, so the invented phone-number fragment was expanded to the surrounding phrase to obtain valid token indices.",
+      "raw_fragment": "123-456-7890",
+      "workbook_fragment": "123-456-7890 телефон нөмері"
+    }
+  ],
+  "review_log": {
+    "path": "annotations/team_gold/team_review_log.csv",
+    "sha256": "0fad500548c4bf3b50ae9cb458b5f497e2f295acb48ea736a5d9b9acaf515228",
+    "changed": false
+  },
+  "integrity_note": "These annotations are AI proposals. They are not team approval, independent human annotation, or final gold labels. Named reviewers must review their assigned rows and resolve every event before release."
+}

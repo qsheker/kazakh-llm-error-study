@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import re
 from pathlib import Path
 
 from docx import Document
@@ -10,6 +11,7 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.table import Table
 from docx.text.paragraph import Paragraph
+from docx.shared import Pt
 
 TABLE_CONTEXT = [
     (
@@ -21,8 +23,20 @@ TABLE_CONTEXT = [
         "Table 2: Frozen local model artifacts",
     ),
     (
-        "Table 3 maps each substantive responsibility to the evidence used during the defense.",
-        "Table 3: Team ownership and defense evidence",
+        "Table 3 summarizes the reviewed primary-error rates for the four frozen model artifacts.",
+        "Table 3: Primary error rates by model",
+    ),
+    (
+        "Table 4 reports all pre-specified pairwise comparisons with whole-prompt intervals and Holm adjustment.",
+        "Table 4: Pairwise model contrasts",
+    ),
+    (
+        "Table 5 compares the response-level code-switching detectors against the reviewed team gold.",
+        "Table 5: Code-switching detector performance",
+    ),
+    (
+        "Table 6 maps each substantive responsibility to the evidence used during the defense.",
+        "Table 6: Team ownership and defense evidence",
     ),
 ]
 
@@ -45,6 +59,10 @@ def clear_body(document: DocumentObject) -> None:
 def add_text_paragraph(document: DocumentObject, source: Paragraph, style: str) -> Paragraph:
     target = document.add_paragraph(style=style)
     target.paragraph_format.keep_with_next = source.paragraph_format.keep_with_next
+    if source.text.startswith("After the primary study is frozen"):
+        # LibreOffice can place the first continuation glyph outside the text
+        # area when this specific justified paragraph splits across a page.
+        target.paragraph_format.keep_together = True
     if source.runs:
         for source_run in source.runs:
             target_run = target.add_run(source_run.text)
@@ -90,7 +108,7 @@ def main() -> int:
     output = Document(args.template)
     clear_body(output)
     output.core_properties.title = source.paragraphs[0].text
-    output.core_properties.subject = "Controlled pre-results manuscript for ACM TALLIP"
+    output.core_properties.subject = "Final result-bearing manuscript for ACM TALLIP"
     output.core_properties.author = "Aldiyar Zhaksylyk; Yerkebulan Rakhymbay; Iliyas Aitzhan"
     output.core_properties.last_modified_by = ""
     output.core_properties.revision = 1
@@ -124,20 +142,26 @@ def main() -> int:
             if block.style.name == "Heading 1":
                 reference_mode = text == "References"
                 appendix_mode = text.startswith("Appendix ")
+                heading_text = re.sub(r"^\d+(?:\.\d+)*\s+", "", text)
                 if reference_mode:
-                    output.add_paragraph(text, style="ReferenceHead")
+                    output.add_paragraph(heading_text, style="ReferenceHead")
                 elif appendix_mode:
-                    output.add_paragraph(text, style="AppendixH1")
+                    output.add_paragraph(heading_text, style="AppendixH1")
                 else:
-                    output.add_paragraph(text, style="Head1")
+                    output.add_paragraph(heading_text, style="Head1")
                 after_heading = True
                 continue
             if block.style.name == "Heading 2":
-                output.add_paragraph(text, style="AppendixH2" if appendix_mode else "Head2")
+                heading_text = re.sub(r"^\d+(?:\.\d+)*\s+", "", text)
+                heading_paragraph = output.add_paragraph(
+                    heading_text, style="AppendixH2" if appendix_mode else "Head2"
+                )
+                heading_paragraph.paragraph_format.space_before = Pt(6)
+                heading_paragraph.paragraph_format.space_after = Pt(2)
                 after_heading = True
                 continue
             if reference_mode:
-                add_text_paragraph(output, block, "Bib_entry")
+                output.add_paragraph(re.sub(r"^\[\d+\]\s*", "", text), style="Bib_entry")
                 continue
             if block.style.name.startswith("List"):
                 style = "List Paragraph"

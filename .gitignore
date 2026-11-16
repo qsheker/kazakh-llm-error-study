@@ -14,6 +14,8 @@ dist/
 data/blinding/private_model_key.csv
 data/blinding/*_key.csv
 scripts/node_modules
+node_modules
+.deck-build/
 
 # Temporary exports only. Final receipts, derived tables, and original
 # annotation workbooks are research evidence and are intentionally tracked.

@@ -1,8 +1,9 @@
 # Three-person defense plan
 
-Current gate (2026-11-16): use this as the defense structure, but do not present
-the deck as result-bearing until the 240 blinded reviews and generated analyses
-are complete. The Russian operational checklist is
+Current gate (2026-11-16): the 240-response joint review and generated analyses
+are complete. Use the exact values in `results/derived/final_test_v2/`; do not
+copy or round numbers independently. External evidence and the clean final
+release are still gated. The Russian operational checklist is
 `docs/FINAL_SUBMISSION_AND_DEFENSE_RU.md`.
 
 The instructor-approved three-person exception should be evidenced in writing
@@ -73,9 +74,9 @@ limitation, and why no result was fabricated.
     existed before the identical-payload retry?
 12. Why does the joint three-person review not provide independent
     inter-annotator reliability?
-13. Why is a release tag named `final` intentionally absent today?
+13. Why is a release tag named `final` still absent despite completed results?
 
 The acceptable answers must match `protocol/analysis_plan.md`,
 `protocol/annotation_protocol.md`, and the final generated evidence. If the
-answer requires a number that is not yet generated, say that it is pending; do
-not improvise it.
+answer requires a number outside the generated evidence, say that it is not
+verified; do not improvise it.

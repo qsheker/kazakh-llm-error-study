@@ -28,6 +28,7 @@ from kazllm_eval.detectors import (
     binary_metrics,
     clustered_f1_difference,
     contains_latin,
+    fasttext_predict_one,
     fasttext_response_positive,
     latin_response_positive,
 )
@@ -513,8 +514,7 @@ def main() -> int:
     lid = fasttext.load_model(str(lid_path))
 
     def predictor(text: str) -> tuple[str, float]:
-        labels, probabilities = lid.predict(text.replace("\n", " "), k=1)
-        return labels[0].removeprefix("__label__"), float(probabilities[0])
+        return fasttext_predict_one(lid, text)
 
     detector_rows = []
     for row in metrics:

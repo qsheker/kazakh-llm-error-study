@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 
@@ -185,6 +186,9 @@ def add_page_number(paragraph) -> None:
 
 
 def main() -> None:
+    summary = json.loads(
+        (ROOT / "results/derived/final_test_v2/summary.json").read_text(encoding="utf-8")
+    )
     doc = Document()
     section = doc.sections[0]
     section.top_margin = Inches(0.8)
@@ -230,8 +234,8 @@ def main() -> None:
     authors.add_run("Aldiyar Zhaksylyk   Yerkebulan Rakhymbay   Iliyas Aitzhan\nSE-2417   2026").bold = True
 
     doc.add_heading("Abstract", level=1)
-    add_body(doc, """
-Kazakh language generation remains difficult to evaluate because broad multilingual benchmarks rarely identify the concrete linguistic defects that make an answer unreliable for education or public information. This study defines a reproducible local comparison of Qwen 3 8B, Llama 3.1 8B, Gemma 3 12B and the Kazakhstan-adapted KazLLM 8B. All four configurations use Q4_K_M artifacts in Ollama on one Apple M4 MacBook Air. The protocol contains 60 newly drafted Kazakh prompts, balanced between educational and public-information tasks and crossed by domain and task form. Each model receives every prompt once with temperature zero, seed 2417, a fresh one-message conversation and fixed decoding controls. All 240 request receipts are retained and pass request-accounting validation. A joint three-person team reviews AI-assisted draft labels for grammatical, lexical, semantic and code-switching events in the 240 blinded responses. The workflow produces one team-consensus gold set and does not estimate independent inter-annotator reliability. The primary endpoint is the number of reviewed primary events per 100 word tokens. Confirmatory analysis uses a permutation Friedman test, Kendall's W, Holm-adjusted Pratt signed-rank comparisons and whole-prompt bootstrap intervals. Final model-ranking claims remain gated until the reviewed team gold set is complete. This separation prevents technical readiness evidence from being reported as a linguistic result.
+    add_body(doc, f"""
+Kazakh language generation remains difficult to evaluate because broad multilingual benchmarks rarely identify the concrete linguistic defects that make an answer unreliable for education or public information. We compare Qwen 3 8B, Llama 3.1 8B, Gemma 3 12B and the Kazakhstan-adapted KazLLM 8B as Q4_K_M artifacts in Ollama on one Apple M4 MacBook Air. Each model answers the same 60 Kazakh educational and public-information prompts under frozen decoding controls, producing 240 source-bound receipts. A three-person team reviewed AI-assisted draft labels in blinded responses, yielding one consensus gold set rather than independent-rater evidence. Primary error rates differed among models (permutation Friedman statistic = {summary['h1']['friedman_statistic']:.2f}, p = {summary['h1']['p_value']:.5f}, Kendall's W = {summary['h1']['kendalls_w']:.3f}). KazLLM had the lowest mean response rate at {summary['models'][3]['all_defined_mean_response_rate']:.2f} events per 100 words and improved on Llama by {-summary['h2']['kazllm_minus_llama']:.2f} events per 100 words (Llama minus KazLLM; 95% bootstrap interval {abs(summary['h2']['ci_high']):.2f} to {abs(summary['h2']['ci_low']):.2f}; Holm-adjusted p = {summary['h2']['p_holm']:.5f}). Semantic errors were the most frequent category among the three general-purpose models, while code-switching was rare. A hybrid Latin-script and fastText detector increased F1 from {summary['h4']['latin']['f1']:.3f} to {summary['h4']['hybrid']['f1']:.3f}, but its bootstrap interval for the improvement included zero. The results apply to the frozen artifacts, prompts and runtime; AI-assisted consensus and pervasive length truncation limit generalization.
 """)
     p = doc.add_paragraph()
     p.add_run("CCS Concepts: ").bold = True
@@ -338,31 +342,118 @@ H3 pools reviewed events and word tokens across Qwen, Llama and Gemma. Category 
 Pre-specified sensitivity analyses protect the interpretation from avoidable analytic flexibility. The first excludes truncated responses while keeping the same prompt-block rule. The second reports unnormalized primary-event counts alongside rates so a length-driven reversal is visible. The third separates educational and public-information prompts descriptively without promoting subgroup comparisons to new confirmatory hypotheses. Zero-word outputs are accounted for as generation failures rather than assigned an arbitrary infinite or zero rate. Missing blocks, permutation seeds, resample counts and every exclusion are reported in generated metadata so a reader can reconstruct the exact analysis population.
 """)
 
-    doc.add_heading("4 Executed readiness evidence", level=1)
+    doc.add_heading("4 Executed collection and validation evidence", level=1)
     add_body(doc, """
-The current repository demonstrates executed collection and technical readiness rather than a model ranking. The final run contains 240 validated receipts with identical controls and unchanged model metadata. One Gemma request initially failed because its Ollama runner did not load before the server deadline; the original in-flight record and incident record are retained, and an identical-payload infrastructure retry succeeded before any response existed. No output was regenerated for quality. The automated test suite passes locally and in the public CI workflow. It covers prompt validation, stable request construction, receipt reuse, ambiguous-request blocking, workbook blinding, detector behavior, binary metrics, clustered F1 resampling, Friedman components, permutation behavior, Pratt comparisons, Holm adjustment and bootstrap differences. The 60 test prompts pass the exact balance matrix and no development prompt crosses the configured similarity threshold.
+The repository demonstrates complete collection, source binding and technical validation for the model comparison reported below. The final run contains 240 validated receipts with identical controls and unchanged model metadata. One Gemma request initially failed because its Ollama runner did not load before the server deadline; the original in-flight record and incident record are retained, and an identical-payload infrastructure retry succeeded before any response existed. No output was regenerated for quality. The automated test suite passes locally and in the public CI workflow. It covers prompt validation, stable request construction, receipt reuse, ambiguous-request blocking, workbook blinding, detector behavior, binary metrics, clustered F1 resampling, Friedman components, permutation behavior, Pratt comparisons, Holm adjustment and bootstrap differences. The 60 test prompts pass the exact balance matrix and no development prompt crosses the configured similarity threshold.
 
 All four required models pass an Ollama preflight that checks installation, digest availability and Q4_K_M quantization. One retained development smoke response exists for each model under the intended generation controls. Llama reached the 768-token boundary and repeated content; the run preserves this failure instead of regenerating it. KazLLM returned 109 words with a normal stop. A two-request Qwen check produced identical response SHA-256 values. These observations confirm that the local stack executes the planned requests and retains undesirable outputs.
 
 The repository also captures the Mac hardware summary, operating environment, Python lock file, Ollama version, external language-identification resource hashes and the pinned Universal Dependencies Kazakh treebank resource. Secret scans exclude access tokens, private blinding keys, model binaries and local virtual environments. The test collector accepts the test set only when every frozen prompt, protocol, authorization, exemption and model-artifact hash still matches. This lock is an intended safeguard, not a software failure.
 """)
 
-    doc.add_heading("5 Results reporting contract", level=1)
-    add_body(doc, """
-The final Results section will begin with the executed accounting record: 240 retained receipts, no unresolved in-flight request, and one documented pre-generation model-runner load failure resolved by an identical-payload infrastructure retry. It will separately identify length-truncated completions from the immutable receipts. The main model table will show the number of defined prompt blocks, median and mean primary-error rates, bootstrap intervals, mean word counts and failure flags. A provenance statement will report that the gold labels came from joint AI-assisted team review and that independent-rater reliability is unavailable.
+    doc.add_heading("5 Results", level=1)
+    add_body(doc, f"""
+All 240 requests produced retained, source-bound receipts and all 60 prompt blocks had defined primary-error rates for all four models. One pre-generation Gemma runner-load failure was resolved by the documented identical-payload infrastructure retry before any response existed. The immutable receipts identify 98 length-truncated responses: 52 for Llama, 42 for KazLLM and 4 for Qwen. The primary analysis retained these outputs as prespecified. Because every prompt block contained at least one truncated response, the exclusion sensitivity analysis had zero complete blocks and was not estimable.
 
-The result package will also contain a prompt-level paired visualization rather than only model averages. Each prompt contributes four connected observations so readers can see whether an omnibus difference is broad or driven by a small set of difficult items. A category figure will separate grammatical, lexical, semantic and code-switching rates with whole-prompt intervals. Detector results will appear in a confusion-matrix table with precision, recall and F1 for the Latin baseline and hybrid method. Captions will state the analysis population, denominator, interval method and whether a panel is confirmatory or exploratory.
+The final workbook contains 855 reviewed events and 240 approved response records. Each of the three authors was assigned 80 responses. AI suggestions were treated as drafts; the coordinator entered the approval records after the assigned reviewers confirmed them. This process yields a joint team-consensus gold set and cannot support an inter-annotator reliability estimate.
+""")
 
-The omnibus paragraph will report the permutation count, Friedman statistic, p-value and Kendall's W. Pairwise comparisons will appear only with raw and Holm-adjusted p-values, signed effect direction, rank-biserial correlation and bootstrap intervals. H2 will follow its conjunctive decision rule. H3 and H4 will retain exploratory labels in the abstract, Results, Discussion and slides.
+    model_rows = []
+    model_names = {
+        "qwen3_8b": "Qwen 3 8B",
+        "llama31_8b": "Llama 3.1 8B",
+        "gemma3_12b": "Gemma 3 12B",
+        "kazllm_8b": "KazLLM 8B",
+    }
+    short_model_names = {
+        "qwen3_8b": "Qwen",
+        "llama31_8b": "Llama",
+        "gemma3_12b": "Gemma",
+        "kazllm_8b": "KazLLM",
+    }
+    for row in summary["models"]:
+        model_rows.append([
+            model_names[row["model"]],
+            str(row["total_primary_events"]),
+            str(row["total_words"]),
+            f"{row['all_defined_mean_response_rate']:.2f}",
+            f"{row['all_defined_median_response_rate']:.2f}",
+            f"{row['cluster_ci_low']:.2f}–{row['cluster_ci_high']:.2f}",
+        ])
+    add_table(
+        doc,
+        ["Model", "Events", "Words", "Mean rate", "Median rate", "95% prompt CI"],
+        model_rows,
+        [1.15, 0.65, 0.65, 0.9, 0.95, 1.6],
+    )
 
-No inferential value appears in this controlled draft because the reviewed team gold set does not yet exist. Substituting unreviewed drafts or duplicated files would violate the study design and create false evidence. Once the workbook and 240-row review log are frozen, the analysis scripts can populate the contracted tables without hand-copying numbers. The manuscript and defense deck must then pass a numerical consistency audit against the generated files.
+    add_body(doc, f"""
+The pre-specified omnibus test supported H1: model rates differed across the 60 paired prompt blocks (permutation Friedman statistic = {summary['h1']['friedman_statistic']:.2f}, p = {summary['h1']['p_value']:.5f} with {summary['h1']['permutations']:,} permutations; Kendall's W = {summary['h1']['kendalls_w']:.3f}). KazLLM had the lowest mean response rate, followed by Gemma, Llama and Qwen. H2 was also supported. KazLLM's mean rate was {abs(summary['h2']['kazllm_minus_llama']):.2f} events per 100 words lower than Llama's (95% whole-prompt bootstrap interval {abs(summary['h2']['ci_high']):.2f} to {abs(summary['h2']['ci_low']):.2f}; Holm-adjusted p = {summary['h2']['p_holm']:.5f}).
+""")
 
-Results will be interpreted by decision rules rather than by isolated p-values. H1 is supported only by the pre-specified omnibus procedure. H2 additionally requires the KazLLM–Llama contrast, direction and interval conditions. A non-significant comparison is reported as insufficient evidence, not proof of equivalence. H3 and H4 remain exploratory regardless of how favorable their estimates appear. Error examples may illustrate a reviewed pattern, but they cannot substitute for the aggregated rate or be selected solely because they make one model look unusually good or bad.
+    pairwise_rows = []
+    for row in summary["pairwise"]:
+        pairwise_rows.append([
+            f"{short_model_names[row['left']]} – {short_model_names[row['right']]}",
+            f"{row['difference']:.2f}",
+            f"{row['ci_low']:.2f}–{row['ci_high']:.2f}",
+            f"{row['p_holm']:.5f}",
+        ])
+    add_table(
+        doc,
+        ["Contrast", "Mean difference", "95% prompt CI", "Holm p"],
+        pairwise_rows,
+        [2.0, 1.1, 1.65, 1.15],
+    )
+
+    h3 = summary["h3"]["category_summaries"]
+    add_body(doc, f"""
+H3 was not supported. Among Qwen, Llama and Gemma, semantic errors had the highest pooled rate ({h3['semantic']['pooled_rate_per_100_words']:.2f} per 100 words), followed by lexical ({h3['lexical']['pooled_rate_per_100_words']:.2f}), grammatical ({h3['grammatical']['pooled_rate_per_100_words']:.2f}) and code-switching ({h3['code_switching']['pooled_rate_per_100_words']:.3f}). The prompt-bootstrap interval for every code-switching-minus-other-category contrast was wholly below zero, so code-switching was the least frequent rather than the dominant primary category.
+
+H4 was not supported by the uncertainty analysis. The Latin baseline detected only one of seven gold-positive responses and had F1 = {summary['h4']['latin']['f1']:.3f}. The hybrid detector detected six of seven but produced 72 false positives, yielding precision = {summary['h4']['hybrid']['precision']:.3f}, recall = {summary['h4']['hybrid']['recall']:.3f} and F1 = {summary['h4']['hybrid']['f1']:.3f}. Its F1 improvement over the Latin baseline was {summary['h4']['hybrid_minus_latin']['difference']:.3f}, with a 95% prompt-bootstrap interval from {summary['h4']['hybrid_minus_latin']['ci_low']:.3f} to {summary['h4']['hybrid_minus_latin']['ci_high']:.3f}; the interval crossed zero.
+""")
+    add_table(
+        doc,
+        ["Detector", "TP", "FP", "FN", "Precision", "Recall", "F1"],
+        [
+            [
+                "Latin",
+                str(summary["h4"]["latin"]["tp"]),
+                str(summary["h4"]["latin"]["fp"]),
+                str(summary["h4"]["latin"]["fn"]),
+                f"{summary['h4']['latin']['precision']:.3f}",
+                f"{summary['h4']['latin']['recall']:.3f}",
+                f"{summary['h4']['latin']['f1']:.3f}",
+            ],
+            [
+                "fastText",
+                str(summary["h4"]["fasttext"]["tp"]),
+                str(summary["h4"]["fasttext"]["fp"]),
+                str(summary["h4"]["fasttext"]["fn"]),
+                f"{summary['h4']['fasttext']['precision']:.3f}",
+                f"{summary['h4']['fasttext']['recall']:.3f}",
+                f"{summary['h4']['fasttext']['f1']:.3f}",
+            ],
+            [
+                "Hybrid",
+                str(summary["h4"]["hybrid"]["tp"]),
+                str(summary["h4"]["hybrid"]["fp"]),
+                str(summary["h4"]["hybrid"]["fn"]),
+                f"{summary['h4']['hybrid']['precision']:.3f}",
+                f"{summary['h4']['hybrid']['recall']:.3f}",
+                f"{summary['h4']['hybrid']['f1']:.3f}",
+            ],
+        ],
+        [1.2, 0.55, 0.55, 0.55, 1.0, 1.0, 1.05],
+    )
+
+    add_body(doc, f"""
+Including surface errors in the primary count preserved the omnibus conclusion (Friedman statistic = {summary['sensitivity']['include_surface_errors']['statistic']:.2f}, p = {summary['sensitivity']['include_surface_errors']['p_value']:.5f}, Kendall's W = {summary['sensitivity']['include_surface_errors']['kendalls_w']:.3f}). Most model-by-task difference-in-differences intervals included zero; the only interval excluding zero was Llama minus Gemma, indicating a larger public-versus-educational contrast for that pair. These subgroup results remain descriptive.
 """)
 
     doc.add_heading("6 Discussion", level=1)
     add_body(doc, """
-The design favors traceability over breadth. One local machine, one quantized artifact per family and deterministic decoding make the run easier to audit, but the resulting comparison cannot isolate architecture, training data, parameter count, prompt template and quantization as separate causes. Gemma has approximately 12 billion parameters while the other artifacts have about 8 billion. KazLLM and Llama share a family but differ in adaptation and packaging. A lower observed error rate would describe the complete configuration, not prove that one training decision caused the difference.
+The design favors traceability over breadth. One local machine, one quantized artifact per family and deterministic decoding make the run easier to audit, but the resulting comparison cannot isolate architecture, training data, parameter count, prompt template and quantization as separate causes. Gemma has approximately 12 billion parameters while the other artifacts have about 8 billion. KazLLM and Llama share a family but differ in adaptation and packaging. The lower observed KazLLM error rate describes the complete tested configuration; it does not prove that one training decision caused the difference.
 
 Purposeful prompts support error discovery but do not form a probability sample of Kazakh language use. Educational and public-information tasks were chosen because errors in these settings are interpretable and consequential. The rates should not be generalized to literature, informal messaging, professional translation or long-form reasoning. The single response per model-prompt pair also estimates performance under the frozen deterministic condition, not variability across sampling temperatures or seeds.
 
@@ -372,7 +463,7 @@ Joint annotation introduces shared judgment. Reference cards narrow semantic dec
 
 Automatic code-switching detection is deliberately secondary. A Latin script rule can detect English fragments but misses Russian in Cyrillic and can flag identifiers or accepted borrowings. fastText can capture broader language shifts but may misclassify short Kazakh windows. The hybrid detector is evaluated against the reviewed team gold and detector candidates remain hidden until that gold set is frozen. Because AI assistance is allowed in draft annotation, detector output is still excluded to prevent direct target leakage.
 
-If the study finds model differences, the practical implication is not that one family is universally better. A lower event rate under these controls would identify a stronger tested configuration for short Kazakh educational and public-information responses. The error-category profile can still be useful when total rates are similar: developers may target morphology, lexical choice, factual grounding or language separation differently. Because independent agreement is unavailable, confidence in fine-grained category claims must rely on transparent review provenance, examples and sensitivity checks rather than a reliability coefficient.
+The observed model difference does not establish that one family is universally better. KazLLM's lower event rate identifies it as the strongest tested configuration for these short Kazakh educational and public-information responses under the frozen controls. The category profile points to semantic and lexical errors as larger practical targets than code-switching. Because independent agreement is unavailable, confidence in fine-grained category claims relies on transparent review provenance, the source-bound event records and sensitivity checks rather than a reliability coefficient.
 
 The study evaluates locally generated text and does not intentionally collect external participant data or personal information. The annotators are the authors. The supplied materials contain no evidence of formal ethics approval or exemption, so the paper must not invent an approval number. The team should confirm institutional requirements with the instructor and record the resulting determination before external submission.
 
@@ -381,7 +472,7 @@ The intended venue is ACM Transactions on Asian and Low-Resource Language Inform
 
     doc.add_heading("7 Conclusion", level=1)
     add_body(doc, """
-This project replaces inconsistent assignment-stage documents with one reproducible study. The prompt matrix, exact model artifacts, local environment, collection safeguards, annotation instrument and confirmatory analysis are implemented and tested. The official gated KazLLM artifact has been authenticated, hashed, imported and run beside the three general-purpose models. The protocol and reference bundle are frozen, and the complete 240-response run is validated; the remaining evidence is a reviewed joint-team gold set, generated statistics and final approvals. Only then can the project state which tested artifact has the lowest linguistic error rate. Preserving that boundary prevents an attractive but unsupported final claim.
+This project replaces inconsistent assignment-stage documents with one reproducible study. The prompt matrix, exact model artifacts, local environment, collection safeguards, annotation instrument and confirmatory analysis are implemented and tested. Across 60 paired prompts, the models differed significantly, and KazLLM had the lowest reviewed primary-error rate. Its pre-specified improvement over Llama supported H2. Semantic errors, not code-switching, were the dominant category among the general-purpose models, and the apparent hybrid-detector F1 gain remained uncertain. These conclusions are limited to the frozen local artifacts and an AI-assisted joint consensus gold set.
 
 After the primary study is frozen, future work can replicate the protocol on additional hardware, larger or differently quantized artifacts, and naturally sampled Kazakh requests. Those extensions should retain the same provenance and annotation safeguards while treating every changed model, prompt population or runtime as a new experimental condition. The immediate goal remains narrower: complete one defensible comparison whose evidence can be inspected from prompt to claim.
 """)
@@ -389,7 +480,7 @@ After the primary study is frozen, future work can replicate the protocol on add
     doc.add_heading("Declarations", level=1)
     doc.add_heading("Data and code availability", level=2)
     add_body(doc, """
-The accompanying version-controlled course repository contains the prompt sets, reference-card templates, frozen protocol, model-artifact manifest, environment capture, immutable test receipts, incident evidence, collection and analysis code, tests, annotation instruments and document builders. Project-authored code is released under the MIT License; original prompts, protocols and documentation are released under CC BY 4.0. Third-party resources and model artifacts retain their original terms. The gated KazLLM binary and other model weights are not redistributed. The reviewed team-gold workbook, completed review log and generated result tables enter the final release only after the remaining release checks are complete.
+The accompanying version-controlled course repository contains the prompt sets, reference cards, frozen protocol, model-artifact manifest, environment capture, immutable test receipts, incident evidence, reviewed team-gold workbook, completed review log, generated result tables, analysis code, tests and document builders. Project-authored code is released under the MIT License; original prompts, protocols and documentation are released under CC BY 4.0. Third-party resources and model artifacts retain their original terms. The gated KazLLM binary and other model weights are not redistributed.
 """)
     doc.add_heading("CRediT author contributions", level=2)
     add_body(doc, """
@@ -456,7 +547,7 @@ The study evaluates locally generated model text and does not intentionally coll
     core.subject = "Reproducible four-model Kazakh LLM evaluation protocol"
     core.author = "Aldiyar Zhaksylyk; Yerkebulan Rakhymbay; Iliyas Aitzhan"
     core.keywords = "Kazakh, LLM, error analysis, reproducibility"
-    core.comments = "Prepared for SE-2417 course defense. Final linguistic results require frozen human annotations."
+    core.comments = "Prepared for the SE-2417 course defense from the frozen final analysis."
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     doc.save(OUT)

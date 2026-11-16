@@ -4,6 +4,7 @@ import re
 import unicodedata
 from collections.abc import Callable, Iterable
 from dataclasses import dataclass
+from typing import Any
 
 import numpy as np
 
@@ -33,6 +34,21 @@ class LanguagePrediction:
     text: str
     language: str
     confidence: float
+
+
+def fasttext_predict_one(model: Any, text: str) -> tuple[str, float]:
+    """Return one fastText prediction without the NumPy-2-incompatible wrapper.
+
+    fasttext-wheel 0.9.2 calls ``np.array(..., copy=False)`` in its public
+    ``predict`` method, which raises with NumPy 2. The bound native predictor
+    returns the same probability/label pairs before that conversion.
+    """
+    normalized = text.replace("\n", " ").strip() + "\n"
+    predictions = model.f.predict(normalized, 1, 0.0, "strict")
+    if not predictions:
+        raise ValueError("fastText returned no language prediction")
+    probability, label = predictions[0]
+    return str(label).removeprefix("__label__"), float(probability)
 
 
 def fasttext_response_positive(

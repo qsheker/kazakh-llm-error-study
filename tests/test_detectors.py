@@ -1,9 +1,28 @@
 from kazllm_eval.detectors import (
     binary_metrics,
     clustered_f1_difference,
+    fasttext_predict_one,
     fasttext_response_positive,
     latin_response_positive,
 )
+
+
+def test_fasttext_predict_one_bypasses_numpy_wrapper_and_normalizes_text():
+    class NativePredictor:
+        def __init__(self):
+            self.call = None
+
+        def predict(self, text, k, threshold, on_unicode_error):
+            self.call = (text, k, threshold, on_unicode_error)
+            return [(0.91, "__label__kk")]
+
+    class Model:
+        def __init__(self):
+            self.f = NativePredictor()
+
+    model = Model()
+    assert fasttext_predict_one(model, "бірінші\nекінші") == ("kk", 0.91)
+    assert model.f.call == ("бірінші екінші\n", 1, 0.0, "strict")
 
 
 def test_latin_detector_and_exemption():
