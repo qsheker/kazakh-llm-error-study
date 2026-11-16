@@ -42,8 +42,9 @@ limitation, and why no result was fabricated.
 - Each person gives their section twice without reading a script.
 - Each person answers five hostile questions from the other two.
 - Every spoken number is checked against a generated table, not copied by hand.
-- The team can explain why `240` is the planned number of responses and whether
-  the accounted-for total contains any explicit failures.
+- The team can explain why `240` is the paired design total, show that all
+  240 receipts are accounted for, and distinguish the one pre-generation
+  runner-load retry from a quality-based response regeneration.
 - The team can state that the old three-response evidence is a pilot artifact,
   not part of the confirmatory test set.
 - Nobody describes the joint AI-assisted gold set or duplicated calibration
@@ -63,6 +64,8 @@ limitation, and why no result was fabricated.
 8. What evidence proves the exact model artifact rather than just its tag?
 9. What can be concluded from one quantized artifact per model family?
 10. Why is there no ethics approval number in the report?
+11. Why was the Gemma E13 request retried, and what proves that no response
+    existed before the identical-payload retry?
 
 The acceptable answers must match `protocol/analysis_plan.md`,
 `protocol/annotation_protocol.md`, and the final generated evidence. If the

@@ -20,6 +20,7 @@ scripts/node_modules
 results/docx_qa/
 results/tmp/
 tmp/
+annotations/team_gold/ai_drafts/rejected/
 
 # Local interview checkpoint with machine-specific source paths
 plans/_draft/

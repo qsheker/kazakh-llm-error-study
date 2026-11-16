@@ -1,0 +1,16 @@
+{
+  "incident_id": "final_test_v2-001",
+  "request_index": 100,
+  "prompt_id": "E13",
+  "model_label": "gemma3_12b",
+  "model": "gemma3:12b",
+  "request_started_utc": "2026-11-16T03:15:30.132960+00:00",
+  "failure_class": "explicit_infrastructure_failure_before_generation",
+  "client_error": "HTTP 500 Internal Server Error",
+  "server_evidence": "Load failed: timed out waiting for llama-server to start; POST /api/chat returned 500",
+  "response_observed": false,
+  "original_inflight_sha256": "86ba2afaa86a3469e96c460067d6a0fa2194c8dfd65b87851c6ec96290a3dcbf",
+  "request_sha256": "dbf59a8c30db868f68e40c987bbebb19b6702b1094164c87f1e66fa6dfb33914",
+  "resolution": "Preserve the original inflight marker under incidents and retry the identical request once. The server reported model-load failure before generation, so this is not an ambiguous completed response and the retry is not quality-based.",
+  "resolved_utc": "2026-11-16T04:07:24Z"
+}

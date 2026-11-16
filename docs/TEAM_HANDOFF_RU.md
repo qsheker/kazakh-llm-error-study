@@ -7,8 +7,9 @@
 
 ## Общий порядок
 
-1. Aldiyar ведёт freeze, один раз собирает 240 test-ответов и сохраняет любые
-   неудачные, короткие или обрезанные ответы без выборочной перегенерации.
+1. Aldiyar ведёт freeze. Сбор 240 test-ответов завершён и проверен; короткие и
+   обрезанные ответы сохранены. Единственный retry относится к доказанному
+   сбою загрузки Ollama runner до генерации и имеет incident record.
 2. Codex может подготовить черновые флаги, error events и проверки целостности,
    но эти предложения не считаются независимым аннотатором.
 3. Команда проверяет один blinded team-gold workbook. На каждый blind ID в
@@ -50,14 +51,17 @@
 ## Команды
 
 ```bash
-.venv/bin/python scripts/collect.py --dataset test --preflight
-.venv/bin/python scripts/collect.py --dataset test --send --run-id final_test_v2
-.venv/bin/python scripts/build_annotation_workbooks.py runs/final_test_v2
+.venv/bin/python scripts/validate_run.py runs/final_test_v2 --expected 240
 .venv/bin/python scripts/validate_annotation_workbook.py \
   annotations/team_gold/final_test_v2__team_gold.xlsx --expected-responses 240
 .venv/bin/python scripts/analyze_final.py
 .venv/bin/python scripts/release_gate.py
 ```
+
+Пошаговая инструкция по проверке назначенных 80 blind ID находится в
+`docs/TEAM_REVIEW_INSTRUCTIONS_RU.md`. AI-черновик не завершает этот этап за
+участника: имя, время и `approved` в review log ставятся только после реальной
+проверки человеком. Текущий 22-item QC sample не применён к Excel.
 
 ## Что взять на защиту
 

@@ -92,6 +92,8 @@ def main() -> int:
     output.core_properties.title = source.paragraphs[0].text
     output.core_properties.subject = "Controlled pre-results manuscript for ACM TALLIP"
     output.core_properties.author = "Aldiyar Zhaksylyk; Yerkebulan Rakhymbay; Iliyas Aitzhan"
+    output.core_properties.last_modified_by = ""
+    output.core_properties.revision = 1
     output.core_properties.keywords = "Kazakh; low-resource evaluation; error analysis; reproducibility"
 
     output.add_paragraph(source.paragraphs[0].text, style="Title_document")

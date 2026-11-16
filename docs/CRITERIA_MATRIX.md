@@ -1,6 +1,6 @@
 # Final Project Criteria Matrix
 
-Assessment date: 2026-11-15. This matrix distinguishes built evidence from work that only the three human authors can complete. “Blocked” is not a placeholder result; it is a safeguard against fabrication.
+Assessment date: 2026-11-16. This matrix distinguishes built evidence from work that only the three human authors can complete. “Blocked” is not a placeholder result; it is a safeguard against fabrication.
 
 ## Final submission package
 
@@ -20,17 +20,17 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 | A1. Title, abstract, introduction, contributions | 8 | Structure met; quantitative abstract result blocked | Specific nine-word title; 200–250-word abstract; explicit RQs/H1–H4; four enumerated contributions. Final quantitative result and conclusion require generated tables. |
 | A2. Related work | 7 | Implemented; author reading verification pending | Thematic synthesis, closest-study comparison table, explicit gap, 28 references, and three recent TALLIP papers. Each human author must actually read and verify the sources sampled by the instructor. |
 | A3. Materials and methods | 10 | Frozen and machine-tested | Balanced 60-prompt design; exact four artifacts; frozen controls; failure/retry rules; joint blinded AI-assisted review with explicit provenance; endpoint; permutation Friedman, Kendall’s W, Pratt-Holm comparisons and clustered bootstrap; ethics and reproducibility settings. The retained 80-response dev run and completed 12/20 team-assisted calibration files are rubric/schema evidence, not reliability evidence. |
-| A4. Results | 12 | Collection in progress; labels/results pending | The locked 240-response collection is running. A reviewed 240-response team-gold workbook and generated statistics are still required; no duplicated team files will be reported as independent human ratings. |
+| A4. Results | 12 | Collection complete; human-reviewed labels/results pending | The locked run has 240/240 validated receipts with identical controls and unchanged model metadata. One documented Gemma runner-load failure was retried with the identical payload before any response existed. The blinded workbook and balanced 80/80/80 review assignment exist; a hashed 22-item Qwen QC sample was not applied to the workbook. Generated statistics require actual team review, and no duplicated team files will be reported as independent human ratings. |
 | A5. Discussion and conclusion | 8 | Limitations implemented; final interpretation blocked | Threats to validity, unequal model sizes/templates, purposeful sampling, imperfect blinding, detector limitations and no-overclaim rule are present. Comparison with observed findings waits for A4. |
-| A6. Academic writing and formatting | 5 | Official-template review draft implemented; institutional checks pending | Academic English, official one-column ACM Word styles, 28 DOI/URL-backed references, numbered and text-cited tables, full 16-page visual DOCX QA and accessibility audit with zero findings. University similarity report and personal source-reading declarations are human/institutional steps. |
+| A6. Academic writing and formatting | 5 | Official-template review draft implemented; institutional checks pending | Academic English, official one-column ACM Word styles, 28 DOI/URL-backed references, numbered and text-cited tables, full visual QA of both 16-page manuscript copies, and accessibility audits with zero findings. University similarity report and personal source-reading declarations are human/institutional steps. |
 | B. Journal fit and cover letter | 5 | Implemented with time-sensitive recheck | TALLIP primary and LRE backup verified; scope decision, recent articles, policies and one-page draft letter supplied. Scopus/policy/APC facts must be rechecked at actual submission. |
-| C. Reproducibility package | 12 | Technical layer and public remote implemented; final reproduction blocked | MIT code licence, CC BY 4.0 data/documentation licence, environment capture, hashes, fail-closed collector, 31 tests, retained dev receipts, content-bound blinded workbooks, README and public GitHub repository are present. Final test logs, release archive, outside-team reproduction and `final` tag require the completed human study. |
+| C. Reproducibility package | 12 | Technical layer, final receipts and public remote implemented; final reproduction blocked | MIT code licence, CC BY 4.0 data/documentation licence, environment capture, hashes, fail-closed collector, 33 tests, retained dev and 240 final receipts, machine-checked incident evidence, content-bound blinded workbook, README and public GitHub repository are present. The release archive, outside-team reproduction and `final` tag require reviewed labels and the completed human study. |
 | D1. Team presentation | 10 | 10-slide final-quality container; result slides blocked | Clear problem, RQs, method, artifacts, annotation, statistics, executed readiness evidence, evidence gate and ownership. Final numerical result and error example must come from generated evidence. |
 | D2. Individual defence | 23 | Preparation implemented; performance is human | Equal 3:20 speaking blocks, accountable evidence chains, cross-question rule, rehearsal gate and ten hostile questions in `docs/DEFENSE_PLAN.md`. Each member must rehearse and answer independently. |
 
 ## Structure-specific checks
 
-- Core manuscript length: 4,690 words before the References heading when table cells are included, within the 4,500–7,500 course range; references and appendices are excluded.
+- Core manuscript length: 4,762 words before the References heading when table cells are included, within the 4,500–7,500 course range; references and appendices are excluded.
 - Abstract: no citations and within the requested range; its final-result sentences are intentionally withheld until real results exist.
 - Keywords: five terms and no exact repetition of the title phrase.
 - Related work: thematic synthesis plus a closest-study comparison table.
@@ -42,9 +42,8 @@ Assessment date: 2026-11-15. This matrix distinguishes built evidence from work 
 
 ## Remaining completion sequence
 
-1. Complete the locked 240-request collection and resolve any ambiguous timeout by the documented rule, never by quality-based regeneration.
-2. Build one blinded joint-team workbook; use AI only for disclosed drafts and checks.
-3. Review and resolve every response/event, record one real responsible team member per blind ID, then freeze/hash the workbook and review log.
+1. Each assigned author reviews their 80 blind IDs, enters every response flag/event, resolves all uncertainty, and records their real review completion. The 22-item QC sample may be consulted only with per-row AI-assistance disclosure.
+2. Freeze and hash the reviewed workbook and completed review log.
 4. Generate model, pairwise, sensitivity and detector outputs; propagate them mechanically into manuscript and slides; audit every repeated number.
 5. All authors personally verify references, approve the manuscript, complete the similarity check and obtain the institution/instructor ethics determination.
 6. A person outside the team reproduces the Results from the README on the documented Mac environment.

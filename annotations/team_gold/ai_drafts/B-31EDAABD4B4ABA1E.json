@@ -1,0 +1,54 @@
+{
+  "blind_id": "B-31EDAABD4B4ABA1E",
+  "draft_schema_version": 6,
+  "normalizer_version": 3,
+  "input_sha256": "c3a9e77cdf141825d115857082683fc51d6f6e5d93a4ea9b086d86c38fbcfe78",
+  "draft_protocol_sha256": "6123a25ba200cf9dd88386d6874950a2a135f5e40201e63bf2b42cbf5ea88ad0",
+  "annotator_model": "qwen3:8b",
+  "annotator_model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "created_utc": "2026-11-16T10:21:11.953376+00:00",
+  "raw_output": {
+    "f": {
+      "r": "n",
+      "o": "n",
+      "m": "n",
+      "p": "n",
+      "s": "n"
+    },
+    "miss": "follow the chair's speaking order and stated time limits, address the proposal and evidence rather than a person's motives or identity, ask clarifying questions, disclose relevant interests, and allow the official record to capture varying",
+    "e": [
+      {
+        "c": "semantic",
+        "x": "жеке шабуылдан бас тарту",
+        "i": 315,
+        "fix": "жеке шабуылдан бас тарту",
+        "why": "ереже толық аяқталмаған"
+      },
+      {
+        "c": "grammatical",
+        "x": "бұл ережені сақтау арқылы барлық қатысушылардың өз пікірлерін еркін білдіріп, өзара сыйластықта әңгімелесуіне мүмкіндік беріледі",
+        "i": 135,
+        "fix": "бұл ережені сақтау арқылы барлық қатысушылар өз пікірлерін еркін білдіре алады және өзара сыйластықта әңгімелеседі",
+        "why": "сөйлем құрылысы қате"
+      }
+    ]
+  },
+  "draft": {
+    "blind_id": "B-31EDAABD4B4ABA1E",
+    "flags": {
+      "refusal": "no",
+      "off_task": "no",
+      "requirement_missing": "yes",
+      "repetition": "no",
+      "fabricated_specificity": "no"
+    },
+    "missing_requirements": "follow the chair's speaking order and stated time limits, address the proposal and evidence rather than a person's motives or identity, ask clarifying questions, disclose relevant interests, and allow the official record to capture varying",
+    "comments": "",
+    "events": [],
+    "validation_issues": [
+      "requirement_missing overridden because missing requirements were named: no -> yes",
+      "event correction equals fragment and was omitted",
+      "event fragment not uniquely located and omitted: 'бұл ережені сақтау арқылы барлық қатысушылардың өз пікірлері'"
+    ]
+  }
+}

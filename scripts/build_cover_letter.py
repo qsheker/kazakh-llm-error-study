@@ -48,7 +48,7 @@ def main() -> None:
     paragraph(doc, "Dear Editors,")
     paragraph(
         doc,
-        "Please consider the manuscript \"Evaluating Kazakh Language Errors in Local Large Language Models\" as a research article for ACM Transactions on Asian and Low-Resource Language Information Processing. The frozen study design specifies a controlled local comparison of four quantized language-model artifacts on 60 Kazakh educational and public-information prompts, for a planned total of 240 paired responses under one generation protocol.",
+        "Please consider the manuscript \"Evaluating Kazakh Language Errors in Local Large Language Models\" as a research article for ACM Transactions on Asian and Low-Resource Language Information Processing. The frozen study design specifies a controlled local comparison of four quantized language-model artifacts on 60 Kazakh educational and public-information prompts. The executed run retains all 240 request receipts under one generation protocol; linguistic results remain gated until the joint team review is complete.",
     )
     paragraph(
         doc,

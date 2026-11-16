@@ -1,6 +1,6 @@
 # Execution status
 
-Snapshot: 2026-11-15, Asia/Almaty.
+Snapshot: 2026-11-16, Asia/Almaty.
 
 ## Completed and executed
 
@@ -50,22 +50,39 @@ Snapshot: 2026-11-15, Asia/Almaty.
   accessibility audit with zero high, medium, or low findings; their ZIP
   containers are valid. These artifacts intentionally report the executed
   readiness evidence but no fabricated confirmatory result.
-- Re-ran all 31 repository tests, Ruff 0.17.5 via `uvx`, syntax compilation,
+- Re-ran all 33 repository tests, Ruff 0.17.5 via `uvx`, syntax compilation,
   `git diff --check`, the 60-prompt protocol validator, the 80-receipt run
   validator, workbook structure/integrity checks, and the four-model Ollama
   preflight on this Mac.
 - Created the public GitHub repository and pushed the verified local history to
   `https://github.com/qsheker/kazakh-llm-error-study` as `main`.
+- Completed and validated the locked final test run: 240/240 immutable receipts,
+  identical generation controls, unchanged model metadata, and no unresolved
+  in-flight request. One Gemma request initially failed because its Ollama model
+  runner did not load before the server deadline; the original in-flight record
+  and incident record are retained, and the identical request payload succeeded
+  on the documented infrastructure retry. No response was regenerated for
+  quality.
+- Built the single blinded 240-response team-gold workbook and a review log with
+  80 blind IDs assigned to each of Aldiyar, Yerkebulan, and Iliyas. A 22-item
+  Qwen quality-control draft sample is retained with model, protocol, input and
+  file hashes. It was not applied to the workbook or review log; the matching
+  before/after hashes prove both files remained unchanged.
 
 ## Current gates
 
 1. **Protocol freeze: complete.** The joint AI-assisted protocol, test set,
    reference cards, analysis plan, annotation protocol, model artifacts,
    exemptions and coordinator authorization record are hash-bound.
-2. **Test inference: in progress.** The 240-response collection is running once
-   under the frozen controls; poor or truncated responses are retained.
-3. **Reviewed team gold: pending.** One blinded team workbook and 240-row review
-   log must be completed. AI drafts are allowed but are not independent ratings.
+2. **Test inference: complete.** All 240 requests are accounted for under the
+   frozen controls. Poor and truncated responses are retained. The sole retry
+   was a recorded model-runner load failure before generation, not a
+   quality-based retry.
+3. **Reviewed team gold: pending human work.** The blinded team workbook and
+   balanced 240-row assignment log exist. The 22-item AI QC sample is neither a
+   rating nor an approval and was not copied into the workbook; each assigned
+   human must inspect their 80 responses, enter labels/events, and complete
+   their real review log.
 4. **Final results and result-bearing submission revision.** The submission
    containers exist, but their quantitative Results, final abstract conclusion,
    result slides, and release metadata depend on immutable test receipts, the
@@ -79,15 +96,12 @@ Snapshot: 2026-11-15, Asia/Almaty.
 ## Next executable sequence
 
 ```bash
-.venv/bin/python scripts/collect.py --dataset test --preflight
-.venv/bin/python scripts/collect.py --dataset test --send --run-id final_test_v2
-.venv/bin/python scripts/build_annotation_workbooks.py runs/final_test_v2 \
-  --output annotations --references data/references \
-  --mapping data/blinding/private_model_key.csv
+.venv/bin/python scripts/validate_run.py runs/final_test_v2 --expected 240
 .venv/bin/python scripts/validate_annotation_workbook.py \
   annotations/team_gold/final_test_v2__team_gold.xlsx --expected-responses 240
 .venv/bin/python scripts/analyze_final.py
 ```
 
-The later merge, analysis, manuscript, and slide steps must use the frozen raw
-inputs; they are not unlocked merely by a successful inference run.
+The three assigned reviewers must enter final `yes`/`no` response flags, resolve
+every event and complete the review log first. The later analysis, manuscript,
+and slide steps must use those reviewed labels and the frozen raw inputs.

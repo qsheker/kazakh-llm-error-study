@@ -17,8 +17,65 @@ def snapshot_identity(snapshot: dict) -> dict:
     return {key: value for key, value in snapshot.items() if key != "captured_utc"}
 
 
+def validate_incidents(
+    run_dir: Path, receipts: dict[tuple[str, str], dict]
+) -> tuple[int, list[str]]:
+    incident_dir = run_dir / "incidents"
+    if not incident_dir.exists():
+        return 0, []
+    errors: list[str] = []
+    incident_paths = sorted(incident_dir.glob("*.json"))
+    evidence_paths = set(incident_dir.glob("*.original.inflight"))
+    referenced_evidence: set[Path] = set()
+    for path in incident_paths:
+        incident = load_json(path)
+        pair = (
+            str(incident.get("prompt_id") or ""),
+            str(incident.get("model_label") or ""),
+        )
+        receipt = receipts.get(pair)
+        if receipt is None:
+            errors.append(f"incident {path.name} has no matching receipt")
+            continue
+        expected_request_hash = hashlib.sha256(
+            canonical_json(receipt.get("request", {})).encode("utf-8")
+        ).hexdigest()
+        if incident.get("request_sha256") != expected_request_hash:
+            errors.append(f"incident request hash mismatch {path.name}")
+        candidates = list(
+            incident_dir.glob(f"*_{pair[0]}__{pair[1]}.original.inflight")
+        )
+        if len(candidates) != 1:
+            errors.append(
+                f"incident {path.name} has {len(candidates)} original inflight records"
+            )
+        else:
+            evidence_path = candidates[0]
+            referenced_evidence.add(evidence_path)
+            if sha256_file(evidence_path) != incident.get("original_inflight_sha256"):
+                errors.append(f"incident inflight hash mismatch {path.name}")
+        if incident.get("response_observed") is not False:
+            errors.append(
+                f"incident {path.name} does not confirm response_observed=false"
+            )
+        if (
+            incident.get("failure_class")
+            != "explicit_infrastructure_failure_before_generation"
+        ):
+            errors.append(f"incident {path.name} has unsupported failure_class")
+        if not str(incident.get("server_evidence") or "").strip():
+            errors.append(f"incident {path.name} lacks server evidence")
+        if not str(incident.get("resolution") or "").strip():
+            errors.append(f"incident {path.name} lacks a resolution record")
+    for path in sorted(evidence_paths - referenced_evidence):
+        errors.append(f"unreferenced incident evidence {path.name}")
+    return len(incident_paths), errors
+
+
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Audit an immutable Ollama collection run.")
+    parser = argparse.ArgumentParser(
+        description="Audit an immutable Ollama collection run."
+    )
     parser.add_argument("run_dir", type=Path)
     parser.add_argument("--expected", type=int, required=True)
     args = parser.parse_args()
@@ -36,7 +93,9 @@ def main() -> int:
     order = manifest.get("request_order", [])
     if len(order) != args.expected:
         errors.append(f"manifest requests={len(order)}, expected={args.expected}")
-    expected_pairs = {(row["prompt_id"], row["model_label"]): row["model"] for row in order}
+    expected_pairs = {
+        (row["prompt_id"], row["model_label"]): row["model"] for row in order
+    }
     if len(expected_pairs) != len(order):
         errors.append("manifest contains duplicate prompt/model-label pairs")
 
@@ -54,6 +113,7 @@ def main() -> int:
 
     receipt_paths = sorted((run_dir / "receipts").glob("*.json"))
     actual_pairs = set()
+    receipts_by_pair: dict[tuple[str, str], dict] = {}
     options = []
     for path in receipt_paths:
         receipt = load_json(path)
@@ -61,6 +121,7 @@ def main() -> int:
         if pair in actual_pairs:
             errors.append(f"duplicate receipt pair {pair}")
         actual_pairs.add(pair)
+        receipts_by_pair[pair] = receipt
         if pair not in expected_pairs:
             errors.append(f"unexpected receipt pair {pair}")
             continue
@@ -70,7 +131,10 @@ def main() -> int:
         if response.get("done") is not True or not isinstance(text, str):
             errors.append(f"incomplete response {path.name}")
             continue
-        if request.get("model") != expected_pairs[pair] or response.get("model") != expected_pairs[pair]:
+        if (
+            request.get("model") != expected_pairs[pair]
+            or response.get("model") != expected_pairs[pair]
+        ):
             errors.append(f"model mismatch {path.name}")
         digest = hashlib.sha256(text.encode("utf-8")).hexdigest()
         if digest != receipt.get("response_text_sha256"):
@@ -85,9 +149,11 @@ def main() -> int:
         )
     if len(set(options)) != 1:
         errors.append("request generation options are not identical across receipts")
-    inflight = list((run_dir / "inflight").glob("*.json"))
+    inflight = list((run_dir / "receipts").glob("*.inflight"))
     if inflight:
         errors.append(f"unresolved inflight markers={len(inflight)}")
+    incident_count, incident_errors = validate_incidents(run_dir, receipts_by_pair)
+    errors.extend(incident_errors)
 
     accounted = int(completion.get("received", 0)) + int(completion.get("reused", 0))
     if accounted != args.expected or len(receipt_paths) != args.expected:
@@ -108,6 +174,7 @@ def main() -> int:
         "requests": len(order),
         "receipts": len(receipt_paths),
         "accounted": accounted,
+        "incidents": incident_count,
         "generation_options_identical": len(set(options)) == 1,
         "metadata_unchanged": completion.get("metadata_unchanged"),
         "errors": errors,

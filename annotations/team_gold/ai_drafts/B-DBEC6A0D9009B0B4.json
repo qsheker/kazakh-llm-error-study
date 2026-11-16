@@ -1,0 +1,55 @@
+{
+  "blind_id": "B-DBEC6A0D9009B0B4",
+  "draft_schema_version": 6,
+  "normalizer_version": 3,
+  "input_sha256": "9e963d4c3c2c0b80f2a6d4e11ac435ca2a3e03a94c6b57ec6185d65eee646b74",
+  "annotator_model": "qwen3:8b",
+  "annotator_model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "created_utc": "2026-11-16T09:56:41.354104+00:00",
+  "raw_output": {
+    "f": {
+      "r": "n",
+      "o": "n",
+      "m": "n",
+      "p": "n",
+      "s": "n"
+    },
+    "miss": "packaging requirements, exceptions",
+    "e": [
+      {
+        "c": "grammatical",
+        "x": "құрылымы бұзылмаған",
+        "i": 55,
+        "fix": "құрылымы бұзылмаған",
+        "why": "қайталанып қойылған"
+      },
+      {
+        "c": "code_switching",
+        "x": "US FTC",
+        "i": 143,
+        "fix": "АҚШ FTC",
+        "why": "тілді өзгертпейтін қажеттілік"
+      }
+    ]
+  },
+  "draft": {
+    "blind_id": "B-DBEC6A0D9009B0B4",
+    "flags": {
+      "refusal": "no",
+      "off_task": "no",
+      "requirement_missing": "yes",
+      "repetition": "yes",
+      "fabricated_specificity": "no"
+    },
+    "missing_requirements": "packaging requirements, exceptions",
+    "comments": "",
+    "events": [],
+    "validation_issues": [
+      "requirement_missing overridden because missing requirements were named: no -> yes",
+      "repetition-only event was omitted",
+      "event fragment not uniquely located and omitted: 'US FTC'",
+      "repetition overridden from event rationale: no -> yes"
+    ]
+  },
+  "draft_protocol_sha256": "6123a25ba200cf9dd88386d6874950a2a135f5e40201e63bf2b42cbf5ea88ad0"
+}

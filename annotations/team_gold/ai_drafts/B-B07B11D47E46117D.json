@@ -1,0 +1,54 @@
+{
+  "blind_id": "B-B07B11D47E46117D",
+  "draft_schema_version": 6,
+  "normalizer_version": 3,
+  "input_sha256": "0c45673c492693e825376efd083fd32071fb9fd44de6cc7252046b3d8ad77d3e",
+  "annotator_model": "qwen3:8b",
+  "annotator_model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "created_utc": "2026-11-16T10:00:18.850795+00:00",
+  "raw_output": {
+    "f": {
+      "r": "n",
+      "o": "n",
+      "m": "n",
+      "p": "n",
+      "s": "n"
+    },
+    "miss": "exact itinerary and connections",
+    "e": [
+      {
+        "c": "semantic",
+        "x": "багажды қабылдамай немесе қосымша ақы төлеуіңіз мүмкін",
+        "i": 221,
+        "fix": "багажды қабылдамай немесе қосымша ақы төлеуіңіз мүмкін",
+        "why": "unsupported proposition"
+      },
+      {
+        "c": "code_switching",
+        "x": "багаж туралы ақпаратты қараңыз",
+        "i": 105,
+        "fix": "багаж туралы ақпаратты қараңыз",
+        "why": "unrequested Russian/English"
+      }
+    ]
+  },
+  "draft": {
+    "blind_id": "B-B07B11D47E46117D",
+    "flags": {
+      "refusal": "no",
+      "off_task": "no",
+      "requirement_missing": "yes",
+      "repetition": "no",
+      "fabricated_specificity": "no"
+    },
+    "missing_requirements": "exact itinerary and connections",
+    "comments": "",
+    "events": [],
+    "validation_issues": [
+      "requirement_missing overridden because missing requirements were named: no -> yes",
+      "event correction equals fragment and was omitted",
+      "event correction equals fragment and was omitted"
+    ]
+  },
+  "draft_protocol_sha256": "6123a25ba200cf9dd88386d6874950a2a135f5e40201e63bf2b42cbf5ea88ad0"
+}

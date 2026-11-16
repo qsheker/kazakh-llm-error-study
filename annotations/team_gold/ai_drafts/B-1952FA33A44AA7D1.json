@@ -1,0 +1,79 @@
+{
+  "blind_id": "B-1952FA33A44AA7D1",
+  "draft_schema_version": 6,
+  "normalizer_version": 3,
+  "input_sha256": "9ee27bbac6b75c20e34fa57cfb6c088cf0f27ac1bcb0276db264da717f671393",
+  "annotator_model": "qwen3:8b",
+  "annotator_model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "created_utc": "2026-11-16T10:10:02.095188+00:00",
+  "raw_output": {
+    "f": {
+      "r": "n",
+      "o": "n",
+      "m": "n",
+      "p": "n",
+      "s": "n"
+    },
+    "miss": "organizer, site, dates, hours, accepted materials, quantity limits, packaging, eligibility, fees, contact details",
+    "e": [
+      {
+        "c": "semantic",
+        "x": "Пунктте қайта өңдеуге жабдайлы материалдар жиналады",
+        "i": 135,
+        "fix": "Пунктте қайта өңдеуге жабдықты материалдар жиналады",
+        "why": "«жабдайлы» қате сөз, дұрыс сөз «жабдықты»"
+      },
+      {
+        "c": "grammatical",
+        "x": "Хабарламада қайта өңдеу пунктінің нақты орны көрсетілуі тиіс",
+        "i": 215,
+        "fix": "Хабарламада қайта өңдеу пунктінің нақты орны көрсетілуі керек",
+        "why": "«тиіс» қате сөз, дұрыс сөз «керек»"
+      }
+    ]
+  },
+  "draft": {
+    "blind_id": "B-1952FA33A44AA7D1",
+    "flags": {
+      "refusal": "no",
+      "off_task": "no",
+      "requirement_missing": "yes",
+      "repetition": "no",
+      "fabricated_specificity": "no"
+    },
+    "missing_requirements": "organizer, site, dates, hours, accepted materials, quantity limits, packaging, eligibility, fees, contact details",
+    "comments": "",
+    "events": [
+      {
+        "event_id": "AI-01",
+        "category": "semantic",
+        "exact_fragment": "Пунктте қайта өңдеуге жабдайлы материалдар жиналады",
+        "start_offset_zero_based": 244,
+        "end_offset_exclusive": 295,
+        "start_token_one_based": 29,
+        "end_token_one_based": 34,
+        "proposed_correction": "Пунктте қайта өңдеуге жабдықты материалдар жиналады",
+        "rationale": "«жабдайлы» қате сөз, дұрыс сөз «жабдықты»",
+        "source": "AI draft from prompt/response/reference card",
+        "needs_adjudication": "yes"
+      },
+      {
+        "event_id": "AI-02",
+        "category": "grammatical",
+        "exact_fragment": "Хабарламада қайта өңдеу пунктінің нақты орны көрсетілуі тиіс",
+        "start_offset_zero_based": 390,
+        "end_offset_exclusive": 450,
+        "start_token_one_based": 44,
+        "end_token_one_based": 51,
+        "proposed_correction": "Хабарламада қайта өңдеу пунктінің нақты орны көрсетілуі керек",
+        "rationale": "«тиіс» қате сөз, дұрыс сөз «керек»",
+        "source": "AI draft from prompt/response/reference card",
+        "needs_adjudication": "yes"
+      }
+    ],
+    "validation_issues": [
+      "requirement_missing overridden because missing requirements were named: no -> yes"
+    ]
+  },
+  "draft_protocol_sha256": "6123a25ba200cf9dd88386d6874950a2a135f5e40201e63bf2b42cbf5ea88ad0"
+}

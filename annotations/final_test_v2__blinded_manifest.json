@@ -1,0 +1,2404 @@
+{
+  "responses": [
+    {
+      "blind_id": "B-0114EC9863D8B5EB",
+      "prompt_id": "P07",
+      "task_type": "public_information",
+      "prompt_text_sha256": "c159f9615eca2e8b5a9e8b9a066d41fde37973f17476cc1279a2cebff4a0d8a8",
+      "response_text_sha256": "047c744b26f8bf6e0d6f427612a1f03e1eac67f57b5cf818169aef776b05defc",
+      "reference_card_sha256": "05388f37d95d5353dafa8b1a20f9f00ffc14a23d74b5b022a9b7ad9a7f1ca72f",
+      "word_count_read_only": 116,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-015F73477F9C8115",
+      "prompt_id": "P22",
+      "task_type": "public_information",
+      "prompt_text_sha256": "35f081da8479610a89fb2ba4180aa4adc97e3e7db309922087a82ff541c7c6dd",
+      "response_text_sha256": "e2ea0eb666fccabeb0a1f47e74f3623325dd823b037164636e6a5054bffaf884",
+      "reference_card_sha256": "7f99a7b3b3b4b5e78f9393969514b5831a670c655c1a124b6c1c815b401e942a",
+      "word_count_read_only": 96,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-025C5DD198013BEF",
+      "prompt_id": "E05",
+      "task_type": "educational",
+      "prompt_text_sha256": "cb01bd91808c6a7938f61b51bb859528b87200b5cfd0d47a0496f09c82f6aa48",
+      "response_text_sha256": "92eb143bcb6d4bdd2290692aece53d91b9a0ee3df3dc9aae4bb389681ca92542",
+      "reference_card_sha256": "548633b16c615fd2585fa316b9dde3c86b4270509bb8e46c71275c891b53d91d",
+      "word_count_read_only": 119,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-0288E3E71390494D",
+      "prompt_id": "P24",
+      "task_type": "public_information",
+      "prompt_text_sha256": "6733108eace284d223134b499bda5c2ab48116c597b649a524d565b271a69272",
+      "response_text_sha256": "1cf9dd735eb19f7423eae8b1d5b00b3ba6f3f615f81ec13c97b65938d4bb8084",
+      "reference_card_sha256": "4199bc6a467ed09aa8ce83253d36330f453380131e38529dd2ed0cb522e15922",
+      "word_count_read_only": 143,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-04C5B4D91ECB7DDC",
+      "prompt_id": "E13",
+      "task_type": "educational",
+      "prompt_text_sha256": "667d50cb0c7cc93a0d9fd77f2612cf336694808e896f4a363a558a6e743d3e79",
+      "response_text_sha256": "bd24a31fa850fee6967864fd0e81bd6e758954fae197b45f890f3bb95332a192",
+      "reference_card_sha256": "1c89f635bc2b8d55538f90d707d346342c2a4378d4626602c2ff12dd6d8426bd",
+      "word_count_read_only": 87,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-061360C09039EBB9",
+      "prompt_id": "P26",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a7a81fa86af428e36dd3c9c721143651ee56fa06a0aa2d47a71b076cdfb0bf79",
+      "response_text_sha256": "2280070cf1bf2031f7152a842db0faa055d958b2e3d8c9fafad0fa0d68d94d23",
+      "reference_card_sha256": "3aae90b4cc4820f320a2bed8d93218cbab9bb83c1bf38194539feafa5c7b2c4d",
+      "word_count_read_only": 123,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-0649AC130D9B0540",
+      "prompt_id": "P24",
+      "task_type": "public_information",
+      "prompt_text_sha256": "6733108eace284d223134b499bda5c2ab48116c597b649a524d565b271a69272",
+      "response_text_sha256": "31c3baf6046251962729383fc95c244baa779cbadae9d4145d9e80f13145df1b",
+      "reference_card_sha256": "4199bc6a467ed09aa8ce83253d36330f453380131e38529dd2ed0cb522e15922",
+      "word_count_read_only": 126,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-070B955D1A5B0A4F",
+      "prompt_id": "P26",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a7a81fa86af428e36dd3c9c721143651ee56fa06a0aa2d47a71b076cdfb0bf79",
+      "response_text_sha256": "3d04869e09672cc777c82a7ecf081a6a12e0d2a4d8a511c8dc0b54b0fcdc7567",
+      "reference_card_sha256": "3aae90b4cc4820f320a2bed8d93218cbab9bb83c1bf38194539feafa5c7b2c4d",
+      "word_count_read_only": 123,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-07DB6A45D8E6A88A",
+      "prompt_id": "E18",
+      "task_type": "educational",
+      "prompt_text_sha256": "28dc4bf2ec186a6316d2dbc88fe9531b52123436dd04e27c533673d82e4b9d90",
+      "response_text_sha256": "e5c3f1287a6b0b6f3bb40396621b61a4cdb972c2a74aecfd2674d5d8c2903ed1",
+      "reference_card_sha256": "869a6bfbe22ced466fd0d0aa711981a8a5632c97400f2104a4b007245bf7e236",
+      "word_count_read_only": 164,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-07F4B3DCDF22A6F6",
+      "prompt_id": "P04",
+      "task_type": "public_information",
+      "prompt_text_sha256": "e90642f81ae3a7d1eee106fe9d661cb5fcd892957a37e0227903ce2ee5c23ad7",
+      "response_text_sha256": "68a4476cbf974a64eba5d53c424c051df4a822fa03b2dc01588e0a9268e87b04",
+      "reference_card_sha256": "8ba5b67a48013f6aaf0b695285f6242d5a33bea2ce8c5189fa1bc6e0f722f598",
+      "word_count_read_only": 93,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-0955CA3B18BC6312",
+      "prompt_id": "E21",
+      "task_type": "educational",
+      "prompt_text_sha256": "676d2d1b381282dbf215098b0ee3d594fb3abdf30d62e8e9059eff6568ce341b",
+      "response_text_sha256": "4a5f1890ea4651d59c2d2db082d560007097d518d5a3eab464d0f4896ca87eee",
+      "reference_card_sha256": "fb1451126a81ef8b6add2742dc2a5357684806b6de154d7448889ab6d7c9c9e5",
+      "word_count_read_only": 77,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-0A0D2B962823FC63",
+      "prompt_id": "E16",
+      "task_type": "educational",
+      "prompt_text_sha256": "53937e38fbd81fc419792e317a4446b6d4bc73687fe8c4cc907fe894db2db106",
+      "response_text_sha256": "fc4b7cb948613a852584a25d1f5110cd19e2b972b6acfc7b2438aa8df770207d",
+      "reference_card_sha256": "4e20ee2123f93c2c542a9c7bfe975d765c03f427562cdf27906020d61780688a",
+      "word_count_read_only": 103,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-0A915D3931746D05",
+      "prompt_id": "P07",
+      "task_type": "public_information",
+      "prompt_text_sha256": "c159f9615eca2e8b5a9e8b9a066d41fde37973f17476cc1279a2cebff4a0d8a8",
+      "response_text_sha256": "0b7d6ea41e1e37298fc1394ee987ea33615fb737c61e851018fc35daac0020dc",
+      "reference_card_sha256": "05388f37d95d5353dafa8b1a20f9f00ffc14a23d74b5b022a9b7ad9a7f1ca72f",
+      "word_count_read_only": 106,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-0B23DEE7F1717129",
+      "prompt_id": "P12",
+      "task_type": "public_information",
+      "prompt_text_sha256": "386ca5fc89f2f080a4cde187ebd45d1b01e860a210db35ddd0ef7cc4b32f5dbf",
+      "response_text_sha256": "67f64b0b0cc04c50a8b65774cb2d75f2723f38428896196ea8a1a8b2cb8fd9fb",
+      "reference_card_sha256": "986fd64fda9ac94fed478f482e2106c22e6a2f05c8303ba76de83c3c7ce9e22a",
+      "word_count_read_only": 112,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-0C98F87EC6612438",
+      "prompt_id": "E26",
+      "task_type": "educational",
+      "prompt_text_sha256": "21ff8dbc8a6381507549a44a808dbb7ff780f8b03c6e899d65d93f029bbe2b1d",
+      "response_text_sha256": "819eb7d2dfdf32888159c05a99395f8803a1223082d20805d86a855b1372111e",
+      "reference_card_sha256": "a69497ef4b8088c6d74be59429e87eccf1d44b0574c1d9e251b33de7a0edd6cd",
+      "word_count_read_only": 79,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-0CCB60FC14D7E822",
+      "prompt_id": "P23",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a5b55bbad03a5d176a2d5109a91fc440e150ffa86661d75452cbfeabfac9dd36",
+      "response_text_sha256": "4ef22d9233e15cbe9887b505509a6820b4a9d5e1dc02feb2143c5e47e77cbad3",
+      "reference_card_sha256": "da9971eb07643edfe1e531d96678ac4def2e512a547da068f33f67b60a183035",
+      "word_count_read_only": 79,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-0CE0F67D4D4982A9",
+      "prompt_id": "E13",
+      "task_type": "educational",
+      "prompt_text_sha256": "667d50cb0c7cc93a0d9fd77f2612cf336694808e896f4a363a558a6e743d3e79",
+      "response_text_sha256": "aef38ad5374928175f60f78a12128250fe75efe3c0ecd6b4725561f43d763d7b",
+      "reference_card_sha256": "1c89f635bc2b8d55538f90d707d346342c2a4378d4626602c2ff12dd6d8426bd",
+      "word_count_read_only": 110,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-0FA7E131DD24FB1F",
+      "prompt_id": "P18",
+      "task_type": "public_information",
+      "prompt_text_sha256": "2a8b69f806cc466b7d7f658a39da7192f2a7854203686394fec1f7a40420b94b",
+      "response_text_sha256": "98c4ad82522057b905ee51edeee984ac6578545071c35a93bbd8cbc411055426",
+      "reference_card_sha256": "886816ab39ce69722ce4aebcd698f8d2a6cc9ad6e927372b06974fe8e5918f33",
+      "word_count_read_only": 114,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-1216B9F742A845F4",
+      "prompt_id": "P15",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a04708fd9d0273dc6b65f0dd8b2e3b2c31425657d9ca246e15f524f030052767",
+      "response_text_sha256": "f2fd65c1ef9c9e6a074e44801752292561199c0161868e02a54f3f6291e8101d",
+      "reference_card_sha256": "4eca19b2d6d26276058d2ad104fcefb60a6f5687b5b4fa6189c8f227a02d0cab",
+      "word_count_read_only": 132,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-1270588E6142E696",
+      "prompt_id": "P03",
+      "task_type": "public_information",
+      "prompt_text_sha256": "c3d530c2c01846baac64a12505744bc810180ec3f434bb1d485faeca3f58dc9d",
+      "response_text_sha256": "c9214c15ee48d9af1cc824a8729494c32f7ce48e8f5fa127a8d26003e2d267a6",
+      "reference_card_sha256": "4b8485ea25f4ae171a625d1764ab85b8b9706c83c91a90665759df471ff0e380",
+      "word_count_read_only": 131,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-14B116339E49178C",
+      "prompt_id": "P21",
+      "task_type": "public_information",
+      "prompt_text_sha256": "7b4f8d1b194186133f419f447bced10a775cd055bd4a7afff3e4cb4c49381b8a",
+      "response_text_sha256": "da45586fb984c8d37dfd4d45d680b82a4957dadee469aad7880d1830ac0166fa",
+      "reference_card_sha256": "c68099df2269fbb193d90fac7e619f99a3b216d6dd910e4784af225fe9353a7c",
+      "word_count_read_only": 74,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-14C44D6C674C6F63",
+      "prompt_id": "P08",
+      "task_type": "public_information",
+      "prompt_text_sha256": "43e0ca3ba2f280c5f78454051509ff700bc2dcbbbc6a417099b17b4c104b3e5e",
+      "response_text_sha256": "f34746ae53ab62fdfc10114f3c58b872c162eb9d5f8c7824b3ba7bf7a80dbd47",
+      "reference_card_sha256": "3ceb770159a6b167db1a8addc881e882eccd4401ec22b3c98da95ea6b5cddbb0",
+      "word_count_read_only": 129,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-161C81A24FB58641",
+      "prompt_id": "E30",
+      "task_type": "educational",
+      "prompt_text_sha256": "77d6ec130787aef839ea630657c9a55579971ef09bb2cab1a66b10da6aa1870e",
+      "response_text_sha256": "f82d3c7fe0c0142b1107960bae2b0c25e5289e37c19a80a2c2a985af897fc1c1",
+      "reference_card_sha256": "4bb652a5c19a920523b3d428a1d0cea1c5d3fce9008dba08d9f281b1ee023f25",
+      "word_count_read_only": 70,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-168CD06BDA75A910",
+      "prompt_id": "P06",
+      "task_type": "public_information",
+      "prompt_text_sha256": "898c0e91de03ebbc657aa1d00564a0bc863e0e4e29ff5ab3061d1eedd5063745",
+      "response_text_sha256": "d95537c00668d5316b7d795cbc06921acd8e08df4bce1b1a2e11f3c984886664",
+      "reference_card_sha256": "c56e9b773c6b53d7f7249d26c0e0fd398659334e8515bd66c9d59653572d8baf",
+      "word_count_read_only": 93,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-17808887A1FBCF34",
+      "prompt_id": "E06",
+      "task_type": "educational",
+      "prompt_text_sha256": "cd6e684d56df4093297d86e943b7971b469d0a8641c51fb2a1fd307cd30c0404",
+      "response_text_sha256": "df289b1d3a1a0afeb02bb27a4c044f0197825d6948fba629356d5ffb8d13ba9d",
+      "reference_card_sha256": "a4f111dd1a8b1695a9ff719b966c9476880f48c5bd7593de8a9674f63a3aa481",
+      "word_count_read_only": 137,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-1952FA33A44AA7D1",
+      "prompt_id": "P24",
+      "task_type": "public_information",
+      "prompt_text_sha256": "6733108eace284d223134b499bda5c2ab48116c597b649a524d565b271a69272",
+      "response_text_sha256": "bf82430a5fac275f1cd311ed5e11a824bea43e62fd4edbac37f4acaa76eff752",
+      "reference_card_sha256": "4199bc6a467ed09aa8ce83253d36330f453380131e38529dd2ed0cb522e15922",
+      "word_count_read_only": 117,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-1984BD0F846A7D7A",
+      "prompt_id": "E18",
+      "task_type": "educational",
+      "prompt_text_sha256": "28dc4bf2ec186a6316d2dbc88fe9531b52123436dd04e27c533673d82e4b9d90",
+      "response_text_sha256": "91638b8b0a18d3c79eac90e4d776db46d45e9be21c69c1753c7f2583a9f69fdf",
+      "reference_card_sha256": "869a6bfbe22ced466fd0d0aa711981a8a5632c97400f2104a4b007245bf7e236",
+      "word_count_read_only": 160,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-1A28E8282571AE3E",
+      "prompt_id": "P21",
+      "task_type": "public_information",
+      "prompt_text_sha256": "7b4f8d1b194186133f419f447bced10a775cd055bd4a7afff3e4cb4c49381b8a",
+      "response_text_sha256": "33556db3297e000eec9525d6f93ac059f1dd4b60dc2197f3b2779dd8cb8e9bba",
+      "reference_card_sha256": "c68099df2269fbb193d90fac7e619f99a3b216d6dd910e4784af225fe9353a7c",
+      "word_count_read_only": 106,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-1AA0A2769F8A8186",
+      "prompt_id": "P22",
+      "task_type": "public_information",
+      "prompt_text_sha256": "35f081da8479610a89fb2ba4180aa4adc97e3e7db309922087a82ff541c7c6dd",
+      "response_text_sha256": "794aec5911e327371c0cdb7da9ded8e5a010c2f299e17f4e12274ea7d4fda8ed",
+      "reference_card_sha256": "7f99a7b3b3b4b5e78f9393969514b5831a670c655c1a124b6c1c815b401e942a",
+      "word_count_read_only": 151,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-1B0A9A6014671A53",
+      "prompt_id": "E21",
+      "task_type": "educational",
+      "prompt_text_sha256": "676d2d1b381282dbf215098b0ee3d594fb3abdf30d62e8e9059eff6568ce341b",
+      "response_text_sha256": "a93b415c105cafd3e49bbc74776cb21c0281055e2274c7f3f1e313c1733a5d23",
+      "reference_card_sha256": "fb1451126a81ef8b6add2742dc2a5357684806b6de154d7448889ab6d7c9c9e5",
+      "word_count_read_only": 130,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-1BEE8315FEEBC936",
+      "prompt_id": "P01",
+      "task_type": "public_information",
+      "prompt_text_sha256": "9bda6789cdf6cb5710aee2b3582300fb4e7a2bf9f2a19735edcadbb7aafeb008",
+      "response_text_sha256": "4f17870d0a668dfa4be8080073b12bf94d437388bd48581841795f1a4f20ebe5",
+      "reference_card_sha256": "597539ee4cb27101d48e80b70479b78d62bc813ed19b20e8266f51fb96915a6f",
+      "word_count_read_only": 127,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-1CA3F40985EC5E26",
+      "prompt_id": "E20",
+      "task_type": "educational",
+      "prompt_text_sha256": "88e126d8dc01c77fcd160da29c121c5dc05fe683cc75592c9dd34952d2028bbe",
+      "response_text_sha256": "fbfd35ee4cea8adc80eea627e86b5aefb8dc92331945db634cb44d6b76db2b5d",
+      "reference_card_sha256": "a93b57df8e0b0ebd37549af1a2f369c017bebec7f05d845de6a741d9a81b7f5e",
+      "word_count_read_only": 120,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-1D1E9A876523D0F2",
+      "prompt_id": "P20",
+      "task_type": "public_information",
+      "prompt_text_sha256": "cd87ea2beed5e9254daa52ecd38a8200b685933f7c90541272be4fcee9ea45a7",
+      "response_text_sha256": "2d90c338d2b744bbc25d5abb9c18dd8d2108f282aefdb15c4d49ab8b2bb4294d",
+      "reference_card_sha256": "c9f0af1abc75ce6eb647ac6f1d4024484d5bc203055021efa8dd96b47416046e",
+      "word_count_read_only": 137,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-1E6C5B5F9E62FECC",
+      "prompt_id": "P02",
+      "task_type": "public_information",
+      "prompt_text_sha256": "54d579187c415370e7e136913d0946f49de4b2ed1ecb6363152d30ab8f054041",
+      "response_text_sha256": "4e094b11728545f91adbebf8994d2e8d1a5ac3fae5fa67132c9d3d9cf8e722fd",
+      "reference_card_sha256": "57bb1359cf1a1606aadce0d3e060b5bd58bcb82f4c0c4a00f3933f5572d46525",
+      "word_count_read_only": 77,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-1EEDCF3F47E4D316",
+      "prompt_id": "P25",
+      "task_type": "public_information",
+      "prompt_text_sha256": "d11c8d0aacaf677fd08497d967c9c1f457dc2ef2cd3bb83720039a81947fc5eb",
+      "response_text_sha256": "d9f9cc435bf1064ac3d117a512947b0e6f5fdff9b5ea96b16111d0bee0befb68",
+      "reference_card_sha256": "966fc11e88fca45e4534a3f4619d4a457424701bf526b0832e5dfa3aee061601",
+      "word_count_read_only": 145,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-20A958BADFF25ED2",
+      "prompt_id": "P05",
+      "task_type": "public_information",
+      "prompt_text_sha256": "8604d9f83b51338ebe6985340bb50da37e3e6c4bbf5167504411de901a4b81ca",
+      "response_text_sha256": "5577b5aba03c03ba0da08937d351a07725fcce1136c1ab7e4f2249090946225c",
+      "reference_card_sha256": "805e47640cb927f96501793d8b2c4fe3fe3e08e4a31182f551b1bbc61761c4bc",
+      "word_count_read_only": 119,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-20F9543AC69D6014",
+      "prompt_id": "P28",
+      "task_type": "public_information",
+      "prompt_text_sha256": "5a4f909d841151767020a4061a4a8fb3564e9fae89c0380b91d1d79077de3ae4",
+      "response_text_sha256": "7172e2ee95eb453192296b7ffd592b682f1361d24777acf8d9b066aabd92a6f7",
+      "reference_card_sha256": "069a8f359d97d2c4acb9045f15b57fe1179caf47561871f75a6306eb1ff2ddaf",
+      "word_count_read_only": 108,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-22568FAFF612E9BC",
+      "prompt_id": "P14",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a35d94d24b00df2f25860552628470ceaf4baf5c26c4565f4d964bdd89f22ae7",
+      "response_text_sha256": "29d49beed06292f9f3cceff35b00e7e2edca24c3ff6a52d4e2df73ee94cf5968",
+      "reference_card_sha256": "c95d45612e774da81e341a856fd0bfe3a75c0fd1687b4d83c818bbd0d9c2bbcc",
+      "word_count_read_only": 119,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-2742C7EF95F57856",
+      "prompt_id": "P27",
+      "task_type": "public_information",
+      "prompt_text_sha256": "88eeaf0783d5c8f92d2357e3e65e30c7ae6fd566fd8878b94833c691e157d2e1",
+      "response_text_sha256": "02646566109c1be95fe5f9912a23d7de88a30230c035fa67b3c221658a82baac",
+      "reference_card_sha256": "3095b9767dc80e43da457adc0f1d4aa4dacf1bdf68d5778b0df64cd376c51ea9",
+      "word_count_read_only": 129,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-2B4C636E8C496027",
+      "prompt_id": "E05",
+      "task_type": "educational",
+      "prompt_text_sha256": "cb01bd91808c6a7938f61b51bb859528b87200b5cfd0d47a0496f09c82f6aa48",
+      "response_text_sha256": "c880b6624384f1dfef435b1d0b03e5c46ee52a90225c5a04eff6c2321caaa7bd",
+      "reference_card_sha256": "548633b16c615fd2585fa316b9dde3c86b4270509bb8e46c71275c891b53d91d",
+      "word_count_read_only": 85,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-2D21EC45A872D5D1",
+      "prompt_id": "P21",
+      "task_type": "public_information",
+      "prompt_text_sha256": "7b4f8d1b194186133f419f447bced10a775cd055bd4a7afff3e4cb4c49381b8a",
+      "response_text_sha256": "54a24eca1faf81ab19158ecc00c82048449dfc06a20dc61d26352b06cd632902",
+      "reference_card_sha256": "c68099df2269fbb193d90fac7e619f99a3b216d6dd910e4784af225fe9353a7c",
+      "word_count_read_only": 109,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-2E27E6957678D303",
+      "prompt_id": "E28",
+      "task_type": "educational",
+      "prompt_text_sha256": "4c8aa12f3f062919a0964f7d88a7bc0e3f7f51fbfa5ac22d49cf629af2ede2d4",
+      "response_text_sha256": "a2a9b11a5239ef5fe66bedcb91376f90f997bc7601b13e7ce1c2d74ed9ad3c08",
+      "reference_card_sha256": "916a811eac5e4af42519920b9bccb9870119cc42eba5c460c469ff7046a546c4",
+      "word_count_read_only": 162,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-2E6D7DAEB6252552",
+      "prompt_id": "E25",
+      "task_type": "educational",
+      "prompt_text_sha256": "090d1aab969f23cf127c7c5039d6fc7a1d33920c8f3c1f5e792c47439454e50b",
+      "response_text_sha256": "922ff2a4e0972d2356b38ef6707a848d44ce9387594e21af94c9dfef2414d64a",
+      "reference_card_sha256": "605a235325b78abf756493deeeb213c77571ad0eafaffceac435b7e449703357",
+      "word_count_read_only": 142,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-2EA27FBED1FCBE0A",
+      "prompt_id": "E25",
+      "task_type": "educational",
+      "prompt_text_sha256": "090d1aab969f23cf127c7c5039d6fc7a1d33920c8f3c1f5e792c47439454e50b",
+      "response_text_sha256": "0996f68346b96f5a9256af9b79830e1b77acd8e05158444a6bd24476eef08a2f",
+      "reference_card_sha256": "605a235325b78abf756493deeeb213c77571ad0eafaffceac435b7e449703357",
+      "word_count_read_only": 118,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-2F021437B2F4B6FF",
+      "prompt_id": "E07",
+      "task_type": "educational",
+      "prompt_text_sha256": "c47bf66672c73785ba9864fe735d0bdaf05396e45f737df64fe4ea68da8f3604",
+      "response_text_sha256": "a2abf073f8580af773ef74360a09a0ffaf1782fac05b96bf2742a75ad72d1471",
+      "reference_card_sha256": "142a874921910e253e7f8ff108bb6e2331aa04cf0fa2c027d3a750cf53b6e01a",
+      "word_count_read_only": 130,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-309528063DB0E66E",
+      "prompt_id": "E24",
+      "task_type": "educational",
+      "prompt_text_sha256": "db80e0244426ace7d864dc7ba50236b5e3b5f42a3b40c65371daff4b20365623",
+      "response_text_sha256": "41c80e844be8ccf772c79b82b9260afeff995eaf96fdb18bb17b6862c2e8df8f",
+      "reference_card_sha256": "cde007810e5cfb86033a5e174e5d60cd75e1027ec0f79f39f8e72121a28a402a",
+      "word_count_read_only": 125,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-31EDAABD4B4ABA1E",
+      "prompt_id": "P04",
+      "task_type": "public_information",
+      "prompt_text_sha256": "e90642f81ae3a7d1eee106fe9d661cb5fcd892957a37e0227903ce2ee5c23ad7",
+      "response_text_sha256": "4207e9b6a1e66828eb62b3a27eab6c931295a77ef946d3aa0d28b9b08a03a596",
+      "reference_card_sha256": "8ba5b67a48013f6aaf0b695285f6242d5a33bea2ce8c5189fa1bc6e0f722f598",
+      "word_count_read_only": 146,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-3309BA815046DC66",
+      "prompt_id": "P08",
+      "task_type": "public_information",
+      "prompt_text_sha256": "43e0ca3ba2f280c5f78454051509ff700bc2dcbbbc6a417099b17b4c104b3e5e",
+      "response_text_sha256": "ac30e1a126e41bee8e7e45aace8b11c672a06eb78815ffecb0c0fef6df5ef261",
+      "reference_card_sha256": "3ceb770159a6b167db1a8addc881e882eccd4401ec22b3c98da95ea6b5cddbb0",
+      "word_count_read_only": 134,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-335DA24201C733B1",
+      "prompt_id": "E29",
+      "task_type": "educational",
+      "prompt_text_sha256": "9111176aedf07794bfdedeccc427ceee613c1de6de660fd57b964b682f2b2597",
+      "response_text_sha256": "1514d1450322854b22cdb41938845ae742fa63de7315627bb26dd58d2d75628e",
+      "reference_card_sha256": "9718c76043fa5a23ec0f28a972b207713c7b58a026375afb7341ba5114fba648",
+      "word_count_read_only": 130,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-342944E760F8ABF7",
+      "prompt_id": "P18",
+      "task_type": "public_information",
+      "prompt_text_sha256": "2a8b69f806cc466b7d7f658a39da7192f2a7854203686394fec1f7a40420b94b",
+      "response_text_sha256": "53b3ee0e74fed2b99208b86a15cacf9a9132640921769a92612496ae7958e577",
+      "reference_card_sha256": "886816ab39ce69722ce4aebcd698f8d2a6cc9ad6e927372b06974fe8e5918f33",
+      "word_count_read_only": 57,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-3487748FE2CA7FBC",
+      "prompt_id": "P16",
+      "task_type": "public_information",
+      "prompt_text_sha256": "ef6ac183c4cb68d581dc9f261c9f9afc52966a3b32f28467080d60271920b15b",
+      "response_text_sha256": "73d12af83211b9f6fbf6ac24bea8743a1df092f516976db0fe7496f251d572e4",
+      "reference_card_sha256": "b06b996268cd6aad085f83890d4e7c00f923e4cdab5cbfc4ea343c7f6516a29d",
+      "word_count_read_only": 125,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-349CE863831E1EC2",
+      "prompt_id": "E07",
+      "task_type": "educational",
+      "prompt_text_sha256": "c47bf66672c73785ba9864fe735d0bdaf05396e45f737df64fe4ea68da8f3604",
+      "response_text_sha256": "4c7190c70dc2cc3dd5109475b7ef7653d2cfaa5a5edd5bf58bc7bf010dcf53f2",
+      "reference_card_sha256": "142a874921910e253e7f8ff108bb6e2331aa04cf0fa2c027d3a750cf53b6e01a",
+      "word_count_read_only": 60,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-34ECE201E75E0AFA",
+      "prompt_id": "P10",
+      "task_type": "public_information",
+      "prompt_text_sha256": "4ec39cd056b9cb867366f0bf7b2decfa6bfcbc9741d6ac3526a5ba074d9f14f1",
+      "response_text_sha256": "1267a9c094036d1f678008bed4b751f6140875adfdc7eb65f013350bbd416921",
+      "reference_card_sha256": "c4231fb85092583f733abb22ff4b1f96fd18566b019fc12696cee0367a5c095a",
+      "word_count_read_only": 139,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-35D55A91EA512BF1",
+      "prompt_id": "E10",
+      "task_type": "educational",
+      "prompt_text_sha256": "189a33798364af27b8f3b6093ab97c6c27d3890a977defd41150d6e3d8004811",
+      "response_text_sha256": "d375250c241bd3ca13bb875a73d5da0c362261b7b9098817fc11c0e774055dfe",
+      "reference_card_sha256": "de958ee93dd5a7db90c037706b61b453cb8b1cdb18f2127f35ba0ad38993fa3e",
+      "word_count_read_only": 94,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-3648F6D24B543132",
+      "prompt_id": "E24",
+      "task_type": "educational",
+      "prompt_text_sha256": "db80e0244426ace7d864dc7ba50236b5e3b5f42a3b40c65371daff4b20365623",
+      "response_text_sha256": "75717bf13c12a891431d24466552e77c41c04f2a8f2b65adc8a99dbddaebdcce",
+      "reference_card_sha256": "cde007810e5cfb86033a5e174e5d60cd75e1027ec0f79f39f8e72121a28a402a",
+      "word_count_read_only": 74,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-38955880D0597C6F",
+      "prompt_id": "E13",
+      "task_type": "educational",
+      "prompt_text_sha256": "667d50cb0c7cc93a0d9fd77f2612cf336694808e896f4a363a558a6e743d3e79",
+      "response_text_sha256": "17da9ad59391db302323d22cee377dd7bf426760b502bd8ceda0c2b381569c6a",
+      "reference_card_sha256": "1c89f635bc2b8d55538f90d707d346342c2a4378d4626602c2ff12dd6d8426bd",
+      "word_count_read_only": 149,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-3947205C24ADBDBA",
+      "prompt_id": "E02",
+      "task_type": "educational",
+      "prompt_text_sha256": "7b52242775450cb638beba25a023e645430f66452be194013a3a16cd11dc2839",
+      "response_text_sha256": "942b819a702fdd080919704249865599086843f2869f771fe51e774599522768",
+      "reference_card_sha256": "d956f1332e8a77c51d10c4c22d031690df130fb52ae7b04d7e87ab51849e884e",
+      "word_count_read_only": 142,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-39824F18397BDD55",
+      "prompt_id": "E12",
+      "task_type": "educational",
+      "prompt_text_sha256": "05dd8bdaacdf1fa85684ee13bbaae98f5eb79e0454f006eac3204bb2e9690938",
+      "response_text_sha256": "063e14db30ed5d88612b8f6ce4ae0e8d8dcf9e513d4a396e9ba37098125087c9",
+      "reference_card_sha256": "29b751ce94a48258aacc28037c9c33340e78744d993dffc0b063dd3549f8b619",
+      "word_count_read_only": 74,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-3F26C3ACD7EFC6F7",
+      "prompt_id": "P05",
+      "task_type": "public_information",
+      "prompt_text_sha256": "8604d9f83b51338ebe6985340bb50da37e3e6c4bbf5167504411de901a4b81ca",
+      "response_text_sha256": "1689a26b65d7e0ba3426af397505d36f47419185e47b94d57f5560549ddd74a8",
+      "reference_card_sha256": "805e47640cb927f96501793d8b2c4fe3fe3e08e4a31182f551b1bbc61761c4bc",
+      "word_count_read_only": 108,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-409E010E53560D04",
+      "prompt_id": "E11",
+      "task_type": "educational",
+      "prompt_text_sha256": "fb82c010682e1a090fe63faa43494ab5a1739e1dd289e5344f49f83ac134acc1",
+      "response_text_sha256": "65a20c69cb4d2b34992dbaf1987f85a2ac9e226a27ec703ea2557d9388ee8fe3",
+      "reference_card_sha256": "f709ea9fafd78beb1f1b9b2e0fe5676dad62c36a608fc7b4007457b71b2ad6cf",
+      "word_count_read_only": 164,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-40F0454CF43C36A6",
+      "prompt_id": "E08",
+      "task_type": "educational",
+      "prompt_text_sha256": "f1bae5188bbf2988b4861abb124e48c62445b988eb35b314351cb0df6f0f0abd",
+      "response_text_sha256": "8adc5f07e4c71224f2906b0f59f6ec0a4e3e47752be5a46ddb34e2ff74cced22",
+      "reference_card_sha256": "ca951f0921ff36929fe6793d0ae054f4a9904ac2f70bfffcb39063e24270d92e",
+      "word_count_read_only": 108,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-4105FA9AE5ADBE3B",
+      "prompt_id": "P19",
+      "task_type": "public_information",
+      "prompt_text_sha256": "681a679f1dbf41b53a3b78cd3d841124c2ab66af29d5dc220b857e0366b7984a",
+      "response_text_sha256": "9f8700feb82dbb4a38fcc12cdb4bd09aca7ec18b93cd15cd78fef6aa0930d462",
+      "reference_card_sha256": "8602a8db52bd99397ca687f28caddd5faed5c7bd7e25080d626f8669dbdca4da",
+      "word_count_read_only": 113,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-420AE9D771A34C63",
+      "prompt_id": "P20",
+      "task_type": "public_information",
+      "prompt_text_sha256": "cd87ea2beed5e9254daa52ecd38a8200b685933f7c90541272be4fcee9ea45a7",
+      "response_text_sha256": "83c9c387d45cd76a2090a576c60e6fba04a1f5bd0f4af04d8079f44963837c0e",
+      "reference_card_sha256": "c9f0af1abc75ce6eb647ac6f1d4024484d5bc203055021efa8dd96b47416046e",
+      "word_count_read_only": 157,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-425FE4F7C59AED15",
+      "prompt_id": "E21",
+      "task_type": "educational",
+      "prompt_text_sha256": "676d2d1b381282dbf215098b0ee3d594fb3abdf30d62e8e9059eff6568ce341b",
+      "response_text_sha256": "9c8c1995b2144834f81681178a7e331637e5df8b745e1062e797551eef02d6ec",
+      "reference_card_sha256": "fb1451126a81ef8b6add2742dc2a5357684806b6de154d7448889ab6d7c9c9e5",
+      "word_count_read_only": 119,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-42A83B8015F68DF8",
+      "prompt_id": "P07",
+      "task_type": "public_information",
+      "prompt_text_sha256": "c159f9615eca2e8b5a9e8b9a066d41fde37973f17476cc1279a2cebff4a0d8a8",
+      "response_text_sha256": "14376c7f3bf231b9af0af507d7ddc1f6fda533d7ce20e44b2f850438511ad509",
+      "reference_card_sha256": "05388f37d95d5353dafa8b1a20f9f00ffc14a23d74b5b022a9b7ad9a7f1ca72f",
+      "word_count_read_only": 77,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-432A9F5E8285F0EC",
+      "prompt_id": "P02",
+      "task_type": "public_information",
+      "prompt_text_sha256": "54d579187c415370e7e136913d0946f49de4b2ed1ecb6363152d30ab8f054041",
+      "response_text_sha256": "05eef8cb81b4a0ddfd234772b2499664cd8c4168fb62911bdc07bc93dc09467a",
+      "reference_card_sha256": "57bb1359cf1a1606aadce0d3e060b5bd58bcb82f4c0c4a00f3933f5572d46525",
+      "word_count_read_only": 139,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-43957798C73829D3",
+      "prompt_id": "E01",
+      "task_type": "educational",
+      "prompt_text_sha256": "08b692a6ae0909b79ce708e7d748faeb9e6ce0e38b224c17eac8f0b165def49a",
+      "response_text_sha256": "e2bd6230d351bdfb6c927ff8cdad155fe024f871a0d439e6ee27ba4b047fda15",
+      "reference_card_sha256": "b49665fb788ea3482ac3b6bcde846d839a5c520e9ae91c4a1b8b144a61b9739e",
+      "word_count_read_only": 98,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-441A3AFB4E349A1C",
+      "prompt_id": "E24",
+      "task_type": "educational",
+      "prompt_text_sha256": "db80e0244426ace7d864dc7ba50236b5e3b5f42a3b40c65371daff4b20365623",
+      "response_text_sha256": "5d5595a06a215422149040c3b75cedec55336572a05fbdce97c0b38592fcefba",
+      "reference_card_sha256": "cde007810e5cfb86033a5e174e5d60cd75e1027ec0f79f39f8e72121a28a402a",
+      "word_count_read_only": 136,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-453845C1ED54C380",
+      "prompt_id": "E14",
+      "task_type": "educational",
+      "prompt_text_sha256": "77e47a929e2b094ee3881c807c90bd91473e84c6f6e0726b3bb2c08ef4c5a01d",
+      "response_text_sha256": "e86d67c77a44413adf474381bf3690308d0f186cf42f7be683674985d42138e1",
+      "reference_card_sha256": "4a6185cec4e7d3d1fa8a460e947f1996c2ee3ca94d3134c304656f0dde220396",
+      "word_count_read_only": 129,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-45D9A0C945BD9909",
+      "prompt_id": "E11",
+      "task_type": "educational",
+      "prompt_text_sha256": "fb82c010682e1a090fe63faa43494ab5a1739e1dd289e5344f49f83ac134acc1",
+      "response_text_sha256": "9438483f7f6777e1860049d38a26d17364a0966d05e458e678d9c1e357ab68fe",
+      "reference_card_sha256": "f709ea9fafd78beb1f1b9b2e0fe5676dad62c36a608fc7b4007457b71b2ad6cf",
+      "word_count_read_only": 141,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-46334297D939E9A7",
+      "prompt_id": "E29",
+      "task_type": "educational",
+      "prompt_text_sha256": "9111176aedf07794bfdedeccc427ceee613c1de6de660fd57b964b682f2b2597",
+      "response_text_sha256": "b76bb26debf5861741e2832899440d09c99e68b3bdf02656a1ae7055ac39fc40",
+      "reference_card_sha256": "9718c76043fa5a23ec0f28a972b207713c7b58a026375afb7341ba5114fba648",
+      "word_count_read_only": 144,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-473B518084E7A080",
+      "prompt_id": "P13",
+      "task_type": "public_information",
+      "prompt_text_sha256": "3a9e1f11a89ab20a5d600ade599e8993695b1e46ef832d8cec61eebcf229540f",
+      "response_text_sha256": "96468a8d46785ccbd5486e457334c3858af103427a291761d7a3816533bab641",
+      "reference_card_sha256": "72ace88da2d3ca2b7d933e77a319addb6d6dfb5f2c50f186e7acafea6432ef85",
+      "word_count_read_only": 121,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-49526A6B2001053B",
+      "prompt_id": "E23",
+      "task_type": "educational",
+      "prompt_text_sha256": "8cbe9c64fcab009000d59579bdabd5dd135abee7831c82af41e040713b758c6d",
+      "response_text_sha256": "7ce192e162346dd437041f8c5b2d7edad59dfba25a4e37bc33264cac2a38c2a0",
+      "reference_card_sha256": "01c0893175789646d7cc9313711caace67a9ba67773a58208e687a6bdb97937f",
+      "word_count_read_only": 148,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-4AA5CD20C0631021",
+      "prompt_id": "E15",
+      "task_type": "educational",
+      "prompt_text_sha256": "425aefdb84666531e1b429dd0459336373ac818eaa4f3d9345f50e573399318e",
+      "response_text_sha256": "d0e4ec860cc0d74b14b1247bd711e0eb7926b646aadd3589debc844787d7dbfa",
+      "reference_card_sha256": "a1f9b4d27370f81fd7e371e7132ab3ff6ecf6115f4b22229b339321b0252aace",
+      "word_count_read_only": 89,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-4B3BBAA95008449B",
+      "prompt_id": "P27",
+      "task_type": "public_information",
+      "prompt_text_sha256": "88eeaf0783d5c8f92d2357e3e65e30c7ae6fd566fd8878b94833c691e157d2e1",
+      "response_text_sha256": "d3179382db8b1c4c0bb46b5ca5aab996834c87816e5f51cf6715a8eb9d95311a",
+      "reference_card_sha256": "3095b9767dc80e43da457adc0f1d4aa4dacf1bdf68d5778b0df64cd376c51ea9",
+      "word_count_read_only": 80,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-4BD0A53EEF13F95D",
+      "prompt_id": "E30",
+      "task_type": "educational",
+      "prompt_text_sha256": "77d6ec130787aef839ea630657c9a55579971ef09bb2cab1a66b10da6aa1870e",
+      "response_text_sha256": "b7da9c7c6056ab23b3e3ec336a12a908d696300368b27773643c52774033d8c9",
+      "reference_card_sha256": "4bb652a5c19a920523b3d428a1d0cea1c5d3fce9008dba08d9f281b1ee023f25",
+      "word_count_read_only": 93,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-4C3ADA5CECD32AFA",
+      "prompt_id": "E03",
+      "task_type": "educational",
+      "prompt_text_sha256": "6bfc87c9ac3b6bcb5e8df8b87170a1f581be91729bd741c72a51baa5d6e970c6",
+      "response_text_sha256": "fd6b4c38d18422e93212054945f14aa382b3e88ba8cb302c4cd59cc442493c12",
+      "reference_card_sha256": "756197d80162a60ba02bb67113702458b03d10c1095505665eccd1a629644a87",
+      "word_count_read_only": 152,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-4C9AC40DC90DBEF8",
+      "prompt_id": "E30",
+      "task_type": "educational",
+      "prompt_text_sha256": "77d6ec130787aef839ea630657c9a55579971ef09bb2cab1a66b10da6aa1870e",
+      "response_text_sha256": "7e044cf261d7905f9fea0ea9026afbbc7fa3ec22cbef9eee41a34bdf8bea830a",
+      "reference_card_sha256": "4bb652a5c19a920523b3d428a1d0cea1c5d3fce9008dba08d9f281b1ee023f25",
+      "word_count_read_only": 172,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-4E57178565420A19",
+      "prompt_id": "P25",
+      "task_type": "public_information",
+      "prompt_text_sha256": "d11c8d0aacaf677fd08497d967c9c1f457dc2ef2cd3bb83720039a81947fc5eb",
+      "response_text_sha256": "bd8b8decf7a2418349a01d2c211da3098de70ec0f8427f971054510022b4a06d",
+      "reference_card_sha256": "966fc11e88fca45e4534a3f4619d4a457424701bf526b0832e5dfa3aee061601",
+      "word_count_read_only": 46,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-4E62DF432C2ABAD3",
+      "prompt_id": "E03",
+      "task_type": "educational",
+      "prompt_text_sha256": "6bfc87c9ac3b6bcb5e8df8b87170a1f581be91729bd741c72a51baa5d6e970c6",
+      "response_text_sha256": "c820dc8ad4b67b0ffc00bdc81ecd54acf50eae69c8abdfd7ebd70b2193d1b0f9",
+      "reference_card_sha256": "756197d80162a60ba02bb67113702458b03d10c1095505665eccd1a629644a87",
+      "word_count_read_only": 62,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-4F36FCE8E79E457E",
+      "prompt_id": "E17",
+      "task_type": "educational",
+      "prompt_text_sha256": "93d02b55dd4ad1945d981dd8ac4e71d236942561547fd058943d82f273362b42",
+      "response_text_sha256": "0479be2e1e709279945cedb3339b0e7a9744bd8abf1b09e7caaf0f47921fbb81",
+      "reference_card_sha256": "c7e65882d11b60ad86a0526ac344a46952decb5211d1badc1efbd11303040f8b",
+      "word_count_read_only": 80,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-5022FF9352F7741D",
+      "prompt_id": "E05",
+      "task_type": "educational",
+      "prompt_text_sha256": "cb01bd91808c6a7938f61b51bb859528b87200b5cfd0d47a0496f09c82f6aa48",
+      "response_text_sha256": "cdd630976cda3d8648c2b89af0fa79a0de880366ba42cce70a5a0d5a7cc5cef7",
+      "reference_card_sha256": "548633b16c615fd2585fa316b9dde3c86b4270509bb8e46c71275c891b53d91d",
+      "word_count_read_only": 75,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-532C5B3AC5B1C804",
+      "prompt_id": "P27",
+      "task_type": "public_information",
+      "prompt_text_sha256": "88eeaf0783d5c8f92d2357e3e65e30c7ae6fd566fd8878b94833c691e157d2e1",
+      "response_text_sha256": "7644acf229ef7b6bcc62cea6749ad60ca99849364499d5e9edf17c409d6e1686",
+      "reference_card_sha256": "3095b9767dc80e43da457adc0f1d4aa4dacf1bdf68d5778b0df64cd376c51ea9",
+      "word_count_read_only": 139,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-55A2A0B3B78F268D",
+      "prompt_id": "P14",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a35d94d24b00df2f25860552628470ceaf4baf5c26c4565f4d964bdd89f22ae7",
+      "response_text_sha256": "6b086bb645e54de12ca7562793aaefcabf437cbaa49567b2c0962de805f3bbd9",
+      "reference_card_sha256": "c95d45612e774da81e341a856fd0bfe3a75c0fd1687b4d83c818bbd0d9c2bbcc",
+      "word_count_read_only": 100,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-565607EA69421611",
+      "prompt_id": "P10",
+      "task_type": "public_information",
+      "prompt_text_sha256": "4ec39cd056b9cb867366f0bf7b2decfa6bfcbc9741d6ac3526a5ba074d9f14f1",
+      "response_text_sha256": "3402ca582ea6b6407f2e16937c7f27392b63c74a3b30f2f2d7851b7c5656fd1b",
+      "reference_card_sha256": "c4231fb85092583f733abb22ff4b1f96fd18566b019fc12696cee0367a5c095a",
+      "word_count_read_only": 111,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-56D9AA0EF1462CA7",
+      "prompt_id": "P25",
+      "task_type": "public_information",
+      "prompt_text_sha256": "d11c8d0aacaf677fd08497d967c9c1f457dc2ef2cd3bb83720039a81947fc5eb",
+      "response_text_sha256": "4518aa922d3fe3cd4ec0274b55f6a0153e377c9abfddca6f4fa92f357f969129",
+      "reference_card_sha256": "966fc11e88fca45e4534a3f4619d4a457424701bf526b0832e5dfa3aee061601",
+      "word_count_read_only": 138,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-5CC993B4C29BB24F",
+      "prompt_id": "E13",
+      "task_type": "educational",
+      "prompt_text_sha256": "667d50cb0c7cc93a0d9fd77f2612cf336694808e896f4a363a558a6e743d3e79",
+      "response_text_sha256": "ed89b4fce071228c13f7d5a64bff9dc83c4d82cdf13b901d397af9a74ec34ff0",
+      "reference_card_sha256": "1c89f635bc2b8d55538f90d707d346342c2a4378d4626602c2ff12dd6d8426bd",
+      "word_count_read_only": 53,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-5D16132D1A19911F",
+      "prompt_id": "E22",
+      "task_type": "educational",
+      "prompt_text_sha256": "74dc73fe7bcf7206350d19d8f91abc734ac8e277c6accba2c8d606d2a18c9641",
+      "response_text_sha256": "f0e34018c00ba618188cc0522c26fa46a73b0ad0ab48a8b3568d933c51ce80b0",
+      "reference_card_sha256": "4744e29b79727225d0aaea382dcef019274d8a11d14a6e8c32f5384884bb4447",
+      "word_count_read_only": 130,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-5E7FFD5398D0C32F",
+      "prompt_id": "E27",
+      "task_type": "educational",
+      "prompt_text_sha256": "313e3d2be099996d5a14696d6c520d925321def3f4ad10d6742e44ed1e852e07",
+      "response_text_sha256": "4b4114cc8cf696e67c8c0134e3bfaa6ae02c2ebac458406d7bb0c9ce75ae2d23",
+      "reference_card_sha256": "f5db2a23896ada6472c7b342bf2ccaea68b5590ff19e201fbec82bafa1d5f598",
+      "word_count_read_only": 131,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-5F19A1E3C28051CD",
+      "prompt_id": "E03",
+      "task_type": "educational",
+      "prompt_text_sha256": "6bfc87c9ac3b6bcb5e8df8b87170a1f581be91729bd741c72a51baa5d6e970c6",
+      "response_text_sha256": "05143b19b636f62b3c385a4255f88b0e41c734b13f310c4016a03ed107b498a5",
+      "reference_card_sha256": "756197d80162a60ba02bb67113702458b03d10c1095505665eccd1a629644a87",
+      "word_count_read_only": 124,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-60DE14C23A39DADD",
+      "prompt_id": "E15",
+      "task_type": "educational",
+      "prompt_text_sha256": "425aefdb84666531e1b429dd0459336373ac818eaa4f3d9345f50e573399318e",
+      "response_text_sha256": "daccf2d693bb98fdcc659d656981c6eae8949edbe572651cb83ea2f82665d82a",
+      "reference_card_sha256": "a1f9b4d27370f81fd7e371e7132ab3ff6ecf6115f4b22229b339321b0252aace",
+      "word_count_read_only": 164,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-6460A12F146D4771",
+      "prompt_id": "E22",
+      "task_type": "educational",
+      "prompt_text_sha256": "74dc73fe7bcf7206350d19d8f91abc734ac8e277c6accba2c8d606d2a18c9641",
+      "response_text_sha256": "16812ad19b1b7122fc1b487b5c30a5464dfcc4b1802ed46b1f8de1aab91c9dac",
+      "reference_card_sha256": "4744e29b79727225d0aaea382dcef019274d8a11d14a6e8c32f5384884bb4447",
+      "word_count_read_only": 56,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-646C45C6C93F8234",
+      "prompt_id": "E29",
+      "task_type": "educational",
+      "prompt_text_sha256": "9111176aedf07794bfdedeccc427ceee613c1de6de660fd57b964b682f2b2597",
+      "response_text_sha256": "488a9f26e1b5579afa4928e6520a974859b85a63a7e660775179445299eca46e",
+      "reference_card_sha256": "9718c76043fa5a23ec0f28a972b207713c7b58a026375afb7341ba5114fba648",
+      "word_count_read_only": 130,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-678896663F90AB66",
+      "prompt_id": "P03",
+      "task_type": "public_information",
+      "prompt_text_sha256": "c3d530c2c01846baac64a12505744bc810180ec3f434bb1d485faeca3f58dc9d",
+      "response_text_sha256": "164d400470b430109f2e71a735edf4919f5710798a70208cf2ed07409d346193",
+      "reference_card_sha256": "4b8485ea25f4ae171a625d1764ab85b8b9706c83c91a90665759df471ff0e380",
+      "word_count_read_only": 71,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-67EF67F334705D1F",
+      "prompt_id": "E10",
+      "task_type": "educational",
+      "prompt_text_sha256": "189a33798364af27b8f3b6093ab97c6c27d3890a977defd41150d6e3d8004811",
+      "response_text_sha256": "2e3b9ea9885462eb163341e8951df0956d29a7e485c9aea2b1980249694913d9",
+      "reference_card_sha256": "de958ee93dd5a7db90c037706b61b453cb8b1cdb18f2127f35ba0ad38993fa3e",
+      "word_count_read_only": 127,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-69BE12AAEDA2C8ED",
+      "prompt_id": "P10",
+      "task_type": "public_information",
+      "prompt_text_sha256": "4ec39cd056b9cb867366f0bf7b2decfa6bfcbc9741d6ac3526a5ba074d9f14f1",
+      "response_text_sha256": "39bfaf4e07daecf3d9bdace19e69573d048e8cc5b9949c18ed4c451d530dc377",
+      "reference_card_sha256": "c4231fb85092583f733abb22ff4b1f96fd18566b019fc12696cee0367a5c095a",
+      "word_count_read_only": 64,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-6AD9081EB0404B99",
+      "prompt_id": "E19",
+      "task_type": "educational",
+      "prompt_text_sha256": "fac91526c0406762887046fd654cccbb6e3e1a61e2592b988d8464c72e6435ef",
+      "response_text_sha256": "9b66b173545a2a64c1fd454fa7d3c2b23aa2f41ff6307f1ad5afda265b551919",
+      "reference_card_sha256": "573c56e08dff2b1fb19a371b05df6e53f8ece19578cfce642832c46358fcc1da",
+      "word_count_read_only": 140,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-6B2462A081AFA5DE",
+      "prompt_id": "P13",
+      "task_type": "public_information",
+      "prompt_text_sha256": "3a9e1f11a89ab20a5d600ade599e8993695b1e46ef832d8cec61eebcf229540f",
+      "response_text_sha256": "59d4c635670733c4b33c1d8d41d250236326069f7385d373474b5f939d389987",
+      "reference_card_sha256": "72ace88da2d3ca2b7d933e77a319addb6d6dfb5f2c50f186e7acafea6432ef85",
+      "word_count_read_only": 87,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-703645D1F4762C58",
+      "prompt_id": "P23",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a5b55bbad03a5d176a2d5109a91fc440e150ffa86661d75452cbfeabfac9dd36",
+      "response_text_sha256": "b2197ebda5438d4481aa9e200f74eae492fd7db88beb3e03835736ef4614b629",
+      "reference_card_sha256": "da9971eb07643edfe1e531d96678ac4def2e512a547da068f33f67b60a183035",
+      "word_count_read_only": 140,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-712287F9FC9AF49C",
+      "prompt_id": "P15",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a04708fd9d0273dc6b65f0dd8b2e3b2c31425657d9ca246e15f524f030052767",
+      "response_text_sha256": "020d6b81e990ccdbf1115693d27d9f5453e3d162b40b6460573af345f1bab3ce",
+      "reference_card_sha256": "4eca19b2d6d26276058d2ad104fcefb60a6f5687b5b4fa6189c8f227a02d0cab",
+      "word_count_read_only": 117,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-72A8DACEA3FBAC99",
+      "prompt_id": "P18",
+      "task_type": "public_information",
+      "prompt_text_sha256": "2a8b69f806cc466b7d7f658a39da7192f2a7854203686394fec1f7a40420b94b",
+      "response_text_sha256": "78eaa7928bda7e60126f30eaf55159666b4d3149cab0a2d6af12583d009c1653",
+      "reference_card_sha256": "886816ab39ce69722ce4aebcd698f8d2a6cc9ad6e927372b06974fe8e5918f33",
+      "word_count_read_only": 81,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-72E18F91CF411D4C",
+      "prompt_id": "P22",
+      "task_type": "public_information",
+      "prompt_text_sha256": "35f081da8479610a89fb2ba4180aa4adc97e3e7db309922087a82ff541c7c6dd",
+      "response_text_sha256": "4ad2ec3ea9754836c0cfab2fef2c6ec7dc9ca4ce105f0a0781eab32a8ec5c4b1",
+      "reference_card_sha256": "7f99a7b3b3b4b5e78f9393969514b5831a670c655c1a124b6c1c815b401e942a",
+      "word_count_read_only": 127,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-72E839FA86B9A1E1",
+      "prompt_id": "E20",
+      "task_type": "educational",
+      "prompt_text_sha256": "88e126d8dc01c77fcd160da29c121c5dc05fe683cc75592c9dd34952d2028bbe",
+      "response_text_sha256": "19963b163925de058d931aad5c3953f8726c5875899a26c03cab695a844c822f",
+      "reference_card_sha256": "a93b57df8e0b0ebd37549af1a2f369c017bebec7f05d845de6a741d9a81b7f5e",
+      "word_count_read_only": 77,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-739597D355512BE1",
+      "prompt_id": "P01",
+      "task_type": "public_information",
+      "prompt_text_sha256": "9bda6789cdf6cb5710aee2b3582300fb4e7a2bf9f2a19735edcadbb7aafeb008",
+      "response_text_sha256": "50668d5d7d7c8a4c18aab43ca9ab8b8c158e6e46ea622984d6ec7c9b4f446169",
+      "reference_card_sha256": "597539ee4cb27101d48e80b70479b78d62bc813ed19b20e8266f51fb96915a6f",
+      "word_count_read_only": 102,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-74DA6DDC7FFF8EE7",
+      "prompt_id": "E16",
+      "task_type": "educational",
+      "prompt_text_sha256": "53937e38fbd81fc419792e317a4446b6d4bc73687fe8c4cc907fe894db2db106",
+      "response_text_sha256": "d6cd130f3ea22f4ddb584cf0540f2684e564d1adcda720fb53f603924383323e",
+      "reference_card_sha256": "4e20ee2123f93c2c542a9c7bfe975d765c03f427562cdf27906020d61780688a",
+      "word_count_read_only": 148,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-76184FF6C2E8A154",
+      "prompt_id": "E19",
+      "task_type": "educational",
+      "prompt_text_sha256": "fac91526c0406762887046fd654cccbb6e3e1a61e2592b988d8464c72e6435ef",
+      "response_text_sha256": "4be3e30c1802c576bc9ea38ada0766a1b42f679c19f43a067207875f59475401",
+      "reference_card_sha256": "573c56e08dff2b1fb19a371b05df6e53f8ece19578cfce642832c46358fcc1da",
+      "word_count_read_only": 142,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-76A09E6FEAB87CD4",
+      "prompt_id": "P11",
+      "task_type": "public_information",
+      "prompt_text_sha256": "19555f0e47e95f8847e214f53ccd1ecf454f3fe4a1d55447508c47d4ec0d4d6e",
+      "response_text_sha256": "37a68cccd2779e7e72fa9781384d9abcd08681c8d7c698950e7617379497c69d",
+      "reference_card_sha256": "472e7d7863b65290a3cf8dde5bf9d8945d87e04305ac2619131e5a7083e14b02",
+      "word_count_read_only": 136,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-76A1A797B632D1EA",
+      "prompt_id": "E06",
+      "task_type": "educational",
+      "prompt_text_sha256": "cd6e684d56df4093297d86e943b7971b469d0a8641c51fb2a1fd307cd30c0404",
+      "response_text_sha256": "e64a0e3e642d456acef94c460859ca500e54323cc03da011fa0707a843d136c1",
+      "reference_card_sha256": "a4f111dd1a8b1695a9ff719b966c9476880f48c5bd7593de8a9674f63a3aa481",
+      "word_count_read_only": 138,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-786D84A7C284BD41",
+      "prompt_id": "E08",
+      "task_type": "educational",
+      "prompt_text_sha256": "f1bae5188bbf2988b4861abb124e48c62445b988eb35b314351cb0df6f0f0abd",
+      "response_text_sha256": "ee17fcd4ec7eb707b9cadf754a852f71d9432a9f6026db8cfa90d543d3a34039",
+      "reference_card_sha256": "ca951f0921ff36929fe6793d0ae054f4a9904ac2f70bfffcb39063e24270d92e",
+      "word_count_read_only": 68,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-78921919921EDB22",
+      "prompt_id": "P07",
+      "task_type": "public_information",
+      "prompt_text_sha256": "c159f9615eca2e8b5a9e8b9a066d41fde37973f17476cc1279a2cebff4a0d8a8",
+      "response_text_sha256": "4e8117768a3aba9332d0dfba8860318d3d70f1d0bbd844f098dbe46bf9d34998",
+      "reference_card_sha256": "05388f37d95d5353dafa8b1a20f9f00ffc14a23d74b5b022a9b7ad9a7f1ca72f",
+      "word_count_read_only": 141,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-7936D16DB06F9DD0",
+      "prompt_id": "P19",
+      "task_type": "public_information",
+      "prompt_text_sha256": "681a679f1dbf41b53a3b78cd3d841124c2ab66af29d5dc220b857e0366b7984a",
+      "response_text_sha256": "fc58a603a37347454dbb78b6786f7cd2d161ed4da5b4b3668c50dafe4281170c",
+      "reference_card_sha256": "8602a8db52bd99397ca687f28caddd5faed5c7bd7e25080d626f8669dbdca4da",
+      "word_count_read_only": 180,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-79BA49FB4C6E86E8",
+      "prompt_id": "E29",
+      "task_type": "educational",
+      "prompt_text_sha256": "9111176aedf07794bfdedeccc427ceee613c1de6de660fd57b964b682f2b2597",
+      "response_text_sha256": "a579f2815e05c2a4b7539c0045fdd1203e5d23bfb9e1c2e37d4bf3b1d34fcd31",
+      "reference_card_sha256": "9718c76043fa5a23ec0f28a972b207713c7b58a026375afb7341ba5114fba648",
+      "word_count_read_only": 66,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-7AB24B4A87071B36",
+      "prompt_id": "P06",
+      "task_type": "public_information",
+      "prompt_text_sha256": "898c0e91de03ebbc657aa1d00564a0bc863e0e4e29ff5ab3061d1eedd5063745",
+      "response_text_sha256": "fa2ad295c4f54a20acbfb532d09da188067a6b25af3592fe436159bbe2716b96",
+      "reference_card_sha256": "c56e9b773c6b53d7f7249d26c0e0fd398659334e8515bd66c9d59653572d8baf",
+      "word_count_read_only": 91,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-7D74D4CCE3E223B2",
+      "prompt_id": "E06",
+      "task_type": "educational",
+      "prompt_text_sha256": "cd6e684d56df4093297d86e943b7971b469d0a8641c51fb2a1fd307cd30c0404",
+      "response_text_sha256": "700710d9f97de1037ae7db2336473562b55e30b606911524be734d69068bc4b6",
+      "reference_card_sha256": "a4f111dd1a8b1695a9ff719b966c9476880f48c5bd7593de8a9674f63a3aa481",
+      "word_count_read_only": 108,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-7DC6DD7DB38FDF0B",
+      "prompt_id": "P03",
+      "task_type": "public_information",
+      "prompt_text_sha256": "c3d530c2c01846baac64a12505744bc810180ec3f434bb1d485faeca3f58dc9d",
+      "response_text_sha256": "a9e745c1c60e93ebd46dff1005f4a49f98c1834bef4d139ebc4dc48abd2caf71",
+      "reference_card_sha256": "4b8485ea25f4ae171a625d1764ab85b8b9706c83c91a90665759df471ff0e380",
+      "word_count_read_only": 129,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-7EDF0D4CDC0F67AB",
+      "prompt_id": "P22",
+      "task_type": "public_information",
+      "prompt_text_sha256": "35f081da8479610a89fb2ba4180aa4adc97e3e7db309922087a82ff541c7c6dd",
+      "response_text_sha256": "89348e414112007a6339205d17a8c4a35d5ac8f5ec67d9f819a5ca12f2c30442",
+      "reference_card_sha256": "7f99a7b3b3b4b5e78f9393969514b5831a670c655c1a124b6c1c815b401e942a",
+      "word_count_read_only": 124,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-812A9094FC771B77",
+      "prompt_id": "P29",
+      "task_type": "public_information",
+      "prompt_text_sha256": "1f5756fb8c054f5cf2c608c86c35e960ccceaf7f2838e20540863b5a6038eee0",
+      "response_text_sha256": "534565c344dddc7ded4701947521a30397b1669f020ef51ef221e286bc3c90d2",
+      "reference_card_sha256": "2a0e6637f28487de049ba8d711263e44d870f64783d22d1abd133291aec918be",
+      "word_count_read_only": 84,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-8309C26555C0D233",
+      "prompt_id": "P30",
+      "task_type": "public_information",
+      "prompt_text_sha256": "81af36b11abe2434e32f2afa7264d2981b80aba8bbbf70e835726980c92150f0",
+      "response_text_sha256": "6515558ee994425ee14562123fc76b62b6cb55481d92b500a314ab89d0c11ebc",
+      "reference_card_sha256": "15e540d76276141b6453012f26bfd639772a5aaf083a9ff453b77b8c8099a868",
+      "word_count_read_only": 137,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-8339B19C99A971AA",
+      "prompt_id": "E14",
+      "task_type": "educational",
+      "prompt_text_sha256": "77e47a929e2b094ee3881c807c90bd91473e84c6f6e0726b3bb2c08ef4c5a01d",
+      "response_text_sha256": "9a146c5fb703d0a4ad8678ca4314af46dcb3116892d13674e9c10c5868f4275b",
+      "reference_card_sha256": "4a6185cec4e7d3d1fa8a460e947f1996c2ee3ca94d3134c304656f0dde220396",
+      "word_count_read_only": 121,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-84A5AED23A6E63CF",
+      "prompt_id": "E24",
+      "task_type": "educational",
+      "prompt_text_sha256": "db80e0244426ace7d864dc7ba50236b5e3b5f42a3b40c65371daff4b20365623",
+      "response_text_sha256": "d5668ceffc972528b04d3e93e9d80fd6aca621e66705c7d62b4e57f987bcd2b2",
+      "reference_card_sha256": "cde007810e5cfb86033a5e174e5d60cd75e1027ec0f79f39f8e72121a28a402a",
+      "word_count_read_only": 134,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-85F2770440D68F6D",
+      "prompt_id": "P06",
+      "task_type": "public_information",
+      "prompt_text_sha256": "898c0e91de03ebbc657aa1d00564a0bc863e0e4e29ff5ab3061d1eedd5063745",
+      "response_text_sha256": "7a745be93d166071c60ad66362452d5cad09f519adce7ec8f687a1ce83cd7b1c",
+      "reference_card_sha256": "c56e9b773c6b53d7f7249d26c0e0fd398659334e8515bd66c9d59653572d8baf",
+      "word_count_read_only": 63,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-87CCFB5540624986",
+      "prompt_id": "P18",
+      "task_type": "public_information",
+      "prompt_text_sha256": "2a8b69f806cc466b7d7f658a39da7192f2a7854203686394fec1f7a40420b94b",
+      "response_text_sha256": "aa137197896853b3efc359691464f71df33e1d9cf54f2279553536b05e9fcac8",
+      "reference_card_sha256": "886816ab39ce69722ce4aebcd698f8d2a6cc9ad6e927372b06974fe8e5918f33",
+      "word_count_read_only": 124,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-8804CEDC27CC1289",
+      "prompt_id": "E22",
+      "task_type": "educational",
+      "prompt_text_sha256": "74dc73fe7bcf7206350d19d8f91abc734ac8e277c6accba2c8d606d2a18c9641",
+      "response_text_sha256": "3adb6c9813a48b4df2b72b84aaca99bc4613daf44f3f616f868b9b58510eadaf",
+      "reference_card_sha256": "4744e29b79727225d0aaea382dcef019274d8a11d14a6e8c32f5384884bb4447",
+      "word_count_read_only": 141,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-88BA24C5BAF5F336",
+      "prompt_id": "P28",
+      "task_type": "public_information",
+      "prompt_text_sha256": "5a4f909d841151767020a4061a4a8fb3564e9fae89c0380b91d1d79077de3ae4",
+      "response_text_sha256": "697874521494004869a1f2ddba6659a19eb8a7572f3cf6592c6b2bee081284fc",
+      "reference_card_sha256": "069a8f359d97d2c4acb9045f15b57fe1179caf47561871f75a6306eb1ff2ddaf",
+      "word_count_read_only": 69,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-89917F8026604264",
+      "prompt_id": "P09",
+      "task_type": "public_information",
+      "prompt_text_sha256": "7445d126b20300aded2dceb8ad7d99731e64b4e94295f69014787e9c4d21dddd",
+      "response_text_sha256": "ca00676ad9eee96aea5d62d992cb5ff3a946edf7c5f5e2fa4450d126e75acc23",
+      "reference_card_sha256": "ccd1922271290b532a4401d675207def60e32d1776bb3b862987511ec1e95de8",
+      "word_count_read_only": 114,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-89994C22C10EB01F",
+      "prompt_id": "P01",
+      "task_type": "public_information",
+      "prompt_text_sha256": "9bda6789cdf6cb5710aee2b3582300fb4e7a2bf9f2a19735edcadbb7aafeb008",
+      "response_text_sha256": "8b74a0d40071448972a44b083e74b382c6751ed796a5e97181fd1cac7c6fd397",
+      "reference_card_sha256": "597539ee4cb27101d48e80b70479b78d62bc813ed19b20e8266f51fb96915a6f",
+      "word_count_read_only": 71,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-89F9B6054E531021",
+      "prompt_id": "P30",
+      "task_type": "public_information",
+      "prompt_text_sha256": "81af36b11abe2434e32f2afa7264d2981b80aba8bbbf70e835726980c92150f0",
+      "response_text_sha256": "fd6b257dddba88beb991cafa1d570e0c56a00e30f4331b34c390832bbeedb742",
+      "reference_card_sha256": "15e540d76276141b6453012f26bfd639772a5aaf083a9ff453b77b8c8099a868",
+      "word_count_read_only": 138,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-8BB8F362E45B67EE",
+      "prompt_id": "P23",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a5b55bbad03a5d176a2d5109a91fc440e150ffa86661d75452cbfeabfac9dd36",
+      "response_text_sha256": "458a40125a1c2f95a82be23773dac536c41ec6a36d7410ead2be0dd039ea4ff3",
+      "reference_card_sha256": "da9971eb07643edfe1e531d96678ac4def2e512a547da068f33f67b60a183035",
+      "word_count_read_only": 139,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-8F31D78FBA89A4DA",
+      "prompt_id": "E08",
+      "task_type": "educational",
+      "prompt_text_sha256": "f1bae5188bbf2988b4861abb124e48c62445b988eb35b314351cb0df6f0f0abd",
+      "response_text_sha256": "bcbf865337e35e586092a6d5017e73e19cb13a81bcf2dfa1bdd48a1e3796ef56",
+      "reference_card_sha256": "ca951f0921ff36929fe6793d0ae054f4a9904ac2f70bfffcb39063e24270d92e",
+      "word_count_read_only": 104,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-902D6225CF1C46D6",
+      "prompt_id": "E18",
+      "task_type": "educational",
+      "prompt_text_sha256": "28dc4bf2ec186a6316d2dbc88fe9531b52123436dd04e27c533673d82e4b9d90",
+      "response_text_sha256": "0887dba8cb1082bc246ff5fd2a74db8de753edaed310af1fc670226ab26b4cd8",
+      "reference_card_sha256": "869a6bfbe22ced466fd0d0aa711981a8a5632c97400f2104a4b007245bf7e236",
+      "word_count_read_only": 73,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-912F1F94A52FFBF0",
+      "prompt_id": "P15",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a04708fd9d0273dc6b65f0dd8b2e3b2c31425657d9ca246e15f524f030052767",
+      "response_text_sha256": "9cb0a134733658f5475628d605a4b72b242e0336ac3f232edc8dd2ee2a5d0a25",
+      "reference_card_sha256": "4eca19b2d6d26276058d2ad104fcefb60a6f5687b5b4fa6189c8f227a02d0cab",
+      "word_count_read_only": 116,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-921DFA4662954C2B",
+      "prompt_id": "P09",
+      "task_type": "public_information",
+      "prompt_text_sha256": "7445d126b20300aded2dceb8ad7d99731e64b4e94295f69014787e9c4d21dddd",
+      "response_text_sha256": "3a0673edf0a7e14560a1466b7a7990bcf15acac9d292485918d1494f364c6095",
+      "reference_card_sha256": "ccd1922271290b532a4401d675207def60e32d1776bb3b862987511ec1e95de8",
+      "word_count_read_only": 146,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-927A977F2AAE54F4",
+      "prompt_id": "E23",
+      "task_type": "educational",
+      "prompt_text_sha256": "8cbe9c64fcab009000d59579bdabd5dd135abee7831c82af41e040713b758c6d",
+      "response_text_sha256": "372e75ca3928fb8f958da0947c629e836f2e4c4a00787b63f7b1b065934107d6",
+      "reference_card_sha256": "01c0893175789646d7cc9313711caace67a9ba67773a58208e687a6bdb97937f",
+      "word_count_read_only": 125,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-92ADAC09ACE1FE54",
+      "prompt_id": "P10",
+      "task_type": "public_information",
+      "prompt_text_sha256": "4ec39cd056b9cb867366f0bf7b2decfa6bfcbc9741d6ac3526a5ba074d9f14f1",
+      "response_text_sha256": "77ffbfd7a1ccdc4c77d2ff6726d406f10bd93929fbecc21f7211e123d07de95e",
+      "reference_card_sha256": "c4231fb85092583f733abb22ff4b1f96fd18566b019fc12696cee0367a5c095a",
+      "word_count_read_only": 135,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-92F5F602321CC13A",
+      "prompt_id": "E12",
+      "task_type": "educational",
+      "prompt_text_sha256": "05dd8bdaacdf1fa85684ee13bbaae98f5eb79e0454f006eac3204bb2e9690938",
+      "response_text_sha256": "7b0fbbba09790122eb9587ec810035e4d523b3d7ce4af6656e48ac649eb1c4e2",
+      "reference_card_sha256": "29b751ce94a48258aacc28037c9c33340e78744d993dffc0b063dd3549f8b619",
+      "word_count_read_only": 150,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-937CAAE444CB7DAB",
+      "prompt_id": "E26",
+      "task_type": "educational",
+      "prompt_text_sha256": "21ff8dbc8a6381507549a44a808dbb7ff780f8b03c6e899d65d93f029bbe2b1d",
+      "response_text_sha256": "730d2bbcdf4856698c271e1d495ead75497d26e9078bdf7e47721abf7d7e69e7",
+      "reference_card_sha256": "a69497ef4b8088c6d74be59429e87eccf1d44b0574c1d9e251b33de7a0edd6cd",
+      "word_count_read_only": 120,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-954168D5E53ACF02",
+      "prompt_id": "P25",
+      "task_type": "public_information",
+      "prompt_text_sha256": "d11c8d0aacaf677fd08497d967c9c1f457dc2ef2cd3bb83720039a81947fc5eb",
+      "response_text_sha256": "8c665bc0a695688627f5a7f07f61af386bc92230cf6ad37e9f5eb21976da8221",
+      "reference_card_sha256": "966fc11e88fca45e4534a3f4619d4a457424701bf526b0832e5dfa3aee061601",
+      "word_count_read_only": 109,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-96364787A2E4A287",
+      "prompt_id": "E02",
+      "task_type": "educational",
+      "prompt_text_sha256": "7b52242775450cb638beba25a023e645430f66452be194013a3a16cd11dc2839",
+      "response_text_sha256": "dfc229723e7b14a7df0d53d5693e93e8eea1013d26b06c59e8383cb3ae54c949",
+      "reference_card_sha256": "d956f1332e8a77c51d10c4c22d031690df130fb52ae7b04d7e87ab51849e884e",
+      "word_count_read_only": 137,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-983AEE283A8D3C73",
+      "prompt_id": "E26",
+      "task_type": "educational",
+      "prompt_text_sha256": "21ff8dbc8a6381507549a44a808dbb7ff780f8b03c6e899d65d93f029bbe2b1d",
+      "response_text_sha256": "8c5c75af91b43432b52f04e8ae253c24af6ece1907a019837aabfc90e291468e",
+      "reference_card_sha256": "a69497ef4b8088c6d74be59429e87eccf1d44b0574c1d9e251b33de7a0edd6cd",
+      "word_count_read_only": 124,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-98DDD225DF872E15",
+      "prompt_id": "P09",
+      "task_type": "public_information",
+      "prompt_text_sha256": "7445d126b20300aded2dceb8ad7d99731e64b4e94295f69014787e9c4d21dddd",
+      "response_text_sha256": "c9bf6028a99f5871d5fb9f030c202c4b55a786e3229e15cbe3cfe67a6e8ee873",
+      "reference_card_sha256": "ccd1922271290b532a4401d675207def60e32d1776bb3b862987511ec1e95de8",
+      "word_count_read_only": 107,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-997C25539953AE61",
+      "prompt_id": "E03",
+      "task_type": "educational",
+      "prompt_text_sha256": "6bfc87c9ac3b6bcb5e8df8b87170a1f581be91729bd741c72a51baa5d6e970c6",
+      "response_text_sha256": "96b6b09349b0ed6d9270d4dc4d35f6ef4779fb6869052fc8135b68bebc1b94f2",
+      "reference_card_sha256": "756197d80162a60ba02bb67113702458b03d10c1095505665eccd1a629644a87",
+      "word_count_read_only": 141,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-9A66653574AB3491",
+      "prompt_id": "P01",
+      "task_type": "public_information",
+      "prompt_text_sha256": "9bda6789cdf6cb5710aee2b3582300fb4e7a2bf9f2a19735edcadbb7aafeb008",
+      "response_text_sha256": "e137a6600eb16c7b3228dd2274946ebca2d2842139fd7466b70251b5d8bb018d",
+      "reference_card_sha256": "597539ee4cb27101d48e80b70479b78d62bc813ed19b20e8266f51fb96915a6f",
+      "word_count_read_only": 132,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-9CBC05D9F5CDA7B7",
+      "prompt_id": "P28",
+      "task_type": "public_information",
+      "prompt_text_sha256": "5a4f909d841151767020a4061a4a8fb3564e9fae89c0380b91d1d79077de3ae4",
+      "response_text_sha256": "a286efbdad4c2d0014b99f12d8ca85b9df6d12384a36337491c358eaa146b947",
+      "reference_card_sha256": "069a8f359d97d2c4acb9045f15b57fe1179caf47561871f75a6306eb1ff2ddaf",
+      "word_count_read_only": 133,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-9D37D34AC6F65074",
+      "prompt_id": "E16",
+      "task_type": "educational",
+      "prompt_text_sha256": "53937e38fbd81fc419792e317a4446b6d4bc73687fe8c4cc907fe894db2db106",
+      "response_text_sha256": "1942d5eb52215577cb5fbc66c0f72534c896c481695065c02dca44012eb05b11",
+      "reference_card_sha256": "4e20ee2123f93c2c542a9c7bfe975d765c03f427562cdf27906020d61780688a",
+      "word_count_read_only": 140,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-9D452C57F710340C",
+      "prompt_id": "P19",
+      "task_type": "public_information",
+      "prompt_text_sha256": "681a679f1dbf41b53a3b78cd3d841124c2ab66af29d5dc220b857e0366b7984a",
+      "response_text_sha256": "e4e2bc6f09c946e6d904c1badbef85eb9d86201902aae0154e724c26f9f6fac5",
+      "reference_card_sha256": "8602a8db52bd99397ca687f28caddd5faed5c7bd7e25080d626f8669dbdca4da",
+      "word_count_read_only": 133,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-9EE902178AA88A5D",
+      "prompt_id": "P24",
+      "task_type": "public_information",
+      "prompt_text_sha256": "6733108eace284d223134b499bda5c2ab48116c597b649a524d565b271a69272",
+      "response_text_sha256": "c4e5ff9731e1b6dbe920d2eb0fad59bd91b143fc0a921802b118c46e344f8136",
+      "reference_card_sha256": "4199bc6a467ed09aa8ce83253d36330f453380131e38529dd2ed0cb522e15922",
+      "word_count_read_only": 79,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-9EEF6470A9557CFD",
+      "prompt_id": "P30",
+      "task_type": "public_information",
+      "prompt_text_sha256": "81af36b11abe2434e32f2afa7264d2981b80aba8bbbf70e835726980c92150f0",
+      "response_text_sha256": "5533eb158b7362324928160f7508aac3d4fe3e13a5ea7a3e574fa0bec413ad38",
+      "reference_card_sha256": "15e540d76276141b6453012f26bfd639772a5aaf083a9ff453b77b8c8099a868",
+      "word_count_read_only": 80,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-9F1F0B92854C6103",
+      "prompt_id": "P17",
+      "task_type": "public_information",
+      "prompt_text_sha256": "76e9b52dff26a91f21c84a5874ccd0407bcf8ddde478a2e5b573e7f7f6dd0a7c",
+      "response_text_sha256": "468c0719af2a085e3a25997f88d3e7360e8260369d4a4a6b0f6f02e43b7c72b3",
+      "reference_card_sha256": "db17cd9a2f089bc5671c6b5d8903f88b9550089b226c957065c9b30bc9899603",
+      "word_count_read_only": 73,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-A0F9858C324643F5",
+      "prompt_id": "P26",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a7a81fa86af428e36dd3c9c721143651ee56fa06a0aa2d47a71b076cdfb0bf79",
+      "response_text_sha256": "cfdd189762231273651fc409a16471b6e1853fd584b9b7a717c5a4654f252080",
+      "reference_card_sha256": "3aae90b4cc4820f320a2bed8d93218cbab9bb83c1bf38194539feafa5c7b2c4d",
+      "word_count_read_only": 81,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-A128D596A685B850",
+      "prompt_id": "E02",
+      "task_type": "educational",
+      "prompt_text_sha256": "7b52242775450cb638beba25a023e645430f66452be194013a3a16cd11dc2839",
+      "response_text_sha256": "2460f7039fc29180056b0e30b6c469d7b76a752e9c76fe96f9fbe0864a1cf7e2",
+      "reference_card_sha256": "d956f1332e8a77c51d10c4c22d031690df130fb52ae7b04d7e87ab51849e884e",
+      "word_count_read_only": 98,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-A155B6987C5A9866",
+      "prompt_id": "P12",
+      "task_type": "public_information",
+      "prompt_text_sha256": "386ca5fc89f2f080a4cde187ebd45d1b01e860a210db35ddd0ef7cc4b32f5dbf",
+      "response_text_sha256": "29c45cd98bcbc9c5931faaacd0db417252074532761293aa1d06d0e5cb2f8219",
+      "reference_card_sha256": "986fd64fda9ac94fed478f482e2106c22e6a2f05c8303ba76de83c3c7ce9e22a",
+      "word_count_read_only": 130,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-A2ACA0DFDEF6EC92",
+      "prompt_id": "P21",
+      "task_type": "public_information",
+      "prompt_text_sha256": "7b4f8d1b194186133f419f447bced10a775cd055bd4a7afff3e4cb4c49381b8a",
+      "response_text_sha256": "efb040323b8132c1dc15856e1007c1992e187496f306cddff7c1408e9a1e5815",
+      "reference_card_sha256": "c68099df2269fbb193d90fac7e619f99a3b216d6dd910e4784af225fe9353a7c",
+      "word_count_read_only": 132,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-A3ADA42C82C51F45",
+      "prompt_id": "P20",
+      "task_type": "public_information",
+      "prompt_text_sha256": "cd87ea2beed5e9254daa52ecd38a8200b685933f7c90541272be4fcee9ea45a7",
+      "response_text_sha256": "1b49a9ca091bcdd46dad07f663b0ffea6e1ffa2fe0515be4287feeb58fbda67d",
+      "reference_card_sha256": "c9f0af1abc75ce6eb647ac6f1d4024484d5bc203055021efa8dd96b47416046e",
+      "word_count_read_only": 70,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-A3D7289505183BC2",
+      "prompt_id": "E20",
+      "task_type": "educational",
+      "prompt_text_sha256": "88e126d8dc01c77fcd160da29c121c5dc05fe683cc75592c9dd34952d2028bbe",
+      "response_text_sha256": "4f1975736c1ae13552490e9779557d18b319fb127b043903a9923d6d13bc5568",
+      "reference_card_sha256": "a93b57df8e0b0ebd37549af1a2f369c017bebec7f05d845de6a741d9a81b7f5e",
+      "word_count_read_only": 119,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-A3DE35FB560626D6",
+      "prompt_id": "P30",
+      "task_type": "public_information",
+      "prompt_text_sha256": "81af36b11abe2434e32f2afa7264d2981b80aba8bbbf70e835726980c92150f0",
+      "response_text_sha256": "2a454daf5b27ca72190112a543f21602fbb1ce93878bfeffd1299b26be93fe28",
+      "reference_card_sha256": "15e540d76276141b6453012f26bfd639772a5aaf083a9ff453b77b8c8099a868",
+      "word_count_read_only": 112,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-A455D0EF993AEBF6",
+      "prompt_id": "E07",
+      "task_type": "educational",
+      "prompt_text_sha256": "c47bf66672c73785ba9864fe735d0bdaf05396e45f737df64fe4ea68da8f3604",
+      "response_text_sha256": "c3f7a8ca0119cdd16c811578d7fee6039a10b79f4e3be4f7ce141249ef21f3ac",
+      "reference_card_sha256": "142a874921910e253e7f8ff108bb6e2331aa04cf0fa2c027d3a750cf53b6e01a",
+      "word_count_read_only": 107,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-A6CE99A006ABD5C8",
+      "prompt_id": "E25",
+      "task_type": "educational",
+      "prompt_text_sha256": "090d1aab969f23cf127c7c5039d6fc7a1d33920c8f3c1f5e792c47439454e50b",
+      "response_text_sha256": "4196023d12fa2e4f22511e675b5c5482a2bd6d62351e6afb93e72d7eba13a933",
+      "reference_card_sha256": "605a235325b78abf756493deeeb213c77571ad0eafaffceac435b7e449703357",
+      "word_count_read_only": 139,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-A788BEAB23AD8A4D",
+      "prompt_id": "P05",
+      "task_type": "public_information",
+      "prompt_text_sha256": "8604d9f83b51338ebe6985340bb50da37e3e6c4bbf5167504411de901a4b81ca",
+      "response_text_sha256": "47f4160bbeffa60d42a3051d9871ad73519a7e4acea90e56097a1723674b87aa",
+      "reference_card_sha256": "805e47640cb927f96501793d8b2c4fe3fe3e08e4a31182f551b1bbc61761c4bc",
+      "word_count_read_only": 151,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-A7A323CC3C122634",
+      "prompt_id": "P14",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a35d94d24b00df2f25860552628470ceaf4baf5c26c4565f4d964bdd89f22ae7",
+      "response_text_sha256": "e7031437b630ce528a6110a1959e089da1bc2a3a8edd784df8376e35c606c5a8",
+      "reference_card_sha256": "c95d45612e774da81e341a856fd0bfe3a75c0fd1687b4d83c818bbd0d9c2bbcc",
+      "word_count_read_only": 137,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-A888FDF077024F48",
+      "prompt_id": "P06",
+      "task_type": "public_information",
+      "prompt_text_sha256": "898c0e91de03ebbc657aa1d00564a0bc863e0e4e29ff5ab3061d1eedd5063745",
+      "response_text_sha256": "cd33a68210ab43f2564a9f96d0f014b6ca5597041dda28240af9ba4c109a6a42",
+      "reference_card_sha256": "c56e9b773c6b53d7f7249d26c0e0fd398659334e8515bd66c9d59653572d8baf",
+      "word_count_read_only": 62,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-A94CEE4A986691AD",
+      "prompt_id": "P11",
+      "task_type": "public_information",
+      "prompt_text_sha256": "19555f0e47e95f8847e214f53ccd1ecf454f3fe4a1d55447508c47d4ec0d4d6e",
+      "response_text_sha256": "f9f2bd46c0db0ea96d8fe34718e7f3c81e7c65e0dbdf9df31b2cabfdc8dd5ba4",
+      "reference_card_sha256": "472e7d7863b65290a3cf8dde5bf9d8945d87e04305ac2619131e5a7083e14b02",
+      "word_count_read_only": 75,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-A9E28B52611DC951",
+      "prompt_id": "E19",
+      "task_type": "educational",
+      "prompt_text_sha256": "fac91526c0406762887046fd654cccbb6e3e1a61e2592b988d8464c72e6435ef",
+      "response_text_sha256": "19269d0b91114faf568f6ebc410c647e7dfbbeb4c514509e7db4abd5707e185a",
+      "reference_card_sha256": "573c56e08dff2b1fb19a371b05df6e53f8ece19578cfce642832c46358fcc1da",
+      "word_count_read_only": 125,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-AB76D3E5577622A3",
+      "prompt_id": "P16",
+      "task_type": "public_information",
+      "prompt_text_sha256": "ef6ac183c4cb68d581dc9f261c9f9afc52966a3b32f28467080d60271920b15b",
+      "response_text_sha256": "ad94734e551599c674c0851777928c9c08323fdb57f3cd89aff7f90bb72e4aeb",
+      "reference_card_sha256": "b06b996268cd6aad085f83890d4e7c00f923e4cdab5cbfc4ea343c7f6516a29d",
+      "word_count_read_only": 117,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-AC911FFEBEF8DEBC",
+      "prompt_id": "E11",
+      "task_type": "educational",
+      "prompt_text_sha256": "fb82c010682e1a090fe63faa43494ab5a1739e1dd289e5344f49f83ac134acc1",
+      "response_text_sha256": "99201f524f24592321a9c332be432108753a27fc672dc68d759ca940837ded21",
+      "reference_card_sha256": "f709ea9fafd78beb1f1b9b2e0fe5676dad62c36a608fc7b4007457b71b2ad6cf",
+      "word_count_read_only": 68,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-AEDF5F4CB98A1D29",
+      "prompt_id": "E11",
+      "task_type": "educational",
+      "prompt_text_sha256": "fb82c010682e1a090fe63faa43494ab5a1739e1dd289e5344f49f83ac134acc1",
+      "response_text_sha256": "adc2be388567131a0e4904e83c0b8da24015b89dbc07781015fa3584e6e41a49",
+      "reference_card_sha256": "f709ea9fafd78beb1f1b9b2e0fe5676dad62c36a608fc7b4007457b71b2ad6cf",
+      "word_count_read_only": 152,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-B07B11D47E46117D",
+      "prompt_id": "P11",
+      "task_type": "public_information",
+      "prompt_text_sha256": "19555f0e47e95f8847e214f53ccd1ecf454f3fe4a1d55447508c47d4ec0d4d6e",
+      "response_text_sha256": "8a3917f0150700d80d8f677844449c2c6a5ccbb0c78afa82c03976e7677d56ef",
+      "reference_card_sha256": "472e7d7863b65290a3cf8dde5bf9d8945d87e04305ac2619131e5a7083e14b02",
+      "word_count_read_only": 123,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-B0A27B83E34C4E9D",
+      "prompt_id": "E28",
+      "task_type": "educational",
+      "prompt_text_sha256": "4c8aa12f3f062919a0964f7d88a7bc0e3f7f51fbfa5ac22d49cf629af2ede2d4",
+      "response_text_sha256": "02326e84d93dadc1f6e952db4ede4e29b379566fd3810607c79de9695c335f4e",
+      "reference_card_sha256": "916a811eac5e4af42519920b9bccb9870119cc42eba5c460c469ff7046a546c4",
+      "word_count_read_only": 83,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-B18AAC351EEC175D",
+      "prompt_id": "P08",
+      "task_type": "public_information",
+      "prompt_text_sha256": "43e0ca3ba2f280c5f78454051509ff700bc2dcbbbc6a417099b17b4c104b3e5e",
+      "response_text_sha256": "4fe09256f23a60f93c0daba3fb82903c5554509a329037fdca28f01aed0533e6",
+      "reference_card_sha256": "3ceb770159a6b167db1a8addc881e882eccd4401ec22b3c98da95ea6b5cddbb0",
+      "word_count_read_only": 88,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-B1FD2207C7C14794",
+      "prompt_id": "E17",
+      "task_type": "educational",
+      "prompt_text_sha256": "93d02b55dd4ad1945d981dd8ac4e71d236942561547fd058943d82f273362b42",
+      "response_text_sha256": "9a276a9eef4f804f615031355424efe9e440697bce5185646a1e12d688b5ee29",
+      "reference_card_sha256": "c7e65882d11b60ad86a0526ac344a46952decb5211d1badc1efbd11303040f8b",
+      "word_count_read_only": 132,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-B3B956F4BCDD2B6D",
+      "prompt_id": "E27",
+      "task_type": "educational",
+      "prompt_text_sha256": "313e3d2be099996d5a14696d6c520d925321def3f4ad10d6742e44ed1e852e07",
+      "response_text_sha256": "be650164c6e6fa79dc368c9284fcbd3fc48aeba10460c4e4a6e6154818c709d9",
+      "reference_card_sha256": "f5db2a23896ada6472c7b342bf2ccaea68b5590ff19e201fbec82bafa1d5f598",
+      "word_count_read_only": 140,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-B47678A6F2A189FE",
+      "prompt_id": "E01",
+      "task_type": "educational",
+      "prompt_text_sha256": "08b692a6ae0909b79ce708e7d748faeb9e6ce0e38b224c17eac8f0b165def49a",
+      "response_text_sha256": "eb2e242615c373abf2f26b34244e08d4da0e4f30371d0cc18bea7f71d6cd861a",
+      "reference_card_sha256": "b49665fb788ea3482ac3b6bcde846d839a5c520e9ae91c4a1b8b144a61b9739e",
+      "word_count_read_only": 170,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-B5C8ACA54F003A6D",
+      "prompt_id": "E25",
+      "task_type": "educational",
+      "prompt_text_sha256": "090d1aab969f23cf127c7c5039d6fc7a1d33920c8f3c1f5e792c47439454e50b",
+      "response_text_sha256": "5cfb165f2e5f75dce308fa2e913217f1f0d9feeefe8aa3bfc47443d3672907d7",
+      "reference_card_sha256": "605a235325b78abf756493deeeb213c77571ad0eafaffceac435b7e449703357",
+      "word_count_read_only": 49,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-B6C111D57CA74083",
+      "prompt_id": "E14",
+      "task_type": "educational",
+      "prompt_text_sha256": "77e47a929e2b094ee3881c807c90bd91473e84c6f6e0726b3bb2c08ef4c5a01d",
+      "response_text_sha256": "c24171f1ad4d1d8ca1e9ab3ad34d582345b9521affcae1eebcef4538fe87b514",
+      "reference_card_sha256": "4a6185cec4e7d3d1fa8a460e947f1996c2ee3ca94d3134c304656f0dde220396",
+      "word_count_read_only": 66,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-BA2A5FE972FCEC68",
+      "prompt_id": "E01",
+      "task_type": "educational",
+      "prompt_text_sha256": "08b692a6ae0909b79ce708e7d748faeb9e6ce0e38b224c17eac8f0b165def49a",
+      "response_text_sha256": "56d36aa9a87644bcb89a054fdfea10bbb3b01159c4f62a2a36a349c42f38dea8",
+      "reference_card_sha256": "b49665fb788ea3482ac3b6bcde846d839a5c520e9ae91c4a1b8b144a61b9739e",
+      "word_count_read_only": 146,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-BAE2C8FB531A49B5",
+      "prompt_id": "E04",
+      "task_type": "educational",
+      "prompt_text_sha256": "08f633eb5ac6911999a8cdf10dde22958be7711d2b025cf074e7f984e00e44e4",
+      "response_text_sha256": "3c6ca86ad1ed1c54ece24b33002bb7cd2129b2f1b9b6018c5bfa514cb6edc359",
+      "reference_card_sha256": "9153e304810cc8c08016d1b21eadb20007c0424e1cac184bb3a246fff5740f0e",
+      "word_count_read_only": 113,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-BCD001E02A8EF13F",
+      "prompt_id": "E01",
+      "task_type": "educational",
+      "prompt_text_sha256": "08b692a6ae0909b79ce708e7d748faeb9e6ce0e38b224c17eac8f0b165def49a",
+      "response_text_sha256": "d75f5a855c36cf1bbacbd7dc5ed3a936373d8ca0e10077c9ddc341fd8606c729",
+      "reference_card_sha256": "b49665fb788ea3482ac3b6bcde846d839a5c520e9ae91c4a1b8b144a61b9739e",
+      "word_count_read_only": 129,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-BD16EF6193B83D84",
+      "prompt_id": "P19",
+      "task_type": "public_information",
+      "prompt_text_sha256": "681a679f1dbf41b53a3b78cd3d841124c2ab66af29d5dc220b857e0366b7984a",
+      "response_text_sha256": "9270af868f0526113b2a1a7dd2145021a6a209eabc3845e76f4a36ad4c78d03e",
+      "reference_card_sha256": "8602a8db52bd99397ca687f28caddd5faed5c7bd7e25080d626f8669dbdca4da",
+      "word_count_read_only": 62,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-BD6F619F5EB574B1",
+      "prompt_id": "P29",
+      "task_type": "public_information",
+      "prompt_text_sha256": "1f5756fb8c054f5cf2c608c86c35e960ccceaf7f2838e20540863b5a6038eee0",
+      "response_text_sha256": "2fcea8b75199c661cd2337a786cfc24e4fcfca890319744ec9003bdfc3a8e226",
+      "reference_card_sha256": "2a0e6637f28487de049ba8d711263e44d870f64783d22d1abd133291aec918be",
+      "word_count_read_only": 112,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-BDD6240E05406430",
+      "prompt_id": "P12",
+      "task_type": "public_information",
+      "prompt_text_sha256": "386ca5fc89f2f080a4cde187ebd45d1b01e860a210db35ddd0ef7cc4b32f5dbf",
+      "response_text_sha256": "23d102e5d264c7b0fdd007a74a1c7e23c1ab8c55a7c31c3125839ab5ee5f8277",
+      "reference_card_sha256": "986fd64fda9ac94fed478f482e2106c22e6a2f05c8303ba76de83c3c7ce9e22a",
+      "word_count_read_only": 54,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-BE3A3E1A38DCA45F",
+      "prompt_id": "E15",
+      "task_type": "educational",
+      "prompt_text_sha256": "425aefdb84666531e1b429dd0459336373ac818eaa4f3d9345f50e573399318e",
+      "response_text_sha256": "226e71f96dde29e4200d3e5ce663b6313bfc7efac9bec05a6c10340434e94921",
+      "reference_card_sha256": "a1f9b4d27370f81fd7e371e7132ab3ff6ecf6115f4b22229b339321b0252aace",
+      "word_count_read_only": 132,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-BE649481B949A949",
+      "prompt_id": "E05",
+      "task_type": "educational",
+      "prompt_text_sha256": "cb01bd91808c6a7938f61b51bb859528b87200b5cfd0d47a0496f09c82f6aa48",
+      "response_text_sha256": "ed43fbea33a1f17ca68308663e4fc39df310b23056816987e12fcf72e9655476",
+      "reference_card_sha256": "548633b16c615fd2585fa316b9dde3c86b4270509bb8e46c71275c891b53d91d",
+      "word_count_read_only": 144,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-BE90E8B078A58CBA",
+      "prompt_id": "P12",
+      "task_type": "public_information",
+      "prompt_text_sha256": "386ca5fc89f2f080a4cde187ebd45d1b01e860a210db35ddd0ef7cc4b32f5dbf",
+      "response_text_sha256": "5b40f4a373747b798c6427c3ed2c19fc1cd10dd210c7486277f126367cf492ed",
+      "reference_card_sha256": "986fd64fda9ac94fed478f482e2106c22e6a2f05c8303ba76de83c3c7ce9e22a",
+      "word_count_read_only": 146,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-BE99CD99FB974AFC",
+      "prompt_id": "E09",
+      "task_type": "educational",
+      "prompt_text_sha256": "50d7997089307fc34ff7c95509d8ea1f4d14d2a43530359a7d804257aed8309e",
+      "response_text_sha256": "533298c9310fc834f375bc9cef78f4e1deb384db93761f770883dfce1602b41d",
+      "reference_card_sha256": "a8c722463c022b97c0d2789da12a2f6ddb80768c014779fe20aa90721d107fd0",
+      "word_count_read_only": 145,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-BF4947BB9E8ADED3",
+      "prompt_id": "P02",
+      "task_type": "public_information",
+      "prompt_text_sha256": "54d579187c415370e7e136913d0946f49de4b2ed1ecb6363152d30ab8f054041",
+      "response_text_sha256": "636ccdd3a31f6a83d85c5d24a16030b8ea8e72238f15e773904581e996021420",
+      "reference_card_sha256": "57bb1359cf1a1606aadce0d3e060b5bd58bcb82f4c0c4a00f3933f5572d46525",
+      "word_count_read_only": 115,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-BFAABB286E0D9C4D",
+      "prompt_id": "E15",
+      "task_type": "educational",
+      "prompt_text_sha256": "425aefdb84666531e1b429dd0459336373ac818eaa4f3d9345f50e573399318e",
+      "response_text_sha256": "6b29e13fc6752e8f9048b9c18af5f21db629846bd172fad470a4ac3c364586be",
+      "reference_card_sha256": "a1f9b4d27370f81fd7e371e7132ab3ff6ecf6115f4b22229b339321b0252aace",
+      "word_count_read_only": 128,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-C1D4B8B7E7A4E19D",
+      "prompt_id": "P16",
+      "task_type": "public_information",
+      "prompt_text_sha256": "ef6ac183c4cb68d581dc9f261c9f9afc52966a3b32f28467080d60271920b15b",
+      "response_text_sha256": "6114bfcada8e2209b1868af60395748736a5b308a71dad56c0e41395cd859939",
+      "reference_card_sha256": "b06b996268cd6aad085f83890d4e7c00f923e4cdab5cbfc4ea343c7f6516a29d",
+      "word_count_read_only": 59,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-C1ED76A40C5F7454",
+      "prompt_id": "E27",
+      "task_type": "educational",
+      "prompt_text_sha256": "313e3d2be099996d5a14696d6c520d925321def3f4ad10d6742e44ed1e852e07",
+      "response_text_sha256": "9a606041a961384b99be83dec4bcaff6995659e91b1a277e025926fd8c5cd91e",
+      "reference_card_sha256": "f5db2a23896ada6472c7b342bf2ccaea68b5590ff19e201fbec82bafa1d5f598",
+      "word_count_read_only": 66,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-C3F577997DBDB961",
+      "prompt_id": "E09",
+      "task_type": "educational",
+      "prompt_text_sha256": "50d7997089307fc34ff7c95509d8ea1f4d14d2a43530359a7d804257aed8309e",
+      "response_text_sha256": "53579dff1ee64d9ee9b98627bb1c85b74bff718aea683d6ab8dc5f69839e82df",
+      "reference_card_sha256": "a8c722463c022b97c0d2789da12a2f6ddb80768c014779fe20aa90721d107fd0",
+      "word_count_read_only": 46,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-C5078F933694A71E",
+      "prompt_id": "E04",
+      "task_type": "educational",
+      "prompt_text_sha256": "08f633eb5ac6911999a8cdf10dde22958be7711d2b025cf074e7f984e00e44e4",
+      "response_text_sha256": "e2482cf06ab8e302c0f814e3f00cf317f7aaefb5d04c6f1b1c2c4487393d205e",
+      "reference_card_sha256": "9153e304810cc8c08016d1b21eadb20007c0424e1cac184bb3a246fff5740f0e",
+      "word_count_read_only": 78,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-C5B2F5C205A1B920",
+      "prompt_id": "P11",
+      "task_type": "public_information",
+      "prompt_text_sha256": "19555f0e47e95f8847e214f53ccd1ecf454f3fe4a1d55447508c47d4ec0d4d6e",
+      "response_text_sha256": "d8b795e7d3a82330717871595509d3f73c1272932dad5c43a36a30f00aa49e95",
+      "reference_card_sha256": "472e7d7863b65290a3cf8dde5bf9d8945d87e04305ac2619131e5a7083e14b02",
+      "word_count_read_only": 154,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-C6FC70A4DFF8CE8E",
+      "prompt_id": "E30",
+      "task_type": "educational",
+      "prompt_text_sha256": "77d6ec130787aef839ea630657c9a55579971ef09bb2cab1a66b10da6aa1870e",
+      "response_text_sha256": "43904eeedb22d973e72b378768921ad4e14b0f55eb61dc34ea76c3d87d7b2f20",
+      "reference_card_sha256": "4bb652a5c19a920523b3d428a1d0cea1c5d3fce9008dba08d9f281b1ee023f25",
+      "word_count_read_only": 124,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-C886FCA655160E84",
+      "prompt_id": "E09",
+      "task_type": "educational",
+      "prompt_text_sha256": "50d7997089307fc34ff7c95509d8ea1f4d14d2a43530359a7d804257aed8309e",
+      "response_text_sha256": "5cafa00d495edb9b0514f3ffb3077eeb3810f43a407a214dd34b38c4bc4a7176",
+      "reference_card_sha256": "a8c722463c022b97c0d2789da12a2f6ddb80768c014779fe20aa90721d107fd0",
+      "word_count_read_only": 145,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-CAC18767B692D653",
+      "prompt_id": "P23",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a5b55bbad03a5d176a2d5109a91fc440e150ffa86661d75452cbfeabfac9dd36",
+      "response_text_sha256": "f55f18fc6951a947d0930645d31680ed6653ebe1b49e1574d1b51cd3c6115431",
+      "reference_card_sha256": "da9971eb07643edfe1e531d96678ac4def2e512a547da068f33f67b60a183035",
+      "word_count_read_only": 147,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-CB5E94CBB9867845",
+      "prompt_id": "E18",
+      "task_type": "educational",
+      "prompt_text_sha256": "28dc4bf2ec186a6316d2dbc88fe9531b52123436dd04e27c533673d82e4b9d90",
+      "response_text_sha256": "d7fe1db3b6b8eb6f688a67a64a4b507f05988b595e1ede639955dad496e85ea8",
+      "reference_card_sha256": "869a6bfbe22ced466fd0d0aa711981a8a5632c97400f2104a4b007245bf7e236",
+      "word_count_read_only": 121,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-CD908EC37A7DE433",
+      "prompt_id": "E27",
+      "task_type": "educational",
+      "prompt_text_sha256": "313e3d2be099996d5a14696d6c520d925321def3f4ad10d6742e44ed1e852e07",
+      "response_text_sha256": "c37306cb8e8170db7ca2cef79210deef089f674195c9548ce914f07eb5bb3ff6",
+      "reference_card_sha256": "f5db2a23896ada6472c7b342bf2ccaea68b5590ff19e201fbec82bafa1d5f598",
+      "word_count_read_only": 115,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-CEE2B2484E4431C3",
+      "prompt_id": "E17",
+      "task_type": "educational",
+      "prompt_text_sha256": "93d02b55dd4ad1945d981dd8ac4e71d236942561547fd058943d82f273362b42",
+      "response_text_sha256": "5e19857585a21fef7f75774aceec6cd5ef932699eba09a968075f4ae261fa076",
+      "reference_card_sha256": "c7e65882d11b60ad86a0526ac344a46952decb5211d1badc1efbd11303040f8b",
+      "word_count_read_only": 153,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-CEF6700ABC49194C",
+      "prompt_id": "E22",
+      "task_type": "educational",
+      "prompt_text_sha256": "74dc73fe7bcf7206350d19d8f91abc734ac8e277c6accba2c8d606d2a18c9641",
+      "response_text_sha256": "75fbbe37b0809b134faaba9c468505812762a0bb44e20a2e4cc23c431f23e330",
+      "reference_card_sha256": "4744e29b79727225d0aaea382dcef019274d8a11d14a6e8c32f5384884bb4447",
+      "word_count_read_only": 136,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-D1617FA0AD9069E9",
+      "prompt_id": "E20",
+      "task_type": "educational",
+      "prompt_text_sha256": "88e126d8dc01c77fcd160da29c121c5dc05fe683cc75592c9dd34952d2028bbe",
+      "response_text_sha256": "1f1a94b6ebb611ce1322cf81772853073cabaf560346ca3659c665f9fd59508b",
+      "reference_card_sha256": "a93b57df8e0b0ebd37549af1a2f369c017bebec7f05d845de6a741d9a81b7f5e",
+      "word_count_read_only": 129,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-D1783CC6F08E2236",
+      "prompt_id": "P05",
+      "task_type": "public_information",
+      "prompt_text_sha256": "8604d9f83b51338ebe6985340bb50da37e3e6c4bbf5167504411de901a4b81ca",
+      "response_text_sha256": "1d81f0d2fb4fdac6b1197c1cb5943dba346fce624df3246cfe005695dd842020",
+      "reference_card_sha256": "805e47640cb927f96501793d8b2c4fe3fe3e08e4a31182f551b1bbc61761c4bc",
+      "word_count_read_only": 119,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-D6134281FF934986",
+      "prompt_id": "E04",
+      "task_type": "educational",
+      "prompt_text_sha256": "08f633eb5ac6911999a8cdf10dde22958be7711d2b025cf074e7f984e00e44e4",
+      "response_text_sha256": "66f76a2e9f6b2ca2620e90e758a844205df7895633f7b74d52e608e7e8e4e49c",
+      "reference_card_sha256": "9153e304810cc8c08016d1b21eadb20007c0424e1cac184bb3a246fff5740f0e",
+      "word_count_read_only": 140,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-D636D763BD284324",
+      "prompt_id": "P13",
+      "task_type": "public_information",
+      "prompt_text_sha256": "3a9e1f11a89ab20a5d600ade599e8993695b1e46ef832d8cec61eebcf229540f",
+      "response_text_sha256": "a36c05912af99bcdee7b9294322207577d3daa6b2e15353b818481db9f68f671",
+      "reference_card_sha256": "72ace88da2d3ca2b7d933e77a319addb6d6dfb5f2c50f186e7acafea6432ef85",
+      "word_count_read_only": 136,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-D958D9A914E1378E",
+      "prompt_id": "P17",
+      "task_type": "public_information",
+      "prompt_text_sha256": "76e9b52dff26a91f21c84a5874ccd0407bcf8ddde478a2e5b573e7f7f6dd0a7c",
+      "response_text_sha256": "b2de825875a7974323e55f2fb15fa8bda9fe5614e7c8354ac0d6842fe4b2b5ac",
+      "reference_card_sha256": "db17cd9a2f089bc5671c6b5d8903f88b9550089b226c957065c9b30bc9899603",
+      "word_count_read_only": 146,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-D977D6EF1D616F62",
+      "prompt_id": "E28",
+      "task_type": "educational",
+      "prompt_text_sha256": "4c8aa12f3f062919a0964f7d88a7bc0e3f7f51fbfa5ac22d49cf629af2ede2d4",
+      "response_text_sha256": "aa4df33e817e6a2df95cb0a4e746d61d6109d761d9f8d6411ef9511330711547",
+      "reference_card_sha256": "916a811eac5e4af42519920b9bccb9870119cc42eba5c460c469ff7046a546c4",
+      "word_count_read_only": 149,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-DBE2A51F92DAF240",
+      "prompt_id": "P14",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a35d94d24b00df2f25860552628470ceaf4baf5c26c4565f4d964bdd89f22ae7",
+      "response_text_sha256": "a67f12509e2ead82934d55486301daaed1a2425ac7643ffcd14fca108089af04",
+      "reference_card_sha256": "c95d45612e774da81e341a856fd0bfe3a75c0fd1687b4d83c818bbd0d9c2bbcc",
+      "word_count_read_only": 85,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-DBEC6A0D9009B0B4",
+      "prompt_id": "P29",
+      "task_type": "public_information",
+      "prompt_text_sha256": "1f5756fb8c054f5cf2c608c86c35e960ccceaf7f2838e20540863b5a6038eee0",
+      "response_text_sha256": "36975b2e878cd57bfe0bd254a76b68cb1fe02635990053b84383cc48c87e65cf",
+      "reference_card_sha256": "2a0e6637f28487de049ba8d711263e44d870f64783d22d1abd133291aec918be",
+      "word_count_read_only": 79,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-DDFA289AD91F58BC",
+      "prompt_id": "E06",
+      "task_type": "educational",
+      "prompt_text_sha256": "cd6e684d56df4093297d86e943b7971b469d0a8641c51fb2a1fd307cd30c0404",
+      "response_text_sha256": "584eaf651503167edc2ea3580e2a7593029e3c5e326d341b8beb10de60b04e1e",
+      "reference_card_sha256": "a4f111dd1a8b1695a9ff719b966c9476880f48c5bd7593de8a9674f63a3aa481",
+      "word_count_read_only": 64,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-DE8032A279AE505C",
+      "prompt_id": "P03",
+      "task_type": "public_information",
+      "prompt_text_sha256": "c3d530c2c01846baac64a12505744bc810180ec3f434bb1d485faeca3f58dc9d",
+      "response_text_sha256": "8da07e141e98f88b3d187c729e31b293e3b06a98196e4b2a2c0a6b248a195593",
+      "reference_card_sha256": "4b8485ea25f4ae171a625d1764ab85b8b9706c83c91a90665759df471ff0e380",
+      "word_count_read_only": 117,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-DFFC1E621B443FF3",
+      "prompt_id": "P09",
+      "task_type": "public_information",
+      "prompt_text_sha256": "7445d126b20300aded2dceb8ad7d99731e64b4e94295f69014787e9c4d21dddd",
+      "response_text_sha256": "7400686316ee2e7374656ba8771451d86f247c80a458201d80db218971650c84",
+      "reference_card_sha256": "ccd1922271290b532a4401d675207def60e32d1776bb3b862987511ec1e95de8",
+      "word_count_read_only": 57,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-E2ED79EB9E2AD4EB",
+      "prompt_id": "P17",
+      "task_type": "public_information",
+      "prompt_text_sha256": "76e9b52dff26a91f21c84a5874ccd0407bcf8ddde478a2e5b573e7f7f6dd0a7c",
+      "response_text_sha256": "fbd351abf254b57378b43d50268b0564ddbc5670015ec0c29af51612dc7316ab",
+      "reference_card_sha256": "db17cd9a2f089bc5671c6b5d8903f88b9550089b226c957065c9b30bc9899603",
+      "word_count_read_only": 150,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-E5588BCD7711E9E3",
+      "prompt_id": "E23",
+      "task_type": "educational",
+      "prompt_text_sha256": "8cbe9c64fcab009000d59579bdabd5dd135abee7831c82af41e040713b758c6d",
+      "response_text_sha256": "b3cb0289d180ebade500c0354dd1c704a07291aa5fa845c92327389101f57dd4",
+      "reference_card_sha256": "01c0893175789646d7cc9313711caace67a9ba67773a58208e687a6bdb97937f",
+      "word_count_read_only": 90,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-E5F47DA7BF4CABCB",
+      "prompt_id": "E12",
+      "task_type": "educational",
+      "prompt_text_sha256": "05dd8bdaacdf1fa85684ee13bbaae98f5eb79e0454f006eac3204bb2e9690938",
+      "response_text_sha256": "4c1e631162345abe4201ac4ec3b3f9303c33e0dd968101182d7b80d2bf080a21",
+      "reference_card_sha256": "29b751ce94a48258aacc28037c9c33340e78744d993dffc0b063dd3549f8b619",
+      "word_count_read_only": 177,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-E6A5EB109C72E92D",
+      "prompt_id": "E28",
+      "task_type": "educational",
+      "prompt_text_sha256": "4c8aa12f3f062919a0964f7d88a7bc0e3f7f51fbfa5ac22d49cf629af2ede2d4",
+      "response_text_sha256": "2bfc237c817177ff2aaca35cb9b5987ecb21182f963ed14ed5fbbe47a7500d62",
+      "reference_card_sha256": "916a811eac5e4af42519920b9bccb9870119cc42eba5c460c469ff7046a546c4",
+      "word_count_read_only": 129,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-E802252D002EFAB6",
+      "prompt_id": "P15",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a04708fd9d0273dc6b65f0dd8b2e3b2c31425657d9ca246e15f524f030052767",
+      "response_text_sha256": "082dd6013a525d8259c627c8534b4ecd9be4aa41e5453841c0751f420f4b880e",
+      "reference_card_sha256": "4eca19b2d6d26276058d2ad104fcefb60a6f5687b5b4fa6189c8f227a02d0cab",
+      "word_count_read_only": 54,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-E9139EB585B8C37D",
+      "prompt_id": "P28",
+      "task_type": "public_information",
+      "prompt_text_sha256": "5a4f909d841151767020a4061a4a8fb3564e9fae89c0380b91d1d79077de3ae4",
+      "response_text_sha256": "d02581377a8a52053cad7f884c8531641f55c86c7436222cdbd37f347ad721dc",
+      "reference_card_sha256": "069a8f359d97d2c4acb9045f15b57fe1179caf47561871f75a6306eb1ff2ddaf",
+      "word_count_read_only": 146,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-EBAE22FC2EA52B30",
+      "prompt_id": "P27",
+      "task_type": "public_information",
+      "prompt_text_sha256": "88eeaf0783d5c8f92d2357e3e65e30c7ae6fd566fd8878b94833c691e157d2e1",
+      "response_text_sha256": "47510e81040e7274529853b688402253913eb1436d60f51424afa34e3ac69731",
+      "reference_card_sha256": "3095b9767dc80e43da457adc0f1d4aa4dacf1bdf68d5778b0df64cd376c51ea9",
+      "word_count_read_only": 119,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-EBC5807F04868A78",
+      "prompt_id": "E08",
+      "task_type": "educational",
+      "prompt_text_sha256": "f1bae5188bbf2988b4861abb124e48c62445b988eb35b314351cb0df6f0f0abd",
+      "response_text_sha256": "375741e31061f391a1054e34f9dd59a55a2b9fb9c866f870f636587ab757535d",
+      "reference_card_sha256": "ca951f0921ff36929fe6793d0ae054f4a9904ac2f70bfffcb39063e24270d92e",
+      "word_count_read_only": 147,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-EC410E0FD40265A9",
+      "prompt_id": "E07",
+      "task_type": "educational",
+      "prompt_text_sha256": "c47bf66672c73785ba9864fe735d0bdaf05396e45f737df64fe4ea68da8f3604",
+      "response_text_sha256": "3c241cabd046a8485a63bb94a8485568d1f81d11a0c0d244bd50b3ad9ee98bcc",
+      "reference_card_sha256": "142a874921910e253e7f8ff108bb6e2331aa04cf0fa2c027d3a750cf53b6e01a",
+      "word_count_read_only": 128,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-ECA80D446631FAD5",
+      "prompt_id": "P17",
+      "task_type": "public_information",
+      "prompt_text_sha256": "76e9b52dff26a91f21c84a5874ccd0407bcf8ddde478a2e5b573e7f7f6dd0a7c",
+      "response_text_sha256": "8be1a1827786e4279ac8ae50d9519e72d96d3d19b3fb959e6c1f8d53a8c5eed6",
+      "reference_card_sha256": "db17cd9a2f089bc5671c6b5d8903f88b9550089b226c957065c9b30bc9899603",
+      "word_count_read_only": 151,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-ED4E4B0924DB36A4",
+      "prompt_id": "P16",
+      "task_type": "public_information",
+      "prompt_text_sha256": "ef6ac183c4cb68d581dc9f261c9f9afc52966a3b32f28467080d60271920b15b",
+      "response_text_sha256": "0cd5eb17ea4d819563a5047d9e3e67d840932481e51122a50e75ed3193c7d3e9",
+      "reference_card_sha256": "b06b996268cd6aad085f83890d4e7c00f923e4cdab5cbfc4ea343c7f6516a29d",
+      "word_count_read_only": 129,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-EE5ABE2B15426932",
+      "prompt_id": "P20",
+      "task_type": "public_information",
+      "prompt_text_sha256": "cd87ea2beed5e9254daa52ecd38a8200b685933f7c90541272be4fcee9ea45a7",
+      "response_text_sha256": "83f3fafa682ddf62b20930318992164fed3e5951cc2ce6db70571246eb7a8adf",
+      "reference_card_sha256": "c9f0af1abc75ce6eb647ac6f1d4024484d5bc203055021efa8dd96b47416046e",
+      "word_count_read_only": 146,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-EE8880B0F86F1BD3",
+      "prompt_id": "E23",
+      "task_type": "educational",
+      "prompt_text_sha256": "8cbe9c64fcab009000d59579bdabd5dd135abee7831c82af41e040713b758c6d",
+      "response_text_sha256": "0784a33480bbc3a7efe97a821e763680f1940543de76aae0ffd8b0282314edfe",
+      "reference_card_sha256": "01c0893175789646d7cc9313711caace67a9ba67773a58208e687a6bdb97937f",
+      "word_count_read_only": 117,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-EF2E9983C6586004",
+      "prompt_id": "E26",
+      "task_type": "educational",
+      "prompt_text_sha256": "21ff8dbc8a6381507549a44a808dbb7ff780f8b03c6e899d65d93f029bbe2b1d",
+      "response_text_sha256": "5b5eb17213eaf42d6810f3e93bfb66e05242a2367dcc248d5114abed583921bf",
+      "reference_card_sha256": "a69497ef4b8088c6d74be59429e87eccf1d44b0574c1d9e251b33de7a0edd6cd",
+      "word_count_read_only": 138,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-EFFB8F376081AFB3",
+      "prompt_id": "P04",
+      "task_type": "public_information",
+      "prompt_text_sha256": "e90642f81ae3a7d1eee106fe9d661cb5fcd892957a37e0227903ce2ee5c23ad7",
+      "response_text_sha256": "2ed688e0a826c271925cba5a767b7b503ddfa5a1f768d6cbe4e24a4fd2b6260a",
+      "reference_card_sha256": "8ba5b67a48013f6aaf0b695285f6242d5a33bea2ce8c5189fa1bc6e0f722f598",
+      "word_count_read_only": 120,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-F0CDEAD4C93A547D",
+      "prompt_id": "E02",
+      "task_type": "educational",
+      "prompt_text_sha256": "7b52242775450cb638beba25a023e645430f66452be194013a3a16cd11dc2839",
+      "response_text_sha256": "ad3c0285a72c71d45d8602c17f58ce863202bfb8a3f1bd5f724efd1020b437e5",
+      "reference_card_sha256": "d956f1332e8a77c51d10c4c22d031690df130fb52ae7b04d7e87ab51849e884e",
+      "word_count_read_only": 171,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-F1A6AC2924D411EA",
+      "prompt_id": "E14",
+      "task_type": "educational",
+      "prompt_text_sha256": "77e47a929e2b094ee3881c807c90bd91473e84c6f6e0726b3bb2c08ef4c5a01d",
+      "response_text_sha256": "0176846fda0d3381df317b89d9fa87a4a88170874cc008edf73f6a6ff09aabea",
+      "reference_card_sha256": "4a6185cec4e7d3d1fa8a460e947f1996c2ee3ca94d3134c304656f0dde220396",
+      "word_count_read_only": 116,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-F204D1AC88D07ABC",
+      "prompt_id": "P04",
+      "task_type": "public_information",
+      "prompt_text_sha256": "e90642f81ae3a7d1eee106fe9d661cb5fcd892957a37e0227903ce2ee5c23ad7",
+      "response_text_sha256": "d160d29e6945d9445a9e5807b73ad5a75b86c39fec567e4209d4d2e9d26132d4",
+      "reference_card_sha256": "8ba5b67a48013f6aaf0b695285f6242d5a33bea2ce8c5189fa1bc6e0f722f598",
+      "word_count_read_only": 125,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-F38F2D9203FBE4C6",
+      "prompt_id": "E10",
+      "task_type": "educational",
+      "prompt_text_sha256": "189a33798364af27b8f3b6093ab97c6c27d3890a977defd41150d6e3d8004811",
+      "response_text_sha256": "d76c7a0aa3cc06ef6d2f17fc5e7d08c31411a28df6257564f44775bd734bb88f",
+      "reference_card_sha256": "de958ee93dd5a7db90c037706b61b453cb8b1cdb18f2127f35ba0ad38993fa3e",
+      "word_count_read_only": 142,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-F64285C6E7CAD9EC",
+      "prompt_id": "E17",
+      "task_type": "educational",
+      "prompt_text_sha256": "93d02b55dd4ad1945d981dd8ac4e71d236942561547fd058943d82f273362b42",
+      "response_text_sha256": "0e5679a725b0c27b377ca5fdc763a501ed34b814f6472cdde89bf5dc203052df",
+      "reference_card_sha256": "c7e65882d11b60ad86a0526ac344a46952decb5211d1badc1efbd11303040f8b",
+      "word_count_read_only": 158,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-F6C96747D51F04F5",
+      "prompt_id": "E16",
+      "task_type": "educational",
+      "prompt_text_sha256": "53937e38fbd81fc419792e317a4446b6d4bc73687fe8c4cc907fe894db2db106",
+      "response_text_sha256": "b16edd7daf0d5c1f1fc0339db7bcc07fb35f7f52451a7190c634bf62e3e80b57",
+      "reference_card_sha256": "4e20ee2123f93c2c542a9c7bfe975d765c03f427562cdf27906020d61780688a",
+      "word_count_read_only": 78,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-F71E28A3931DDB4F",
+      "prompt_id": "P02",
+      "task_type": "public_information",
+      "prompt_text_sha256": "54d579187c415370e7e136913d0946f49de4b2ed1ecb6363152d30ab8f054041",
+      "response_text_sha256": "b07107fa28970e34ab3a4865a3a8b805ed43e939eb7a138d8b0fe0de4d34bb56",
+      "reference_card_sha256": "57bb1359cf1a1606aadce0d3e060b5bd58bcb82f4c0c4a00f3933f5572d46525",
+      "word_count_read_only": 134,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-F7C6B4C983B98FA8",
+      "prompt_id": "E12",
+      "task_type": "educational",
+      "prompt_text_sha256": "05dd8bdaacdf1fa85684ee13bbaae98f5eb79e0454f006eac3204bb2e9690938",
+      "response_text_sha256": "f5a129ca4583e78d1bbc32ca882661ed4cf66fa2cb549f7b52bd0e0a25dde4b8",
+      "reference_card_sha256": "29b751ce94a48258aacc28037c9c33340e78744d993dffc0b063dd3549f8b619",
+      "word_count_read_only": 130,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-F80E1D8A2CC6BACA",
+      "prompt_id": "P08",
+      "task_type": "public_information",
+      "prompt_text_sha256": "43e0ca3ba2f280c5f78454051509ff700bc2dcbbbc6a417099b17b4c104b3e5e",
+      "response_text_sha256": "cb4d2231641f8082daa3a91be0f2b94c258e98b7c8d902a182d558e7af791025",
+      "reference_card_sha256": "3ceb770159a6b167db1a8addc881e882eccd4401ec22b3c98da95ea6b5cddbb0",
+      "word_count_read_only": 138,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-FAE4FCC0A41BDCF0",
+      "prompt_id": "E09",
+      "task_type": "educational",
+      "prompt_text_sha256": "50d7997089307fc34ff7c95509d8ea1f4d14d2a43530359a7d804257aed8309e",
+      "response_text_sha256": "047f2f208d164c3ec0d0bbd8586273162ca2053951bfc9d3339a65f61a1c0066",
+      "reference_card_sha256": "a8c722463c022b97c0d2789da12a2f6ddb80768c014779fe20aa90721d107fd0",
+      "word_count_read_only": 127,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-FB7C123DC910BED5",
+      "prompt_id": "E04",
+      "task_type": "educational",
+      "prompt_text_sha256": "08f633eb5ac6911999a8cdf10dde22958be7711d2b025cf074e7f984e00e44e4",
+      "response_text_sha256": "70e49e97474e3f244a6a72820942b36d30ede8f1c2088bbda383f28c10d4053d",
+      "reference_card_sha256": "9153e304810cc8c08016d1b21eadb20007c0424e1cac184bb3a246fff5740f0e",
+      "word_count_read_only": 139,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-FC98B4ED4AD91718",
+      "prompt_id": "P26",
+      "task_type": "public_information",
+      "prompt_text_sha256": "a7a81fa86af428e36dd3c9c721143651ee56fa06a0aa2d47a71b076cdfb0bf79",
+      "response_text_sha256": "7927401f80cc88644f230660b43926c0ca117a6ef4e6d57f3ee5d540f401eec1",
+      "reference_card_sha256": "3aae90b4cc4820f320a2bed8d93218cbab9bb83c1bf38194539feafa5c7b2c4d",
+      "word_count_read_only": 127,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-FDB586EA4F9B13B3",
+      "prompt_id": "E21",
+      "task_type": "educational",
+      "prompt_text_sha256": "676d2d1b381282dbf215098b0ee3d594fb3abdf30d62e8e9059eff6568ce341b",
+      "response_text_sha256": "14f83e8b20d52f765506d720d7d67ba7a9e50f0ece7759540905a9cf5f8d3dde",
+      "reference_card_sha256": "fb1451126a81ef8b6add2742dc2a5357684806b6de154d7448889ab6d7c9c9e5",
+      "word_count_read_only": 121,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-FE5B38DF43FDDB7B",
+      "prompt_id": "E19",
+      "task_type": "educational",
+      "prompt_text_sha256": "fac91526c0406762887046fd654cccbb6e3e1a61e2592b988d8464c72e6435ef",
+      "response_text_sha256": "e1ddb471f29b4594b601819a4c7a2d2c30557a318b11842c9552797bdf298298",
+      "reference_card_sha256": "573c56e08dff2b1fb19a371b05df6e53f8ece19578cfce642832c46358fcc1da",
+      "word_count_read_only": 87,
+      "finish_reason_read_only": "stop"
+    },
+    {
+      "blind_id": "B-FE8DF4EEA86CB528",
+      "prompt_id": "P29",
+      "task_type": "public_information",
+      "prompt_text_sha256": "1f5756fb8c054f5cf2c608c86c35e960ccceaf7f2838e20540863b5a6038eee0",
+      "response_text_sha256": "2cee69a6e399d59c16382c9278d50351c87419ea33a9c77b231ad0be3c185dd8",
+      "reference_card_sha256": "2a0e6637f28487de049ba8d711263e44d870f64783d22d1abd133291aec918be",
+      "word_count_read_only": 152,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-FE9DF8447953EB73",
+      "prompt_id": "P13",
+      "task_type": "public_information",
+      "prompt_text_sha256": "3a9e1f11a89ab20a5d600ade599e8993695b1e46ef832d8cec61eebcf229540f",
+      "response_text_sha256": "09dbcb89b9c8f8535cf339e14b1fa5a8325ba46ed959c64a1125df87974fcf0d",
+      "reference_card_sha256": "72ace88da2d3ca2b7d933e77a319addb6d6dfb5f2c50f186e7acafea6432ef85",
+      "word_count_read_only": 131,
+      "finish_reason_read_only": "length"
+    },
+    {
+      "blind_id": "B-FF04164F13DF4FE4",
+      "prompt_id": "E10",
+      "task_type": "educational",
+      "prompt_text_sha256": "189a33798364af27b8f3b6093ab97c6c27d3890a977defd41150d6e3d8004811",
+      "response_text_sha256": "a29f4924717652f78650ec3a81bec3f224b7fd8ea1000fa806c44555d25d8190",
+      "reference_card_sha256": "de958ee93dd5a7db90c037706b61b453cb8b1cdb18f2127f35ba0ad38993fa3e",
+      "word_count_read_only": 157,
+      "finish_reason_read_only": "stop"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "blind_id": "B-0C98F87EC6612438",
+  "draft_schema_version": 6,
+  "normalizer_version": 3,
+  "input_sha256": "be88210f0a34fc50f09a3ec662bb824e38b743ad52cd782de44577b02aef194f",
+  "draft_protocol_sha256": "6123a25ba200cf9dd88386d6874950a2a135f5e40201e63bf2b42cbf5ea88ad0",
+  "annotator_model": "qwen3:8b",
+  "annotator_model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "created_utc": "2026-11-16T10:18:02.031457+00:00",
+  "raw_output": {
+    "f": {
+      "r": "n",
+      "o": "n",
+      "m": "n",
+      "p": "n",
+      "s": "n"
+    },
+    "miss": "empty",
+    "e": [
+      {
+        "c": "grammatical",
+        "x": "жедел жадтың толуы бағдарламалардың жылдам жұмыс істеуіне қарсылық тудырады",
+        "i": 105,
+        "fix": "жедел жадтың толуы бағдарламалардың жылдам жұмыс істеуіне қарсылық тудырады",
+        "why": "қатысты емес, қарсылық тудырады қатысты емес"
+      },
+      {
+        "c": "semantic",
+        "x": "жедел жадтың толуы бағдарламалардың жылдам жұмыс істеуіне қарсылық тудырады",
+        "i": 105,
+        "fix": "жедел жадтың толуы бағдар, жылдам жұмыс істеуіне қарсылық тудырады",
+        "why": "түсініксіз қатысты, қарсылық тудырады қатысты емес"
+      }
+    ]
+  },
+  "draft": {
+    "blind_id": "B-0C98F87EC6612438",
+    "flags": {
+      "refusal": "no",
+      "off_task": "no",
+      "requirement_missing": "yes",
+      "repetition": "no",
+      "fabricated_specificity": "no"
+    },
+    "missing_requirements": "empty",
+    "comments": "",
+    "events": [],
+    "validation_issues": [
+      "requirement_missing overridden because missing requirements were named: no -> yes",
+      "event correction equals fragment and was omitted",
+      "event fragment not uniquely located and omitted: 'жедел жадтың толуы бағдарламалардың жылдам жұмыс істеуіне қа'"
+    ]
+  }
+}

@@ -21,13 +21,17 @@ This repository is a clean rebuild. It does **not** claim to recover the histori
 - Dev calibration: 80/80 locally generated responses are retained and pass
   request-accounting validation. The four completed team-assisted calibration
   workbooks are schema/rubric evidence, not independent-rater evidence.
-- Engineering verification: 31 tests, Ruff 0.17.5 via `uvx`, syntax
+- Engineering verification: 33 tests, Ruff 0.17.5 via `uvx`, syntax
   compilation, `git diff --check`, protocol validation, and the four-model
   macOS preflight pass; public GitHub CI is green.
-- Final 240 test responses: collection is in progress under the frozen protocol.
-- Joint-team gold labels: pending completion and team review.
-- Confirmatory results: unavailable until collection and the reviewed team gold
-  set are complete.
+- Final 240 test responses: complete and validated under the frozen protocol;
+  one pre-generation Ollama runner-load failure has preserved incident evidence
+  and an identical-payload infrastructure retry.
+- Joint-team gold labels: the blinded workbook and balanced 80/80/80 assignment
+  exist. A 22-response Qwen QC sample is preserved with hashes but was not
+  applied to the workbook; the 240 human reviews remain pending.
+- Confirmatory results: unavailable until the reviewed team gold set is
+  complete.
 - Submission artifacts: an integrated manuscript, an official-template ACM
   submission copy, draft cover letter,
   10-slide defense PDF, journal-fit statement and criteria matrix are built and
@@ -90,7 +94,8 @@ silently package stale slides.
 All contributions must be supported by commits, signed review records, annotation files, execution receipts, or documented reviews. The three-person team has instructor approval even though the supplied general criterion states a maximum of two; the team should retain written evidence of that exception if available.
 
 The operational Russian handoff for the three owners is in
-`docs/TEAM_HANDOFF_RU.md`.
+`docs/TEAM_HANDOFF_RU.md`; the exact final submission contents and remaining
+gates are in `docs/SUBMISSION_PACKAGE_RU.md`.
 
 ## Tested configurations
 
@@ -185,10 +190,14 @@ human reliability evidence.
 The evidence pipeline is explicit:
 
 ```bash
-.venv/bin/python scripts/build_annotation_workbooks.py runs/final_test_v2
+.venv/bin/python scripts/validate_run.py runs/final_test_v2 --expected 240
 .venv/bin/python scripts/validate_annotation_workbook.py annotations/team_gold/final_test_v2__team_gold.xlsx --expected-responses 240
 .venv/bin/python scripts/analyze_final.py
 ```
+
+`scripts/draft_team_annotations.py` is an optional, resumable helper. Its
+current provenance records a 22-response quality-control sample that was not
+applied to the workbook or review log.
 
 Validation and team review remain blinded. The final analysis opens the private
 model mapping only after the team gold workbook and review log are frozen.
