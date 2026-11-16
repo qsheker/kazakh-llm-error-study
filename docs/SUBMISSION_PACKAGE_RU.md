@@ -1,5 +1,9 @@
 # Что сдавать на финале
 
+Каноническая пошаговая инструкция находится в
+`docs/FINAL_SUBMISSION_AND_DEFENSE_RU.md`. Этот файл сохраняет краткую карту
+пакета.
+
 ## Основной пакет
 
 1. `deliverables/Kazakh_LLM_Study_ACM_Submission.docx` — итоговая статья в
@@ -15,6 +19,9 @@
 5. `docs/RELEASE_CHECKLIST.md` — Appendix B: фактически выполненный checklist.
 6. Ссылка на публичный GitHub repository и финальный release/tag `final`.
    Тег создаётся только после успешного `scripts/release_gate.py`.
+7. `deliverables/Final_Submission_and_Defense_Guide_RU.docx` — внутренняя
+   инструкция команды; приложить преподавателю можно, в journal submission не
+   включать.
 
 ## Репозиторий / release archive
 
@@ -58,3 +65,6 @@ team-gold workbook, review log и автоматически сгенериро�
 До выполнения этих пунктов можно сдавать проект преподавателю как
 **pre-results review package**, но нельзя выдавать его за завершённую
 result-bearing journal submission.
+
+Приложенный `Team Project 2 Part 2 for Final Exam.docx` описывает отдельный
+Agile-проект и в данный пакет не включается.

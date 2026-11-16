@@ -1,5 +1,9 @@
 # Final Release Checklist
 
+Machine audit: 2026-11-16. `validate_run.py` passes for 240/240 receipts;
+`validate_annotation_workbook.py` currently fails on blank human-review fields;
+`release_gate.py` reports `ready: false`.
+
 - [x] Protocol and prompt freeze precede all test receipts.
 - [x] Four model digests, templates, Ollama version, Mac hardware, and package lock are recorded.
 - [x] Exactly 240 completed or explicitly failed test requests are accounted for.
@@ -15,3 +19,6 @@
 - [ ] Manuscript, 8–12 slides, contribution evidence, README, raw/derived provenance, and data statement agree numerically.
 - [x] No secret token, private blinding key, model binary, `.venv`, or Windows `.deps` is committed.
 - [ ] Release tag `final` is created only after all checks pass.
+
+Operational instructions and the exact submit-now boundary are in
+`docs/FINAL_SUBMISSION_AND_DEFENSE_RU.md`.

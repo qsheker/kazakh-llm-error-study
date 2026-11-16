@@ -1,5 +1,10 @@
 # Three-person defense plan
 
+Current gate (2026-11-16): use this as the defense structure, but do not present
+the deck as result-bearing until the 240 blinded reviews and generated analyses
+are complete. The Russian operational checklist is
+`docs/FINAL_SUBMISSION_AND_DEFENSE_RU.md`.
+
 The instructor-approved three-person exception should be evidenced in writing
 if possible. The plan below balances accountable intellectual impact; it does
 not invent equal Git commit counts or pretend the implementation workload was
@@ -66,6 +71,9 @@ limitation, and why no result was fabricated.
 10. Why is there no ethics approval number in the report?
 11. Why was the Gemma E13 request retried, and what proves that no response
     existed before the identical-payload retry?
+12. Why does the joint three-person review not provide independent
+    inter-annotator reliability?
+13. Why is a release tag named `final` intentionally absent today?
 
 The acceptable answers must match `protocol/analysis_plan.md`,
 `protocol/annotation_protocol.md`, and the final generated evidence. If the

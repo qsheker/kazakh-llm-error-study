@@ -1,6 +1,11 @@
 # Final Project Criteria Matrix
 
-Assessment date: 2026-11-16. This matrix distinguishes built evidence from work that only the three human authors can complete. “Blocked” is not a placeholder result; it is a safeguard against fabrication.
+Assessment date: 2026-11-16. The assessment was re-run on the study Mac:
+`validate_run.py` passes with 240/240 receipts; workbook validation stops on an
+empty response-level label; `release_gate.py` returns `ready: false`. This
+matrix distinguishes built evidence from work that only the three human authors
+or institution can complete. “Blocked” is not a placeholder result; it is a
+safeguard against fabrication.
 
 ## Final submission package
 
@@ -30,7 +35,7 @@ Assessment date: 2026-11-16. This matrix distinguishes built evidence from work 
 
 ## Structure-specific checks
 
-- Core manuscript length: 4,762 words before the References heading when table cells are included, within the 4,500–7,500 course range; references and appendices are excluded.
+- Core manuscript length: 4,951 words before the References heading when table cells are included, within the 4,500–7,500 course range; references and appendices are excluded.
 - Abstract: no citations and within the requested range; its final-result sentences are intentionally withheld until real results exist.
 - Keywords: five terms and no exact repetition of the title phrase.
 - Related work: thematic synthesis plus a closest-study comparison table.
@@ -44,7 +49,10 @@ Assessment date: 2026-11-16. This matrix distinguishes built evidence from work 
 
 1. Each assigned author reviews their 80 blind IDs, enters every response flag/event, resolves all uncertainty, and records their real review completion. The 22-item QC sample may be consulted only with per-row AI-assistance disclosure.
 2. Freeze and hash the reviewed workbook and completed review log.
-4. Generate model, pairwise, sensitivity and detector outputs; propagate them mechanically into manuscript and slides; audit every repeated number.
-5. All authors personally verify references, approve the manuscript, complete the similarity check and obtain the institution/instructor ethics determination.
-6. A person outside the team reproduces the Results from the README on the documented Mac environment.
-7. After the evidence gate, create the release archive, run the secret/licence audit, record the release URL, and only then create the signed `final` release tag.
+3. Generate model, pairwise, sensitivity and detector outputs; propagate them mechanically into manuscript and slides; audit every repeated number.
+4. All authors personally verify references, approve the manuscript, complete the similarity check and obtain the institution/instructor ethics determination.
+5. A person outside the team reproduces the Results from the README on the documented Mac environment.
+6. After the evidence gate, create the release archive, run the secret/licence audit, record the release URL, and only then create the signed `final` release tag.
+
+The operational order, exact submission list and defense rehearsal are kept in
+`docs/FINAL_SUBMISSION_AND_DEFENSE_RU.md`.
