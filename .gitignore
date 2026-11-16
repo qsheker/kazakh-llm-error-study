@@ -21,6 +21,8 @@ results/docx_qa/
 results/tmp/
 tmp/
 annotations/team_gold/ai_drafts/rejected/
+output/packages/Kazakh_LLM_PreResults_Review_Package/
+output/packages/Kazakh_LLM_Team_Review_Handoff/
 
 # Local interview checkpoint with machine-specific source paths
 plans/_draft/
